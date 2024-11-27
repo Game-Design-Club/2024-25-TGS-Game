@@ -7,21 +7,23 @@ namespace Generation_System
     public class Chunk
     {
         internal Vector2Int Position;
-        internal List<GameObject> Objects;
-
+        internal GameObject tempObject;
+        
         internal Chunk(Vector2Int position)
         {
             Position = position;
             Debug.Log($"Created Chunk {GetKey()}");
         }
 
-        internal void Load()
+        internal void Load(GameObject tempObject)
         {
+            this.tempObject = tempObject;
             Debug.Log($"Loaded Chunk {GetKey()}");
         }
 
         internal void Unload()
         {
+            UnityEngine.Object.Destroy(tempObject);
             Debug.Log($"Unloaded Chunk {GetKey()}");
         }
 
