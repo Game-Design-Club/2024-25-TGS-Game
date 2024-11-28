@@ -9,6 +9,7 @@ namespace Generation_System
     {
         [SerializeField] private GameObject worldManagerObject;
         [SerializeField] private GameObject chunkPrefab;
+        [SerializeField] private BasicObject tree;
         
         [SerializeField] private Vector2Int center = new Vector2Int(0, 0);
         [SerializeField] private float size = 10;
@@ -41,20 +42,21 @@ namespace Generation_System
                     if (_loadedChunks.Contains(chunk)) continue;
 
                     GameObject o = Instantiate(chunkPrefab, new Vector3(pos.x * size, pos.y * size, 0), new Quaternion(0, 0, 0, 0), worldManagerObject.transform);
-                    chunk.Load(o);
+                    o.name = $"Chunk {Chunk.GetKey(pos)}";
+                    chunk.Load(o, tree, size);
                     _loadedChunks.Add(chunk);
                 }
             }
 
             List<Chunk> chunksToUnload = new List<Chunk>();
-            String s = "Current Loaded Chunks: \n";
+            // String s = "Current Loaded Chunks: \n";
             //update chunks
             foreach (Chunk chunk in _loadedChunks)
             {
                 if (Vector2Int.Distance(chunk.Position, center) > loadedDistance) chunksToUnload.Add(chunk);
-                s += $"{chunk.GetKey()}\n";
+                // s += $"{chunk.GetKey()}\n";
             }
-            Debug.Log(s);
+            // Debug.Log(s);
             
             //unload chunks if needed
             foreach (Chunk chunk in chunksToUnload)
