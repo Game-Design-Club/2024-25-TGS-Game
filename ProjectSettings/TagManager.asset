@@ -4,11 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Wall
-  - Box
-  - Goal
-  - Oucher
-  - Robot
+  - Bear
+  - Child
   layers:
   - Default
   - TransparentFX
@@ -16,9 +13,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Child
+  - Bear
+  - Bear Enemies
   - 
   - 
   - 

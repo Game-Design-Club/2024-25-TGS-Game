@@ -4,6 +4,9 @@ namespace Tools {
             public static class GameUI {
                 public const string IsPaused = "IsPaused";
             }
+
+            public static class Bear { }
+            public static class Child { }
         }
     }
 }

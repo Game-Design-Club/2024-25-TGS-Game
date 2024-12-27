@@ -2,28 +2,28 @@ using System;
 using AppCore;
 using AppCore.InputManagement;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Game.GameManagement {
     public class GameManager : MonoBehaviour {
         // Child/Bear, and Paused/Unpaused
         // Controls InputMapping, and transitions between states
+        
         public static Action<GameEvent> OnGameEvent;
         
-        private bool _isPaused;
-        private bool IsPaused {
+        private static bool _isPaused;
+        private static bool IsPaused {
             get => _isPaused;
             set {
                 _isPaused = value;
                 OnGameEvent?.Invoke(new GameEvent {
-                    GameEventType = GameEventType.Cutscene,
+                    GameEventType = _gameEventType,
                     IsPaused = _isPaused
                 });
             }
         }
         
-        private GameEventType _gameEventType;
-        private GameEventType GameEventType {
+        private static GameEventType _gameEventType;
+        private static GameEventType GameEventType {
             get => _gameEventType;
             set {
                 _gameEventType = value;
@@ -34,16 +34,36 @@ namespace Game.GameManagement {
             }
         }
 
+        private void Start() {
+            GameEventType = GameEventType.Child;
+        }
+
         private void OnEnable() {
-            App.Get<InputManager>().PlayerInputs.UI.Cancel.performed += OnGamePaused;
+            App.Get<InputManager>().OnUICancel += OnGamePaused;
         }
         
         private void OnDisable() {
-            App.Get<InputManager>().PlayerInputs.UI.Cancel.performed -= OnGamePaused;
+            App.Get<InputManager>().OnUICancel -= OnGamePaused;
         }
         
-        private void OnGamePaused(InputAction.CallbackContext ctx) {
+        private void OnGamePaused() {
             IsPaused = !IsPaused;
+        }
+        
+        public static void StartTransitionToCombat() {
+            GameEventType = GameEventType.Cutscene;
+        }
+        
+        public static void EndTransitionToCombat() {
+            GameEventType = GameEventType.Bear;
+        }
+        
+        public static void StartTransitionToChild() {
+            GameEventType = GameEventType.Cutscene;
+        }
+        
+        public static void EndTransitionToChild() {
+            GameEventType = GameEventType.Child;
         }
     }
     
