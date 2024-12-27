@@ -1,13 +1,10 @@
-using System;
 using AppCore;
 using AppCore.InputManagement;
 using Game.GameManagement;
 using UnityEngine;
 
-namespace Game.Child {
+namespace Game.Exploration.Child {
     public class ChildController : MonoBehaviour {
-        [SerializeField] private AnimationCurve startWalkCurve;
-        [SerializeField] private AnimationCurve stopWalkCurve;
         [SerializeField] private float walkSpeed = 5f;
         
         private Vector2 _movement;
