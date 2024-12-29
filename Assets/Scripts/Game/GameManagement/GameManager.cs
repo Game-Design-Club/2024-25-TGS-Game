@@ -51,23 +51,16 @@ namespace Game.GameManagement {
         }
         
         public static void StartTransitionToCombat() {
-            GameEventType = GameEventType.Cutscene;
+            GameEventType = GameEventType.CombatEnter;
         }
         
         public static void EndTransitionToCombat() {
             GameEventType = GameEventType.Bear;
         }
         
-        public static void StartTransitionToChild() {
-            GameEventType = GameEventType.Cutscene;
-        }
-        
-        public static void EndTransitionToChild() {
-            GameEventType = GameEventType.Child;
-        }
 
         public static void StartTransitionToExploration() {
-            GameEventType = GameEventType.Cutscene;
+            GameEventType = GameEventType.ExploreEnter;
         }
 
         public static void EndTransitionToExploration() {
@@ -82,6 +75,8 @@ namespace Game.GameManagement {
     
     public enum GameEventType {
         Cutscene,
+        CombatEnter,
+        ExploreEnter,
         Bear,
         Child
     }

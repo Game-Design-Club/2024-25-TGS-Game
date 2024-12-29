@@ -1,6 +1,8 @@
 using AppCore;
 using AppCore.InputManagement;
+using Game.Combat;
 using Game.GameManagement;
+using Tools;
 using UnityEngine;
 
 namespace Game.Exploration.Child {
@@ -9,12 +11,15 @@ namespace Game.Exploration.Child {
         
         private Vector2 _movement;
         
-        private Rigidbody2D _rb;
-        
         private bool _active = false;
+        
+        private Rigidbody2D _rb;
+        private Animator _animator;
+        
         
         private void Awake() {
             TryGetComponent(out _rb);
+            TryGetComponent(out _animator);
         }
 
         private void OnEnable() {
@@ -44,6 +49,14 @@ namespace Game.Exploration.Child {
                 case GameEventType.Bear:
                     _active = false;
                     _rb.bodyType = RigidbodyType2D.Static;
+                    break;
+                case GameEventType.CombatEnter:
+                    _active = false;
+                    _rb.bodyType = RigidbodyType2D.Static;
+                    _animator.SetBool(Constants.Animator.Child.Sleep, true);
+                    break;
+                case GameEventType.ExploreEnter:
+                    _animator.SetBool(Constants.Animator.Child.Sleep, false);
                     break;
                 default:
                     _active = false;

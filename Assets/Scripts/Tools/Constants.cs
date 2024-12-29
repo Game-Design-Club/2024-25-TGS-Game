@@ -10,7 +10,9 @@ namespace Tools {
                 public const string SpeedY = "Speed Y";
                 public const string Swipe = "Swipe";
             }
-            public static class Child { }
+            public static class Child {
+                public const string Sleep = "Sleep";
+            }
         }
 
         public class Tags {

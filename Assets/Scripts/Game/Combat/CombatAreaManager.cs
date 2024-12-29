@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Game.Combat.Bear;
+using Game.Combat.Enemies;
 using Game.GameManagement;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -9,7 +11,7 @@ namespace Game.Combat {
     public class CombatAreaManager : MonoBehaviour {
         [Header("References")]
         [SerializeField] private CinemachineCamera sleepCamera;
-        [SerializeField] private BearController bear;
+        [SerializeField] private List<GameObject> activeStateSwitchOnCombat;
         [Header("Transitions")]
         [SerializeField] private float transitionDuration = 1f;
         [Header("Enemies")]
@@ -21,6 +23,13 @@ namespace Game.Combat {
 
         // Private fields
         private float _sanity = 20f; // 0 - 100
+        private float Sanity {
+            get => _sanity;
+            set {
+                _sanity = Mathf.Clamp(value, loseSanityThreshold, winSanityThreshold);
+                OnSanityChanged?.Invoke(GetSanityPercentage());
+            }
+        }
         
         private bool _combatEntered = false;
         
@@ -28,9 +37,15 @@ namespace Game.Combat {
         public static event Action<float> OnSanityChanged; // Percentage
 
         private void Awake() {
-            bear.gameObject.SetActive(false);
+            foreach (GameObject obj in activeStateSwitchOnCombat) {
+                obj.SetActive(false);
+            }
         }
-        
+
+        private void Start() {
+            Sanity = startInsanity;
+        }
+
         // Start combat
         internal void EnterCombatArea() {
             StartCoroutine(TransitionToCombat());
@@ -43,8 +58,10 @@ namespace Game.Combat {
             GameManager.StartTransitionToCombat();
             
             sleepCamera.Priority = 100;
-            bear.gameObject.SetActive(true);
             
+            foreach (GameObject obj in activeStateSwitchOnCombat) {
+                obj.SetActive(true);
+            }
             
             yield return new WaitForSeconds(transitionDuration);
             GameManager.EndTransitionToCombat();
@@ -60,7 +77,8 @@ namespace Game.Combat {
         }
         
         private IEnumerator SpawnWave(Wave wave) {
-            Instantiate(wave.enemyPrefab, wave.spawnPoint.position, Quaternion.identity);
+            GameObject enemy =  Instantiate(wave.enemyPrefab, wave.spawnPoint.position, Quaternion.identity);
+            enemy.GetComponent<EnemyBase>().CombatManager = this;
             yield return null;
         }
         
@@ -69,7 +87,10 @@ namespace Game.Combat {
             GameManager.StartTransitionToExploration();
             
             sleepCamera.Priority = 0;
-            bear.gameObject.SetActive(false);
+            
+            foreach (GameObject obj in activeStateSwitchOnCombat) {
+                obj.SetActive(false);
+            }
             
             yield return new WaitForSeconds(transitionDuration);
             GameManager.EndTransitionToExploration();
@@ -77,18 +98,17 @@ namespace Game.Combat {
             _combatEntered = false;
         }
         
-        // Public functions
-        public void MonsterKilled(float sanity) {
-            _sanity = Mathf.Clamp(_sanity + sanity, loseSanityThreshold, winSanityThreshold);
-            OnSanityChanged?.Invoke(GetSanityPercentage());
-            if (sanity >= 100) {
+        // Internal functions
+        internal void EnemyKilled(float sanityRestored) {
+            Sanity = Mathf.Clamp(Sanity + sanityRestored, loseSanityThreshold, winSanityThreshold);
+            if (Sanity >= 100) {
                 StartCoroutine(TransitionToExploration());
             }
         }
         
         // Helper functions
         private float GetSanityPercentage() {
-            return (_sanity - loseSanityThreshold) / (winSanityThreshold - loseSanityThreshold);
+            return (Sanity - loseSanityThreshold) / (winSanityThreshold - loseSanityThreshold);
         }
     }
 }
