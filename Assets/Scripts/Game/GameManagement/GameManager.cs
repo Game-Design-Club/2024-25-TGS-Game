@@ -65,6 +65,14 @@ namespace Game.GameManagement {
         public static void EndTransitionToChild() {
             GameEventType = GameEventType.Child;
         }
+
+        public static void StartTransitionToExploration() {
+            GameEventType = GameEventType.Cutscene;
+        }
+
+        public static void EndTransitionToExploration() {
+            GameEventType = GameEventType.Child;
+        }
     }
     
     public struct GameEvent {

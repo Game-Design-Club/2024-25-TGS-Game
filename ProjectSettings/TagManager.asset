@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bear
   - Child
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -14,13 +15,13 @@ TagManager:
   - Water
   - UI
   - Child
+  - Child Wall
+  - Child Interaction
+  - 
+  - 
   - Bear
   - Bear Enemies
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Bear Wall
   - 
   - 
   - 
@@ -46,14 +47,20 @@ TagManager:
   - name: Background
     uniqueID: 2826746587
     locked: 0
-  - name: Gameplay
+  - name: Child Gameplay
     uniqueID: 1353156089
     locked: 0
-  - name: Player
+  - name: Child
     uniqueID: 2877319967
     locked: 0
-  - name: Foreground
+  - name: Bear Gameplay
+    uniqueID: 1741993609
+    locked: 0
+  - name: Bear
     uniqueID: 4014420015
+    locked: 0
+  - name: Foreground
+    uniqueID: 1065694261
     locked: 0
   m_RenderingLayers:
   - Default

@@ -4,7 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="" />
+    <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/BearDamageDealer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/BearDamageDealer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/States/Swipe.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/States/Swipe.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/BasicEnemy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/BasicEnemy.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/EnemyBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/EnemyBase.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/UI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/UI/SanityBar.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/UI/SanityBar.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Wave.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Bear Animator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Bear Animator.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Wake up.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Wake up.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Input/PlayerInputs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/PlayerInputs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Input/PlayerInputs.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/PlayerInputs.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level/Bear.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level/Bear.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level/Child.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level/Child.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level/Combat Area.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level/Combat Area.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Noah Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Noah Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AppCore/InputManagement/BearInputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AppCore/InputManagement/BearInputManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/BearController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/BearController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/BearState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/BearState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/BearStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/BearStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/States/Idle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/States/Idle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/CombatAreaManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/CombatAreaManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameManagement/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameManagement/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tools/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/Constants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +53,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/GameManagement/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/5c/d612a9e9/Void.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87c38cf875804a0cbcc2bd5e75635dd41dda00/c1/653540df/Component.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -95,7 +134,7 @@
       <option name="presentableId" value="Default" />
       <updated>1732907092312</updated>
       <workItem from="1732907099520" duration="551000" />
-      <workItem from="1735017186431" duration="28909000" />
+      <workItem from="1735017186431" duration="38951000" />
     </task>
     <servers />
   </component>

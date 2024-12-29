@@ -8,23 +8,26 @@ namespace Game.Combat.Bear {
         
         private BearState _currentState;
         
-        private Idle _idle = new Idle();
+        internal readonly Idle Idle = new Idle();
+        internal readonly Swipe Swipe = new Swipe();
 
         private void OnEnable() {
-            App.Get<InputManager>().OnBearMovement += OnMovement;
+            App.Get<InputManager>().OnBearSwipe += OnSwipe;
         }
         
         private void OnDisable() {
-            App.Get<InputManager>().OnBearMovement -= OnMovement;
+            App.Get<InputManager>().OnBearSwipe -= OnSwipe;
         }
 
         private void Awake() {
             TryGetComponent(out _controller);
+            _controller.StateMachine = this;
         }
 
         private void Start() {
-            _idle.Controller = _controller;
-            TransitionToState(_idle);
+            Idle.Controller = _controller;
+            Swipe.Controller = _controller;
+            TransitionToState(Idle);
         }
         
         internal void TransitionToState(BearState newState) {
@@ -37,8 +40,13 @@ namespace Game.Combat.Bear {
             _currentState?.Update();
         }
         
-        private void OnMovement(Vector2 input) {
-            _currentState?.OnMoveInput(input);
+        private void OnSwipe() {
+            _currentState?.OnSwipeInput();
+        }
+        
+        // Exposed to Animation Events
+        private void AnimationEnded() {
+            _currentState?.AnimationEnded();
         }
     }
 }
