@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Game.Combat.Bear;
 using Game.Combat.Enemies;
+using Game.Exploration.Child;
 using Game.GameManagement;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -33,6 +33,8 @@ namespace Game.Combat {
         
         private bool _combatEntered = false;
         
+        internal ChildController Child;
+        
         // Events
         public static event Action<float> OnSanityChanged; // Percentage
 
@@ -47,7 +49,8 @@ namespace Game.Combat {
         }
 
         // Start combat
-        internal void EnterCombatArea() {
+        internal void EnterCombatArea(ChildController child) {
+            Child = child;
             StartCoroutine(TransitionToCombat());
         }
         
@@ -109,6 +112,10 @@ namespace Game.Combat {
         // Helper functions
         private float GetSanityPercentage() {
             return (Sanity - loseSanityThreshold) / (winSanityThreshold - loseSanityThreshold);
+        }
+
+        internal void GetChild() {
+            
         }
     }
 }

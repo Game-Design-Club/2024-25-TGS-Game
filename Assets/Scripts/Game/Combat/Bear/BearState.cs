@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Game.Combat.Bear {
     public abstract class BearState {
+        protected BearState(BearController controller) {
+            Controller = controller;
+        }
         public abstract void Enter();
         public abstract void Exit();
         public abstract void Update();

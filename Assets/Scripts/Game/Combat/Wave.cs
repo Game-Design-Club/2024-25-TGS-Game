@@ -5,5 +5,6 @@ namespace Game.Combat {
     public struct Wave {
         [SerializeField] internal GameObject enemyPrefab;
         [SerializeField] internal Transform spawnPoint;
+        [SerializeField] internal bool canReplay;
     }
 }

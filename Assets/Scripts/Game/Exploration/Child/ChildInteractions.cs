@@ -1,8 +1,6 @@
-using System;
-using Game.GameManagement;
 using UnityEngine;
 
-namespace Game.Child {
+namespace Game.Exploration.Child {
     public class ChildInteractions : MonoBehaviour {
     }
 }

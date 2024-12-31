@@ -168,7 +168,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 920674885064259003}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Attacks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 416633538865093637}
   - component: {fileID: 7771357219556829655}
   - component: {fileID: 6971012569995855276}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Swipe Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,4 +416,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 50
-  damageRate: 1

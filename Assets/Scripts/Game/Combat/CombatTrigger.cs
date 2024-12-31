@@ -1,3 +1,4 @@
+using Game.Exploration.Child;
 using UnityEngine;
 
 namespace Game.Combat {
@@ -12,8 +13,7 @@ namespace Game.Combat {
             
             _hasEntered = true;
             
-            combatAreaManager.EnterCombatArea();
+            combatAreaManager.EnterCombatArea(other.GetComponent<ChildController>());
         }
-        
     }
 }

@@ -8,9 +8,6 @@ namespace Game.Combat.Bear {
         
         private BearState _currentState;
         
-        internal readonly Idle Idle = new Idle();
-        internal readonly Swipe Swipe = new Swipe();
-
         private void OnEnable() {
             App.Get<InputManager>().OnBearSwipe += OnSwipe;
         }
@@ -25,9 +22,7 @@ namespace Game.Combat.Bear {
         }
 
         private void Start() {
-            Idle.Controller = _controller;
-            Swipe.Controller = _controller;
-            TransitionToState(Idle);
+            TransitionToState(new Idle(_controller));
         }
         
         internal void TransitionToState(BearState newState) {
