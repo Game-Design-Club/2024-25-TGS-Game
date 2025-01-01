@@ -1,6 +1,6 @@
 namespace Game.Combat.Enemies.AttackEnemy {
     public class Stun : AttackEnemyState {
-        public Stun(AttackEnemyBase @base) : base(@base) { }
+        public Stun(AttackEnemyBase controller) : base(controller) { }
         public override void Enter() {
             
         }

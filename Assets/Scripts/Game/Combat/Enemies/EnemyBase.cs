@@ -3,8 +3,8 @@ using UnityEngine;
 namespace Game.Combat.Enemies {
     public abstract class EnemyBase : MonoBehaviour {
         [SerializeField] private int health = 100;
-        [SerializeField] private int sanityRestored = 100;
-        [SerializeField] private int sanityDamage = 10;
+        [SerializeField] internal int sanityRestored = 100;
+        [SerializeField] internal int sanityDamage = 10;
         
         internal CombatAreaManager CombatManager;
 
@@ -16,7 +16,7 @@ namespace Game.Combat.Enemies {
         }
 
         private void Die() {
-            CombatManager.EnemyKilled(sanityRestored);
+            CombatManager.EnemyKilled(this);
             Destroy(gameObject);
         }
     }

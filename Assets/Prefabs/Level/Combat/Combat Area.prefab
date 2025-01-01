@@ -54,11 +54,7 @@ MonoBehaviour:
   - {fileID: 2278233036092579122}
   - {fileID: 2352446917201355284}
   transitionDuration: 1
-  waves:
-  - enemyPrefab: {fileID: 2628731053599168706, guid: 7f760f5c94b144e89a64d8bdaa40c3ab, type: 3}
-    spawnPoint: {fileID: 6592105720099502180}
-  - enemyPrefab: {fileID: 2628731053599168706, guid: 7f760f5c94b144e89a64d8bdaa40c3ab, type: 3}
-    spawnPoint: {fileID: 372130397114340766}
+  wavesData: {fileID: 11400000, guid: b47c9f7644b6a4d82b6d2496406a0c81, type: 2}
   winSanityThreshold: 100
   loseSanityThreshold: 0
   startInsanity: 20

@@ -2,10 +2,10 @@ using UnityEngine;
 
 namespace Game.Combat.Enemies.AttackEnemy {
     public abstract class AttackEnemyState {
-        protected AttackEnemyBase Base;
+        protected AttackEnemyBase Controller;
 
-        protected AttackEnemyState(AttackEnemyBase @base) {
-            Base = @base;
+        protected AttackEnemyState(AttackEnemyBase controller) {
+            Controller = controller;
         }
         public abstract void Enter();
         public abstract void Exit();
