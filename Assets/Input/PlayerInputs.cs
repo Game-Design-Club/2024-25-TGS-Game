@@ -164,7 +164,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             ""id"": ""a900c419-1221-4135-ba7b-58ade1c666b4"",
             ""actions"": [
                 {
-                    ""name"": ""Attack"",
+                    ""name"": ""Swipe"",
                     ""type"": ""Button"",
                     ""id"": ""4ae08f60-2bb1-4f4e-9d5d-589bef3bbbeb"",
                     ""expectedControlType"": """",
@@ -190,7 +190,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Attack"",
+                    ""action"": ""Swipe"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -881,7 +881,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Child_Interact = m_Child.FindAction("Interact", throwIfNotFound: true);
         // Bear
         m_Bear = asset.FindActionMap("Bear", throwIfNotFound: true);
-        m_Bear_Attack = m_Bear.FindAction("Attack", throwIfNotFound: true);
+        m_Bear_Swipe = m_Bear.FindAction("Swipe", throwIfNotFound: true);
         m_Bear_Move = m_Bear.FindAction("Move", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -1017,13 +1017,13 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     // Bear
     private readonly InputActionMap m_Bear;
     private List<IBearActions> m_BearActionsCallbackInterfaces = new List<IBearActions>();
-    private readonly InputAction m_Bear_Attack;
+    private readonly InputAction m_Bear_Swipe;
     private readonly InputAction m_Bear_Move;
     public struct BearActions
     {
         private @PlayerInputs m_Wrapper;
         public BearActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Attack => m_Wrapper.m_Bear_Attack;
+        public InputAction @Swipe => m_Wrapper.m_Bear_Swipe;
         public InputAction @Move => m_Wrapper.m_Bear_Move;
         public InputActionMap Get() { return m_Wrapper.m_Bear; }
         public void Enable() { Get().Enable(); }
@@ -1034,9 +1034,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_BearActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_BearActionsCallbackInterfaces.Add(instance);
-            @Attack.started += instance.OnAttack;
-            @Attack.performed += instance.OnAttack;
-            @Attack.canceled += instance.OnAttack;
+            @Swipe.started += instance.OnSwipe;
+            @Swipe.performed += instance.OnSwipe;
+            @Swipe.canceled += instance.OnSwipe;
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
@@ -1044,9 +1044,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
 
         private void UnregisterCallbacks(IBearActions instance)
         {
-            @Attack.started -= instance.OnAttack;
-            @Attack.performed -= instance.OnAttack;
-            @Attack.canceled -= instance.OnAttack;
+            @Swipe.started -= instance.OnSwipe;
+            @Swipe.performed -= instance.OnSwipe;
+            @Swipe.canceled -= instance.OnSwipe;
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
@@ -1237,7 +1237,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     }
     public interface IBearActions
     {
-        void OnAttack(InputAction.CallbackContext context);
+        void OnSwipe(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
     }
     public interface IUIActions

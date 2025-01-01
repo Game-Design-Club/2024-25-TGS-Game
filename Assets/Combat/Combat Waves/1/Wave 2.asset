@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ea1fa90a6b48249ce36baffba20edd, type: 3}
+  m_Name: Wave 2
+  m_EditorClassIdentifier: 
+  waveEntries:
+  - spawnRate:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.08238602
+        value: 1.0101242
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 6.529647
+        value: 0.9033232
+        inSlope: 0.054145034
+        outSlope: 0.054145034
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.23365563
+      - serializedVersion: 3
+        time: 7.08312
+        value: 4.935774
+        inSlope: 0.19974831
+        outSlope: 0.19974831
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 9.072843
+        value: 4.9886127
+        inSlope: -0.00016969888
+        outSlope: -0.00016969888
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 9.084676
+        value: -0.024627686
+        inSlope: 0.06665154
+        outSlope: 0.06665154
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 19.862123
+        value: 1.9801903
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    enemyType: 0
+    spawnLeft: 1
+    spawnRight: 1
+    spawnTop: 1
+    spawnBottom: 1
+    spawnBuffer: 0
+  canReplay: 0

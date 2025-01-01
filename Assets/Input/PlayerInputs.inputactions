@@ -142,7 +142,7 @@
             "id": "a900c419-1221-4135-ba7b-58ade1c666b4",
             "actions": [
                 {
-                    "name": "Attack",
+                    "name": "Swipe",
                     "type": "Button",
                     "id": "4ae08f60-2bb1-4f4e-9d5d-589bef3bbbeb",
                     "expectedControlType": "",
@@ -168,7 +168,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Attack",
+                    "action": "Swipe",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -1,42 +1,52 @@
-using Game;
+using System;
+using System.Collections.Generic;
+using System.Numerics;
 using Game.GameManagement;
+using UnityEngine;
+using Object = System.Object;
 
 namespace AppCore.InputManagement {
-    public class InputManager : AppModule {
-        public PlayerInputs PlayerInputs;
+    public partial class InputManager : AppModule {
+        private PlayerInputs _playerInputs;
         
         private void Awake() {
-            PlayerInputs = new PlayerInputs();
+            _playerInputs = new PlayerInputs();
         }
         
         private void OnEnable() {
-            PlayerInputs.Enable();
-            PlayerInputs.UI.Enable();
+            _playerInputs.Enable();
+            _playerInputs.UI.Enable();
             
             GameManager.OnGameEvent += OnGameEvent;
+            
+            SubscribeToUIInput();
+            SubscribeToChildInput();
+            SubscribeToBearInput();
         }
         
         private void OnDisable() {
             GameManager.OnGameEvent -= OnGameEvent;
             
-            PlayerInputs.Disable();
+            _playerInputs.Disable();
+            
+            UnsubscribeFromUIInput();
+            UnsubscribeFromChildInput();
+            UnsubscribeFromBearInput();
         }
 
         private void OnGameEvent(GameEvent gameEvent) {
             switch (gameEvent.GameEventType) {
                 case GameEventType.Bear:
-                    PlayerInputs.Bear.Enable();
-                    PlayerInputs.Child.Disable();
+                    _playerInputs.Bear.Enable();
+                    _playerInputs.Child.Disable();
                     break;
                 case GameEventType.Child:
-                    PlayerInputs.Bear.Disable();
-                    PlayerInputs.Child.Enable();
+                    _playerInputs.Bear.Disable();
+                    _playerInputs.Child.Enable();
                     break;
                 case GameEventType.Cutscene:
-                    PlayerInputs.Bear.Disable();
-                    PlayerInputs.Child.Disable();
-                    break;
-                default:
+                    _playerInputs.Bear.Disable();
+                    _playerInputs.Child.Disable();
                     break;
             }
         }
