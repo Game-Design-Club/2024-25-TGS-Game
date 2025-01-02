@@ -11,12 +11,12 @@ namespace Game.Combat.Enemies {
         public void TakeDamage(int damage) {
             health -= damage;
             if (health <= 0) {
+                CombatManager.EnemyKilled(this);
                 Die();
             }
         }
 
-        private void Die() {
-            CombatManager.EnemyKilled(this);
+        internal void Die() {
             Destroy(gameObject);
         }
     }

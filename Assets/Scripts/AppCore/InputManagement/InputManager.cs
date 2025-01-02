@@ -44,10 +44,20 @@ namespace AppCore.InputManagement {
                     _playerInputs.Bear.Disable();
                     _playerInputs.Child.Enable();
                     break;
+                case GameEventType.CombatEnter:
+                    _playerInputs.Bear.Disable();
+                    _playerInputs.Child.Disable();
+                    break;
+                case GameEventType.ExploreEnter:
+                    _playerInputs.Bear.Disable();
+                    _playerInputs.Child.Enable();
+                    break;
                 case GameEventType.Cutscene:
                     _playerInputs.Bear.Disable();
                     _playerInputs.Child.Disable();
                     break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
     }

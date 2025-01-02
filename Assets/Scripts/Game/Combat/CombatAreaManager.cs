@@ -15,9 +15,11 @@ namespace Game.Combat {
         [SerializeField] private List<GameObject> activeStateSwitchOnCombat;
         [Header("Transitions")]
         [SerializeField] private float transitionDuration = 1f;
-        [FormerlySerializedAs("waves")]
         [Header("Enemies")]
         [SerializeField] private WavesData wavesData;
+        [Header("Combat Area")]
+        [SerializeField] private float combatAreaWidth = 40f;
+        [SerializeField] private float combatAreaHeight = 20f;
         [Header("Sanity")]
         [SerializeField] private float winSanityThreshold = 100f;
         [SerializeField] private float loseSanityThreshold = 0f;
@@ -35,7 +37,7 @@ namespace Game.Combat {
         }
         private bool _combatEntered = false;
         private List<EnemyBase> _activeEnemies = new();
-        private int enemiesToKill = 0;
+        private int _enemiesToKill = 0;
         
         internal ChildController Child;
         
@@ -64,18 +66,22 @@ namespace Game.Combat {
             
             GameManager.StartTransitionToCombat();
             
-            sleepCamera.Priority = 100;
-            
-            foreach (GameObject obj in activeStateSwitchOnCombat) {
-                obj.SetActive(true);
-            }
-            
+            Setup();
+
             yield return new WaitForSeconds(transitionDuration);
             GameManager.EndTransitionToCombat();
 
             StartCoroutine(RunCombat());
         }
-        
+
+        private void Setup() {
+            sleepCamera.Priority = 100;
+
+            foreach (GameObject obj in activeStateSwitchOnCombat) {
+                obj.SetActive(true);
+            }
+        }
+
         // Run combat
         private IEnumerator RunCombat() {
             foreach (Wave wave in wavesData.waves) {
@@ -97,8 +103,8 @@ namespace Game.Combat {
             foreach (WaveEntry entry in wave.waveEntries) {
                 StartCoroutine(SpawnEntry(entry));
             }
-            enemiesToKill += wave.GetTotalEnemies();
-            yield return new WaitUntil(() => _activeEnemies.Count == 0);
+            _enemiesToKill = wave.GetTotalEnemies();
+            yield return new WaitUntil(() => _enemiesToKill == 0);
         }
 
         private IEnumerator SpawnEntry(WaveEntry entry) {
@@ -109,43 +115,92 @@ namespace Game.Combat {
         }
 
         private void SpawnEnemy(WaveEntry entry) {
-            GameObject enemyObject =  Instantiate(CombatObjectsData.GetEnemyPrefab(entry.enemyType), GetSpawnPosition(entry), Quaternion.identity);
+            Vector2 spawnPos = GetSpawnPosition(entry);
+            GameObject enemyObject =  Instantiate(CombatObjectsData.GetEnemyPrefab(entry.enemyType), spawnPos, Quaternion.identity);
             EnemyBase enemy = enemyObject.GetComponent<EnemyBase>();
             enemy.CombatManager = this;
             _activeEnemies.Add(enemy);
         }
         
         private Vector2 GetSpawnPosition(WaveEntry entry) {
-            float spawnHeight = 5;
-            float spawnWidth = 10;
+            float height = combatAreaHeight;
+            float width = combatAreaWidth;
     
             float totalPositions = 0;
-            if (entry.spawnLeft) totalPositions += spawnHeight;
-            if (entry.spawnRight) totalPositions += spawnHeight;
-            if (entry.spawnTop) totalPositions += spawnWidth;
-            if (entry.spawnBottom) totalPositions += spawnWidth;
+            if (entry.spawnLeft) totalPositions += height;
+            if (entry.spawnRight) totalPositions += height;
+            if (entry.spawnTop) totalPositions += width;
+            if (entry.spawnBottom) totalPositions += width;
             
             float chosenPosition = UnityEngine.Random.Range(0, totalPositions);
     
-            Vector2 spawnPos;
-            // if (chosenPosition < worldWidth) {
-            //     spawnPos = new Vector2(chosenPosition - worldWidth / 2, worldHeight / 2 - spawnBuffer);
-            // } else if (chosenPosition < worldWidth + worldHeight) {
-            //     spawnPos = new Vector2(worldWidth / 2 - spawnBuffer, chosenPosition - worldWidth - worldHeight / 2);
-            // } else if (chosenPosition < worldWidth * 2 + worldHeight) {
-            //     spawnPos = new Vector2(chosenPosition - worldWidth - worldHeight - worldWidth / 2, -worldHeight / 2 + spawnBuffer);
-            // } else {
-            //     spawnPos = new Vector2(-worldWidth / 2 + spawnBuffer, chosenPosition - worldWidth * 2 - worldHeight - worldHeight / 2);
-            // }
+            Vector2 spawnPos = transform.position;
+            
+            // -- Left --
+            if (entry.spawnLeft) {
+                if (chosenPosition < height) {
+                    float yPos = chosenPosition - (height / 2);
+                    float xPos = (-width / 2);
+                    spawnPos += new Vector2(xPos, yPos);
+                    return spawnPos;
+                }
+                chosenPosition -= height;
+            }
+            
+            // -- Right --
+            if (entry.spawnTop) {
+                if (chosenPosition < width) {
+                    float xPos = chosenPosition - (width / 2);
+                    float yPos = (height / 2);
+                    spawnPos += new Vector2(xPos, yPos);
+                    return spawnPos;
+                }
+                chosenPosition -= width;
+            }
+            
+            // -- Top --
+            if (entry.spawnTop) {
+                if (chosenPosition < height) {
+                    float yPos = chosenPosition - (height / 2);
+                    float xPos = (width / 2);
+                    spawnPos += new Vector2(xPos, yPos);
+                    return spawnPos;
+                }
+                chosenPosition -= height;
+            }
+            
+            // -- Bottom --
+            if (entry.spawnBottom) {
+                if (chosenPosition < width) {
+                    float xPos = chosenPosition - (width / 2);
+                    float yPos = (-height / 2);
+                    spawnPos += new Vector2(xPos, yPos);
+                    return spawnPos;
+                }
+            }
             
             return transform.position;
         }
         
         // End combat
-        private IEnumerator TransitionToExploration() {
+        private void PlayerWon() {
             StopAllCoroutines();
-            
+            StartCoroutine(TransitionToExploration());
+        }
+        private IEnumerator TransitionToExploration() {
             GameManager.StartTransitionToExploration();
+            
+            Cleanup();
+
+            yield return new WaitForSeconds(transitionDuration);
+            
+            GameManager.EndTransitionToExploration();
+            
+            _combatEntered = false;
+        }
+
+        private void Cleanup() {
+            StopAllCoroutines();
             
             sleepCamera.Priority = 0;
             
@@ -153,18 +208,20 @@ namespace Game.Combat {
                 obj.SetActive(false);
             }
             
-            yield return new WaitForSeconds(transitionDuration);
-            GameManager.EndTransitionToExploration();
+            foreach (EnemyBase enemy in _activeEnemies) {
+                enemy.Die();
+            }
             
-            _combatEntered = false;
+            _activeEnemies.Clear();
         }
-        
+
         // Internal functions
         internal void EnemyKilled(EnemyBase enemy) {
             _activeEnemies.Remove(enemy);
+            _enemiesToKill--;
             Sanity = Mathf.Clamp(Sanity + enemy.sanityRestored, loseSanityThreshold, winSanityThreshold);
             if (Sanity >= 100) {
-                StartCoroutine(TransitionToExploration());
+                PlayerWon();
             }
         }
         

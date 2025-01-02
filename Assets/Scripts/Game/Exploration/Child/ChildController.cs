@@ -56,6 +56,8 @@ namespace Game.Exploration.Child {
                     _animator.SetBool(Constants.Animator.Child.Sleep, true);
                     break;
                 case GameEventType.ExploreEnter:
+                    _active = true;
+                    _rb.bodyType = RigidbodyType2D.Dynamic;
                     _animator.SetBool(Constants.Animator.Child.Sleep, false);
                     break;
                 default:

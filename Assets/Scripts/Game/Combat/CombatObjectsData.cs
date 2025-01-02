@@ -9,8 +9,7 @@ namespace Game.Combat {
         private static CombatObjectsData _instance;
 
         public static GameObject GetEnemyPrefab(EnemyType enemyType) {
-            Debug.Log(Instance);
-            return enemyType switch {
+        return enemyType switch {
                 EnemyType.BasicEnemyAttacker => Instance.basicEnemyAttackerPrefab,
                 _ => throw new ArgumentOutOfRangeException(nameof(enemyType), enemyType, null)
             };

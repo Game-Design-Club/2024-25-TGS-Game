@@ -55,6 +55,8 @@ MonoBehaviour:
   - {fileID: 2352446917201355284}
   transitionDuration: 1
   wavesData: {fileID: 11400000, guid: b47c9f7644b6a4d82b6d2496406a0c81, type: 2}
+  combatAreaWidth: 20
+  combatAreaHeight: 15
   winSanityThreshold: 100
   loseSanityThreshold: 0
   startInsanity: 20
@@ -163,7 +165,7 @@ GameObject:
   - component: {fileID: 4287660055422609166}
   - component: {fileID: 2214566131134189466}
   m_Layer: 13
-  m_Name: Right
+  m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -787,7 +789,7 @@ GameObject:
   - component: {fileID: 2507194077097828286}
   - component: {fileID: 3503010877158216813}
   m_Layer: 13
-  m_Name: Left
+  m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -921,6 +923,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bear
       objectReference: {fileID: 0}
+    - target: {fileID: 5379654298437542993, guid: 34584760a8e6847c3bb625d2cc10fdd4, type: 3}
+      propertyPath: m_Size.x
+      value: 10.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5379654298437542993, guid: 34584760a8e6847c3bb625d2cc10fdd4, type: 3}
+      propertyPath: m_Size.y
+      value: 10.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5379654298437542993, guid: 34584760a8e6847c3bb625d2cc10fdd4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 307355401521930074, guid: 86eb0ae6273d14f67bc72fa10ae066c9, type: 3}
+    - target: {fileID: 5379654298437542993, guid: 34584760a8e6847c3bb625d2cc10fdd4, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5512127907509128568, guid: 34584760a8e6847c3bb625d2cc10fdd4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.35
@@ -959,6 +977,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5512127907509128568, guid: 34584760a8e6847c3bb625d2cc10fdd4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994545992218336029, guid: 34584760a8e6847c3bb625d2cc10fdd4, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
