@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  sanityRestored: 5
+  sanityRestored: 1
   sanityDamage: 10
   attackRange: 1
   walkSpeed: 1
