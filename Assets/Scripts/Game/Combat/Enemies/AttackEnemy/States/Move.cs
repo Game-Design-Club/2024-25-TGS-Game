@@ -10,7 +10,7 @@ namespace Game.Combat.Enemies.AttackEnemy {
         }
 
         public override void Exit() {
-            Controller.Rigidbody2D.linearVelocity = Vector2.zero;
+            Controller.Rigidbody.linearVelocity = Vector2.zero;
         }
 
         public override void Update() {
@@ -18,7 +18,7 @@ namespace Game.Combat.Enemies.AttackEnemy {
             if (posDifference.magnitude < Controller.attackRange) {
                 Controller.TransitionToState(new Attack(Controller));
             } else {
-                Controller.Rigidbody2D.linearVelocity = posDifference.normalized * Controller.walkSpeed;
+                Controller.Rigidbody.linearVelocity = posDifference.normalized * Controller.walkSpeed;
             }
         }
     }

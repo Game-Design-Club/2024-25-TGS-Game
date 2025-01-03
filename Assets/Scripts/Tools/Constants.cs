@@ -17,6 +17,7 @@ namespace Tools {
 
         public class Tags {
             public const string Enemy = "Enemy";
+            public const string Child = "Child";
         }
     }
 }

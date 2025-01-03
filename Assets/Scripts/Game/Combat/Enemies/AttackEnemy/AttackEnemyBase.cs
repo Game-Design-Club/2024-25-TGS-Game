@@ -9,12 +9,6 @@ namespace Game.Combat.Enemies.AttackEnemy {
         
         private AttackEnemyState _currentState;
         
-        internal Rigidbody2D Rigidbody2D;
-
-        private void Awake() {
-            TryGetComponent(out Rigidbody2D);
-        }
-
         private void Start() {
             TransitionToState(new Move(this));
         }

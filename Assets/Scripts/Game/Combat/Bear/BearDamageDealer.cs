@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Game.Combat.Bear {
     public class BearDamageDealer : MonoBehaviour {
         [SerializeField] private int damage = 50;
+        [SerializeField] private float knockbackForce = 10;
         
         private bool _canDamage = true;
         
@@ -12,7 +13,9 @@ namespace Game.Combat.Bear {
             if (!_canDamage) return;
             if (!other.CompareTag(Constants.Tags.Enemy)) return;
             
-            other.GetComponent<EnemyBase>().TakeDamage(50);
+            Vector2 knockbackDirection = (other.transform.position - transform.position).normalized;
+            
+            other.GetComponent<EnemyBase>().TakeDamage(50, knockbackDirection, knockbackForce);
         }
     }
 }

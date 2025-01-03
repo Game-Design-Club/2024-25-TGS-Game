@@ -219,12 +219,25 @@ namespace Game.Combat {
         internal void EnemyKilled(EnemyBase enemy) {
             _activeEnemies.Remove(enemy);
             _enemiesToKill--;
-            Sanity = Mathf.Clamp(Sanity + enemy.sanityRestored, loseSanityThreshold, winSanityThreshold);
+            Sanity += enemy.sanityRestored;
             if (Sanity >= 100) {
                 PlayerWon();
             }
         }
         
+        internal void ChildHit(EnemyBase enemy) {
+            Sanity -= enemy.sanityDamage;
+            _activeEnemies.Remove(enemy);
+            _enemiesToKill--;
+            if (Sanity <= 0) {
+                PlayerLost();
+            }
+        }
+
+        private void PlayerLost() {
+            Debug.Log("DEAD");
+        }
+
         // Helper functions
         private float GetSanityPercentage() {
             return (Sanity - loseSanityThreshold) / (winSanityThreshold - loseSanityThreshold);

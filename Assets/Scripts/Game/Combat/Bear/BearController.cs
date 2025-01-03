@@ -38,6 +38,21 @@ namespace Game.Combat.Bear {
             Rigidbody2D.linearVelocity = Velocity * WalkSpeed;
             Animator.SetFloat(Constants.Animator.Bear.SpeedX, Velocity.x);
             Animator.SetFloat(Constants.Animator.Bear.SpeedY, Velocity.y);
+            SetRotation();
+        }
+
+        private void SetRotation() {
+            if (Velocity == Vector2.zero) return;
+            if (Velocity.x > 0) {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            } else if (Velocity.x < 0) {
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+            } else if (Velocity.y > 0) {
+                transform.rotation = Quaternion.Euler(0, 0, 90);
+            }
+            else if (Velocity.y < 0) {
+                transform.rotation = Quaternion.Euler(0, 0, -90);
+            }
         }
     }
 }
