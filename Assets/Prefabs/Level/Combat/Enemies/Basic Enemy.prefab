@@ -52,6 +52,39 @@ MonoBehaviour:
   sanityDamage: 10
   attackRange: 1
   walkSpeed: 1
+  stunKnockbackCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.008285522
+      value: 0.9848633
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.63852036
+      value: 0.0076034665
+      inSlope: -1.8143517
+      outSlope: Infinity
+      tangentMode: 97
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.1509567
+      value: 0.008411197
+      inSlope: Infinity
+      outSlope: Infinity
+      tangentMode: 103
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!61 &2459703271106613608
 BoxCollider2D:
   m_ObjectHideFlags: 0

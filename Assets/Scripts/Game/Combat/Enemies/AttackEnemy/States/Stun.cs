@@ -4,17 +4,21 @@ namespace Game.Combat.Enemies.AttackEnemy {
     public class Stun : AttackEnemyState {
         internal Vector2 HitDirection;
         internal float HitForce;
+        
+        private float _progress = 0;
 
         public Stun(AttackEnemyBase controller) : base(controller) { }
         public override void Enter() {
-            Controller.Rigidbody.AddForce(HitDirection * HitForce, ForceMode2D.Impulse);
         }
 
         public override void Exit() {
         }
 
         public override void Update() {
-            if (Controller.Rigidbody.linearVelocity.magnitude < 0.1f) {
+            _progress += Time.deltaTime;
+            Controller.Rigidbody.linearVelocity = HitDirection * (Controller.stunKnockbackCurve.Evaluate(_progress) * HitForce);
+            
+            if (_progress >= Controller.stunKnockbackCurve.keys[Controller.stunKnockbackCurve.length - 1].time) {
                 Controller.TransitionToState(new Move(Controller));
             }
         }

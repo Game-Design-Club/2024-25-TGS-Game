@@ -1,10 +1,13 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Combat.Enemies.AttackEnemy {
     public class AttackEnemyBase : EnemyBase {
         [SerializeField] internal float attackRange = 1f;
         [SerializeField] internal float walkSpeed = 5f;
+        
+        [SerializeField] internal AnimationCurve stunKnockbackCurve;
         
         private AttackEnemyState _currentState;
         
