@@ -16,8 +16,7 @@ namespace Game.Combat.Bear {
         internal Rigidbody2D Rigidbody2D;
         
         private BearState _currentState;
-
-
+        
         private void OnEnable() {
             App.Get<InputManager>().OnBearSwipe += OnSwipe;
             App.Get<InputManager>().OnBearMovement += OnMovement;
