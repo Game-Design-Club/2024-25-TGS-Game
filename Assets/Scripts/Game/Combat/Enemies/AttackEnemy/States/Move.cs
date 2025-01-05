@@ -21,5 +21,6 @@ namespace Game.Combat.Enemies.AttackEnemy {
                 Controller.Rigidbody.linearVelocity = posDifference.normalized * Controller.walkSpeed;
             }
         }
+
     }
 }

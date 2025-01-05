@@ -5,7 +5,6 @@ namespace Game.Combat.Enemies.AttackEnemy {
     public class AttackEnemyBase : EnemyBase {
         [SerializeField] internal float attackRange = 1f;
         [SerializeField] internal float walkSpeed = 5f;
-
         
         private AttackEnemyState _currentState;
         
@@ -21,6 +20,10 @@ namespace Game.Combat.Enemies.AttackEnemy {
         
         private void Update() {
             _currentState?.Update();
+        }
+
+        internal override void ProcessHit(Vector2 hitDirection, float knockbackForce) {
+            _currentState?.OnHit(hitDirection, knockbackForce);
         }
     }
 }

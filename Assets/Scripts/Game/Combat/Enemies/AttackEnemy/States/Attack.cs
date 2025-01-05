@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Game.Combat.Enemies.AttackEnemy {
     public class Attack : AttackEnemyState {
         public Attack(AttackEnemyBase controller) : base(controller) { }
@@ -9,5 +11,6 @@ namespace Game.Combat.Enemies.AttackEnemy {
 
         public override void Update() {
         }
+
     }
 }

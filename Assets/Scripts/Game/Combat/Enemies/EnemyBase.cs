@@ -17,7 +17,7 @@ namespace Game.Combat.Enemies {
         public void TakeDamage(int damage, Vector2 hitDirection, float knockbackForce) {
             health -= damage;
             
-            Rigidbody.AddForce(hitDirection * knockbackForce, ForceMode2D.Impulse);
+            ProcessHit(hitDirection, knockbackForce);
             
             if (health <= 0) {
                 CombatManager.EnemyKilled(this);
@@ -33,5 +33,7 @@ namespace Game.Combat.Enemies {
             CombatManager.ChildHit(this);
             Die();
         }
+        
+        internal abstract void ProcessHit(Vector2 hitDirection, float knockbackForce);
     }
 }

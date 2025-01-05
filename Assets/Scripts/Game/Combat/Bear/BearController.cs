@@ -1,4 +1,3 @@
-using System;
 using AppCore;
 using AppCore.InputManagement;
 using Tools;
@@ -10,49 +9,63 @@ namespace Game.Combat.Bear {
         [SerializeField] internal float idleWalkSpeed = 5f;
         [SerializeField] internal float swipeWalkSpeed = 2f;
         
-        internal Vector2 Velocity;
-        internal float WalkSpeed = 0;
+        internal Vector2 LastInput;
+        internal float LastRotation;
         
         internal Animator Animator;
         internal Rigidbody2D Rigidbody2D;
-        internal BearStateMachine StateMachine;
+        
+        private BearState _currentState;
 
+
+        private void OnEnable() {
+            App.Get<InputManager>().OnBearSwipe += OnSwipe;
+            App.Get<InputManager>().OnBearMovement += OnMovement;
+        }
+        
+        private void OnDisable() {
+            App.Get<InputManager>().OnBearSwipe -= OnSwipe;
+            App.Get<InputManager>().OnBearMovement += OnMovement;
+        }
+        
         private void Awake() {
             TryGetComponent(out Animator);
             TryGetComponent(out Rigidbody2D);
         }
 
-        private void OnEnable() {
-            App.Get<InputManager>().OnBearMovement += OnMovement;
-        }
-
-        private void OnDisable() {
-            App.Get<InputManager>().OnBearMovement -= OnMovement;
+        private void Start() {
+            TransitionToState(new Idle(this));
         }
         
-        private void OnMovement(Vector2 velocity) {
-            Velocity = velocity;
+        internal void TransitionToState(BearState newState) {
+            _currentState?.Exit();
+            _currentState = newState;
+            _currentState.Enter();
         }
 
         private void Update() {
-            Rigidbody2D.linearVelocity = Velocity * WalkSpeed;
-            Animator.SetFloat(Constants.Animator.Bear.SpeedX, Velocity.x);
-            Animator.SetFloat(Constants.Animator.Bear.SpeedY, Velocity.y);
-            SetRotation();
+            _currentState.Update();
+            Rigidbody2D.linearVelocity = _currentState.GetWalkSpeed() * _currentState.GetWalkDirection();
+           
+            float? rotation = _currentState.GetRotation();
+            if (rotation.HasValue) {
+                transform.rotation = Quaternion.Euler(0, 0, (float)rotation);
+                LastRotation = (float)rotation;
+            }        
         }
-
-        private void SetRotation() {
-            if (Velocity == Vector2.zero) return;
-            if (Velocity.x > 0) {
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-            } else if (Velocity.x < 0) {
-                transform.rotation = Quaternion.Euler(0, 180, 0);
-            } else if (Velocity.y > 0) {
-                transform.rotation = Quaternion.Euler(0, 0, 90);
-            }
-            else if (Velocity.y < 0) {
-                transform.rotation = Quaternion.Euler(0, 0, -90);
-            }
+        
+        // Exposed to Animation Events
+        private void OnSwipe() {
+            _currentState.OnSwipeInput();
+        }
+        
+        private void AnimationEnded() {
+            _currentState.OnAnimationEnded();
+        }
+        
+        private void OnMovement(Vector2 direction) {
+            LastInput = direction;
+            _currentState.OnMovementInput(direction);
         }
     }
 }
