@@ -154,9 +154,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   litIntensity: 3
-  litRadius: 20
-  unlitIntensity: 2
-  unlitRadius: 8
+  litRadius: 17
+  unlitIntensity: 2.3
+  unlitRadius: 12
   flickerData:
     count:
       Min: 3

@@ -1,6 +1,5 @@
 using AppCore;
 using AppCore.InputManagement;
-using Game.Combat;
 using Game.GameManagement;
 using Tools;
 using UnityEngine;

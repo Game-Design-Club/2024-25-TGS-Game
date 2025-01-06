@@ -16,8 +16,7 @@ namespace Game.Combat {
         [Header("Enemies")]
         [SerializeField] private WavesData wavesData;
         [Header("Combat Area")]
-        [SerializeField] private float combatAreaWidth = 40f;
-        [SerializeField] private float combatAreaHeight = 20f;
+        [SerializeField] private Transform combatAreaSize;
         [Header("Sanity")]
         [SerializeField] private float winSanityThreshold = 100f;
         [SerializeField] private float loseSanityThreshold = 0f;
@@ -83,8 +82,8 @@ namespace Game.Combat {
         // Run combat
         private IEnumerator RunCombat() {
             foreach (Wave wave in wavesData.waves) {
-                yield return new WaitForSeconds(wavesData.bufferBetweenWaves);
                 yield return StartCoroutine(SpawnWave(wave));
+                yield return new WaitForSeconds(wavesData.bufferBetweenWaves);
             }
 
             // Keep going until sanity is 100, repeat waves with canReplay
@@ -122,8 +121,8 @@ namespace Game.Combat {
         }
         
         private Vector2 GetSpawnPosition(WaveEntry entry) {
-            float height = combatAreaHeight;
-            float width = combatAreaWidth;
+            float height = combatAreaSize.localScale.y;
+            float width = combatAreaSize.localScale.x;
     
             float totalPositions = 0;
             if (entry.spawnLeft) totalPositions += height;

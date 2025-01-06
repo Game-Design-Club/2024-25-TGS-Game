@@ -56,26 +56,26 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.008285522
-      value: 0.9848633
-      inSlope: 2
-      outSlope: 2
+      time: -0.0024950067
+      value: 1.3990434
+      inSlope: -6.5853834
+      outSlope: -6.5853834
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.06204868
     - serializedVersion: 3
       time: 0.63852036
       value: 0.0076034665
-      inSlope: -1.8143517
+      inSlope: -1.7746799
       outSlope: Infinity
       tangentMode: 97
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.17142397
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1.1509567
-      value: 0.008411197
+      time: 1.4894648
+      value: -0.04407671
       inSlope: Infinity
       outSlope: Infinity
       tangentMode: 103
@@ -236,7 +236,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -268,34 +268,33 @@ MonoBehaviour:
   m_AlphaCutoff: 0.1
   m_ApplyToSortingLayers: 00000000dbba7ca8f985a7501f6b80ab2f3047ef3534853f
   m_ShapePath:
-  - {x: -0.5, y: -0.5, z: 0}
-  - {x: -0.5, y: 0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  m_ShapePathHash: 0
+  - {x: -0.4, y: -0.4, z: 0}
+  - {x: -0.4000001, y: 0.4, z: 0}
+  - {x: 0.4, y: 0.4, z: 0}
+  - {x: 0.4, y: -0.4, z: 0}
+  m_ShapePathHash: -1675080552
   m_InstanceId: 0
-  m_ShadowShape2DComponent: {fileID: 4944907021056922652}
+  m_ShadowShape2DComponent: {fileID: 0}
   m_ShadowShape2DProvider:
-    rid: 5172217110221291607
-  m_ShadowCastingSource: 2
+    rid: -2
+  m_ShadowCastingSource: 1
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.44999695, y: 0.44999695, z: 0}
+      m_Center: {x: -0.000000059604645, y: 0, z: 0}
+      m_Extent: {x: 0.40000004, y: 0.4, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0.05
     m_FlipX: 0
     m_FlipY: 0
-    m_InitialTrim: 0.05
+    m_InitialTrim: 0
   m_CastingOption: 1
   m_PreviousTrimEdge: 0.05
   m_PreviousEdgeProcessing: 1
-  m_PreviousShadowCastingSource: 2
-  m_PreviousShadowShape2DSource: {fileID: 0}
+  m_PreviousShadowCastingSource: 1
+  m_PreviousShadowShape2DSource: {fileID: 4944907021056922652}
   references:
     version: 2
     RefIds:
-    - rid: 5172217110221291607
-      type: {class: ShadowShape2DProvider_SpriteRenderer, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
-      data: 
+    - rid: -2
+      type: {class: , ns: , asm: }
