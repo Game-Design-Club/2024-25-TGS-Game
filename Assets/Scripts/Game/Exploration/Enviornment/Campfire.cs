@@ -43,9 +43,7 @@ namespace Game.Exploration.Enviornment {
                 case GameEventType.Bear:
                     StartCoroutine(Flicker());
                     break;
-                case GameEventType.ExploreEnter:
-                case GameEventType.Child:
-                case GameEventType.Cutscene:
+                default:
                     StopAllCoroutines();
                     _light.intensity = _exploreIntensity;
                     break;

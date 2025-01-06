@@ -27,10 +27,12 @@ namespace Game.GameManagement {
             }
         }
         
+        private static GameEventType _lastGameEventType;
         private static GameEventType _gameEventType;
         private static GameEventType GameEventType {
             get => _gameEventType;
             set {
+                _lastGameEventType = _gameEventType;
                 _gameEventType = value;
                 OnGameEvent?.Invoke(new GameEvent {
                     GameEventType = _gameEventType,
@@ -77,7 +79,6 @@ namespace Game.GameManagement {
         public static void EndTransitionToCombat() {
             GameEventType = GameEventType.Bear;
         }
-        
 
         public static void StartTransitionToExploration() {
             GameEventType = GameEventType.ExploreEnter;
@@ -85,6 +86,14 @@ namespace Game.GameManagement {
 
         public static void EndTransitionToExploration() {
             GameEventType = GameEventType.Child;
+        }
+
+        public static void DialogueStart() {
+            GameEventType = GameEventType.Dialogue;
+        }
+
+        public static void DialogueEnd() {
+            GameEventType = _lastGameEventType;
         }
     }
     
@@ -98,6 +107,7 @@ namespace Game.GameManagement {
         CombatEnter,
         ExploreEnter,
         Bear,
-        Child
+        Child,
+        Dialogue
     }
 }

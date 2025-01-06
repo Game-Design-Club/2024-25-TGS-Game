@@ -19,12 +19,8 @@ namespace AppCore.InputManagement {
             _playerInputs.Child.Interact.performed -= CallChildInteract;
         }
         
-        private void CallChildMovement(InputAction.CallbackContext ctx) {
-            OnChildMovement?.Invoke(ctx.ReadValue<Vector2>());
-        }
+        private void CallChildMovement(InputAction.CallbackContext ctx) { OnChildMovement?.Invoke(ctx.ReadValue<Vector2>()); }
         
-        private void CallChildInteract(InputAction.CallbackContext ctx) {
-            OnChildInteract?.Invoke();
-        }
+        private void CallChildInteract(InputAction.CallbackContext ctx) { OnChildInteract?.Invoke(); }
     }
 }

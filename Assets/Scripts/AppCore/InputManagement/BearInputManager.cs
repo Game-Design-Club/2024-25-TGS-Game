@@ -18,12 +18,8 @@ namespace AppCore.InputManagement {
             _playerInputs.Bear.Swipe.performed -= CallBearSwipe;
         }
 
-        private void CallBearMovement(InputAction.CallbackContext obj) {
-            OnBearMovement?.Invoke(obj.ReadValue<Vector2>());
-        }
+        private void CallBearMovement(InputAction.CallbackContext obj) { OnBearMovement?.Invoke(obj.ReadValue<Vector2>()); }
         
-        private void CallBearSwipe(InputAction.CallbackContext obj) {
-            OnBearSwipe?.Invoke();
-        }
+        private void CallBearSwipe(InputAction.CallbackContext obj) { OnBearSwipe?.Invoke(); }
     }
 }

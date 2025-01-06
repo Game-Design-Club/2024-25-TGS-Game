@@ -18,7 +18,12 @@ namespace AppCore {
         private Dictionary<Type, AppModule> _moduleDictionary = new ();
         
         public static T Get<T>() where T : AppModule {
-            return _instance.appModules.OfType<T>().FirstOrDefault();
+            if (_instance._moduleDictionary.TryGetValue(typeof(T), out AppModule module)) {
+                return (T) module;
+            } else {
+                Debug.LogError($"No instance of {typeof(T)} found in App.");
+                return null;
+            }
         }
         
         private void Awake() {

@@ -53,6 +53,7 @@ namespace AppCore.InputManagement {
                     _playerInputs.Child.Enable();
                     break;
                 case GameEventType.Cutscene:
+                case GameEventType.Dialogue:
                     _playerInputs.Bear.Disable();
                     _playerInputs.Child.Disable();
                     break;
