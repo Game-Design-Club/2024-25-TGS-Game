@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Game.Combat {
     [CreateAssetMenu(fileName = "WavesData", menuName = "Combat/WavesData", order = 0)]
@@ -25,10 +24,11 @@ namespace Game.Combat {
     public class WaveEntry {
         [SerializeField] public AnimationCurve spawnRate;
         [SerializeField] public EnemyType enemyType;
-        [SerializeField] public bool spawnLeft;
-        [SerializeField] public bool spawnRight;
-        [SerializeField] public bool spawnTop;
-        [SerializeField] public bool spawnBottom;
+        [SerializeField] public bool spawnLeft = true;
+        [SerializeField] public bool spawnRight = true;
+        [SerializeField] public bool spawnTop = true;
+        [SerializeField] public bool spawnBottom = true;
+        [SerializeField] public float bufferAfterThisEntry = 0;
 
         private List<float> _spawnTimes = null;
         private static float _valueTarget = 1f;

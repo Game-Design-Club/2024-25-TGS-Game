@@ -100,6 +100,7 @@ namespace Game.Combat {
         private IEnumerator SpawnWave(Wave wave) {
             foreach (WaveEntry entry in wave.waveEntries) {
                 StartCoroutine(SpawnEntry(entry));
+                yield return new WaitForSeconds(entry.bufferAfterThisEntry);
             }
             _enemiesToKill = wave.GetTotalEnemies();
             yield return new WaitUntil(() => _enemiesToKill == 0);
