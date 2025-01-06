@@ -13,8 +13,6 @@ namespace Game.Combat {
         [Header("References")]
         [SerializeField] private CinemachineCamera sleepCamera;
         [SerializeField] private List<GameObject> activeStateSwitchOnCombat;
-        [Header("Transitions")]
-        [SerializeField] private float transitionDuration = 1f;
         [Header("Enemies")]
         [SerializeField] private WavesData wavesData;
         [Header("Combat Area")]
@@ -68,7 +66,7 @@ namespace Game.Combat {
             
             Setup();
 
-            yield return new WaitForSeconds(transitionDuration);
+            yield return new WaitForSeconds(GameManager.TransitionDuration);
             GameManager.EndTransitionToCombat();
 
             StartCoroutine(RunCombat());
@@ -192,7 +190,7 @@ namespace Game.Combat {
             
             Cleanup();
 
-            yield return new WaitForSeconds(transitionDuration);
+            yield return new WaitForSeconds(GameManager.TransitionDuration);
             
             GameManager.EndTransitionToExploration();
             

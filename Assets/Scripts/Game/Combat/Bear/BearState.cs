@@ -10,7 +10,7 @@ namespace Game.Combat.Bear {
         public virtual void Exit() { }
         public virtual void Update() { }
 
-        public virtual float GetWalkSpeed() {
+        public virtual float? GetWalkSpeed() {
             return Controller.idleWalkSpeed;
         }
         public virtual Vector2 GetWalkDirection() {
@@ -26,7 +26,7 @@ namespace Game.Combat.Bear {
         public virtual void OnMovementInput(Vector2 direction) { }
         public virtual void OnAnimationEnded() { }
 
-        protected float? DefaultRotation(Vector2 input) {
+        private float? DefaultRotation(Vector2 input) {
             if (input.x > 0) return 0;
             if (input.x < 0) return 180;
             if (input.y > 0) return 90;

@@ -11,6 +11,7 @@ namespace Game.Combat.Bear {
         
         internal Vector2 LastInput;
         internal float LastRotation;
+        internal float LastSpeed;
         
         internal Animator Animator;
         internal Rigidbody2D Rigidbody2D;
@@ -44,7 +45,12 @@ namespace Game.Combat.Bear {
 
         private void Update() {
             _currentState.Update();
-            Rigidbody2D.linearVelocity = _currentState.GetWalkSpeed() * _currentState.GetWalkDirection();
+            
+            float? speed = _currentState.GetWalkSpeed();
+            if (speed.HasValue) {
+                Rigidbody2D.linearVelocity = (float)speed * _currentState.GetWalkDirection();
+                LastSpeed = (float)speed;
+            }
            
             float? rotation = _currentState.GetRotation();
             if (rotation.HasValue) {

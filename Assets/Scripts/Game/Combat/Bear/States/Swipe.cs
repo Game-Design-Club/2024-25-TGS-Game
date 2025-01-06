@@ -1,7 +1,4 @@
-using System;
 using Tools;
-using Unity.Mathematics;
-using UnityEngine;
 
 namespace Game.Combat.Bear {
     public class Swipe : BearState {
@@ -14,7 +11,7 @@ namespace Game.Combat.Bear {
             _startRotation = Controller.LastRotation;
         }
 
-        public override float GetWalkSpeed() {
+        public override float? GetWalkSpeed() {
             return Controller.swipeWalkSpeed;
         }
         

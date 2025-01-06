@@ -22,21 +22,20 @@ namespace Game.Combat {
     }
     
     [Serializable]
-    public struct WaveEntry {
+    public class WaveEntry {
         [SerializeField] public AnimationCurve spawnRate;
         [SerializeField] public EnemyType enemyType;
         [SerializeField] public bool spawnLeft;
         [SerializeField] public bool spawnRight;
         [SerializeField] public bool spawnTop;
         [SerializeField] public bool spawnBottom;
-        [SerializeField] public float offscreenSpawnDistance ;
 
-        private List<float> _spawnTimes;
+        private List<float> _spawnTimes = null;
         private static float _valueTarget = 1f;
         private static float _timeStep = 0.1f;
+
         
         public List<float> GetSpawnTimes() {
-            if (_spawnTimes.Count > 0) return _spawnTimes;
             _spawnTimes = new List<float>();
             float totalTime = spawnRate.keys[spawnRate.length - 1].time;
             float lastTime = 0;

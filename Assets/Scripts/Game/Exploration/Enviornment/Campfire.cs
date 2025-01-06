@@ -10,9 +10,15 @@ using Random = UnityEngine.Random;
 
 namespace Game.Exploration.Enviornment {
     public class Campfire : MonoBehaviour {
-        [SerializeField] private Color unlitColor;
+        [Header("Lit")]
+        [SerializeField] private float litIntensity;
+        [SerializeField] private float litRadius;
+        [Header("Unlit")]
+        [SerializeField] private float unlitIntensity;
+        [SerializeField] private float unlitRadius;
+        [Header("Flicker")]
         [SerializeField] private FlickerData flickerData;
-        private Color _litColor;
+        private float _exploreIntensity;
         
         private SpriteRenderer _spriteRenderer;
         private Light2D _light;
@@ -20,7 +26,7 @@ namespace Game.Exploration.Enviornment {
         private void Awake() {
             TryGetComponent(out _spriteRenderer);
             TryGetComponent(out _light);
-            _litColor = _light.color;
+            _exploreIntensity = _light.intensity;
         }
 
         private void OnEnable() {
@@ -41,29 +47,30 @@ namespace Game.Exploration.Enviornment {
                 case GameEventType.Child:
                 case GameEventType.Cutscene:
                     StopAllCoroutines();
-                    _light.enabled = true;
-                    _spriteRenderer.color = _litColor;
+                    _light.intensity = _exploreIntensity;
                     break;
             }
         }
         
         private IEnumerator Flicker() {
+            _light.intensity = litIntensity;
+            _light.pointLightOuterRadius = litRadius;
+            
             while (true) {
+                yield return new WaitForSeconds(flickerData.pause.Random());
                 for (int i = 0; i < flickerData.count.Random(); i++) {
-                    _light.enabled = false;
-                    _spriteRenderer.color = unlitColor;
+                    _light.intensity = unlitIntensity;
+                    _light.pointLightOuterRadius = unlitRadius;
                     yield return new WaitForSeconds(flickerData.duration.Random());
-                    _light.enabled = true;
-                    _spriteRenderer.color = _litColor;
+                    _light.intensity = litIntensity;
+                    _light.pointLightOuterRadius = litRadius;
                     yield return new WaitForSeconds(flickerData.interval.Random());
                 }
-                
-                yield return new WaitForSeconds(flickerData.pause.Random());
             }
         }
     }
 
-    [System.Serializable]
+    [Serializable]
     public struct FlickerData {
         public IntRange count;
         public FloatRange duration;

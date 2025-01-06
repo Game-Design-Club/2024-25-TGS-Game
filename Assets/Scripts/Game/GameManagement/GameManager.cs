@@ -7,8 +7,13 @@ namespace Game.GameManagement {
     public class GameManager : MonoBehaviour {
         // Child/Bear, and Paused/Unpaused
         // Controls InputMapping, and transitions between states
+        [SerializeField] public float transitionDuration = 1f;
+        
+        public static float TransitionDuration => _instance.transitionDuration;
         
         public static Action<GameEvent> OnGameEvent;
+        
+        private static GameManager _instance;
         
         private static bool _isPaused;
         private static bool IsPaused {
@@ -31,6 +36,21 @@ namespace Game.GameManagement {
                     GameEventType = _gameEventType,
                     IsPaused = IsPaused
                 });
+            }
+        }
+
+        private void Awake() {
+            if (_instance == null) {
+                _instance = this;
+            } else {
+                Destroy(gameObject);
+                Debug.LogError("Two GameManagers in scene");
+            }
+        }
+
+        private void OnDestroy() {
+            if (_instance == this) {
+                _instance = null;
             }
         }
 
