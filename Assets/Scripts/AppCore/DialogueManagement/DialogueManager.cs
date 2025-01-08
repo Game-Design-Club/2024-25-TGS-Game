@@ -14,7 +14,7 @@ using Random = UnityEngine.Random;
 namespace AppCore.DialogueManagement {
     public class DialogueManager : AppModule {
         [Header("Settings")]
-        [SerializeField] private TextEffectsData effectsData;
+        [SerializeField] internal TextEffectsData effectsData;
         [SerializeField] private float scrollSpeed = 1f;
 
         [Header("Auto pause")]
@@ -97,7 +97,7 @@ namespace AppCore.DialogueManagement {
             characterSpriteRenderer.sprite = chunk.character.sprite;
 
             // Parse chunk for effects
-            var parsedChunk = chunk.ParseEffects(); 
+            var parsedChunk = chunk.ParseEffects(this); 
             // Build a single string with all the text and tags
             string fullText = BuildFullString(parsedChunk);
 
@@ -111,7 +111,7 @@ namespace AppCore.DialogueManagement {
             yield return null;
             _shouldContinue = false;
 
-            var parsedChunk = chunk.ParseEffects();
+            var parsedChunk = chunk.ParseEffects(this);
 
             for (int i = 0; i < parsedChunk.Count; i++) {
                 // If user pressed skip, reveal the rest instantly

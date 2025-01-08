@@ -21,7 +21,7 @@ namespace AppCore.DialogueManagement {
 
         private List<TextEffect> _activeEffects = new();
 
-        public List<(char character, List<TextEffect> effects)> ParseEffects() {
+        public List<(char character, List<TextEffect> effects)> ParseEffects(DialogueManager manager) {
             if (_parsedText != null) return _parsedText;
             _parsedText = new();
             string text = this.text;
@@ -111,6 +111,21 @@ namespace AppCore.DialogueManagement {
                         RemoveEffect(TextEffectType.Pause);
                     }
                     AddEffect(TextEffectType.Pause, float.Parse(tag.Substring(tag.IndexOf('=') + 1)));
+                    return;
+                }
+                
+                if (manager.effectsData.wobbleData.Any(data => data.name == tag)) {
+                    if (EffectsContain(TextEffectType.Wobble)) {
+                        RemoveEffect(TextEffectType.Wobble);
+                    }
+                    AddEffect(TextEffectType.Wobble, tag);
+                    return;
+                }
+                // if / wobble
+                if (tag[0] == '/' && manager.effectsData.wobbleData.Any(data => data.name == tag.Substring(1))) {
+                    if (EffectsContain(TextEffectType.Wobble)) {
+                        RemoveEffect(TextEffectType.Wobble);
+                    }
                     return;
                 }
                 

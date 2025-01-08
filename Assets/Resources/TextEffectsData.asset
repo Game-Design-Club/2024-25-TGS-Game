@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TextEffectsData
   m_EditorClassIdentifier: 
   wobbleData:
-  - name: 0
+  - name: wave
     xAmplitude: 0
     xSpeed: 0
     xOffset: 0
@@ -24,7 +24,7 @@ MonoBehaviour:
     yOffset: 0.25
     yVertMultiplier: 0.14
     yNoise: 0
-  - name: 1
+  - name: shake
     xAmplitude: 0
     xSpeed: 0
     xOffset: 0
