@@ -37,7 +37,7 @@ MonoBehaviour:
     yNoise: 2.98
   - name: warble
     xAmplitude: 19.75
-    xSpeed: 4.53
+    xSpeed: 6.94
     xOffset: 5.91
     xVertMultiplier: 23.97
     xNoise: 0
@@ -46,3 +46,5 @@ MonoBehaviour:
     yOffset: 1.71
     yVertMultiplier: 22.04
     yNoise: 0
+  appearDuration: 0.2
+  appearHeight: 2
