@@ -11,6 +11,10 @@ namespace Tools {
             public static class Child {
                 public const string Sleep = "Sleep";
             }
+
+            public class DialogueBox {
+                public const string IsOpen = "Open";
+            }
         }
 
         public class Tags {

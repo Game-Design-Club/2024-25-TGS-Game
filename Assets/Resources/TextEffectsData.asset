@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a80b671f8b564d6384d340ec95f18c9f, type: 3}
+  m_Name: TextEffectsData
+  m_EditorClassIdentifier: 
+  wobbleData:
+  - name: 0
+    xAmplitude: 0
+    xSpeed: 0
+    xOffset: 0
+    xVertMultiplier: 0
+    xNoise: 0
+    yAmplitude: 5.92
+    ySpeed: 4.2
+    yOffset: 0.25
+    yVertMultiplier: 0.14
+    yNoise: 0
+  - name: 1
+    xAmplitude: 0
+    xSpeed: 0
+    xOffset: 0
+    xVertMultiplier: 0
+    xNoise: 2.98
+    yAmplitude: 0
+    ySpeed: 0
+    yOffset: 0.1
+    yVertMultiplier: 0
+    yNoise: 2.98
+  - name: warble
+    xAmplitude: 19.75
+    xSpeed: 4.53
+    xOffset: 5.91
+    xVertMultiplier: 23.97
+    xNoise: 0
+    yAmplitude: 2.37
+    ySpeed: 1.71
+    yOffset: 1.71
+    yVertMultiplier: 22.04
+    yNoise: 0
