@@ -1,20 +1,16 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Combat.Enemies.AttackEnemy {
     public class AttackEnemyBase : EnemyBase {
         [SerializeField] internal float attackRange = 1f;
         [SerializeField] internal float walkSpeed = 5f;
-
+        
+        [SerializeField] internal AnimationCurve stunKnockbackCurve;
         
         private AttackEnemyState _currentState;
         
-        internal Rigidbody2D Rigidbody2D;
-
-        private void Awake() {
-            TryGetComponent(out Rigidbody2D);
-        }
-
         private void Start() {
             TransitionToState(new Move(this));
         }
@@ -27,6 +23,10 @@ namespace Game.Combat.Enemies.AttackEnemy {
         
         private void Update() {
             _currentState?.Update();
+        }
+
+        internal override void ProcessHit(Vector2 hitDirection, float knockbackForce) {
+            _currentState?.OnHit(hitDirection, knockbackForce);
         }
     }
 }

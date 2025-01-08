@@ -1,25 +1,26 @@
 using Tools;
-using UnityEngine;
 
 namespace Game.Combat.Bear {
     public class Swipe : BearState {
         public Swipe(BearController controller) : base(controller) { }
 
+        private float _startRotation;
+        
         public override void Enter() {
-            Controller.WalkSpeed = Controller.swipeWalkSpeed;
             Controller.Animator.SetTrigger(Constants.Animator.Bear.Swipe);
+            _startRotation = Controller.LastRotation;
         }
 
-        public override void Exit() {
-            
-        }
-
-        public override void Update() {
-            
+        public override float? GetWalkSpeed() {
+            return Controller.swipeWalkSpeed;
         }
         
-        public override void AnimationEnded() {
-            Controller.StateMachine.TransitionToState(new Idle(Controller));
+        public override float? GetRotation() {
+            return _startRotation;
+        }
+
+        public override void OnAnimationEnded() {
+            Controller.TransitionToState(new Idle(Controller));
         }
     }
 }

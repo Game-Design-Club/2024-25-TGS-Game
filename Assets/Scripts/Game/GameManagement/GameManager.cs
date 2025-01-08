@@ -7,8 +7,13 @@ namespace Game.GameManagement {
     public class GameManager : MonoBehaviour {
         // Child/Bear, and Paused/Unpaused
         // Controls InputMapping, and transitions between states
+        [SerializeField] public float transitionDuration = 1f;
+        
+        public static float TransitionDuration => _instance.transitionDuration;
         
         public static Action<GameEvent> OnGameEvent;
+        
+        private static GameManager _instance;
         
         private static bool _isPaused;
         private static bool IsPaused {
@@ -22,15 +27,32 @@ namespace Game.GameManagement {
             }
         }
         
+        private static GameEventType _lastGameEventType;
         private static GameEventType _gameEventType;
         private static GameEventType GameEventType {
             get => _gameEventType;
             set {
+                _lastGameEventType = _gameEventType;
                 _gameEventType = value;
                 OnGameEvent?.Invoke(new GameEvent {
                     GameEventType = _gameEventType,
                     IsPaused = IsPaused
                 });
+            }
+        }
+
+        private void Awake() {
+            if (_instance == null) {
+                _instance = this;
+            } else {
+                Destroy(gameObject);
+                Debug.LogError("Two GameManagers in scene");
+            }
+        }
+
+        private void OnDestroy() {
+            if (_instance == this) {
+                _instance = null;
             }
         }
 
@@ -57,7 +79,6 @@ namespace Game.GameManagement {
         public static void EndTransitionToCombat() {
             GameEventType = GameEventType.Bear;
         }
-        
 
         public static void StartTransitionToExploration() {
             GameEventType = GameEventType.ExploreEnter;
@@ -65,6 +86,14 @@ namespace Game.GameManagement {
 
         public static void EndTransitionToExploration() {
             GameEventType = GameEventType.Child;
+        }
+
+        public static void DialogueStart() {
+            GameEventType = GameEventType.Dialogue;
+        }
+
+        public static void DialogueEnd() {
+            GameEventType = _lastGameEventType;
         }
     }
     
@@ -78,6 +107,7 @@ namespace Game.GameManagement {
         CombatEnter,
         ExploreEnter,
         Bear,
-        Child
+        Child,
+        Dialogue
     }
 }

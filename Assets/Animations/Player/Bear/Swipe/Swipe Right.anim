@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Swipe
+  m_Name: Swipe Right
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0.62, y: 0.68, z: 0}
+        value: {x: 0.62, y: 0.36, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -29,16 +29,16 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.25
-        value: {x: 1.1328831, y: 0.13909018, z: 0}
-        inSlope: {x: 0, y: -2.6629407, z: 0}
-        outSlope: {x: 0, y: -2.6629407, z: 0}
+        value: {x: 1.1328831, y: -0.16648558, z: 0}
+        inSlope: {x: 0, y: -2.591929, z: 0}
+        outSlope: {x: 0, y: -2.591929, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.38333333
-        value: {x: 0.62, y: -0.07, z: 0}
+        value: {x: 0.62, y: -0.37, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -48,7 +48,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Attacks/Swipe Attack
+    path: Attacks/Swipe/Sprite
   m_ScaleCurves:
   - curve:
       serializedVersion: 2
@@ -74,7 +74,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Attacks/Swipe Attack
+    path: Attacks/Swipe/Sprite
   m_FloatCurves:
   - serializedVersion: 2
     curve:
@@ -102,7 +102,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Attacks/Swipe Attack
+    path: Attacks/Swipe
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -115,7 +115,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2442763314
+      path: 353128062
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -124,7 +124,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2442763314
+      path: 353128062
       attribute: 3
       script: {fileID: 0}
       typeID: 4
@@ -133,7 +133,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2442763314
+      path: 659732337
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -189,7 +189,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Attacks/Swipe Attack
+    path: Attacks/Swipe
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -228,7 +228,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Attacks/Swipe Attack
+    path: Attacks/Swipe/Sprite
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -238,7 +238,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.68
+        value: 0.36
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -247,7 +247,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.38333333
-        value: -0.07
+        value: -0.37
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -258,7 +258,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Attacks/Swipe Attack
+    path: Attacks/Swipe/Sprite
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -288,7 +288,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Attacks/Swipe Attack
+    path: Attacks/Swipe/Sprite
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -318,7 +318,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Attacks/Swipe Attack
+    path: Attacks/Swipe/Sprite
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -348,7 +348,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Attacks/Swipe Attack
+    path: Attacks/Swipe/Sprite
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -378,7 +378,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Attacks/Swipe Attack
+    path: Attacks/Swipe/Sprite
     classID: 4
     script: {fileID: 0}
     flags: 0

@@ -5,14 +5,33 @@ namespace Game.Combat.Bear {
         protected BearState(BearController controller) {
             Controller = controller;
         }
-        public abstract void Enter();
-        public abstract void Exit();
-        public abstract void Update();
         
-        internal BearController Controller;
+        public virtual void Enter() { }
+        public virtual void Exit() { }
+        public virtual void Update() { }
 
-        public virtual void OnMoveInput(Vector2 input) { }
+        public virtual float? GetWalkSpeed() {
+            return Controller.idleWalkSpeed;
+        }
+        public virtual Vector2 GetWalkDirection() {
+            return Controller.LastInput;
+        }
+        public virtual float? GetRotation() {
+            return DefaultRotation(Controller.LastInput);
+        }
+        
+        internal readonly BearController Controller;
+
         public virtual void OnSwipeInput() { }
-        public virtual void AnimationEnded() { }
+        public virtual void OnMovementInput(Vector2 direction) { }
+        public virtual void OnAnimationEnded() { }
+
+        private float? DefaultRotation(Vector2 input) {
+            if (input.x > 0) return 0;
+            if (input.x < 0) return 180;
+            if (input.y > 0) return 90;
+            if (input.y < 0) return 270;
+            return null;
+        }
     }
 }

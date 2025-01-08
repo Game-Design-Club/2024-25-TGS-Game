@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 671bfc0c826384bf8ba2b5cdc85311b2
+guid: fb685611007ec433a8693a1989b3b620
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4715133429420244817
-    second: Varsity Team Artwork_0
+      213: -3819293021117696179
+    second: Tree 3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Varsity Team Artwork_0
+      name: Tree 3_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 537
-        height: 704
+        x: 297
+        y: 139
+        width: 177
+        height: 280
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa046d6b02b709eb0800000000000000
-      internalID: -4715133429420244817
+      spriteID: d47b6279b352ffac0800000000000000
+      internalID: -3819293021117696179
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Varsity Team Artwork_0: -4715133429420244817
+      Tree 3_0: -3819293021117696179
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

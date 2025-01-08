@@ -31,13 +31,9 @@ namespace Game.Combat {
                 case GameEventType.CombatEnter:
                     sanityBar.gameObject.SetActive(true);
                     break;
-                case GameEventType.ExploreEnter:
-                case GameEventType.Cutscene:
-                case GameEventType.Child:
+                default:
                     sanityBar.gameObject.SetActive(false);
                     break;
-                default:
-                    throw new ArgumentOutOfRangeException();
             }
         }
     }

@@ -21,18 +21,19 @@ namespace Game.Combat {
     }
     
     [Serializable]
-    public struct WaveEntry {
+    public class WaveEntry {
         [SerializeField] public AnimationCurve spawnRate;
         [SerializeField] public EnemyType enemyType;
-        [SerializeField] public bool spawnLeft;
-        [SerializeField] public bool spawnRight;
-        [SerializeField] public bool spawnTop;
-        [SerializeField] public bool spawnBottom;
-        [SerializeField] public float spawnBuffer;
+        [SerializeField] public bool spawnLeft = true;
+        [SerializeField] public bool spawnRight = true;
+        [SerializeField] public bool spawnTop = true;
+        [SerializeField] public bool spawnBottom = true;
+        [SerializeField] public float bufferAfterThisEntry = 0;
 
-        private List<float> _spawnTimes;
+        private List<float> _spawnTimes = null;
         private static float _valueTarget = 1f;
         private static float _timeStep = 0.1f;
+
         
         public List<float> GetSpawnTimes() {
             _spawnTimes = new List<float>();
@@ -43,6 +44,7 @@ namespace Game.Combat {
             
             _spawnTimes.Add(0);
             
+            // wooo calculus
             while (time < totalTime) {
                 time += _timeStep;
                 value += spawnRate.Evaluate(time) * _timeStep;

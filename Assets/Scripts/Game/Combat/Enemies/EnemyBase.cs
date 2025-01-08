@@ -7,17 +7,33 @@ namespace Game.Combat.Enemies {
         [SerializeField] internal int sanityDamage = 10;
         
         internal CombatAreaManager CombatManager;
+        
+        internal Rigidbody2D Rigidbody;
+        
+        private void Awake() {
+            TryGetComponent(out Rigidbody);
+        }
 
-        public void TakeDamage(int damage) {
+        public void TakeDamage(int damage, Vector2 hitDirection, float knockbackForce) {
             health -= damage;
+            
+            ProcessHit(hitDirection, knockbackForce);
+            
             if (health <= 0) {
+                CombatManager.EnemyKilled(this);
                 Die();
             }
         }
 
-        private void Die() {
-            CombatManager.EnemyKilled(this);
+        internal void Die() {
             Destroy(gameObject);
         }
+
+        public void HitChild() {
+            CombatManager.ChildHit(this);
+            Die();
+        }
+        
+        internal abstract void ProcessHit(Vector2 hitDirection, float knockbackForce);
     }
 }

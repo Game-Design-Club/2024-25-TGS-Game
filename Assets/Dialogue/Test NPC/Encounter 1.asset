@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1fdbc6d7c9e4547906a28e94815876f, type: 3}
+  m_Name: Encounter 1
+  m_EditorClassIdentifier: 
+  dialogueChunks:
+  - character: {fileID: 11400000, guid: c83188e74ab99459888ac695702907fe, type: 2}
+    text: <color=orange><wobble=0>HI MISTER <pause=2>HOW ARE YOU DOING?!
+  - character: {fileID: 11400000, guid: 93e1e51a914d947c48cb6b3e5077689c, type: 2}
+    text: <wobble=1><bold>SCRAM<bold></wobble> KID
+  - character: {fileID: 11400000, guid: c83188e74ab99459888ac695702907fe, type: 2}
+    text: <bold><wobble=0><color=yellow>ok <color=green>:(
+  - character: {fileID: 11400000, guid: c83188e74ab99459888ac695702907fe, type: 2}
+    text: <bold><wobble=warble><color=yellow>BWAHAHHAHA
+  - character: {fileID: 11400000, guid: c83188e74ab99459888ac695702907fe, type: 2}
+    text: hIIIII <pause=1> potatoes <pause=3> yayyy <pause=1>!!!!!!!!!!!!~!
