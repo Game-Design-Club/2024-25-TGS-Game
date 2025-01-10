@@ -119,11 +119,7 @@ namespace AppCore.DialogueManagement {
 
         }
         
-        private void RemoveExpiredEffects() {
-            // Expired effects are ones that don't work if effects is added to multiple characters
-            // In textmeshpro, that'll be like colors and bold
-            // For wobble on the other hand, it's fine to have it on multiple characters
-            
+        private void RemoveExpiredEffects() { // Mostly for TMPro tags, or more event stuff (pause)
             _activeEffects.RemoveAll(effect => ExpirableEffects.Contains(effect.Type));
         }
         
