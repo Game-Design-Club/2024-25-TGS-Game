@@ -3,7 +3,7 @@ using UnityEngine.Serialization;
 
 namespace AppCore.DialogueManagement {
     [System.Serializable]
-    public struct WobbleData {
+    public class WobbleData {
         [SerializeField] public string name;
         [SerializeField] public float xAmplitude;
         [SerializeField] public float xSpeed;
