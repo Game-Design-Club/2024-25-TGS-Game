@@ -17,9 +17,9 @@ namespace Game.Combat.Bear {
 
             Vector2 dif= (other.transform.position - transform.position).normalized * directionWeight;
             
-            Vector2 knockbackDirection = (Vector2)transform.right + dif;
+            Vector2 knockbackDirection = ((Vector2)transform.right + dif) * (transform.lossyScale.x > 0 ? 1 : -1);
             
-            other.GetComponent<EnemyBase>().TakeDamage(50, knockbackDirection, knockbackForce);
+            other.GetComponent<EnemyBase>().TakeDamage(50, knockbackDirection.normalized, knockbackForce);
         }
     }
 }

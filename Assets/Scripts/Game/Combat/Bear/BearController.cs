@@ -57,13 +57,16 @@ namespace Game.Combat.Bear {
            
             float? rotation = _currentState.GetRotation();
             if (rotation.HasValue) {
+                LastRotation = (float)rotation;
+                
+                // Debug.Log(rotation);
                 if (rotation > 90 && rotation < 270) {
                     rotateTransform.localScale = new Vector3(-1, 1, 1);
+                    rotation += 180;
                 } else {
                     rotateTransform.localScale = new Vector3(1, 1, 1);
                 }
                 rotateTransform.rotation = Quaternion.Euler(0, 0, (float)rotation);
-                LastRotation = (float)rotation;
             }
         }
         
