@@ -6,6 +6,9 @@ using UnityEngine.Serialization;
 
 namespace Game.Combat.Bear {
     public class BearController : MonoBehaviour {
+        [Header("References")]
+        [SerializeField] private Transform rotateTransform;
+        [Header("Data")]
         [SerializeField] internal float idleWalkSpeed = 5f;
         [SerializeField] internal float swipeWalkSpeed = 2f;
         
@@ -54,9 +57,14 @@ namespace Game.Combat.Bear {
            
             float? rotation = _currentState.GetRotation();
             if (rotation.HasValue) {
-                transform.rotation = Quaternion.Euler(0, 0, (float)rotation);
+                if (rotation > 90 && rotation < 270) {
+                    rotateTransform.localScale = new Vector3(-1, 1, 1);
+                } else {
+                    rotateTransform.localScale = new Vector3(1, 1, 1);
+                }
+                rotateTransform.rotation = Quaternion.Euler(0, 0, (float)rotation);
                 LastRotation = (float)rotation;
-            }        
+            }
         }
         
         // Exposed to Animation Events

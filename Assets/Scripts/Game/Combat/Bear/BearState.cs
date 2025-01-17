@@ -27,6 +27,10 @@ namespace Game.Combat.Bear {
         public virtual void OnAnimationEnded() { }
 
         private float? DefaultRotation(Vector2 input) {
+            if (input.x > 0 && input.y > 0) return 45;
+            if (input.x > 0 && input.y < 0) return 315;
+            if (input.x < 0 && input.y > 0) return 135;
+            if (input.x < 0 && input.y < 0) return 225;
             if (input.x > 0) return 0;
             if (input.x < 0) return 180;
             if (input.y > 0) return 90;

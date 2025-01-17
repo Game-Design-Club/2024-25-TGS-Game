@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueChunks:
   - character: {fileID: 11400000, guid: c83188e74ab99459888ac695702907fe, type: 2}
-    text: <color=orange><wave>HI MISTER <pause=2>HOW ARE YOU DOING?!
+    text: <color=ora nge><wave>HI MISTER <pause=2>HOW ARE YOU DOING?!
   - character: {fileID: 11400000, guid: 93e1e51a914d947c48cb6b3e5077689c, type: 2}
     text: <shake><bold>SCRAM<bold></wobble> KID
   - character: {fileID: 11400000, guid: c83188e74ab99459888ac695702907fe, type: 2}

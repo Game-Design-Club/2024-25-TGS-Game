@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ea223bb1b724eeca54491e5563e4dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateTransform: {fileID: 920674885064259003}
   idleWalkSpeed: 5
   swipeWalkSpeed: 2
 --- !u!1 &1448447873934412182
@@ -261,6 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 50
   knockbackForce: 10
+  directionWeight: 0.6
 --- !u!1 &4328924488830475695
 GameObject:
   m_ObjectHideFlags: 0
