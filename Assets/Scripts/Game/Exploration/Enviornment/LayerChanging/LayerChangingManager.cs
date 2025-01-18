@@ -7,10 +7,18 @@ using UnityEngine;
 namespace Game.Exploration.Enviornment.LayerChanging {
     public class LayerChangingManager : MonoBehaviour {
         [SerializeField] private ChildController child;
-        private static List<LayerChanger> _layerChangers = new();
+        private List<LayerChanger> _layerChangers = new();
+
+        private static LayerChangingManager _instance;
         
+        private void Awake() {
+            if (_instance == null) _instance = this;
+            else Destroy(gameObject);
+            
+        }
+
         public static void RegisterLayerChanger(LayerChanger changer) {
-            _layerChangers.Add(changer);
+            _instance._layerChangers.Add(changer);
         }
 
         private void Update() {
