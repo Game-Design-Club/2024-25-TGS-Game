@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using AppCore.InputManagement;
 using Game.GameManagement;
-using NUnit.Framework;
 using TMPro;
 using Tools;
 using UnityEngine;
@@ -14,32 +13,31 @@ using Random = UnityEngine.Random;
 
 namespace AppCore.DialogueManagement {
     public class DialogueManager : AppModule {
-        [FormerlySerializedAs("effectsDat")]
-        [FormerlySerializedAs("textEffectsData")]
         [Header("Settings")]
-        [SerializeField] private TextEffectsData effectsData;
-        [SerializeField] private float scrollSpeed = 1;
-        [FormerlySerializedAs("_punctuationPauseTime")]
+        [SerializeField] internal TextEffectsData effectsData;
+        [SerializeField] private float scrollSpeed = 1f;
+
         [Header("Auto pause")]
         [SerializeField] private CharacterAutoPause[] autoPauseCharacters;
+
         [Header("References")]
         [SerializeField] private GameObject dialogueBox;
-        
         [SerializeField] private TextMeshProUGUI dialogueText;
         [SerializeField] private TextMeshProUGUI characterNameText;
         [SerializeField] private Image characterSpriteRenderer;
-        
+
         private Dialogue _currentDialogue;
-        
         private bool _shouldContinue;
-        
-        private bool _isScrollingDialogue;
-        
-        private List<(int, string)> _wobbleCharacters = new();
+
+        private int _typedIndex; // How many characters are currently shown
+
+        private Dictionary<int, float> _animatingCharacters = new();
+
+        private Dictionary<int, string> _wobbleCharacters = new();
 
         private Animator _animator;
-        
-        // Unity functions
+        private Action _onDialogueComplete;
+
         private void Awake() {
             dialogueBox.SetActive(false);
             _animator = GetComponent<Animator>();
@@ -48,11 +46,11 @@ namespace AppCore.DialogueManagement {
         private void OnEnable() {
             App.Get<InputManager>().OnDialogueContinue += OnContinue;
         }
-        
+
         private void OnDisable() {
             App.Get<InputManager>().OnDialogueContinue -= OnContinue;
         }
-        
+
         private void OnContinue() {
             _shouldContinue = true;
         }
@@ -63,159 +61,257 @@ namespace AppCore.DialogueManagement {
                     ? "Tried to play cutscene while already playing that dialogue"
                     : "Tried to play a cutscene while playing another dialogue");
             }
-            
+
             _currentDialogue = dialogue;
-            StartCoroutine(PlayDialogue(callback));
+            _onDialogueComplete = callback;
+            StartCoroutine(PlayDialogue());
         }
-        
-        // Private functions
-        private IEnumerator PlayDialogue(Action callback) {
+
+        private IEnumerator PlayDialogue() {
             GameManager.DialogueStart();
-            
             dialogueBox.SetActive(true);
-            
             _animator.SetBool(Constants.Animator.DialogueBox.IsOpen, true);
-            
-            _wobbleCharacters.Clear();
+
+            // For each chunk in the dialogue:
             foreach (DialogueChunk currentChunk in _currentDialogue) {
                 SetupChunk(currentChunk);
-                
+                // Wait for this chunk to finish
                 yield return StartCoroutine(TypeOutChunk(currentChunk));
-                
-                _wobbleCharacters.Clear();
             }
-            
+
+            // Clean up
             _currentDialogue = null;
             GameManager.DialogueEnd();
-            callback.Invoke();
-            
+            _onDialogueComplete?.Invoke();
             _animator.SetBool(Constants.Animator.DialogueBox.IsOpen, false);
-            yield return new WaitForSeconds(0.5f);
-            dialogueBox.SetActive(false);
         }
-        
+
         private void SetupChunk(DialogueChunk chunk) {
-            dialogueText.text = "";
+            // Clear out old data
+            _typedIndex = 0;
+            _wobbleCharacters.Clear();
+            _animatingCharacters.Clear();
+
+            // Set name and sprite
             characterNameText.text = chunk.character.name;
             characterSpriteRenderer.sprite = chunk.character.sprite;
+
+            // Parse chunk for effects
+            var parsedChunk = chunk.ParseEffects(this); 
+            // Build a single string with all the text and tags
+            string fullText = BuildFullString(parsedChunk);
+
+            // Then set the entire text at once
+            dialogueText.text = fullText;
+
+            dialogueText.ForceMeshUpdate();
         }
 
         private IEnumerator TypeOutChunk(DialogueChunk chunk) {
-                yield return null; // Otherwise dialogue will be skipped because start dialogue button is the same as continue button
-                _shouldContinue = false;
-                
-                var parsedChunk = chunk.ParseEffects();
-                for (int i = 0; i < parsedChunk.Count; i++) {
+            yield return null;
+            _shouldContinue = false;
+
+            var parsedChunk = chunk.ParseEffects(this);
+
+            for (int i = 0; i < parsedChunk.Count; i++) {
+                // If user pressed skip, reveal the rest instantly
+                if (_shouldContinue) {
+                    RevealAllRemainingCharacters(parsedChunk);
+                    break;
+                }
+
+                // "Reveal" this next character
+                _typedIndex = i + 1; // typedIndex is "how many chars are shown"
+                StartAnimationForCharacter(i, parsedChunk[i].effects);
+
+                // AutoPause if this character triggers it
+                char c = parsedChunk[i].character;
+                yield return StartCoroutine(HandleAutoPause(c));
+
+                // If pressed skip while in a pause, break out
+                if (_shouldContinue) {
+                    RevealAllRemainingCharacters(parsedChunk);
+                    break;
+                }
+
+                // Wait for normal "type speed" delay
+                float waitTime = 1f / scrollSpeed;
+                float timer = 0f;
+                while (timer < waitTime) {
                     if (_shouldContinue) {
-                        _shouldContinue = false;
-                        for (int j = i; j < parsedChunk.Count; j++) {
-                            yield return StartCoroutine(AppendCharacter(parsedChunk, j, true));
-                        }
+                        RevealAllRemainingCharacters(parsedChunk);
                         break;
                     }
-
-                    yield return StartCoroutine(AppendCharacter(parsedChunk, i));
-                    yield return new WaitForSecondsRealtime(1 / scrollSpeed);
+                    timer += Time.deltaTime;
+                    yield return null;
                 }
-                _shouldContinue = false;
+            }
 
-                yield return new WaitUntil(() => _shouldContinue);
-
-                _shouldContinue = false;
+            // After finishing the chunk, wait for the user to press continue again
+            _shouldContinue = false;
+            yield return new WaitUntil(() => _shouldContinue);
+            _shouldContinue = false;
         }
 
-        private IEnumerator AppendCharacter(List<(char character, List<TextEffect> effects)> parsedCharacters, int index, bool ignorePause = false) {
-            var (character, effects) = parsedCharacters[index];
-            foreach (var effect in effects) {
-                yield return StartCoroutine(ApplyEffect(effect, index, ignorePause));
+        private void RevealAllRemainingCharacters(List<(char character, List<TextEffect> effects)> parsedChunk) {
+            _typedIndex = parsedChunk.Count;
+            // Start animate all those not started yet
+            for (int i = 0; i < parsedChunk.Count; i++) {
+                if (!_animatingCharacters.ContainsKey(i)) {
+                    StartAnimationForCharacter(i, parsedChunk[i].effects, skip:true);
+                }
             }
-            dialogueText.text += character;
-            
-            if (ignorePause) yield break;
+        }
+
+        /// Start the appear/wobble for the character at index, storing data in dictionaries.
+        /// If skip==true, we mark the character as "fully done" so it doesn't float down.
+        private void StartAnimationForCharacter(int index, List<TextEffect> effects, bool skip=false) {
+            // Mark this character as newly revealed
+            _animatingCharacters[index] = skip ? effectsData.appearDuration : 0f;
+
+            // Also see if there's a wobble effect
+            foreach (var eff in effects) {
+                if (eff.Type == TextEffectType.Wobble) {
+                    _wobbleCharacters[index] = (string)eff.Data;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Checks if the typed character is in autoPauseCharacters; if so, does a short wait.
+        /// </summary>
+        private IEnumerator HandleAutoPause(char c) {
             foreach (var autoPauseCharacter in autoPauseCharacters) {
-                if (autoPauseCharacter.character == character) {
-                    yield return new WaitForSecondsRealtime(autoPauseCharacter.pauseDuration);
-                }
-            }
-        }
-        
-        private IEnumerator ApplyEffect(TextEffect effect, int index, bool ignorePause) {
-            // If color, add <color=data> string to text so textmeshpro can parse it
-            // If bold, add <b> tag to text so textmeshpro can parse it
-            // If wobble, add character index to wobble list to be used in Update
-            if (effect.Type == TextEffectType.Color) {
-                dialogueText.text += $"<{effect.Data}>";
-            } else if (effect.Type == TextEffectType.Bold) {
-                dialogueText.text += "<b>";
-            } else if (effect.Type == TextEffectType.Wobble) {
-                _wobbleCharacters.Add((index, (string)effect.Data));
-            } else if (effect.Type == TextEffectType.Pause) {
-                if (!ignorePause) {
-                    yield return new WaitForSecondsRealtime((float)effect.Data);
+                if (autoPauseCharacter.character == c) {
+                    float timer = 0f;
+                    while (timer < autoPauseCharacter.pauseDuration) {
+                        if (_shouldContinue) yield break;
+                        timer += Time.deltaTime;
+                        yield return null;
+                    }
                 }
             }
         }
 
-        private void Update() {
-            ApplyWobble();
+        private string BuildFullString(List<(char character, List<TextEffect> effects)> parsed) {
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+            foreach (var (character, effects) in parsed) {
+                foreach (var e in effects) {
+                    switch (e.Type) {
+                        case TextEffectType.Color:
+                            sb.Append($"<{e.Data}>");
+                            break;
+                        case TextEffectType.Bold:
+                            sb.Append("<b>");
+                            break;
+                        case TextEffectType.Italic:
+                            sb.Append("<i>");
+                            break;
+                    }
+                }
+
+                sb.Append(character);
+            }
+
+            return sb.ToString();
         }
 
-        private void ApplyWobble() { 
-            // Force an update so we can manipulate the mesh
+        /// LateUpdate: we now set alpha/offset for each character based on whether it’s revealed or not, and any effects.
+        private void LateUpdate() {
             dialogueText.ForceMeshUpdate();
+            ApplyEffectsToText();
+        }
 
+        private void ApplyEffectsToText() {
             TMP_TextInfo textInfo = dialogueText.textInfo;
             float time = Time.unscaledTime;
 
-            // For each stored wobble index
-            for (int i = 0; i < _wobbleCharacters.Count; i++) {
-                var (charIndex, wobbleName) = _wobbleCharacters[i];
-                WobbleData wobble = Array.Find(effectsData.wobbleData, w => w.name == wobbleName);
-                
-                if (charIndex >= textInfo.characterCount) 
-                    continue;
-            
-                TMP_CharacterInfo charInfo = textInfo.characterInfo[charIndex];
-            
-                if (!charInfo.isVisible) 
-                    continue;
+            for (int i = 0; i < textInfo.characterCount; i++) {
+                TMP_CharacterInfo charInfo = textInfo.characterInfo[i];
+                if (!charInfo.isVisible) continue;
 
-                Vector3[] verts = textInfo.meshInfo[charInfo.materialReferenceIndex].vertices;
+                // 4 vertices
+                int matIndex = charInfo.materialReferenceIndex;
+                int vertIndex = charInfo.vertexIndex;
+                Vector3[] verts = textInfo.meshInfo[matIndex].vertices;
+                Color32[] colors = textInfo.meshInfo[matIndex].colors32;
 
-                float charXNoise = Random.Range(-wobble.xNoise, wobble.xNoise);
-                float charYNoise = Random.Range(-wobble.yNoise, wobble.yNoise);
+                // If this character is not yet revealed (i >= typedIndex), set alpha=0
+                // and skip any appear/wobble logic.
+                if (i >= _typedIndex) {
+                    for (int j = 0; j < 4; j++) {
+                        Color32 origColor = colors[vertIndex + j];
+                        colors[vertIndex + j] = new Color32(origColor.r, origColor.g, origColor.b, 0);
+                    }
+                    continue; 
+                }
 
+                // The character is revealed, so do appear/wobble
+                float animTime = 0f;
+                if (_animatingCharacters.ContainsKey(i)) {
+                    // Increase that character's "time since reveal"
+                    _animatingCharacters[i] += Time.deltaTime;
+                    animTime = _animatingCharacters[i];
+                    if (animTime > effectsData.appearDuration) {
+                        animTime = effectsData.appearDuration;
+                    }
+                }
 
-                // Each character is made of 4 verts
+                // "t" = how far along we are in the appear animation [0..1]
+                float t = Mathf.Clamp01(animTime / effectsData.appearDuration);
+                float yOffset = Mathf.Lerp(effectsData.appearHeight, 0f, t);
+                float alpha = t; // fade from 0 -> 1
+
+                // Wobble?
+                float[] xVertOffsets = new float[] { 0,0,0,0};
+                float[] yVertOffsets = new float[] { 0,0,0,0};
+                if (_wobbleCharacters.ContainsKey(i)) {
+                    var wobble = Array.Find(effectsData.wobbleData,
+                        w => w.name == _wobbleCharacters[i]);
+                    if (wobble != null) {
+                        
+                        float xJitter = Random.Range(-wobble.xNoise, wobble.xNoise);
+                        float yJitter = Random.Range(-wobble.yNoise, wobble.yNoise);
+
+                        // basic wave
+                        for (int j = 0; j < 4; j++) {
+                            xVertOffsets[j] +=
+                                Mathf.Sin(time * wobble.xSpeed +
+                                          i * wobble.xOffset +
+                                          j * wobble.xVertMultiplier) *
+                                wobble.xAmplitude + xJitter;
+                            yVertOffsets[j] +=
+                                Mathf.Sin(time * wobble.ySpeed + i * wobble.yOffset + j * wobble.yVertMultiplier) *
+                                wobble.yAmplitude + yJitter;
+                        }
+                        
+                        // random jitter
+                    }
+                }
+
+                // Apply final offset + alpha
                 for (int j = 0; j < 4; j++) {
-                    Vector3 orig = verts[charInfo.vertexIndex + j];
-
-                    float xOffset = 0;
-                    float yOffset = 0;
-                    xOffset += (float)Math.Sin(
-                        time * wobble.xSpeed + 
-                        charIndex * wobble.xOffset +
-                        j * wobble.xVertMultiplier
-                        ) * wobble.xAmplitude;
-
-
-                    yOffset += (float)Math.Sin(
-                        time * wobble.ySpeed + 
-                        charIndex * wobble.yOffset +
-                        j * wobble.yVertMultiplier
-                        ) * wobble.yAmplitude;
+                    Vector3 orig = verts[vertIndex + j];
                     
-                    xOffset += charXNoise;
-                    yOffset += charYNoise;
+                    float xOffset = xVertOffsets[j];
+                    float yAnimOffset = yOffset + yVertOffsets[j];
 
-                    verts[charInfo.vertexIndex + j] = orig + new Vector3(xOffset, yOffset, 0);
+                    // Move the vertex
+                    verts[vertIndex + j] = orig + new Vector3(xOffset, yAnimOffset, 0f);
+
+                    // Set alpha
+                    Color32 origColor = colors[vertIndex + j];
+                    byte a = (byte)Mathf.Clamp(Mathf.RoundToInt(255f * alpha), 0, 255);
+                    colors[vertIndex + j] = new Color32(origColor.r, origColor.g, origColor.b, a);
                 }
             }
 
-            // Push changes into the mesh
+            // Push changes to the mesh
             for (int i = 0; i < textInfo.meshInfo.Length; i++) {
                 var meshInfo = textInfo.meshInfo[i];
                 meshInfo.mesh.vertices = meshInfo.vertices;
+                meshInfo.mesh.colors32 = meshInfo.colors32;
                 dialogueText.UpdateGeometry(meshInfo.mesh, i);
             }
         }

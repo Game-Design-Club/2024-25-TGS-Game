@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueChunks:
   - character: {fileID: 11400000, guid: c83188e74ab99459888ac695702907fe, type: 2}
-    text: Hi bestie what's good
+    text: Hi bestie <wave>what's good
   - character: {fileID: 11400000, guid: 93e1e51a914d947c48cb6b3e5077689c, type: 2}
     text: I SAID SCRAM. But actually idrc hi whatsup.
   - character: {fileID: 11400000, guid: c83188e74ab99459888ac695702907fe, type: 2}
@@ -23,6 +23,6 @@ MonoBehaviour:
     text: naurrrr
   - character: {fileID: 11400000, guid: c83188e74ab99459888ac695702907fe, type: 2}
     text: yerp its true! Anyways im staying here but if u want to go back to town
-      it's up north.
+      it's up <color=red>north</color>.
   - character: {fileID: 11400000, guid: 93e1e51a914d947c48cb6b3e5077689c, type: 2}
     text: okkkk cool thanks bestie

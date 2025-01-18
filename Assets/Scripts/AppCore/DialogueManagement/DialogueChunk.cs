@@ -21,7 +21,7 @@ namespace AppCore.DialogueManagement {
 
         private List<TextEffect> _activeEffects = new();
 
-        public List<(char character, List<TextEffect> effects)> ParseEffects() {
+        public List<(char character, List<TextEffect> effects)> ParseEffects(DialogueManager manager) {
             if (_parsedText != null) return _parsedText;
             _parsedText = new();
             string text = this.text;
@@ -114,16 +114,27 @@ namespace AppCore.DialogueManagement {
                     return;
                 }
                 
+                if (manager.effectsData.wobbleData.Any(data => data.name == tag)) {
+                    if (EffectsContain(TextEffectType.Wobble)) {
+                        RemoveEffect(TextEffectType.Wobble);
+                    }
+                    AddEffect(TextEffectType.Wobble, tag);
+                    return;
+                }
+                // if / wobble
+                if (tag[0] == '/' && manager.effectsData.wobbleData.Any(data => data.name == tag.Substring(1))) {
+                    if (EffectsContain(TextEffectType.Wobble)) {
+                        RemoveEffect(TextEffectType.Wobble);
+                    }
+                    return;
+                }
+                
                 Debug.LogWarning("Unknown tag: " + tag);
             }
 
         }
         
-        private void RemoveExpiredEffects() {
-            // Expired effects are ones that don't work if effects is added to multiple characters
-            // In textmeshpro, that'll be like colors and bold
-            // For wobble on the other hand, it's fine to have it on multiple characters
-            
+        private void RemoveExpiredEffects() { // Mostly for TMPro tags, or more event stuff (pause)
             _activeEffects.RemoveAll(effect => ExpirableEffects.Contains(effect.Type));
         }
         
