@@ -12,14 +12,19 @@ namespace Tools {
                 public const string Sleep = "Sleep";
             }
 
-            public class DialogueBox {
+            public static class DialogueBox {
                 public const string IsOpen = "Open";
             }
         }
 
-        public class Tags {
+        public static class Tags {
             public const string Enemy = "Enemy";
             public const string Child = "Child";
+        }
+
+        public static class Layers {
+            public const string ChildGameplay = "Child Gameplay";
+            public const string ChildGameplayFront = "Child Gameplay Front";
         }
     }
 }
