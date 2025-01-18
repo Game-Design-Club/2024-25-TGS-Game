@@ -54,6 +54,9 @@ TagManager:
   - name: Child
     uniqueID: 2877319967
     locked: 0
+  - name: Child Gameplay Front
+    uniqueID: 68294525
+    locked: 0
   - name: Bear Gameplay
     uniqueID: 1741993609
     locked: 0
