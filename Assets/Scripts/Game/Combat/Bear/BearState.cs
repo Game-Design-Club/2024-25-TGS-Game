@@ -23,6 +23,7 @@ namespace Game.Combat.Bear {
         internal readonly BearController Controller;
 
         public virtual void OnSwipeInput() { }
+        public virtual void OnSwipeInputReleased() { }
         public virtual void OnMovementInput(Vector2 direction) { }
         public virtual void OnAnimationEnded() { }
 

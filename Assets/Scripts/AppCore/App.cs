@@ -15,7 +15,7 @@ namespace AppCore {
 
         [SerializeField] private List<AppModule> appModules;
         
-        private Dictionary<Type, AppModule> _moduleDictionary = new ();
+        private readonly Dictionary<Type, AppModule> _moduleDictionary = new();
         
         public static T Get<T>() where T : AppModule {
             if (_instance._moduleDictionary.TryGetValue(typeof(T), out AppModule module)) {
@@ -33,6 +33,7 @@ namespace AppCore {
                 DontDestroyOnLoad(gameObject);
             } else {
                 Destroy(gameObject);
+                return;
             }
             
             CheckAppModules();
@@ -46,8 +47,7 @@ namespace AppCore {
                 }
             }
         }
-
-
+        
         // Used to check if the App instance is in the scene, otherwise throw an error
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void CheckAppInstance() {

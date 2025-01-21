@@ -1,15 +1,14 @@
 using AppCore;
 using AppCore.InputManagement;
-using Tools;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Game.Combat.Bear {
     public class BearController : MonoBehaviour {
         [Header("References")]
         [SerializeField] private Transform rotateTransform;
-        [Header("Data")]
+        [Header("Idle State")]
         [SerializeField] internal float idleWalkSpeed = 5f;
+        [Header("Swipe State")]
         [SerializeField] internal float swipeWalkSpeed = 2f;
         
         internal Vector2 LastInput;
@@ -23,11 +22,13 @@ namespace Game.Combat.Bear {
         
         private void OnEnable() {
             App.Get<InputManager>().OnBearSwipe += OnSwipe;
+            App.Get<InputManager>().OnBearSwipeReleased += OnSwipeReleased;
             App.Get<InputManager>().OnBearMovement += OnMovement;
         }
         
         private void OnDisable() {
             App.Get<InputManager>().OnBearSwipe -= OnSwipe;
+            App.Get<InputManager>().OnBearSwipeReleased -= OnSwipeReleased;
             App.Get<InputManager>().OnBearMovement += OnMovement;
         }
         
@@ -73,6 +74,10 @@ namespace Game.Combat.Bear {
         // Exposed to Animation Events
         private void OnSwipe() {
             _currentState.OnSwipeInput();
+        }
+        
+        private void OnSwipeReleased() {
+            _currentState.OnSwipeInputReleased();
         }
         
         private void AnimationEnded() {

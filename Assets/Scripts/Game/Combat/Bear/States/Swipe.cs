@@ -1,10 +1,13 @@
 using Tools;
+using UnityEngine;
 
 namespace Game.Combat.Bear {
     public class Swipe : BearState {
         public Swipe(BearController controller) : base(controller) { }
 
         private float _startRotation;
+        
+        private bool _swipeInputReleased = false;
         
         public override void Enter() {
             Controller.Animator.SetTrigger(Constants.Animator.Bear.Swipe);
@@ -18,9 +21,17 @@ namespace Game.Combat.Bear {
         public override float? GetRotation() {
             return _startRotation;
         }
+        
+        public override void OnSwipeInputReleased() {
+            _swipeInputReleased = true;
+        }
 
         public override void OnAnimationEnded() {
-            Controller.TransitionToState(new Idle(Controller));
+            if (!_swipeInputReleased) {
+                Controller.TransitionToState(new GrowlChargeup(Controller));
+            } else {
+                Controller.TransitionToState(new Idle(Controller));
+            }
         }
     }
 }

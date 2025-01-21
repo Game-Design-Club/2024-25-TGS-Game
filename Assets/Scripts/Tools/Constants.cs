@@ -7,6 +7,9 @@ namespace Tools {
 
             public static class Bear {
                 public const string Swipe = "Swipe";
+                public const string Growl = "Growl Execute";
+                public const string GrowlChargeup = "Growl Charge";
+                public const string Idle = "Idle";
             }
             public static class Child {
                 public const string Sleep = "Sleep";
