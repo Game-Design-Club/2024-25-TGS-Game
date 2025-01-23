@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8453386012970955836}
   - component: {fileID: 5833024095337464762}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Can Talk Icon
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 5255686076303147110}
   - component: {fileID: 541227881446420800}
   - component: {fileID: 3003336477658297662}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8994184592017386483}
   - component: {fileID: 2872538817275847707}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1475414266946807466}
   - component: {fileID: 2145041807932842313}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: No walk
   m_TagString: Untagged
   m_Icon: {fileID: 0}

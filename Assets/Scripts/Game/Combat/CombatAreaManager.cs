@@ -233,7 +233,10 @@ namespace Game.Combat {
         }
 
         private void PlayerLost() {
-            Debug.Log("DEAD");
+            StopAllCoroutines();
+            StartCoroutine(TransitionToExploration());
+            _combatEntered = false;
+            Debug.Log("DEADADDD");
         }
 
         // Helper functions

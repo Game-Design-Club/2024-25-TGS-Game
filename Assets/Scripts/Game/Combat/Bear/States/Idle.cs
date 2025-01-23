@@ -1,5 +1,6 @@
 
 using Tools;
+using UnityEngine;
 
 namespace Game.Combat.Bear {
     public class Idle : BearState {
@@ -12,6 +13,7 @@ namespace Game.Combat.Bear {
             Controller.Animator.ResetTrigger(Constants.Animator.Bear.GrowlChargeup);
         }
 
+        
         public override void OnSwipeInput() {
             Controller.TransitionToState(new Swipe(Controller));
         }

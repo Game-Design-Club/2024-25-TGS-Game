@@ -8,19 +8,16 @@ namespace Game.Combat.Bear {
     public class BearDamageDealer : MonoBehaviour {
         [SerializeField] private int damage = 50;
         [SerializeField] private float knockbackForce = 10;
-        [SerializeField] private float directionWeight = 0.6f;
         [SerializeField] private bool movementBased = true;
+        [SerializeField] private float directionWeight = 0.6f;
         
-        private bool _canDamage = true;
-        
-        private HashSet<EnemyBase> _enemiesHit = new();
+        private readonly HashSet<EnemyBase> _enemiesHit = new();
 
         private void OnEnable() {
             _enemiesHit.Clear();
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
-            if (!_canDamage) return;
             if (!other.gameObject.TryGetComponent(out EnemyBase enemyBase) || !_enemiesHit.Add(enemyBase)) return; // Add returns false if already in set
 
             Vector2 dif= (other.transform.position - transform.position).normalized;
@@ -33,7 +30,7 @@ namespace Game.Combat.Bear {
                 knockbackDirection = dif;
             }
             
-            enemyBase.TakeDamage(50, knockbackDirection.normalized, knockbackForce);
+            enemyBase.TakeDamage(damage, knockbackDirection.normalized, knockbackForce);
         }
     }
 }

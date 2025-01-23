@@ -10,6 +10,7 @@ namespace Tools {
                 public const string Growl = "Growl Execute";
                 public const string GrowlChargeup = "Growl Charge";
                 public const string Idle = "Idle";
+                public static string Stun = "Stun";
             }
             public static class Child {
                 public const string Sleep = "Sleep";

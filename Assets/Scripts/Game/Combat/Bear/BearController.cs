@@ -4,19 +4,23 @@ using UnityEngine;
 
 namespace Game.Combat.Bear {
     public class BearController : MonoBehaviour {
+        [SerializeField] private string currentStateName = "State";
         [Header("References")]
         [SerializeField] private Transform rotateTransform;
         [Header("Idle State")]
         [SerializeField] internal float idleWalkSpeed = 5f;
         [Header("Swipe State")]
         [SerializeField] internal float swipeWalkSpeed = 2f;
+        [Header("Stun State")]
+        [SerializeField] internal AnimationCurve stunKnockbackCurve;
+        
         
         internal Vector2 LastInput;
         internal float LastRotation;
         internal float LastSpeed;
         
         internal Animator Animator;
-        internal Rigidbody2D Rigidbody2D;
+        internal Rigidbody2D Rigidbody;
         
         private BearState _currentState;
         
@@ -34,7 +38,7 @@ namespace Game.Combat.Bear {
         
         private void Awake() {
             TryGetComponent(out Animator);
-            TryGetComponent(out Rigidbody2D);
+            TryGetComponent(out Rigidbody);
         }
 
         private void Start() {
@@ -45,6 +49,7 @@ namespace Game.Combat.Bear {
             _currentState?.Exit();
             _currentState = newState;
             _currentState.Enter();
+            currentStateName = _currentState.GetType().Name;
         }
 
         private void Update() {
@@ -52,7 +57,7 @@ namespace Game.Combat.Bear {
             
             float? speed = _currentState.GetWalkSpeed();
             if (speed.HasValue) {
-                Rigidbody2D.linearVelocity = (float)speed * _currentState.GetWalkDirection();
+                Rigidbody.linearVelocity = (float)speed * _currentState.GetWalkDirection();
                 LastSpeed = (float)speed;
             }
            
@@ -71,22 +76,22 @@ namespace Game.Combat.Bear {
             }
         }
         
-        // Exposed to Animation Events
         private void OnSwipe() {
             _currentState.OnSwipeInput();
         }
-        
         private void OnSwipeReleased() {
             _currentState.OnSwipeInputReleased();
         }
-        
         private void AnimationEnded() {
             _currentState.OnAnimationEnded();
         }
-        
         private void OnMovement(Vector2 direction) {
             LastInput = direction;
             _currentState.OnMovementInput(direction);
+        }
+
+        internal void OnHit(Vector2 hitDirection, float hitForce) {
+            _currentState.OnHit(hitDirection, hitForce);
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Game.Combat.Enemies.AttackEnemy {
                 Controller.TransitionToState(new Attack(Controller));
             } else {
                 Controller.Rigidbody.linearVelocity = posDifference.normalized * Controller.walkSpeed;
+                Controller.Rigidbody.rotation = Mathf.Atan2(posDifference.y, posDifference.x) * Mathf.Rad2Deg;
             }
         }
 
