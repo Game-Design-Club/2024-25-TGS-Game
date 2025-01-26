@@ -1,13 +1,9 @@
-using System;
 using Game.Combat.Bear;
-using Game.Exploration.Child;
 using Tools;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Game.Combat.Enemies {
     public class EnemyDamageDealer : MonoBehaviour {
-        [SerializeField] private int damage = 50;
         [SerializeField] private float hitForce = 10;
         
         [SerializeField] private EnemyBase enemyBase;

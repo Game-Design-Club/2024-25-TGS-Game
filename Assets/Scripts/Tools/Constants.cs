@@ -19,11 +19,17 @@ namespace Tools {
             public static class DialogueBox {
                 public const string IsOpen = "Open";
             }
+
+            public static class Enemy {
+                public const string Attack = "Attack";
+                public const string Idle = "Idle";
+            }
         }
 
         public static class Tags {
             public const string Enemy = "Enemy";
             public const string Child = "Child";
+            public static string Bear = "Bear";
         }
 
         public static class Layers {

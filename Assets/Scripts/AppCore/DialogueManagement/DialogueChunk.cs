@@ -11,7 +11,6 @@ namespace AppCore.DialogueManagement {
         [SerializeField] private string text;
         
         private List<(char character, List<TextEffect> effects)> _parsedText;
-        private bool _parsed = false;
 
         private static readonly TextEffectType[] ExpirableEffects = {
             TextEffectType.Color, TextEffectType.Bold, TextEffectType.Italic, TextEffectType.Pause
@@ -42,7 +41,6 @@ namespace AppCore.DialogueManagement {
                 RemoveExpiredEffects();
             }
             
-            _parsed = true;
             return _parsedText;
             
             void GetTagEffect(string tag) {

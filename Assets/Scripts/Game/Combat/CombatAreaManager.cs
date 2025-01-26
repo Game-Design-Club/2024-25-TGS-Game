@@ -53,12 +53,12 @@ namespace Game.Combat {
 
         // Start combat
         internal void EnterCombatArea(ChildController child) {
+            if (_combatEntered) return;
             Child = child;
             StartCoroutine(TransitionToCombat());
         }
         
         private IEnumerator TransitionToCombat() {
-            if (_combatEntered) yield break;
             _combatEntered = true;
             
             GameManager.StartTransitionToCombat();
@@ -207,7 +207,7 @@ namespace Game.Combat {
             }
             
             foreach (EnemyBase enemy in _activeEnemies) {
-                enemy.Die();
+                Destroy(enemy.gameObject);
             }
             
             _activeEnemies.Clear();
@@ -235,7 +235,7 @@ namespace Game.Combat {
         private void PlayerLost() {
             StopAllCoroutines();
             StartCoroutine(TransitionToExploration());
-            _combatEntered = false;
+            // _combatEntered = false;
             Debug.Log("DEADADDD");
         }
 

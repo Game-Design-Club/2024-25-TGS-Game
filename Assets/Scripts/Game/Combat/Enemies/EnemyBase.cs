@@ -8,12 +8,6 @@ namespace Game.Combat.Enemies {
         
         internal CombatAreaManager CombatManager;
         
-        internal Rigidbody2D Rigidbody;
-        
-        private void Awake() {
-            TryGetComponent(out Rigidbody);
-        }
-
         public void TakeDamage(int damage, Vector2 hitDirection, float knockbackForce) {
             health -= damage;
             
@@ -21,17 +15,15 @@ namespace Game.Combat.Enemies {
             
             if (health <= 0) {
                 CombatManager.EnemyKilled(this);
-                Die();
+                HandleDeath();
             }
         }
 
-        internal void Die() {
-            Destroy(gameObject);
-        }
+        protected abstract void HandleDeath();
 
         public void HitChild() {
             CombatManager.ChildHit(this);
-            Die();
+            HandleDeath();
         }
         
         internal abstract void ProcessHit(Vector2 hitDirection, float knockbackForce);

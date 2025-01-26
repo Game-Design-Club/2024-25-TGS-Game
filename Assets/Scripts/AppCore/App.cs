@@ -25,7 +25,7 @@ namespace AppCore {
                 return null;
             }
         }
-        
+
         private void Awake() {
             // Sets up singleton pattern
             if (_instance == null) {

@@ -5,35 +5,96 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Stun.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Stun.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Swipe.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Swipe.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/States/Stun.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/States/Stun.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Bear Animator.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Bear Animator.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Growl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Growl/Growl Chargeup.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Growl/Growl Chargeup.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Growl/Growl Ready.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Growl/Growl Ready.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Growl/Growl.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Growl/Growl.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Stun.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Stun.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Swipe.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Swipe.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Wake.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Wake.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Walk.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Walk/Walk Down.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Walk/Walk Down.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Walk/Walk Left.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Walk/Walk Left.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Walk/Walk Right.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Walk/Walk Right.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Walk/Walk Up.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Walk/Walk Up.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Child.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Child/Child Animator.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Child/Child Animator.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Child/Not Sleep.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Child/Not Sleep.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Child/Sleep.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Child/Sleep.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Attack.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Attack.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Basic Enemy Animator.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Basic Enemy Animator.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/AttackEnemy/RangeTrigger.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/AttackEnemy/RangeTrigger.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Dialogue Box/Open.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Dialogue Box/Open.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Bear Animator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Bear Animator.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Reset.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Reset.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Swipe.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Swipe/Swipe Right.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Swipe/Swipe Right.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level/Combat/Bear.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level/Combat/Bear.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Bear Animator.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Bear Animator.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Growl.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Growl/Growl Chargeup.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Growl/Growl Chargeup.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Growl/Growl Ready.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Growl/Growl Ready.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Growl/Growl.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Growl/Growl.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Stun.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Stun.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Swipe.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Swipe.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Wake.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Wake.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Walk.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Walk/Walk Down.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Walk/Walk Down.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Walk/Walk Left.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Walk/Walk Left.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Walk/Walk Right.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Walk/Walk Right.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Walk/Walk Up.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Bear/Walk/Walk Up.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Child.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Child/Child Animator.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Child/Child Animator.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Child/Not Sleep.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Child/Not Sleep.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Child/Sleep.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Child/Sleep.anim.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level/Combat/Enemies/Basic Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level/Combat/Enemies/Basic Enemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level/Exploration/Child.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level/Exploration/Child.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level/Exploration/NPC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level/Exploration/NPC.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level/Exploration/Trees/Tree.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level/Exploration/Trees/Tree.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AppCore/App.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AppCore/App.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AppCore/DialogueManagement/DialogueChunk.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AppCore/DialogueManagement/DialogueChunk.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AppCore/InputManagement/BearInputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AppCore/InputManagement/BearInputManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/BearController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/BearController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/BearDamageDealer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/BearDamageDealer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/BearState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/BearState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/States/Idle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/States/Idle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/States/Stun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/States/Stun.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/CombatAreaManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/CombatAreaManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/CombatTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/CombatTrigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/AttackEnemy/AttackEnemyBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/AttackEnemy/AttackEnemyBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/AttackEnemy/AttackEnemyState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/AttackEnemy/AttackEnemyState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/AttackEnemy/States/Attack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/AttackEnemy/States/Attack.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/AttackEnemy/States/Move.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/AttackEnemy/States/Move.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/EnemyBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/EnemyBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/EnemyDamageDealer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/EnemyDamageDealer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/EnemyImplementations/BasicEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/EnemyImplementations/BasicEnemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tools/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/Constants.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +108,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/Combat/Child/ChildCombatTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/Combat/CombatObjectsData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/AttackEnemy/AttackEnemyBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/AttackEnemy/States/Attack.cs" root0="FORCE_HIGHLIGHTING" />
@@ -63,6 +123,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/87c38cf875804a0cbcc2bd5e75635dd41dda00/76/af6bda77/0200025ELow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/5c/1801a1ed/StringComparison.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/5c/d612a9e9/Void.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87c38cf875804a0cbcc2bd5e75635dd41dda00/27/0dbce349/AnimationCurve.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87c38cf875804a0cbcc2bd5e75635dd41dda00/3d/a3346362/MonoBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87c38cf875804a0cbcc2bd5e75635dd41dda00/76/b366a38e/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87c38cf875804a0cbcc2bd5e75635dd41dda00/79/05097c1b/SerializeField.cs" root0="SKIP_HIGHLIGHTING" />
@@ -72,6 +133,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87c38cf875804a0cbcc2bd5e75635dd41dda00/ef/6ba7d3b0/HeaderAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -164,6 +226,7 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
     <option name="hasUnityReference" value="true" />

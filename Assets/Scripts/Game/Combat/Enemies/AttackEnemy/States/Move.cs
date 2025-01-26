@@ -1,3 +1,4 @@
+using Tools;
 using UnityEngine;
 
 namespace Game.Combat.Enemies.AttackEnemy {
@@ -6,6 +7,7 @@ namespace Game.Combat.Enemies.AttackEnemy {
 
         private Transform _targetTransform;
         public override void Enter() {
+            Controller.Animator.SetTrigger(Constants.Animator.Enemy.Idle);
             _targetTransform = Controller.CombatManager.Child.transform;
         }
 
@@ -15,13 +17,8 @@ namespace Game.Combat.Enemies.AttackEnemy {
 
         public override void Update() {
             Vector2 posDifference = -(Controller.transform.position - _targetTransform.position);
-            if (posDifference.magnitude < Controller.attackRange) {
-                Controller.TransitionToState(new Attack(Controller));
-            } else {
-                Controller.Rigidbody.linearVelocity = posDifference.normalized * Controller.walkSpeed;
-                Controller.Rigidbody.rotation = Mathf.Atan2(posDifference.y, posDifference.x) * Mathf.Rad2Deg;
-            }
+            Controller.Rigidbody.linearVelocity = posDifference.normalized * Controller.walkSpeed;
+            Controller.Rigidbody.rotation = Mathf.Atan2(posDifference.y, posDifference.x) * Mathf.Rad2Deg;
         }
-
     }
 }

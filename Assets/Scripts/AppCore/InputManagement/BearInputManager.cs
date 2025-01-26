@@ -7,6 +7,8 @@ namespace AppCore.InputManagement {
         public event Action<Vector2> OnBearMovement;
         public event Action OnBearSwipe;
         public event Action OnBearSwipeReleased;
+        
+        public bool GetBearSwipe => _playerInputs.Bear.Swipe.IsPressed();
 
         private void SubscribeToBearInput() {
             _playerInputs.Bear.Move.performed += CallBearMovement;

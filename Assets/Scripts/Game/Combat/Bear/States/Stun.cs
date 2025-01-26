@@ -1,3 +1,5 @@
+using AppCore;
+using AppCore.InputManagement;
 using Tools;
 using UnityEngine;
 
@@ -35,7 +37,11 @@ namespace Game.Combat.Bear {
         }
         
         public override void OnAnimationEnded() {
-            Controller.TransitionToState(new Idle(Controller));
+            if (App.Get<InputManager>().GetBearSwipe) {
+                Controller.TransitionToState(new GrowlChargeup(Controller));
+            } else {
+                Controller.TransitionToState(new Idle(Controller));
+            }
         }
     }
 }

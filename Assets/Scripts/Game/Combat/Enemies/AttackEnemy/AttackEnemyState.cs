@@ -7,12 +7,20 @@ namespace Game.Combat.Enemies.AttackEnemy {
         protected AttackEnemyState(AttackEnemyBase controller) {
             Controller = controller;
         }
-        public abstract void Enter();
-        public abstract void Exit();
-        public abstract void Update();
+
+        public virtual void Enter() { }
+
+        public virtual void Exit() { }
+        public virtual void Update() { }
 
         public virtual void OnHit(Vector2 hitDirection, float hitForce) {
             Controller.TransitionToState(new Stun(Controller, hitDirection, hitForce));
+        }
+        
+        public virtual void OnAnimationEnded() { }
+
+        public virtual void Die() {
+            Object.Destroy(Controller.gameObject);
         }
     }
 }
