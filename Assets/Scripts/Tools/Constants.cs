@@ -12,6 +12,13 @@ namespace Tools {
                 public const string Idle = "Idle";
                 public static string Stun = "Stun";
             }
+
+            public static class BearIDs {
+                public const int Swipe = 1;
+                public const int Growl = 2;
+                public const int GrowlChargeup = 3;
+                public const int Stun = 4;
+            }
             public static class Child {
                 public const string Sleep = "Sleep";
             }

@@ -82,8 +82,9 @@ namespace Game.Combat.Bear {
         private void OnSwipeReleased() {
             _currentState.OnSwipeInputReleased();
         }
-        private void AnimationEnded() {
-            _currentState.OnAnimationEnded();
+        private void AnimationEnded(int id) {
+            if (id == 0) Debug.LogWarning("Bear Animation ID is 0");
+            _currentState.OnAnimationEnded(id);
         }
         private void OnMovement(Vector2 direction) {
             LastInput = direction;

@@ -37,6 +37,9 @@ namespace AppCore.DialogueManagement {
 
         private Animator _animator;
         private Action _onDialogueComplete;
+        
+        public event Action OnDialogueStart;
+        public event Action OnDialogueEnd;
 
         private void Awake() {
             dialogueBox.SetActive(false);
@@ -68,7 +71,7 @@ namespace AppCore.DialogueManagement {
         }
 
         private IEnumerator PlayDialogue() {
-            GameManager.DialogueStart();
+            OnDialogueStart?.Invoke();
             dialogueBox.SetActive(true);
             _animator.SetBool(Constants.Animator.DialogueBox.IsOpen, true);
 
@@ -81,7 +84,7 @@ namespace AppCore.DialogueManagement {
 
             // Clean up
             _currentDialogue = null;
-            GameManager.DialogueEnd();
+            OnDialogueEnd?.Invoke();
             _onDialogueComplete?.Invoke();
             _animator.SetBool(Constants.Animator.DialogueBox.IsOpen, false);
         }

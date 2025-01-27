@@ -36,7 +36,8 @@ namespace Game.Combat.Bear {
             }
         }
         
-        public override void OnAnimationEnded() {
+        public override void OnAnimationEnded(int id) {
+            if (id != Constants.Animator.BearIDs.Stun) return;
             if (App.Get<InputManager>().GetBearSwipe) {
                 Controller.TransitionToState(new GrowlChargeup(Controller));
             } else {

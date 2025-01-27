@@ -1,5 +1,6 @@
 using System;
 using AppCore;
+using AppCore.DialogueManagement;
 using AppCore.InputManagement;
 using UnityEngine;
 
@@ -62,10 +63,14 @@ namespace Game.GameManagement {
 
         private void OnEnable() {
             App.Get<InputManager>().OnUICancel += OnGamePaused;
+            App.Get<DialogueManager>().OnDialogueStart += DialogueStart;
+            App.Get<DialogueManager>().OnDialogueEnd += DialogueEnd;
         }
         
         private void OnDisable() {
             App.Get<InputManager>().OnUICancel -= OnGamePaused;
+            App.Get<DialogueManager>().OnDialogueStart -= DialogueStart;
+            App.Get<DialogueManager>().OnDialogueEnd -= DialogueEnd;
         }
         
         private void OnGamePaused() {
@@ -88,11 +93,11 @@ namespace Game.GameManagement {
             GameEventType = GameEventType.Child;
         }
 
-        public static void DialogueStart() {
+        private void DialogueStart() {
             GameEventType = GameEventType.Dialogue;
         }
 
-        public static void DialogueEnd() {
+        private void DialogueEnd() {
             GameEventType = _lastGameEventType;
         }
     }

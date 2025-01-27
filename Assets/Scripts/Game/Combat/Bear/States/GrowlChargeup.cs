@@ -16,7 +16,8 @@ namespace Game.Combat.Bear {
             Controller.Animator.SetTrigger(Constants.Animator.Bear.GrowlChargeup);
         }
 
-        public override void OnAnimationEnded() {
+        public override void OnAnimationEnded(int id) {
+            if (id != Constants.Animator.BearIDs.GrowlChargeup) return;
             _ready = true;
         }
 

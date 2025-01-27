@@ -22,7 +22,8 @@ namespace Game.Combat.Bear {
             _swipeBuffer = false;
         }
 
-        public override void OnAnimationEnded() {
+        public override void OnAnimationEnded(int id) {
+            if (id != Constants.Animator.BearIDs.Growl) return;
             if (_swipeBuffer) {
                 Controller.TransitionToState(new Swipe(Controller));
             } else {

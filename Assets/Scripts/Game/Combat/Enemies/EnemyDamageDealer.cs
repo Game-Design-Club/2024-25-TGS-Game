@@ -18,7 +18,6 @@ namespace Game.Combat.Enemies {
             if (!_canDamage) return;
             if (other.CompareTag(Constants.Tags.Child)) {
                 enemyBase.HitChild();
-                Destroy(enemyBase.gameObject);
             } else if (other.TryGetComponent(out BearController bear)) {
                 Vector2 dif = (other.transform.position - transform.position).normalized;
                 bear.OnHit(dif, hitForce);
