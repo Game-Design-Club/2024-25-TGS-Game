@@ -32,11 +32,15 @@ namespace Game.Combat.Enemies {
                 enemyBase.HitChild();
                 HandleHit();
             } else if (other.TryGetComponent(out BearController bear)) {
-                Vector2 dif = (other.transform.position - transform.position).normalized;
+                Vector2 dif = GetDirection(other);
                 bear.OnHit(dif, hitForce);
                 _canDamage = false;
                 HandleHit();
             }
+        }
+        
+        protected virtual Vector2 GetDirection(Collider2D other) {
+            return (other.transform.position - transform.position).normalized;
         }
 
         protected virtual void HandleHit() { }
