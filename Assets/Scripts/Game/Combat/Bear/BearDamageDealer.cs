@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using Game.Combat.Enemies;
-using Tools;
 using UnityEngine;
 
 namespace Game.Combat.Bear {
@@ -18,9 +16,15 @@ namespace Game.Combat.Bear {
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
-            if (!other.gameObject.TryGetComponent(out EnemyBase enemyBase) || !_enemiesHit.Add(enemyBase)) return; // Add returns false if already in set
+            if (other.gameObject.TryGetComponent(out EnemyBase enemyBase) && _enemiesHit.Add(enemyBase)) {// Add returns false if already in set
+                AttackEnemy(enemyBase);
+            } else {
+                other.gameObject.GetComponent<ShootingEnemyBullet>()?.Destroy();
+            }
+        }
 
-            Vector2 dif= (other.transform.position - transform.position).normalized;
+        private void AttackEnemy(EnemyBase enemyBase) {
+            Vector2 dif= (enemyBase.transform.position - transform.position).normalized;
             int flip = transform.lossyScale.x > 0 ? 1 : -1;
 
             Vector2 knockbackDirection;

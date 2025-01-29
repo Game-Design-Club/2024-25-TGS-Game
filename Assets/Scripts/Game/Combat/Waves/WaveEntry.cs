@@ -1,25 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-namespace Game.Combat {
-    [CreateAssetMenu(fileName = "WavesData", menuName = "Combat/WavesData", order = 0)]
-    public class WavesData : ScriptableObject {
-        [SerializeField] public Wave[] waves;
-        [SerializeField] public float bufferBetweenWaves;
-    }
-    
-    [CreateAssetMenu(fileName = "Wave", menuName = "Combat/Wave", order = 0)]
-    public class Wave : ScriptableObject {
-        [SerializeField] public WaveEntry[] waveEntries;
-        [SerializeField] public bool canReplay;
-        
-        public int GetTotalEnemies() {
-            return waveEntries.Sum(entry => entry.GetSpawnTimes().Count);
-        }
-    }
-    
+namespace Game.Combat.Waves {
     [Serializable]
     public class WaveEntry {
         [SerializeField] public AnimationCurve spawnRate;

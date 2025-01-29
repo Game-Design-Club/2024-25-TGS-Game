@@ -1,11 +1,11 @@
-using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Combat.Enemies.AttackEnemy {
     public class RangeTrigger : MonoBehaviour {
-        [SerializeField] private AttackEnemyBase enemyBase;
+        [FormerlySerializedAs("enemyBase")] [SerializeField] private AttackEnemy enemy;
         private void OnTriggerEnter2D(Collider2D other) {
-            enemyBase.OnEntityEnterTrigger(other);
+            enemy.OnEntityEnterTrigger(other);
         }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Game.Combat.Enemies;
+using Game.Combat.Waves;
 using Game.Exploration.Child;
 using Game.GameManagement;
 using Unity.Cinemachine;
@@ -22,7 +23,6 @@ namespace Game.Combat {
         [SerializeField] private float loseSanityThreshold = 0f;
         [SerializeField] private float startInsanity = 20f;
         
-
         // Private fields
         private float _sanity = 20f; // 0 - 100
         private float Sanity {
@@ -70,7 +70,7 @@ namespace Game.Combat {
 
             StartCoroutine(RunCombat());
         }
-
+        
         private void Setup() {
             sleepCamera.Priority = 100;
 
@@ -195,6 +195,7 @@ namespace Game.Combat {
             GameManager.EndTransitionToExploration();
             
             _combatEntered = false;
+            gameObject.SetActive(false);
         }
 
         private void Cleanup() {
@@ -205,7 +206,6 @@ namespace Game.Combat {
             foreach (GameObject obj in activeStateSwitchOnCombat) {
                 obj.SetActive(false);
             }
-            
             foreach (EnemyBase enemy in _activeEnemies) {
                 Destroy(enemy.gameObject);
             }
@@ -225,11 +225,14 @@ namespace Game.Combat {
         
         internal void ChildHit(EnemyBase enemy) {
             Sanity -= enemy.sanityDamage;
-            _activeEnemies.Remove(enemy);
-            _enemiesToKill--;
             if (Sanity <= 0) {
                 PlayerLost();
             }
+        }
+        
+        internal void RemoveEnemy(EnemyBase enemy) {
+            _activeEnemies.Remove(enemy);
+            _enemiesToKill--;
         }
 
         private void PlayerLost() {

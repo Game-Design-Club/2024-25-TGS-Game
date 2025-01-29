@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: Data 1
+  m_Script: {fileID: 11500000, guid: d3ef0362f4624872b7dde8ab89895d78, type: 3}
+  m_Name: Shooter Testing
   m_EditorClassIdentifier: Assembly-CSharp:Game.Combat:WavesData
   waves:
-  - {fileID: 11400000, guid: 2975333b825b54d76acd2a97cb8410b7, type: 2}
-  - {fileID: 11400000, guid: 9f1e0782a1dc246818f9dad780548a1a, type: 2}
-  bufferBetweenWaves: 3
+  - {fileID: 11400000, guid: 835ae992e91eb4c51914f57c70e7b0dc, type: 2}
+  bufferBetweenWaves: 0

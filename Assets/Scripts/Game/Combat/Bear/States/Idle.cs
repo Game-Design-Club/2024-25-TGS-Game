@@ -13,7 +13,6 @@ namespace Game.Combat.Bear {
             Controller.Animator.ResetTrigger(Constants.Animator.Bear.GrowlChargeup);
         }
 
-        
         public override void OnSwipeInput() {
             Controller.TransitionToState(new Swipe(Controller));
         }
