@@ -22,10 +22,13 @@ namespace Game.Combat.Enemies.TreeEnemy {
         
         private Vector2 _endPoint;
         private float _endDirection;
+        
+        private float _maxDistance = -1;
 
         private new void Start() {
-            base.Start();
             CalculatePoints();
+            base.Start();
+            SetDistance(CurrentDistance);
         }
         
         private void CalculatePoints() {
@@ -35,8 +38,6 @@ namespace Game.Combat.Enemies.TreeEnemy {
             Vector2 currentPoint = transform.position;
             
             AddPoints(currentPoint, direction);
-            
-            _points.Add(CombatManager.Child.transform.position);
             
             debugLineRenderer.positionCount = _points.Count;
             debugLineRenderer.SetPositions(_points.ToArray());
@@ -67,7 +68,32 @@ namespace Game.Combat.Enemies.TreeEnemy {
                     break;
                 }
             }
+            
+            _points.Add(CombatManager.Child.transform.position + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0));
+            
+            
+            CalculateMaxDistance();
         }
+        
+        private void CalculateMaxDistance() {
+            float distance = 0;
+            for (int i = 0; i < _points.Count - 1; i++) {
+                distance += (_points[i + 1] - _points[i]).magnitude;
+            }
+            _maxDistance = distance;
+        }
+        
+        // private int GetMaxIndex(float distance) {
+        //     float currentDistance = 0;
+        //     for (int i = 0; i < _points.Count - 1; i++) {
+        //         Vector2 segment = _points[i + 1] - _points[i];
+        //         if (currentDistance + segment.magnitude > distance) {
+        //             return i + 1;
+        //         }
+        //         currentDistance += segment.magnitude;
+        //     }
+        //     return _points.Count - 1;
+        // }
         
         private void SetLength(float distance) {
             CurrentDistance = distance;
@@ -99,6 +125,9 @@ namespace Game.Combat.Enemies.TreeEnemy {
             }
             
             _endPoint = newPoints[^1];
+            newPoints[^1] = new Vector3(_endPoint.x, _endPoint.y, 0);
+            _endPoint = newPoints[^1];
+
             _endDirection = (float)Math.Atan2(_endPoint.y - newPoints[^2].y, _endPoint.x - newPoints[^2].x);
             
             lineRenderer.positionCount = newPoints.Count;
@@ -109,7 +138,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
         }
 
         internal void ChangeDistance(float distance) {
-            SetLength(CurrentDistance + distance);
+            SetDistance(CurrentDistance + distance);
         }
         
         public void Hit() {
@@ -117,11 +146,14 @@ namespace Game.Combat.Enemies.TreeEnemy {
         }
 
         public void SetDistance(float distance) {
-            CurrentDistance = distance;
-            SetLength(distance);
-            if (distance <= 0) {
-                OnHit(100000, Vector2.zero, 0);
+            if (distance > _maxDistance) {
+                distance = _maxDistance;
             }
+            if (distance < 0) {
+                OnHit(100000, Vector2.zero, 0);
+                return;
+            }
+            SetLength(distance);
         }
     }
 }
