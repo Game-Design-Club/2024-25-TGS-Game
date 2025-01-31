@@ -7,6 +7,7 @@ namespace Game.Combat {
     public class CombatObjectsData : ScriptableObject {
         [FormerlySerializedAs("basicEnemyAttackerPrefab")] [SerializeField] private GameObject attackerPrefab;
         [SerializeField] private GameObject shooterPrefab;
+        [SerializeField] private GameObject treePrefab;
         private static CombatObjectsData Instance => _instance ??= Resources.Load<CombatObjectsData>("CombatObjectsData");
         private static CombatObjectsData _instance;
 
@@ -14,6 +15,7 @@ namespace Game.Combat {
         return enemyType switch {
                 EnemyType.Attacker => Instance.attackerPrefab,
                 EnemyType.Shooter => Instance.shooterPrefab,
+                EnemyType.Tree => Instance.treePrefab,
                 _ => throw new ArgumentOutOfRangeException(nameof(enemyType), enemyType, null)
             };
         }
@@ -21,6 +23,7 @@ namespace Game.Combat {
 
     public enum EnemyType {
         Attacker,
-        Shooter
+        Shooter,
+        Tree
     }
 }

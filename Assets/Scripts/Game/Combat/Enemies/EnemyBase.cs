@@ -1,9 +1,11 @@
 using UnityEngine;
 
 namespace Game.Combat.Enemies {
-    public abstract class EnemyBase : MonoBehaviour {
+    public abstract class EnemyBase : MonoBehaviour, IBearHittable {
+        public GameObject GameObject => gameObject;
+
         [SerializeField] private int health = 100;
-        [SerializeField] internal int sanityRestored = 100;
+        [SerializeField] internal int sanityRestored = 10;
         [SerializeField] internal int sanityDamage = 10;
         [SerializeField] internal AnimationCurve stunKnockbackCurve;
         
@@ -19,7 +21,7 @@ namespace Game.Combat.Enemies {
             TryGetComponent(out Rigidbody);
         }
 
-        private void Start() {
+        private protected void Start() {
             TransitionToState(StartingState);
         }
 
@@ -42,6 +44,9 @@ namespace Game.Combat.Enemies {
             CurrentState?.Update();
         }
 
+        public void OnHit(int damage, Vector2 hitDirection, float knockbackForce) {
+            TakeDamage(damage, hitDirection, knockbackForce);
+        }
         
         public void TakeDamage(int damage, Vector2 hitDirection, float knockbackForce) {
             health -= damage;
