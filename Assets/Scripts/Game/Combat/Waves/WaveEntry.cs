@@ -11,6 +11,7 @@ namespace Game.Combat.Waves {
         [SerializeField] public bool spawnRight = true;
         [SerializeField] public bool spawnTop = true;
         [SerializeField] public bool spawnBottom = true;
+        [SerializeField] public bool spawnFromCustom = false;
         [SerializeField] public float bufferAfterThisEntry = 0;
 
         private List<float> _spawnTimes = null;

@@ -17,6 +17,7 @@ namespace Game.Combat {
         [SerializeField] private WavesData wavesData;
         [Header("Combat Area")]
         [SerializeField] private Transform combatAreaSize;
+        [SerializeField] private Transform[] customSpawnPoints;
         [Header("Sanity")]
         [SerializeField] private float winSanityThreshold = 100f;
         [SerializeField] private float loseSanityThreshold = 0f;
@@ -120,7 +121,27 @@ namespace Game.Combat {
         }
         
         private Vector2 GetSpawnPosition(WaveEntry entry) {
-            float height = combatAreaSize.localScale.y;
+            if (entry.spawnFromCustom) {
+                if (entry.spawnLeft || entry.spawnRight || entry.spawnTop || entry.spawnBottom) {
+                    Debug.LogWarning("Custom spawn point and spawn direction are both set, ignoring spawn directions.");
+                }
+                if (customSpawnPoints.Length == 0) {
+                    Debug.LogWarning("Custom spawn point is set but no custom spawn points are set.");
+                    return transform.position;
+                }
+                return SpawnFromCustom();
+            } else {
+                return SpawnFromSides(entry);
+            }
+        }
+
+        private Vector2 SpawnFromCustom() {
+            int index = UnityEngine.Random.Range(0, customSpawnPoints.Length);
+            return customSpawnPoints[index].position;
+        }
+
+        private Vector2 SpawnFromSides(WaveEntry entry) {
+                        float height = combatAreaSize.localScale.y;
             float width = combatAreaSize.localScale.x;
     
             float totalPositions = 0;
@@ -178,7 +199,7 @@ namespace Game.Combat {
             
             return transform.position;
         }
-        
+
         // End combat
         private void PlayerWon() {
             StopAllCoroutines();
