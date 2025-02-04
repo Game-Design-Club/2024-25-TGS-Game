@@ -10,7 +10,11 @@ namespace Game.Combat.Enemies.TreeEnemy {
         public override void Enter() {
             _startDistance = Controller<TreeEnemy>().CurrentDistance;
         }
-        
+
+        public override void Exit() {
+            Controller<TreeEnemy>().CreateNewPoints();
+        }
+
         public override void Update() {
             _timer += Time.deltaTime;
             AnimationCurve drawbackCurve = Controller().stunKnockbackCurve;

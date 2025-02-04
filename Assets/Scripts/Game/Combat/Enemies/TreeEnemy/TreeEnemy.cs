@@ -27,8 +27,8 @@ namespace Game.Combat.Enemies.TreeEnemy {
 
         private new void Start() {
             CalculatePoints();
-            base.Start();
             SetDistance(CurrentDistance);
+            base.Start();
         }
         
         private void CalculatePoints() {
@@ -36,45 +36,48 @@ namespace Game.Combat.Enemies.TreeEnemy {
             direction.Normalize();
             
             Vector2 currentPoint = transform.position;
+            _points.Add(currentPoint);
             
-            AddPoints(currentPoint, direction);
+            AddPoints(currentPoint, direction, 1);
             
             debugLineRenderer.positionCount = _points.Count;
             debugLineRenderer.SetPositions(_points.ToArray());
         }
 
-        private void AddPoints(Vector2 currentPoint, Vector2 direction) {
-            // TODO REMOVE OLD POITNS
+        private void AddPoints(Vector2 startPoint, Vector2 direction, int startIndex) {
             // TODO add by chunky so can do radius tingies
-            bool done = false;
-            _points.Add(currentPoint);
+            List<Vector3> prevPoints = new(_points);
+            if (_points.Count > startIndex + 1) {
+                _points.RemoveRange(startIndex + 1, _points.Count - (startIndex + 1));
+            }
             
+            Vector2 currentPoint = startPoint;
+
             for (int i = 0; i < maxSegments - _points.Count; i++) {
-                // Go in direction until Controller<TreeEnemy>().reachTurnDistance.Random(), add a new point
-                // Turn a random amount of degrees, repeat process
-                // If within distance of child, add a point at the child and break
-                
-                float distance = reachTurbulenceDistance.Random();
-                Vector2 nextPoint = currentPoint + direction * distance;
-                _points.Add(nextPoint);
-                currentPoint = nextPoint;
-                
                 Vector2 difToChild = (Vector2)CombatManager.Child.transform.position - currentPoint;
-                direction = Quaternion.Euler(0, 0, 
+                direction = Quaternion.Euler(0, 0,
                     Random.Range(-reachTurbulenceAngle, reachTurbulenceAngle)) * difToChild.normalized;
                 direction.Normalize();
                 
+                float distance = reachTurbulenceDistance.Random();
+                
+                Vector2 nextPoint = currentPoint + direction * distance;
+                _points.Add(nextPoint);
+                currentPoint = nextPoint;
+
                 if (difToChild.magnitude < childRange) {
                     break;
                 }
             }
-            
-            _points.Add(CombatManager.Child.transform.position + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0));
-            
+
+            _points.Add(CombatManager.Child.transform.position);
             
             CalculateMaxDistance();
+            
+            Debug.Log("PreviousPoints: " + string.Join(", ", prevPoints) + "\nNewPoints: " + string.Join(", ", _points) + "\nstartPoint: " + startPoint + "\nDirection: " + direction);
         }
         
+
         private void CalculateMaxDistance() {
             float distance = 0;
             for (int i = 0; i < _points.Count - 1; i++) {
@@ -83,17 +86,17 @@ namespace Game.Combat.Enemies.TreeEnemy {
             _maxDistance = distance;
         }
         
-        // private int GetMaxIndex(float distance) {
-        //     float currentDistance = 0;
-        //     for (int i = 0; i < _points.Count - 1; i++) {
-        //         Vector2 segment = _points[i + 1] - _points[i];
-        //         if (currentDistance + segment.magnitude > distance) {
-        //             return i + 1;
-        //         }
-        //         currentDistance += segment.magnitude;
-        //     }
-        //     return _points.Count - 1;
-        // }
+        private int GetMaxIndex(float distance) {
+            float currentDistance = 0;
+            for (int i = 0; i < _points.Count - 1; i++) {
+                Vector2 segment = _points[i + 1] - _points[i];
+                if (currentDistance + segment.magnitude > distance) {
+                    return i + 1;
+                }
+                currentDistance += segment.magnitude;
+            }
+            return _points.Count - 1;
+        }
         
         private void SetLength(float distance) {
             CurrentDistance = distance;
@@ -154,6 +157,13 @@ namespace Game.Combat.Enemies.TreeEnemy {
                 return;
             }
             SetLength(distance);
+        }
+
+        internal void CreateNewPoints() {
+            Vector2 direction = CombatManager.Child.transform.position - (Vector3)_endPoint;
+            direction.Normalize();
+            int i = GetMaxIndex(CurrentDistance);
+            AddPoints(_points[i], direction, i);
         }
     }
 }
