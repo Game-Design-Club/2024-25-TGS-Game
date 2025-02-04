@@ -7,7 +7,6 @@ using Game.Exploration.Child;
 using Game.GameManagement;
 using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Game.Combat {
     public class CombatAreaManager : MonoBehaviour {

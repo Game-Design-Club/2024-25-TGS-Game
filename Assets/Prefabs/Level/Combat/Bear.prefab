@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5512127907509128568
 Transform:
   m_ObjectHideFlags: 0
@@ -297,8 +297,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 50
   knockbackForce: 6
-  directionWeight: 0.6
   movementBased: 1
+  directionWeight: 0.6
 --- !u!1 &4328924488830475695
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,5 +677,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   knockbackForce: 10
-  directionWeight: 0
   movementBased: 0
+  directionWeight: 0

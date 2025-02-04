@@ -40,7 +40,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dialogue Canvas/Background
+    path: Dialogue Canvas/Dialogue Panel
   m_FloatCurves: []
   m_PPtrCurves: []
   m_SampleRate: 60
@@ -51,7 +51,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 1144397625
+      path: 2818231329
       attribute: 3
       script: {fileID: 0}
       typeID: 4
@@ -107,7 +107,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Dialogue Canvas/Background
+    path: Dialogue Canvas/Dialogue Panel
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -137,7 +137,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Dialogue Canvas/Background
+    path: Dialogue Canvas/Dialogue Panel
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -167,7 +167,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Dialogue Canvas/Background
+    path: Dialogue Canvas/Dialogue Panel
     classID: 224
     script: {fileID: 0}
     flags: 0
