@@ -25,6 +25,8 @@ namespace Game.Combat.Enemies.TreeEnemy {
         private float _endDirection;
         
         private float _maxDistance = -1;
+        
+        private bool _destroyed = false;
 
         private new void Start() {
             CalculatePoints();
@@ -160,6 +162,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
         public void SetDistance(float distance) {
             if (distance > _maxDistance) {
                 distance = _maxDistance;
+                TransitionToState(new Attack(this));
             }
             if (distance < 0) {
                 OnHit(100000, Vector2.zero, 0);

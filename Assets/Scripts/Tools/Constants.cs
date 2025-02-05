@@ -27,9 +27,14 @@ namespace Tools {
                 public const string IsOpen = "Open";
             }
 
-            public static class Enemy {
+            public static class AttackEnemy {
                 public const string Attack = "Attack";
                 public const string Idle = "Idle";
+            }
+            
+            public static class TreeEnemy {
+                public const string Attack = "Attack";
+                public const string Reset = "Reset";
             }
         }
 

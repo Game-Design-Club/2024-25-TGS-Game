@@ -64,6 +64,9 @@ namespace Game.Combat.Enemies {
             HandleHitChild();
         }
 
-        protected virtual void HandleHitChild() { }
+        protected virtual void HandleHitChild() {
+            CombatManager.RemoveEnemy(this);
+            CurrentState.Die();
+        }
     }
 }

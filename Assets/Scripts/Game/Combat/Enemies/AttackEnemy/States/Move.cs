@@ -7,7 +7,7 @@ namespace Game.Combat.Enemies.AttackEnemy {
 
         private Transform _targetTransform;
         public override void Enter() {
-            Controller().Animator.SetTrigger(Constants.Animator.Enemy.Idle);
+            Controller().Animator.SetTrigger(Constants.Animator.AttackEnemy.Idle);
             _targetTransform = Controller().CombatManager.Child.transform;
         }
         
