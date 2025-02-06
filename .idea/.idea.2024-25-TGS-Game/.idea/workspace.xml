@@ -5,21 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/TreeEnemy/States/Attack.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/TreeEnemy/States/Attack.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Attack.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Attack.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Basic Enemy Animator.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Basic Enemy Animator.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level/Combat/Enemies/Tree Enemy/Tree Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level/Combat/Enemies/Tree Enemy/Tree Enemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level/Exploration/Child.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level/Exploration/Child.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/AttackEnemy/States/Attack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/AttackEnemy/States/Attack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/AttackEnemy/States/Move.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/AttackEnemy/States/Move.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/EnemyBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/EnemyBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/EnemyDamageDealer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/EnemyDamageDealer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/TreeEnemy/TreeEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/TreeEnemy/TreeEnemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tools/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/Constants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Swipe.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Swipe.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level/Combat/Combat Area.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level/Combat/Combat Area.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/CombatAreaManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/CombatAreaManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +28,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/Stun.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/GameManagement/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tools/UnityOnGameEvent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal/Shaders/2D/Sprite-Lit-Default.shader" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../NHSGA/Lightning Round/Perforce/NHSGA_lightning/Working/Asteroids/Assets/Scripts/Management/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../NHSGA/Lightning Round/Perforce/NHSGA_lightning/Working/Asteroids/Assets/Scripts/Tools/FloatRange.cs" root0="FORCE_HIGHLIGHTING" />

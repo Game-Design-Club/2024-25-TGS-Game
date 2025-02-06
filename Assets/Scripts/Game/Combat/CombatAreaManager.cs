@@ -11,8 +11,11 @@ using UnityEngine;
 namespace Game.Combat {
     public class CombatAreaManager : MonoBehaviour {
         [Header("References")]
-        [SerializeField] private CinemachineCamera sleepCamera;
+        [SerializeField] private CinemachineCamera wideCamera;
+        [SerializeField] private CinemachineCamera combatCamera;
         [SerializeField] private List<GameObject> activeStateSwitchOnCombat;
+        [Header("Cutscene")]
+        [SerializeField] private float cutsceneDuration = 3f;
         [Header("Enemies")]
         [SerializeField] private WavesData wavesData;
         [Header("Combat Area")]
@@ -66,13 +69,31 @@ namespace Game.Combat {
             Setup();
 
             yield return new WaitForSeconds(GameManager.TransitionDuration);
+            
             GameManager.EndTransitionToCombat();
 
             StartCoroutine(RunCombat());
+            
+            yield return new WaitForSeconds(cutsceneDuration);
+            
+            combatCamera.Priority = 200;
+        }
+        
+        private IEnumerator TransitionToExploration() {
+            GameManager.StartTransitionToExploration();
+            
+            Cleanup();
+
+            yield return new WaitForSeconds(GameManager.TransitionDuration);
+            
+            GameManager.EndTransitionToExploration();
+            
+            _combatEntered = false;
+            gameObject.SetActive(false);
         }
         
         private void Setup() {
-            sleepCamera.Priority = 100;
+            wideCamera.Priority = 100;
 
             foreach (GameObject obj in activeStateSwitchOnCombat) {
                 obj.SetActive(true);
@@ -205,23 +226,11 @@ namespace Game.Combat {
             StopAllCoroutines();
             StartCoroutine(TransitionToExploration());
         }
-        private IEnumerator TransitionToExploration() {
-            GameManager.StartTransitionToExploration();
-            
-            Cleanup();
-
-            yield return new WaitForSeconds(GameManager.TransitionDuration);
-            
-            GameManager.EndTransitionToExploration();
-            
-            _combatEntered = false;
-            gameObject.SetActive(false);
-        }
-
         private void Cleanup() {
             StopAllCoroutines();
             
-            sleepCamera.Priority = 0;
+            wideCamera.Priority = 0;
+            combatCamera.Priority = 0;
             
             foreach (GameObject obj in activeStateSwitchOnCombat) {
                 obj.SetActive(false);
