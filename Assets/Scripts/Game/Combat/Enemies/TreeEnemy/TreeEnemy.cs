@@ -15,6 +15,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
         [SerializeField] private LineRenderer debugLineRenderer;
         [SerializeField] private LineRenderer lineRenderer;
         [SerializeField] private Transform hand;
+        [SerializeField] private SpriteRenderer spriteRenderer;
 
         protected override EnemyState StartingState => new Reach(this);
         
@@ -31,9 +32,17 @@ namespace Game.Combat.Enemies.TreeEnemy {
         private new void Start() {
             CalculatePoints();
             SetDistance(CurrentDistance);
+            SetRotation();
             base.Start();
         }
-        
+
+        private void SetRotation() {
+            Vector2 direction = CombatManager.Child.transform.position - transform.position;
+            direction.Normalize();
+            // if to right of child, flip
+            spriteRenderer.flipX = direction.x > 0;
+        }
+
         private void CalculatePoints() {
             Vector2 direction = CombatManager.Child.transform.position - transform.position;
             direction.Normalize();
@@ -48,7 +57,6 @@ namespace Game.Combat.Enemies.TreeEnemy {
         }
 
         private void AddPoints(Vector2 startPoint, int startIndex) {
-            // TODO add by chunky so can do radius tingies
             if (_points.Count > startIndex + 1) {
                 _points.RemoveRange(startIndex + 1, _points.Count - (startIndex + 1));
             }

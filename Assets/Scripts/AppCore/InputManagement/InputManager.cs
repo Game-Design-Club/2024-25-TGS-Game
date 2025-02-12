@@ -36,11 +36,11 @@ namespace AppCore.InputManagement {
 
         private void OnGameEvent(GameEvent gameEvent) {
             switch (gameEvent.GameEventType) {
-                case GameEventType.Bear:
+                case GameEventType.Combat:
                     _playerInputs.Bear.Enable();
                     _playerInputs.Child.Disable();
                     break;
-                case GameEventType.Child:
+                case GameEventType.Explore:
                     _playerInputs.Bear.Disable();
                     _playerInputs.Child.Enable();
                     break;
@@ -54,11 +54,10 @@ namespace AppCore.InputManagement {
                     break;
                 case GameEventType.Cutscene:
                 case GameEventType.Dialogue:
+                case GameEventType.BearDeath:
                     _playerInputs.Bear.Disable();
                     _playerInputs.Child.Disable();
                     break;
-                default:
-                    throw new ArgumentOutOfRangeException();
             }
         }
     }

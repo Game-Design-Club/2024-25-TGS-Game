@@ -58,7 +58,7 @@ namespace Game.GameManagement {
         }
 
         private void Start() {
-            GameEventType = GameEventType.Child;
+            GameEventType = GameEventType.Explore;
         }
 
         private void OnEnable() {
@@ -82,7 +82,7 @@ namespace Game.GameManagement {
         }
         
         public static void EndTransitionToCombat() {
-            GameEventType = GameEventType.Bear;
+            GameEventType = GameEventType.Combat;
         }
 
         public static void StartTransitionToExploration() {
@@ -90,7 +90,7 @@ namespace Game.GameManagement {
         }
 
         public static void EndTransitionToExploration() {
-            GameEventType = GameEventType.Child;
+            GameEventType = GameEventType.Explore;
         }
 
         private void DialogueStart() {
@@ -99,6 +99,18 @@ namespace Game.GameManagement {
 
         private void DialogueEnd() {
             GameEventType = _lastGameEventType;
+        }
+
+        public static void OnBearDeath() {
+            GameEventType = GameEventType.BearDeath;
+        }
+
+        public static void OnBearRevive() {
+            GameEventType = GameEventType.CombatEnter;
+        }
+
+        public static void OnPlayerRespawn() {
+            GameEventType = GameEventType.ExploreEnter;
         }
     }
     
@@ -111,8 +123,9 @@ namespace Game.GameManagement {
         Cutscene,
         CombatEnter,
         ExploreEnter,
-        Bear,
-        Child,
-        Dialogue
+        Combat,
+        Explore,
+        Dialogue,
+        BearDeath
     }
 }

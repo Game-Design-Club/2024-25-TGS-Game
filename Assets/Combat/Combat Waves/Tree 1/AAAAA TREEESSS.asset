@@ -38,10 +38,9 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     enemyType: 2
-    spawnLeft: 0
-    spawnRight: 0
+    spawnLeft: 1
+    spawnRight: 1
     spawnTop: 0
     spawnBottom: 0
-    spawnFromCustom: 1
     bufferAfterThisEntry: 0
   canReplay: 0

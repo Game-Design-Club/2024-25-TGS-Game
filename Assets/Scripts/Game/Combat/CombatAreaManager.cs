@@ -20,7 +20,7 @@ namespace Game.Combat {
         [SerializeField] private WavesData wavesData;
         [Header("Combat Area")]
         [SerializeField] private Transform combatAreaSize;
-        [SerializeField] private Transform[] customSpawnPoints;
+        [SerializeField] private Transform childRestPoint;
         [Header("Sanity")]
         [SerializeField] private float winSanityThreshold = 100f;
         [SerializeField] private float loseSanityThreshold = 0f;
@@ -43,15 +43,19 @@ namespace Game.Combat {
         
         // Events
         public static event Action<float> OnSanityChanged; // Percentage
-
+        
         private void Awake() {
             foreach (GameObject obj in activeStateSwitchOnCombat) {
                 obj.SetActive(false);
             }
         }
 
-        private void Start() {
-            Sanity = startInsanity;
+        private void OnEnable() {
+            UIManager.OnRestartGame += RestartCombat;
+        }
+        
+        private void OnDisable() {
+            UIManager.OnRestartGame -= RestartCombat;
         }
 
         // Start combat
@@ -67,11 +71,11 @@ namespace Game.Combat {
             GameManager.StartTransitionToCombat();
             
             Setup();
+                        
+            Child.WalkToPoint(childRestPoint.position);
 
             yield return new WaitForSeconds(GameManager.TransitionDuration);
             
-            GameManager.EndTransitionToCombat();
-
             StartCoroutine(RunCombat());
             
             yield return new WaitForSeconds(cutsceneDuration);
@@ -102,6 +106,10 @@ namespace Game.Combat {
 
         // Run combat
         private IEnumerator RunCombat() {
+            GameManager.EndTransitionToCombat();
+            
+            Sanity = startInsanity;
+            
             foreach (Wave wave in wavesData.waves) {
                 yield return StartCoroutine(SpawnWave(wave));
                 yield return new WaitForSeconds(wavesData.bufferBetweenWaves);
@@ -142,25 +150,13 @@ namespace Game.Combat {
         }
         
         private Vector2 GetSpawnPosition(WaveEntry entry) {
-            if (entry.spawnFromCustom) {
-                if (entry.spawnLeft || entry.spawnRight || entry.spawnTop || entry.spawnBottom) {
-                    Debug.LogWarning("Custom spawn point and spawn direction are both set, ignoring spawn directions.");
-                }
-                if (customSpawnPoints.Length == 0) {
-                    Debug.LogWarning("Custom spawn point is set but no custom spawn points are set.");
+                if (!entry.spawnLeft && !entry.spawnRight && !entry.spawnTop && !entry.spawnBottom) {
+                    Debug.LogError("No spawn points for enemy");
                     return transform.position;
                 }
-                return SpawnFromCustom();
-            } else {
                 return SpawnFromSides(entry);
-            }
         }
-
-        private Vector2 SpawnFromCustom() {
-            int index = UnityEngine.Random.Range(0, customSpawnPoints.Length);
-            return customSpawnPoints[index].position;
-        }
-
+        
         private Vector2 SpawnFromSides(WaveEntry entry) {
                         float height = combatAreaSize.localScale.y;
             float width = combatAreaSize.localScale.x;
@@ -186,7 +182,7 @@ namespace Game.Combat {
                 chosenPosition -= height;
             }
             
-            // -- Right --
+            // -- Top --
             if (entry.spawnTop) {
                 if (chosenPosition < width) {
                     float xPos = chosenPosition - (width / 2);
@@ -197,8 +193,8 @@ namespace Game.Combat {
                 chosenPosition -= width;
             }
             
-            // -- Top --
-            if (entry.spawnTop) {
+            // -- Right --
+            if (entry.spawnRight) {
                 if (chosenPosition < height) {
                     float yPos = chosenPosition - (height / 2);
                     float xPos = (width / 2);
@@ -265,10 +261,25 @@ namespace Game.Combat {
         }
 
         private void PlayerLost() {
+            GameManager.OnBearDeath();
             StopAllCoroutines();
-            StartCoroutine(TransitionToExploration());
-            // _combatEntered = false;
-            Debug.Log("DEADADDD");
+        }
+        
+        internal void RestartCombat() {
+            StartCoroutine(RestartCombatRoutine());
+        }
+        
+        private IEnumerator RestartCombatRoutine() {
+            foreach (GameObject obj in activeStateSwitchOnCombat) {
+                obj.SetActive(true);
+            }
+            foreach (EnemyBase enemy in _activeEnemies) {
+                Destroy(enemy.gameObject);
+            }
+            
+            _activeEnemies.Clear();
+            yield return new WaitForSeconds(GameManager.TransitionDuration);
+            StartCoroutine(RunCombat());
         }
 
         // Helper functions

@@ -3,6 +3,7 @@ namespace Tools {
         public static class Animator {
             public static class GameUI {
                 public const string IsPaused = "IsPaused";
+                public static string IsGameOver = "IsGameOver";
             }
 
             public static class Bear {
