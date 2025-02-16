@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Tree Enemy/Attack.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Tree Enemy/Attack.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level/Combat/Enemies/Tree Enemy/Tree Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level/Combat/Enemies/Tree Enemy/Tree Enemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/TreeEnemy/TreeAppendage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/TreeEnemy/TreeAppendage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/TreeEnemy/TreeEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/TreeEnemy/TreeEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level/Combat/Bear.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level/Combat/Bear.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/BearDamageDealer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/BearDamageDealer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

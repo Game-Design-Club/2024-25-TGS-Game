@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Game.Combat.Enemies;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Game.Combat.Bear {
         [SerializeField] private float knockbackForce = 10;
         [SerializeField] private bool movementBased = true;
         [SerializeField] private float directionWeight = 0.6f;
+        [SerializeField] private BearDamageDealer[] frends;
         
         private readonly HashSet<IBearHittable> _enemiesHit = new();
 
@@ -16,9 +18,13 @@ namespace Game.Combat.Bear {
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
-            if (other.gameObject.TryGetComponent(out IBearHittable enemyBase) && _enemiesHit.Add(enemyBase)) { // Add returns false if already in set
+            if (other.gameObject.TryGetComponent(out IBearHittable enemyBase) && FrendsHave(enemyBase) && _enemiesHit.Add(enemyBase)) { // Add returns false if already in set
                 AttackEnemy(enemyBase);
             }
+        }
+
+        private bool FrendsHave(IBearHittable enemyBase) {
+            return frends.All(frend => !frend._enemiesHit.Contains(enemyBase));
         }
 
         private void AttackEnemy(IBearHittable other) {
