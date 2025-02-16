@@ -15,7 +15,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
         [SerializeField] private LineRenderer debugLineRenderer;
         [SerializeField] private LineRenderer lineRenderer;
         [SerializeField] private Transform hand;
-        [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] private Transform spritePivot;
 
         protected override EnemyState StartingState => new Reach(this);
         
@@ -27,8 +27,6 @@ namespace Game.Combat.Enemies.TreeEnemy {
         
         private float _maxDistance = -1;
         
-        private bool _destroyed = false;
-
         private new void Start() {
             CalculatePoints();
             SetDistance(CurrentDistance);
@@ -40,7 +38,8 @@ namespace Game.Combat.Enemies.TreeEnemy {
             Vector2 direction = CombatManager.Child.transform.position - transform.position;
             direction.Normalize();
             // if to right of child, flip
-            spriteRenderer.flipX = direction.x > 0;
+            // spriteRenderer.flipX = direction.x > 0;
+            spritePivot.localScale = new Vector3(direction.x > 0 ? 1 : -1, 1, 1);
         }
 
         private void CalculatePoints() {

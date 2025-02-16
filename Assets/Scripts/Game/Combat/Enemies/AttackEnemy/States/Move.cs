@@ -1,4 +1,5 @@
 using Tools;
+using UnityEditor.iOS.Xcode;
 using UnityEngine;
 
 namespace Game.Combat.Enemies.AttackEnemy {
@@ -6,6 +7,7 @@ namespace Game.Combat.Enemies.AttackEnemy {
         public Move(EnemyBase controller) : base(controller) { }
 
         private Transform _targetTransform;
+        
         public override void Enter() {
             Controller().Animator.SetTrigger(Constants.Animator.AttackEnemy.Idle);
             _targetTransform = Controller().CombatManager.Child.transform;
@@ -22,7 +24,8 @@ namespace Game.Combat.Enemies.AttackEnemy {
         public override void Update() {
             Vector2 posDifference = -(Controller().transform.position - _targetTransform.position);
             Controller().Rigidbody.linearVelocity = posDifference.normalized * Controller<AttackEnemy>().moveSpeed;
-            Controller().Rigidbody.rotation = Mathf.Atan2(posDifference.y, posDifference.x) * Mathf.Rad2Deg;
+            Controller<AttackEnemy>().rotationPivot.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(posDifference.y, posDifference.x) * Mathf.Rad2Deg);
+            Controller<AttackEnemy>().spriteRenderer.flipX = Controller<AttackEnemy>().StartingFlipX ? posDifference.x > 0 : posDifference.x < 0;
         }
     }
 }
