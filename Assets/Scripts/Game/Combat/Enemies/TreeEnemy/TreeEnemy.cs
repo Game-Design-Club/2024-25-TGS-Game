@@ -39,7 +39,8 @@ namespace Game.Combat.Enemies.TreeEnemy {
             direction.Normalize();
             // if to right of child, flip
             // spriteRenderer.flipX = direction.x > 0;
-            spritePivot.localScale = new Vector3(direction.x > 0 ? 1 : -1, 1, 1);
+            // spritePivot.localScale = new Vector3(direction.x > 0 ? 1 : -1, 1, 1)
+            transform.localScale = new Vector3(direction.x > 0 ? 1 : -1, 1, 1);
         }
 
         private void CalculatePoints() {
