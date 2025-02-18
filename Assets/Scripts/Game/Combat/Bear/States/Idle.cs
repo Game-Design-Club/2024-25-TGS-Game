@@ -1,6 +1,4 @@
-
 using Tools;
-using UnityEngine;
 
 namespace Game.Combat.Bear {
     public class Idle : BearState {
@@ -15,6 +13,10 @@ namespace Game.Combat.Bear {
 
         public override void OnSwipeInput() {
             Controller.TransitionToState(new Swipe(Controller));
+        }
+
+        public override void OnPounceInput() {
+            Controller.TransitionToState(new Pounce(Controller));
         }
     }
 }

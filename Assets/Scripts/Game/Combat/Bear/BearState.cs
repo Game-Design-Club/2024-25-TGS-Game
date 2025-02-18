@@ -17,6 +17,8 @@ namespace Game.Combat.Bear {
         public virtual void OnMovementInput(Vector2 direction) { }
         public virtual void OnSwipeInput() { }
         public virtual void OnSwipeInputReleased() { }
+        public virtual void OnPounceInput() { }
+        public virtual void OnPounceInputReleased() { }
         public virtual void OnAnimationEnded(int id) { }
         
         // Functions

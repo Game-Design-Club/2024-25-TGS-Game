@@ -7,15 +7,22 @@ namespace Game.Combat.Bear {
         [SerializeField] private string currentStateName = "State";
         [Header("References")]
         [SerializeField] private Transform rotateTransform;
+        [SerializeField] internal Collider2D mainCollider;
         [Header("Idle State")]
         [SerializeField] internal float idleWalkSpeed = 5f;
         [Header("Swipe State")]
         [SerializeField] internal float swipeWalkSpeed = 2f;
         [Header("Stun State")]
         [SerializeField] internal AnimationCurve stunKnockbackCurve;
+        [Header("Pounce State")]
+        [SerializeField] internal float pounceSpeed;
+        [SerializeField] internal float minPounceLength = 0.5f;
+        [SerializeField] internal float maxPounceLength = 1f;
+        [SerializeField] internal GameObject pounceHitbox;
         
         
         internal Vector2 LastInput;
+        internal Vector2 LastDirection = Vector2.right;
         internal float LastRotation;
         internal float LastSpeed;
         
@@ -28,12 +35,16 @@ namespace Game.Combat.Bear {
             App.Get<InputManager>().OnBearSwipe += OnSwipe;
             App.Get<InputManager>().OnBearSwipeReleased += OnSwipeReleased;
             App.Get<InputManager>().OnBearMovement += OnMovement;
+            App.Get<InputManager>().OnBearPounce += OnPounce;
+            App.Get<InputManager>().OnBearPounceReleased += OnPounceReleased;
         }
         
         private void OnDisable() {
             App.Get<InputManager>().OnBearSwipe -= OnSwipe;
             App.Get<InputManager>().OnBearSwipeReleased -= OnSwipeReleased;
             App.Get<InputManager>().OnBearMovement += OnMovement;
+            App.Get<InputManager>().OnBearPounce -= OnPounce;
+            App.Get<InputManager>().OnBearPounceReleased -= OnPounceReleased;
         }
         
         private void Awake() {
@@ -88,11 +99,20 @@ namespace Game.Combat.Bear {
         }
         private void OnMovement(Vector2 direction) {
             LastInput = direction;
+            if (direction != Vector2.zero) LastDirection = direction;
             _currentState.OnMovementInput(direction);
         }
 
         internal void OnHit(Vector2 hitDirection, float hitForce) {
             _currentState.OnHit(hitDirection, hitForce);
+        }
+        
+        private void OnPounce() {
+            _currentState.OnPounceInput();
+        }
+
+        private void OnPounceReleased() {
+            _currentState.OnPounceInputReleased();
         }
     }
 }

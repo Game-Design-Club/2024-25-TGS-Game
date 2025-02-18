@@ -40,7 +40,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Attacks/Growl/Circle
+    path: Rotate Pivot/Attacks/Growl/Circle
   m_FloatCurves:
   - serializedVersion: 2
     curve:
@@ -59,7 +59,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Attacks/Growl
+    path: Rotate Pivot/Attacks/Growl
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -72,7 +72,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 4242528509
+      path: 2538784635
       attribute: 3
       script: {fileID: 0}
       typeID: 4
@@ -81,7 +81,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3086755024
+      path: 3066903365
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -128,7 +128,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Attacks/Growl
+    path: Rotate Pivot/Attacks/Growl
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -158,7 +158,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Attacks/Growl/Circle
+    path: Rotate Pivot/Attacks/Growl/Circle
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -188,7 +188,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Attacks/Growl/Circle
+    path: Rotate Pivot/Attacks/Growl/Circle
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -218,7 +218,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Attacks/Growl/Circle
+    path: Rotate Pivot/Attacks/Growl/Circle
     classID: 4
     script: {fileID: 0}
     flags: 0

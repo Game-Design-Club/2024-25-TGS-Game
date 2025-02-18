@@ -180,6 +180,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Pounce"",
+                    ""type"": ""Button"",
+                    ""id"": ""33cb65fa-db7b-48b6-8359-8bd3c27fd8e2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -292,6 +301,17 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5b65c4e9-7269-4c78-8474-95147b06ba6f"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pounce"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -934,6 +954,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Bear = asset.FindActionMap("Bear", throwIfNotFound: true);
         m_Bear_Swipe = m_Bear.FindAction("Swipe", throwIfNotFound: true);
         m_Bear_Move = m_Bear.FindAction("Move", throwIfNotFound: true);
+        m_Bear_Pounce = m_Bear.FindAction("Pounce", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1072,12 +1093,14 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private List<IBearActions> m_BearActionsCallbackInterfaces = new List<IBearActions>();
     private readonly InputAction m_Bear_Swipe;
     private readonly InputAction m_Bear_Move;
+    private readonly InputAction m_Bear_Pounce;
     public struct BearActions
     {
         private @PlayerInputs m_Wrapper;
         public BearActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Swipe => m_Wrapper.m_Bear_Swipe;
         public InputAction @Move => m_Wrapper.m_Bear_Move;
+        public InputAction @Pounce => m_Wrapper.m_Bear_Pounce;
         public InputActionMap Get() { return m_Wrapper.m_Bear; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1093,6 +1116,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Pounce.started += instance.OnPounce;
+            @Pounce.performed += instance.OnPounce;
+            @Pounce.canceled += instance.OnPounce;
         }
 
         private void UnregisterCallbacks(IBearActions instance)
@@ -1103,6 +1129,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Pounce.started -= instance.OnPounce;
+            @Pounce.performed -= instance.OnPounce;
+            @Pounce.canceled -= instance.OnPounce;
         }
 
         public void RemoveCallbacks(IBearActions instance)
@@ -1308,6 +1337,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     {
         void OnSwipe(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+        void OnPounce(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -8,6 +8,7 @@ TagManager:
   - Child
   - Enemy
   - Interactable
+  - Bear Enemy Hittable
   layers:
   - Default
   - TransparentFX

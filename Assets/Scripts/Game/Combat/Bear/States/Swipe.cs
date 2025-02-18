@@ -1,3 +1,5 @@
+using AppCore;
+using AppCore.InputManagement;
 using Tools;
 using UnityEngine;
 
@@ -12,6 +14,7 @@ namespace Game.Combat.Bear {
         public override void Enter() {
             Controller.Animator.SetTrigger(Constants.Animator.Bear.Swipe);
             _startRotation = Controller.LastRotation;
+            _swipeInputReleased = !App.Get<InputManager>().GetBearSwipe;
         }
 
         public override float? GetWalkSpeed() {
