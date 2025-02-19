@@ -1,4 +1,7 @@
+using AppCore;
+using AppCore.InputManagement;
 using Tools;
+using UnityEngine;
 
 namespace Game.Combat.Bear {
     public class Swipe : BearState {
@@ -6,9 +9,12 @@ namespace Game.Combat.Bear {
 
         private float _startRotation;
         
+        private bool _swipeInputReleased = false;
+        
         public override void Enter() {
             Controller.Animator.SetTrigger(Constants.Animator.Bear.Swipe);
             _startRotation = Controller.LastRotation;
+            _swipeInputReleased = !App.Get<InputManager>().GetBearSwipe;
         }
 
         public override float? GetWalkSpeed() {
@@ -18,9 +24,18 @@ namespace Game.Combat.Bear {
         public override float? GetRotation() {
             return _startRotation;
         }
+        
+        public override void OnSwipeInputReleased() {
+            _swipeInputReleased = true;
+        }
 
-        public override void OnAnimationEnded() {
-            Controller.TransitionToState(new Idle(Controller));
+        public override void OnAnimationEnded(int id) {
+            if (id != Constants.Animator.BearIDs.Swipe) return;
+            if (!_swipeInputReleased) {
+                Controller.TransitionToState(new GrowlChargeup(Controller));
+            } else {
+                Controller.TransitionToState(new Idle(Controller));
+            }
         }
     }
 }

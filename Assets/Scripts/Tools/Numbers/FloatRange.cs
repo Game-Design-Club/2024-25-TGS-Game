@@ -1,7 +1,7 @@
-using System;
+using UnityEngine;
 
 namespace Tools {
-    [Serializable]
+    [System.Serializable]
     public struct FloatRange {
         public float Min;
         public float Max;
@@ -12,7 +12,7 @@ namespace Tools {
         }
         
         public float Random() {
-            if (Math.Abs(Min - Max) < 0.000001) return Min;
+            if (Mathf.Abs(Min - Max) < 0.000001) return Min;
             return UnityEngine.Random.Range(Min, Max);
         }
     }

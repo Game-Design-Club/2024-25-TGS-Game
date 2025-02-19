@@ -40,7 +40,7 @@ namespace Game.Exploration.Enviornment {
         private void OnGameEvent(GameEvent gameEvent) {
             switch (gameEvent.GameEventType) {
                 case GameEventType.CombatEnter:
-                case GameEventType.Bear:
+                case GameEventType.Combat:
                     StartCoroutine(Flicker());
                     break;
                 default:

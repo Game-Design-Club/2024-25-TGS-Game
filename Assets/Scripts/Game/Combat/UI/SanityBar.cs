@@ -27,7 +27,7 @@ namespace Game.Combat {
 
         private void OnGameEvent(GameEvent gameEvent) {
             switch (gameEvent.GameEventType) {
-                case GameEventType.Bear:
+                case GameEventType.Combat:
                 case GameEventType.CombatEnter:
                     sanityBar.gameObject.SetActive(true);
                     break;

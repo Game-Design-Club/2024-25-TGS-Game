@@ -1,22 +1,29 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Combat {
     [CreateAssetMenu(fileName = "CombatObjectsData", menuName = "Combat/CombatObjectsData", order = 0)]
     public class CombatObjectsData : ScriptableObject {
-        [SerializeField] private GameObject basicEnemyAttackerPrefab;
+        [FormerlySerializedAs("basicEnemyAttackerPrefab")] [SerializeField] private GameObject attackerPrefab;
+        [SerializeField] private GameObject shooterPrefab;
+        [SerializeField] private GameObject treePrefab;
         private static CombatObjectsData Instance => _instance ??= Resources.Load<CombatObjectsData>("CombatObjectsData");
         private static CombatObjectsData _instance;
 
         public static GameObject GetEnemyPrefab(EnemyType enemyType) {
         return enemyType switch {
-                EnemyType.BasicEnemyAttacker => Instance.basicEnemyAttackerPrefab,
+                EnemyType.Attacker => Instance.attackerPrefab,
+                EnemyType.Shooter => Instance.shooterPrefab,
+                EnemyType.Tree => Instance.treePrefab,
                 _ => throw new ArgumentOutOfRangeException(nameof(enemyType), enemyType, null)
             };
         }
     }
 
     public enum EnemyType {
-        BasicEnemyAttacker
+        Attacker,
+        Shooter,
+        Tree
     }
 }

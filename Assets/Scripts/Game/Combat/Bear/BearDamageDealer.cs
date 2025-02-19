@@ -1,25 +1,44 @@
+using System.Collections.Generic;
+using System.Linq;
 using Game.Combat.Enemies;
-using Tools;
 using UnityEngine;
 
 namespace Game.Combat.Bear {
     public class BearDamageDealer : MonoBehaviour {
         [SerializeField] private int damage = 50;
         [SerializeField] private float knockbackForce = 10;
-        [Range(0f,1f)]
+        [SerializeField] private bool movementBased = true;
         [SerializeField] private float directionWeight = 0.6f;
+        [SerializeField] private BearDamageDealer[] frends;
         
-        private bool _canDamage = true;
-        
-        private void OnTriggerEnter2D(Collider2D other) {
-            if (!_canDamage) return;
-            if (!other.CompareTag(Constants.Tags.Enemy)) return;
+        private readonly HashSet<IBearHittable> _enemiesHit = new();
 
-            Vector2 dif= (other.transform.position - transform.position).normalized * directionWeight;
+        private void OnEnable() {
+            _enemiesHit.Clear();
+        }
+
+        private void OnTriggerEnter2D(Collider2D other) {
+            if (other.gameObject.TryGetComponent(out IBearHittable enemyBase) && FrendsHave(enemyBase) && _enemiesHit.Add(enemyBase)) { // Add returns false if already in set
+                AttackEnemy(enemyBase);
+            }
+        }
+
+        private bool FrendsHave(IBearHittable enemyBase) {
+            return frends.All(frend => !frend._enemiesHit.Contains(enemyBase));
+        }
+
+        private void AttackEnemy(IBearHittable other) {
+            Vector2 dif= (other.GameObject.transform.position - transform.position).normalized;
+            int flip = transform.lossyScale.x > 0 ? 1 : -1;
+
+            Vector2 knockbackDirection;
+            if (movementBased) {
+                knockbackDirection = ((Vector2)transform.right + dif * directionWeight) * flip;
+            } else {
+                knockbackDirection = dif;
+            }
             
-            Vector2 knockbackDirection = (Vector2)transform.right + dif;
-            
-            other.GetComponent<EnemyBase>().TakeDamage(50, knockbackDirection, knockbackForce);
+            other.OnHit(damage, knockbackDirection.normalized, knockbackForce);
         }
     }
 }

@@ -1,16 +1,30 @@
+using Tools;
 using UnityEngine;
 
 namespace Game.Combat.Enemies.AttackEnemy {
-    public class Attack : AttackEnemyState {
-        public Attack(AttackEnemyBase controller) : base(controller) { }
+    internal class Attack : EnemyState {
+        public Attack(EnemyBase controller) : base(controller) { }
+        
+        private bool _died = false;
+        
         public override void Enter() {
+            Controller().Animator.SetTrigger(Constants.Animator.AttackEnemy.Attack);
         }
 
-        public override void Exit() {
+        public override void OnHit(Vector2 hitDirection, float hitForce) {
+            HandleHit(hitDirection, hitForce, new Move(Controller()));
         }
 
-        public override void Update() {
+        public override void OnAnimationEnded() {
+            if (_died) {
+                Object.Destroy(Controller().gameObject);
+            } else {
+                Controller().TransitionToState(new Move(Controller()));
+            }
         }
 
+        public override void Die() {
+            _died = true;
+        }
     }
 }

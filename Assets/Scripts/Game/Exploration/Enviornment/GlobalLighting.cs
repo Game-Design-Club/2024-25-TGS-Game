@@ -32,8 +32,8 @@ namespace Game.Exploration.Enviornment {
                 case GameEventType.Cutscene:
                     StartCoroutine(TransitionLighting(exploreIntensity));
                     break;
-                case GameEventType.Bear:
-                case GameEventType.Child:
+                case GameEventType.Combat:
+                case GameEventType.Explore:
                     break;
             }
         }

@@ -180,6 +180,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Pounce"",
+                    ""type"": ""Button"",
+                    ""id"": ""33cb65fa-db7b-48b6-8359-8bd3c27fd8e2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -292,6 +301,17 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5b65c4e9-7269-4c78-8474-95147b06ba6f"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pounce"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -393,6 +413,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""name"": ""Continue"",
                     ""type"": ""Button"",
                     ""id"": ""aaf4d074-114a-4205-889c-6d5def6e6337"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""c464acbe-1671-4285-b235-2947639b7939"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -839,6 +868,17 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Continue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""939c4961-53ad-4074-9268-a2b01255200b"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -914,6 +954,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Bear = asset.FindActionMap("Bear", throwIfNotFound: true);
         m_Bear_Swipe = m_Bear.FindAction("Swipe", throwIfNotFound: true);
         m_Bear_Move = m_Bear.FindAction("Move", throwIfNotFound: true);
+        m_Bear_Pounce = m_Bear.FindAction("Pounce", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -927,6 +968,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         m_UI_Continue = m_UI.FindAction("Continue", throwIfNotFound: true);
+        m_UI_Restart = m_UI.FindAction("Restart", throwIfNotFound: true);
     }
 
     ~@PlayerInputs()
@@ -1051,12 +1093,14 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private List<IBearActions> m_BearActionsCallbackInterfaces = new List<IBearActions>();
     private readonly InputAction m_Bear_Swipe;
     private readonly InputAction m_Bear_Move;
+    private readonly InputAction m_Bear_Pounce;
     public struct BearActions
     {
         private @PlayerInputs m_Wrapper;
         public BearActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Swipe => m_Wrapper.m_Bear_Swipe;
         public InputAction @Move => m_Wrapper.m_Bear_Move;
+        public InputAction @Pounce => m_Wrapper.m_Bear_Pounce;
         public InputActionMap Get() { return m_Wrapper.m_Bear; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1072,6 +1116,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Pounce.started += instance.OnPounce;
+            @Pounce.performed += instance.OnPounce;
+            @Pounce.canceled += instance.OnPounce;
         }
 
         private void UnregisterCallbacks(IBearActions instance)
@@ -1082,6 +1129,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Pounce.started -= instance.OnPounce;
+            @Pounce.performed -= instance.OnPounce;
+            @Pounce.canceled -= instance.OnPounce;
         }
 
         public void RemoveCallbacks(IBearActions instance)
@@ -1114,6 +1164,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
     private readonly InputAction m_UI_Continue;
+    private readonly InputAction m_UI_Restart;
     public struct UIActions
     {
         private @PlayerInputs m_Wrapper;
@@ -1129,6 +1180,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
         public InputAction @Continue => m_Wrapper.m_UI_Continue;
+        public InputAction @Restart => m_Wrapper.m_UI_Restart;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1171,6 +1223,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Continue.started += instance.OnContinue;
             @Continue.performed += instance.OnContinue;
             @Continue.canceled += instance.OnContinue;
+            @Restart.started += instance.OnRestart;
+            @Restart.performed += instance.OnRestart;
+            @Restart.canceled += instance.OnRestart;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -1208,6 +1263,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Continue.started -= instance.OnContinue;
             @Continue.performed -= instance.OnContinue;
             @Continue.canceled -= instance.OnContinue;
+            @Restart.started -= instance.OnRestart;
+            @Restart.performed -= instance.OnRestart;
+            @Restart.canceled -= instance.OnRestart;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -1279,6 +1337,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     {
         void OnSwipe(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+        void OnPounce(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
@@ -1293,5 +1352,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
         void OnContinue(InputAction.CallbackContext context);
+        void OnRestart(InputAction.CallbackContext context);
     }
 }

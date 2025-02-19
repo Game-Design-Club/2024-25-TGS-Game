@@ -2,27 +2,30 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Game.Combat.Enemies;
+using Game.Combat.Waves;
 using Game.Exploration.Child;
 using Game.GameManagement;
 using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Game.Combat {
     public class CombatAreaManager : MonoBehaviour {
         [Header("References")]
-        [SerializeField] private CinemachineCamera sleepCamera;
+        [SerializeField] private CinemachineCamera wideCamera;
+        [SerializeField] private CinemachineCamera combatCamera;
         [SerializeField] private List<GameObject> activeStateSwitchOnCombat;
+        [Header("Cutscene")]
+        [SerializeField] private float cutsceneDuration = 3f;
         [Header("Enemies")]
         [SerializeField] private WavesData wavesData;
         [Header("Combat Area")]
         [SerializeField] private Transform combatAreaSize;
+        [SerializeField] private Transform childRestPoint;
         [Header("Sanity")]
         [SerializeField] private float winSanityThreshold = 100f;
         [SerializeField] private float loseSanityThreshold = 0f;
         [SerializeField] private float startInsanity = 20f;
         
-
         // Private fields
         private float _sanity = 20f; // 0 - 100
         private float Sanity {
@@ -40,39 +43,61 @@ namespace Game.Combat {
         
         // Events
         public static event Action<float> OnSanityChanged; // Percentage
-
+        
         private void Awake() {
             foreach (GameObject obj in activeStateSwitchOnCombat) {
                 obj.SetActive(false);
             }
         }
 
-        private void Start() {
-            Sanity = startInsanity;
+        private void OnEnable() {
+            UIManager.OnRestartGame += RestartCombat;
+        }
+        
+        private void OnDisable() {
+            UIManager.OnRestartGame -= RestartCombat;
         }
 
         // Start combat
         internal void EnterCombatArea(ChildController child) {
+            if (_combatEntered) return;
             Child = child;
             StartCoroutine(TransitionToCombat());
         }
         
         private IEnumerator TransitionToCombat() {
-            if (_combatEntered) yield break;
             _combatEntered = true;
             
             GameManager.StartTransitionToCombat();
             
             Setup();
+                        
+            Child.WalkToPoint(childRestPoint.position);
 
             yield return new WaitForSeconds(GameManager.TransitionDuration);
-            GameManager.EndTransitionToCombat();
-
+            
             StartCoroutine(RunCombat());
+            
+            yield return new WaitForSeconds(cutsceneDuration);
+            
+            combatCamera.Priority = 200;
         }
+        
+        private IEnumerator TransitionToExploration() {
+            GameManager.StartTransitionToExploration();
+            
+            Cleanup();
 
+            yield return new WaitForSeconds(GameManager.TransitionDuration);
+            
+            GameManager.EndTransitionToExploration();
+            
+            _combatEntered = false;
+            gameObject.SetActive(false);
+        }
+        
         private void Setup() {
-            sleepCamera.Priority = 100;
+            wideCamera.Priority = 100;
 
             foreach (GameObject obj in activeStateSwitchOnCombat) {
                 obj.SetActive(true);
@@ -81,6 +106,10 @@ namespace Game.Combat {
 
         // Run combat
         private IEnumerator RunCombat() {
+            GameManager.EndTransitionToCombat();
+            
+            Sanity = startInsanity;
+            
             foreach (Wave wave in wavesData.waves) {
                 yield return StartCoroutine(SpawnWave(wave));
                 yield return new WaitForSeconds(wavesData.bufferBetweenWaves);
@@ -121,7 +150,15 @@ namespace Game.Combat {
         }
         
         private Vector2 GetSpawnPosition(WaveEntry entry) {
-            float height = combatAreaSize.localScale.y;
+                if (!entry.spawnLeft && !entry.spawnRight && !entry.spawnTop && !entry.spawnBottom) {
+                    Debug.LogError("No spawn points for enemy");
+                    return transform.position;
+                }
+                return SpawnFromSides(entry);
+        }
+        
+        private Vector2 SpawnFromSides(WaveEntry entry) {
+                        float height = combatAreaSize.localScale.y;
             float width = combatAreaSize.localScale.x;
     
             float totalPositions = 0;
@@ -145,7 +182,7 @@ namespace Game.Combat {
                 chosenPosition -= height;
             }
             
-            // -- Right --
+            // -- Top --
             if (entry.spawnTop) {
                 if (chosenPosition < width) {
                     float xPos = chosenPosition - (width / 2);
@@ -156,8 +193,8 @@ namespace Game.Combat {
                 chosenPosition -= width;
             }
             
-            // -- Top --
-            if (entry.spawnTop) {
+            // -- Right --
+            if (entry.spawnRight) {
                 if (chosenPosition < height) {
                     float yPos = chosenPosition - (height / 2);
                     float xPos = (width / 2);
@@ -179,35 +216,23 @@ namespace Game.Combat {
             
             return transform.position;
         }
-        
+
         // End combat
         private void PlayerWon() {
             StopAllCoroutines();
             StartCoroutine(TransitionToExploration());
         }
-        private IEnumerator TransitionToExploration() {
-            GameManager.StartTransitionToExploration();
-            
-            Cleanup();
-
-            yield return new WaitForSeconds(GameManager.TransitionDuration);
-            
-            GameManager.EndTransitionToExploration();
-            
-            _combatEntered = false;
-        }
-
         private void Cleanup() {
             StopAllCoroutines();
             
-            sleepCamera.Priority = 0;
+            wideCamera.Priority = 0;
+            combatCamera.Priority = 0;
             
             foreach (GameObject obj in activeStateSwitchOnCombat) {
                 obj.SetActive(false);
             }
-            
             foreach (EnemyBase enemy in _activeEnemies) {
-                enemy.Die();
+                Destroy(enemy.gameObject);
             }
             
             _activeEnemies.Clear();
@@ -225,15 +250,36 @@ namespace Game.Combat {
         
         internal void ChildHit(EnemyBase enemy) {
             Sanity -= enemy.sanityDamage;
-            _activeEnemies.Remove(enemy);
-            _enemiesToKill--;
             if (Sanity <= 0) {
                 PlayerLost();
             }
         }
+        
+        internal void RemoveEnemy(EnemyBase enemy) {
+            _activeEnemies.Remove(enemy);
+            _enemiesToKill--;
+        }
 
         private void PlayerLost() {
-            Debug.Log("DEAD");
+            GameManager.OnBearDeath();
+            StopAllCoroutines();
+        }
+        
+        internal void RestartCombat() {
+            StartCoroutine(RestartCombatRoutine());
+        }
+        
+        private IEnumerator RestartCombatRoutine() {
+            foreach (GameObject obj in activeStateSwitchOnCombat) {
+                obj.SetActive(true);
+            }
+            foreach (EnemyBase enemy in _activeEnemies) {
+                Destroy(enemy.gameObject);
+            }
+            
+            _activeEnemies.Clear();
+            yield return new WaitForSeconds(GameManager.TransitionDuration);
+            StartCoroutine(RunCombat());
         }
 
         // Helper functions

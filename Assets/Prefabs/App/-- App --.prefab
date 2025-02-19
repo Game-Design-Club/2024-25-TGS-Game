@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 3953478958809466913}
   - component: {fileID: 3104146116663146341}
   m_Layer: 0
-  m_Name: Background
+  m_Name: Dialogue Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,5 +1,6 @@
 using System;
 using AppCore;
+using AppCore.DialogueManagement;
 using AppCore.InputManagement;
 using UnityEngine;
 
@@ -57,15 +58,19 @@ namespace Game.GameManagement {
         }
 
         private void Start() {
-            GameEventType = GameEventType.Child;
+            GameEventType = GameEventType.Explore;
         }
 
         private void OnEnable() {
             App.Get<InputManager>().OnUICancel += OnGamePaused;
+            App.Get<DialogueManager>().OnDialogueStart += DialogueStart;
+            App.Get<DialogueManager>().OnDialogueEnd += DialogueEnd;
         }
         
         private void OnDisable() {
             App.Get<InputManager>().OnUICancel -= OnGamePaused;
+            App.Get<DialogueManager>().OnDialogueStart -= DialogueStart;
+            App.Get<DialogueManager>().OnDialogueEnd -= DialogueEnd;
         }
         
         private void OnGamePaused() {
@@ -77,7 +82,7 @@ namespace Game.GameManagement {
         }
         
         public static void EndTransitionToCombat() {
-            GameEventType = GameEventType.Bear;
+            GameEventType = GameEventType.Combat;
         }
 
         public static void StartTransitionToExploration() {
@@ -85,15 +90,27 @@ namespace Game.GameManagement {
         }
 
         public static void EndTransitionToExploration() {
-            GameEventType = GameEventType.Child;
+            GameEventType = GameEventType.Explore;
         }
 
-        public static void DialogueStart() {
+        private void DialogueStart() {
             GameEventType = GameEventType.Dialogue;
         }
 
-        public static void DialogueEnd() {
+        private void DialogueEnd() {
             GameEventType = _lastGameEventType;
+        }
+
+        public static void OnBearDeath() {
+            GameEventType = GameEventType.BearDeath;
+        }
+
+        public static void OnBearRevive() {
+            GameEventType = GameEventType.CombatEnter;
+        }
+
+        public static void OnPlayerRespawn() {
+            GameEventType = GameEventType.ExploreEnter;
         }
     }
     
@@ -106,8 +123,9 @@ namespace Game.GameManagement {
         Cutscene,
         CombatEnter,
         ExploreEnter,
-        Bear,
-        Child,
-        Dialogue
+        Combat,
+        Explore,
+        Dialogue,
+        BearDeath
     }
 }
