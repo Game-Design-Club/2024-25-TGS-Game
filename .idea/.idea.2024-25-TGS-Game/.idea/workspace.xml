@@ -5,28 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/States/Pounce.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/States/Pounce.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Bear Animator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Bear Animator.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Growl/Growl Chargeup.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Growl/Growl Chargeup.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Growl/Growl Ready.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Growl/Growl Ready.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Growl/Growl.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Growl/Growl.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Swipe.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Swipe.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Attack Enemy/Attack Enemy.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Attack Enemy/Attack Enemy.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Attack Enemy/Attack.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Attack Enemy/Attack.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Input/PlayerInputs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/PlayerInputs.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Input/PlayerInputs.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/PlayerInputs.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level/Combat/Bear.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level/Combat/Bear.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AppCore/InputManagement/BearInputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AppCore/InputManagement/BearInputManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/BearController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/BearController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/BearState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/BearState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/States/Idle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/States/Idle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/States/Swipe.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/States/Swipe.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/EnemyDamageDealer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/EnemyDamageDealer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tools/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/Constants.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/TreeEnemy/States/Retract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/TreeEnemy/States/Retract.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +137,7 @@
       <workItem from="1736786438574" duration="13945000" />
       <workItem from="1738122759367" duration="9895000" />
       <workItem from="1738601530319" duration="253000" />
-      <workItem from="1739856095779" duration="3211000" />
+      <workItem from="1739856095779" duration="4721000" />
     </task>
     <servers />
   </component>

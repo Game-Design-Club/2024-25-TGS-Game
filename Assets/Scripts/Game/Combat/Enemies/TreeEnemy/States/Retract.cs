@@ -1,3 +1,4 @@
+using Tools;
 using UnityEngine;
 
 namespace Game.Combat.Enemies.TreeEnemy {
@@ -8,6 +9,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
         private float _startDistance = 0;
 
         public override void Enter() {
+            Controller().Animator.SetTrigger(Constants.Animator.TreeEnemy.Reset);
             _startDistance = Controller<TreeEnemy>().CurrentDistance;
         }
 
