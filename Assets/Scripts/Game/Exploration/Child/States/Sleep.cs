@@ -13,10 +13,13 @@ namespace Game.Exploration.Child {
 
         public override void Enter() {
             Controller.StartCoroutine(WalkToPoint());
+            // static
+            Controller.Rigidbody.bodyType = RigidbodyType2D.Static;
         }
 
         public override void Exit() {
             Controller.Animator.SetBool(Constants.Animator.Child.Sleep, false);
+            Controller.Rigidbody.bodyType = RigidbodyType2D.Dynamic;
         }
 
         public override float? GetWalkSpeed() {
