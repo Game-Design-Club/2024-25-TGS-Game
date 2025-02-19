@@ -72,7 +72,7 @@ namespace Game.Combat {
             
             Setup();
                         
-            Child.WalkToPoint(childRestPoint.position);
+            Child.Sleep(childRestPoint.position);
 
             yield return new WaitForSeconds(GameManager.TransitionDuration);
             

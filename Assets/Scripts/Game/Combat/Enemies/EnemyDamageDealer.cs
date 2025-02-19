@@ -33,9 +33,9 @@ namespace Game.Combat.Enemies {
                 enemyBase.HitChild();
                 HandleHit();
             }
-            if (hitBear && _canDamage && other.CompareTag(Constants.Tags.BearEnemyDamageable)) {
+            if (hitBear && _canDamage && other.TryGetComponent(out BearEnemyHitbox bearEnemyHitbox)) {
                 Vector2 dif = GetDirection(other);
-                GetComponentInParent<BearController>().OnHit(dif, hitForce);
+                bearEnemyHitbox.bearController.OnHit(dif, hitForce);
                 _canDamage = false;
                 HandleHit();
             }

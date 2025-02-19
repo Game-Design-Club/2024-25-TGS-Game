@@ -1,28 +1,37 @@
+using System;
 using System.Collections;
 using AppCore;
 using AppCore.InputManagement;
 using Game.GameManagement;
 using Tools;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Exploration.Child {
     public class ChildController : MonoBehaviour {
-        [SerializeField] private float walkSpeed = 5f;
-        [SerializeField] private AnimationCurve walkToSleepCurve;
+        [Header("References")]
+        [SerializeField] private Transform rotateTransform;
+        [Header("Idle State")]
+        [SerializeField] internal float walkSpeed = 5f;
+        [FormerlySerializedAs("walkToSleepCurve")]
+        [Header("Walk to Sleep")]
+        [SerializeField] internal AnimationCurve walkToPointCurve;
         
-        private Vector2 _movement;
+        internal Rigidbody2D Rigidbody;
+        internal Animator Animator;
         
-        private bool _active = false;
+        internal Vector2 LastInput;
+        internal Vector2 LastDirection = Vector2.right;
+        internal float LastRotation;
+        internal float LastSpeed;
         
-        private Rigidbody2D _rb;
-        private Animator _animator;
-        
+        private ChildState _currentState;
         
         private void Awake() {
-            TryGetComponent(out _rb);
-            TryGetComponent(out _animator);
+            TryGetComponent(out Rigidbody);
+            TryGetComponent(out Animator);
         }
-
+        
         private void OnEnable() {
             GameManager.OnGameEvent += OnGameEvent;
             App.Get<InputManager>().OnChildMovement += Move;
@@ -31,50 +40,77 @@ namespace Game.Exploration.Child {
             GameManager.OnGameEvent -= OnGameEvent;
             App.Get<InputManager>().OnChildMovement -= Move;
         }
-        
-        private void Move(Vector2 movement) {
-            _movement = movement;
+
+        private void Start() {
+            TransitionToState(new Move(this));
         }
         
+        internal void TransitionToState(ChildState newState) {
+            _currentState?.Exit();
+            _currentState = newState;
+            _currentState.Enter();
+        }
+
         private void Update() {
-            if (!_active) return;
-            _rb.linearVelocity = _movement * walkSpeed;
+            _currentState.Update();
+            
+            float? speed = _currentState.GetWalkSpeed();
+            if (speed.HasValue) {
+                Rigidbody.linearVelocity = (float)speed * _currentState.GetWalkDirection();
+                LastSpeed = (float)speed;
+            }
+            
+            float? rotation = _currentState.GetRotation();
+            if (rotateTransform != null && rotation.HasValue) {
+                LastRotation = (float)rotation;
+                
+                // Debug.Log(rotation);
+                if (rotation > 90 && rotation < 270) {
+                    rotateTransform.localScale = new Vector3(-1, 1, 1);
+                    rotation += 180;
+                } else {
+                    rotateTransform.localScale = new Vector3(1, 1, 1);
+                }
+                rotateTransform.rotation = Quaternion.Euler(0, 0, (float)rotation);
+            }
+        }
+        
+        private void Move(Vector2 direction) {
+            LastInput = direction;
+            if (direction != Vector2.zero) LastDirection = direction;
+            _currentState.OnMovementInput(direction);
         }
         
         private void OnGameEvent(GameEvent gameEvent) {
-            switch (gameEvent.GameEventType) {
-                case GameEventType.Explore:
-                    _active = true;
-                    _rb.bodyType = RigidbodyType2D.Dynamic;
-                    break;
-                case GameEventType.Combat:
-                    _active = false;
-                    _rb.bodyType = RigidbodyType2D.Static;
-                    break;
-                case GameEventType.CombatEnter:
-                    _active = false;
-                    _rb.linearVelocity = Vector2.zero;
-                    break;
-                case GameEventType.ExploreEnter:
-                    _active = true;
-                    _rb.bodyType = RigidbodyType2D.Dynamic;
-                    _animator.SetBool(Constants.Animator.Child.Sleep, false);
-                    _movement = Vector2.zero;
-                    break;
-                default:
-                    _active = false;
-                    _rb.bodyType = RigidbodyType2D.Static;
-                    break;
-            }
+            _currentState.OnGameEvent(gameEvent);
+            // switch (gameEvent.GameEventType) {
+            //     case GameEventType.Explore:
+            //         _active = true;
+            //         Rigidbody.bodyType = RigidbodyType2D.Dynamic;
+            //         break;
+            //     case GameEventType.Combat:
+            //         _active = false;
+            //         Rigidbody.bodyType = RigidbodyType2D.Static;
+            //         break;
+            //     case GameEventType.CombatEnter:
+            //         _active = false;
+            //         Rigidbody.linearVelocity = Vector2.zero;
+            //         break;
+            //     case GameEventType.ExploreEnter:
+            //         _active = true;
+            //         Rigidbody.bodyType = RigidbodyType2D.Dynamic;
+            //         Animator.SetBool(Constants.Animator.Child.Sleep, false);
+            //         _movement = Vector2.zero;
+            //         break;
+            //     default:
+            //         _active = false;
+            //         Rigidbody.bodyType = RigidbodyType2D.Static;
+            //         break;
+            // }
         }
-
-        public void WalkToPoint(Vector3 position) {
-            StartCoroutine(WalkToPointCoroutine(position));
-        }
-
-        private IEnumerator WalkToPointCoroutine(Vector3 position) {
-            yield return this.MoveToPosition(_rb, position, walkToSleepCurve);
-            _animator.SetBool(Constants.Animator.Child.Sleep, true);
+        
+        public void Sleep(Vector3 position) {
+            _currentState.Sleep(position);
         }
     }
 }
