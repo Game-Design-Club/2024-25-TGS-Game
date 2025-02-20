@@ -22,7 +22,7 @@ namespace Game.Combat {
         [SerializeField] private Transform combatAreaSize;
         [SerializeField] private Transform childRestPoint;
         [Header("Sanity")]
-        [SerializeField] private float winSanityThreshold = 100f;
+        [SerializeField] private float maxSanity = 100f;
         [SerializeField] private float loseSanityThreshold = 0f;
         [SerializeField] private float startInsanity = 20f;
         
@@ -31,7 +31,7 @@ namespace Game.Combat {
         private float Sanity {
             get => _sanity;
             set {
-                _sanity = Mathf.Clamp(value, loseSanityThreshold, winSanityThreshold);
+                _sanity = Mathf.Clamp(value, loseSanityThreshold, maxSanity);
                 OnSanityChanged?.Invoke(GetSanityPercentage());
             }
         }
@@ -114,15 +114,8 @@ namespace Game.Combat {
                 yield return StartCoroutine(SpawnWave(wave));
                 yield return new WaitForSeconds(wavesData.bufferBetweenWaves);
             }
-
-            // Keep going until sanity is 100, repeat waves with canReplay
-            // while (true) {
-            //     foreach (Wave wave in wavesData.waves) {
-            //         if (!wave.canReplay) continue;
-            //         yield return new WaitForSeconds(wavesData.bufferBetweenWaves);
-            //         yield return StartCoroutine(SpawnWave(wave));
-            //     }
-            // }
+            
+            PlayerWon();
         }
 
         private IEnumerator SpawnWave(Wave wave) {
@@ -243,9 +236,6 @@ namespace Game.Combat {
             _activeEnemies.Remove(enemy);
             _enemiesToKill--;
             Sanity += enemy.sanityRestored;
-            if (Sanity >= 100) {
-                PlayerWon();
-            }
         }
         
         internal void ChildHit(EnemyDamageDealer enemy) {
@@ -285,7 +275,7 @@ namespace Game.Combat {
 
         // Helper functions
         private float GetSanityPercentage() {
-            return (Sanity - loseSanityThreshold) / (winSanityThreshold - loseSanityThreshold);
+            return (Sanity - loseSanityThreshold) / (maxSanity - loseSanityThreshold);
         }
     }
 }
