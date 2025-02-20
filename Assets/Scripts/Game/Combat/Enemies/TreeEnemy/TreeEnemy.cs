@@ -173,7 +173,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
                 TransitionToState(new Attack(this));
             }
             if (distance < 0) {
-                OnHit(100000, Vector2.zero, 0);
+                OnBearHit(100000, Vector2.zero, 0);
                 return;
             }
             SetLength(distance);

@@ -167,3 +167,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitForce: 10
   enemyBase: {fileID: 0}
+  hitChild: 1
+  hitBear: 1
+  sanityDamage: 10
+  killChildOnAttack: 0
+  sideKnockbackWeight: 0.3

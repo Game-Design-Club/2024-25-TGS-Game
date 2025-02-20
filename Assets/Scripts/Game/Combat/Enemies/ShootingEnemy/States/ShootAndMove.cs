@@ -7,9 +7,15 @@ namespace Game.Combat.Enemies.States {
 
         private Transform _targetTransform;
         
+        private Coroutine _shootCoroutine;
+        
         public override void Enter() {
             _targetTransform = Controller().CombatManager.Child.transform;
-            Controller().StartCoroutine(Shoot());
+            _shootCoroutine = Controller().StartCoroutine(Shoot());
+        }
+
+        public override void Exit() {
+            Controller().StopCoroutine(_shootCoroutine);
         }
 
         private IEnumerator Shoot() {

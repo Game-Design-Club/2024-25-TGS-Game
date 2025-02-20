@@ -1,3 +1,4 @@
+using System;
 using Game.Combat.Bear;
 using Game.GameManagement;
 using Tools;
@@ -9,6 +10,10 @@ namespace Game.Combat.Enemies {
         [SerializeField] internal EnemyBase enemyBase;
         [SerializeField] private bool hitChild = true;
         [SerializeField] private bool hitBear = true;
+        [SerializeField] internal float sanityDamage = 10;
+        [SerializeField] private bool killChildOnAttack = true;
+        
+        private CombatAreaManager _combatManager;
         
         private bool _canDamage = true;
 
@@ -22,20 +27,27 @@ namespace Game.Combat.Enemies {
             GameManager.OnGameEvent -= OnGameEvent;
         }
 
-        private void OnGameEvent(GameEvent obj) {
-            if (obj.GameEventType == GameEventType.ExploreEnter) {
-                HandleHit();
-            }
+        private void Start() {
+            _combatManager = enemyBase.CombatManager;
         }
 
+        private void OnGameEvent(GameEvent obj) {
+            if (obj.GameEventType == GameEventType.CombatEnter) {
+                HandleCombatRestart();
+            }
+        }
+        
         private void OnTriggerEnter2D(Collider2D other) {
             if (hitChild && other.CompareTag(Constants.Tags.Child)) {
-                enemyBase.HitChild();
+                if (enemyBase != null && killChildOnAttack) {
+                    enemyBase.HitChild();
+                }
                 HandleHit();
+                _combatManager.ChildHit(this);
             }
-            if (hitBear && _canDamage && other.CompareTag(Constants.Tags.BearEnemyDamageable)) {
+            if (hitBear && _canDamage && other.TryGetComponent(out BearEnemyHitbox bearEnemyHitbox)) {
                 Vector2 dif = GetDirection(other);
-                GetComponentInParent<BearController>().OnHit(dif, hitForce);
+                bearEnemyHitbox.bearController.OnHit(dif, hitForce);
                 _canDamage = false;
                 HandleHit();
             }
@@ -46,5 +58,6 @@ namespace Game.Combat.Enemies {
         }
 
         protected virtual void HandleHit() { }
+        protected virtual void HandleCombatRestart() { }
     }
 }

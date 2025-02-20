@@ -22,10 +22,5 @@ namespace Game.Combat.Enemies.AttackEnemy {
                 TransitionToState(new Attack(this));
             }
         }
-        
-        protected override void HandleHitChild() {
-            CurrentState.Die();
-            CombatManager.RemoveEnemy(this);
-        }
     }
 }

@@ -96,8 +96,13 @@ namespace AppCore.DialogueManagement {
             _animatingCharacters.Clear();
 
             // Set name and sprite
-            characterNameText.text = chunk.character.name;
-            characterSpriteRenderer.sprite = chunk.character.sprite;
+            if (chunk.character != null) {
+                characterNameText.text = chunk.character.name;
+                characterSpriteRenderer.sprite = chunk.character.sprite;
+            } else {
+                characterNameText.text = "";
+                characterSpriteRenderer.sprite = null;
+            }
 
             // Parse chunk for effects
             var parsedChunk = chunk.ParseEffects(this); 

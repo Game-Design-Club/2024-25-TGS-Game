@@ -18,7 +18,6 @@ namespace Game.Combat.Enemies {
             bullet.GetComponent<EnemyDamageDealer>().enemyBase = this;
             Vector2 posDifference = -(transform.position - CombatManager.Child.transform.position);
             bullet.GetComponent<Rigidbody2D>().linearVelocity = posDifference.normalized * bulletSpeed;
-
         }
     }
 }

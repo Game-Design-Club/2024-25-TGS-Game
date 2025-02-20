@@ -7,7 +7,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
 
         [SerializeField] private TreeEnemy enemyBase;
         
-        public void OnHit(int damage, Vector2 hitDirection, float knockbackForce) {
+        public void OnBearHit(int damage, Vector2 hitDirection, float knockbackForce) {
             enemyBase.Hit();
         }
     }

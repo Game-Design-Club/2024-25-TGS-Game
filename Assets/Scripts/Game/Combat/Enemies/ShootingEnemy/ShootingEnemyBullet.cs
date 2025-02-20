@@ -14,13 +14,17 @@ namespace Game.Combat.Enemies {
         protected override void HandleHit() {
             Destroy();
         }
+        
+        protected override void HandleCombatRestart() {
+            Destroy();
+        }
 
         public void Destroy() {
             Destroy(gameObject);
         }
 
 
-        public void OnHit(int damage, Vector2 hitDirection, float knockbackForce) {
+        public void OnBearHit(int damage, Vector2 hitDirection, float knockbackForce) {
             Destroy();
         }
     }
