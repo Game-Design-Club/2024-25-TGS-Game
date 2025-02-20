@@ -51,12 +51,12 @@ namespace Game.GameManagement {
 
         private void OnUIContinue() {
             if (_isGameOver && _canRestart) {
+                OnRestartGame?.Invoke();
+                
                 _isGameOver = false;
                 _canRestart = false;
 
                 gameOverAnimator.SetBool(Constants.Animator.GameUI.IsGameOver, false);
-                
-                OnRestartGame?.Invoke();
             }
         }
     }

@@ -82,31 +82,7 @@ namespace Game.Exploration.Child {
         }
         
         private void OnGameEvent(GameEvent gameEvent) {
-            _currentState.OnGameEvent(gameEvent);
-            // switch (gameEvent.GameEventType) {
-            //     case GameEventType.Explore:
-            //         _active = true;
-            //         Rigidbody.bodyType = RigidbodyType2D.Dynamic;
-            //         break;
-            //     case GameEventType.Combat:
-            //         _active = false;
-            //         Rigidbody.bodyType = RigidbodyType2D.Static;
-            //         break;
-            //     case GameEventType.CombatEnter:
-            //         _active = false;
-            //         Rigidbody.linearVelocity = Vector2.zero;
-            //         break;
-            //     case GameEventType.ExploreEnter:
-            //         _active = true;
-            //         Rigidbody.bodyType = RigidbodyType2D.Dynamic;
-            //         Animator.SetBool(Constants.Animator.Child.Sleep, false);
-            //         _movement = Vector2.zero;
-            //         break;
-            //     default:
-            //         _active = false;
-            //         Rigidbody.bodyType = RigidbodyType2D.Static;
-            //         break;
-            // }
+            _currentState?.OnGameEvent(gameEvent);
         }
         
         public void Sleep(Vector3 position) {

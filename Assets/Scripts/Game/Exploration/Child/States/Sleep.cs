@@ -13,8 +13,6 @@ namespace Game.Exploration.Child {
 
         public override void Enter() {
             Controller.StartCoroutine(WalkToPoint());
-            // static
-            Controller.Rigidbody.bodyType = RigidbodyType2D.Static;
         }
 
         public override void Exit() {
@@ -36,6 +34,7 @@ namespace Game.Exploration.Child {
             yield return Controller.MoveToPosition(Controller.Rigidbody, _walkToPoint, Controller.walkToPointCurve);
             Controller.Animator.SetBool(Constants.Animator.Child.Sleep, true);
             Controller.Rigidbody.linearVelocity = Vector2.zero;
+            Controller.Rigidbody.bodyType = RigidbodyType2D.Static;
         }
     }
 }

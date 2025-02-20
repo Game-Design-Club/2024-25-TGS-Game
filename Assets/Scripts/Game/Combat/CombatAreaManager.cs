@@ -248,7 +248,7 @@ namespace Game.Combat {
             }
         }
         
-        internal void ChildHit(EnemyBase enemy) {
+        internal void ChildHit(EnemyDamageDealer enemy) {
             Sanity -= enemy.sanityDamage;
             if (Sanity <= 0) {
                 PlayerLost();
@@ -278,6 +278,7 @@ namespace Game.Combat {
             }
             
             _activeEnemies.Clear();
+            GameManager.StartTransitionToCombat();
             yield return new WaitForSeconds(GameManager.TransitionDuration);
             StartCoroutine(RunCombat());
         }

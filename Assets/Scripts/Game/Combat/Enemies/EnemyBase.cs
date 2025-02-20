@@ -6,7 +6,6 @@ namespace Game.Combat.Enemies {
 
         [SerializeField] private int health = 100;
         [SerializeField] internal int sanityRestored = 10;
-        [SerializeField] internal int sanityDamage = 10;
         [SerializeField] internal AnimationCurve stunKnockbackCurve;
         
         internal CombatAreaManager CombatManager;
@@ -44,7 +43,7 @@ namespace Game.Combat.Enemies {
             CurrentState?.Update();
         }
 
-        public void OnHit(int damage, Vector2 hitDirection, float knockbackForce) {
+        public void OnBearHit(int damage, Vector2 hitDirection, float knockbackForce) {
             TakeDamage(damage, hitDirection, knockbackForce);
         }
         
@@ -59,12 +58,7 @@ namespace Game.Combat.Enemies {
             }
         }
 
-        public void HitChild() {
-            CombatManager.ChildHit(this);
-            HandleHitChild();
-        }
-
-        protected virtual void HandleHitChild() {
+        internal void HitChild() {
             CombatManager.RemoveEnemy(this);
             CurrentState.Die();
         }

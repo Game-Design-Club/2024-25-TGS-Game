@@ -38,7 +38,7 @@ namespace Game.Combat.Bear {
                 knockbackDirection = dif;
             }
             
-            other.OnHit(damage, knockbackDirection.normalized, knockbackForce);
+            other.OnBearHit(damage, knockbackDirection.normalized, knockbackForce);
         }
     }
 }
