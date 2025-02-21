@@ -35,10 +35,12 @@ namespace Game.Exploration.Child {
         private void OnEnable() {
             GameManager.OnGameEvent += OnGameEvent;
             App.Get<InputManager>().OnChildMovement += Move;
+            App.Get<InputManager>().OnChildAttack += Attack;
         }
         private void OnDisable() {
             GameManager.OnGameEvent -= OnGameEvent;
             App.Get<InputManager>().OnChildMovement -= Move;
+            App.Get<InputManager>().OnChildAttack -= Attack;
         }
 
         private void Start() {
@@ -80,7 +82,17 @@ namespace Game.Exploration.Child {
             if (direction != Vector2.zero) LastDirection = direction;
             _currentState.OnMovementInput(direction);
         }
-        
+
+        private void Attack()
+        {
+            _currentState.OnAttackInput();
+        }
+
+        private void AttackAnimationEnded()
+        {
+            _currentState.OnAttackAnimationOver();
+        }
+
         private void OnGameEvent(GameEvent gameEvent) {
             _currentState?.OnGameEvent(gameEvent);
         }
