@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
+using Game.Combat;
 using Game.GameManagement;
+using Tools;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -8,6 +10,7 @@ namespace Game.Exploration.Enviornment {
     public class GlobalLighting : MonoBehaviour {
         [SerializeField] private float combatIntensity;
         [SerializeField] private float exploreIntensity;
+
         
         private Light2D _light;
         
@@ -22,7 +25,7 @@ namespace Game.Exploration.Enviornment {
         private void OnDisable() {
             GameManager.OnGameEvent -= OnGameEvent;
         }
-
+        
         private void OnGameEvent(GameEvent gameEvent) {
             switch (gameEvent.GameEventType) {
                 case GameEventType.CombatEnter:
@@ -39,7 +42,6 @@ namespace Game.Exploration.Enviornment {
         }
 
         private IEnumerator TransitionLighting(float p1) {
-            if (Mathf.Approximately(p1, _light.intensity)) yield break;
             float p0 = _light.intensity;
             float t = 0;
             while (t < GameManager.TransitionDuration) {

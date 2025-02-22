@@ -1,4 +1,5 @@
 using Tools;
+using Tools.Extensions;
 using UnityEngine;
 
 namespace Game.Combat.Enemies.TreeEnemy {
@@ -21,7 +22,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
             _timer += Time.deltaTime;
             AnimationCurve drawbackCurve = Controller().stunKnockbackCurve;
             Controller<TreeEnemy>().SetDistance(_startDistance - drawbackCurve.Evaluate(_timer));
-            if (_timer > drawbackCurve.keys[drawbackCurve.length - 1].time) {
+            if (_timer > drawbackCurve.Time()) {
                 Controller().TransitionToState(new Reach(Controller()));
             }
         }

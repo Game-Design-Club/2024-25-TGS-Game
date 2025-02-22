@@ -1,4 +1,5 @@
 using System.Collections;
+using Tools.Extensions;
 using UnityEngine;
 
 namespace Tools {
@@ -14,7 +15,7 @@ namespace Tools {
         private static IEnumerator MoveToPositionCoroutine(Rigidbody2D rigidbody, Vector2 targetPosition, AnimationCurve curve) {
             float t = 0;
             Vector2 startPosition = rigidbody.position;
-            while (t < curve.keys[curve.length - 1].time) {
+            while (t < curve.Time()) {
                 t += Time.deltaTime;
                 rigidbody.position = Vector2.Lerp(startPosition, targetPosition, curve.Evaluate(t));
                 yield return null;
@@ -24,7 +25,7 @@ namespace Tools {
         private static IEnumerator MoveToPositionCoroutine(Transform transform, Vector3 targetPosition, AnimationCurve curve) {
             float t = 0;
             Vector3 startPosition = transform.position;
-            while (t < curve.keys[curve.length - 1].time) {
+            while (t < curve.Time()) {
                 t += Time.deltaTime;
                 transform.position = Vector3.Lerp(targetPosition, startPosition, curve.Evaluate(t));
                 yield return null;

@@ -641,9 +641,10 @@ MonoBehaviour:
   wavesData: {fileID: 11400000, guid: b47c9f7644b6a4d82b6d2496406a0c81, type: 2}
   combatAreaSize: {fileID: 8160320414068996284}
   childRestPoint: {fileID: 3093781280680346930}
-  winSanityThreshold: 100
+  maxSanity: 100
   loseSanityThreshold: 0
   startInsanity: 20
+  _sanity: 0
 --- !u!1 &3481727079973666914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1408,6 +1409,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4788482362888496459}
     m_Modifications:
+    - target: {fileID: 115772742223864000, guid: a11c4f6d86dcc46cbb39c7c4be3399cb, type: 3}
+      propertyPath: CombatAreaManager
+      value: 
+      objectReference: {fileID: 7261700994843069981}
     - target: {fileID: 2560669878070721251, guid: a11c4f6d86dcc46cbb39c7c4be3399cb, type: 3}
       propertyPath: m_Name
       value: Campfire

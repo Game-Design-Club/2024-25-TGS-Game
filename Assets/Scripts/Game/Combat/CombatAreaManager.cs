@@ -27,7 +27,7 @@ namespace Game.Combat {
         [SerializeField] private float startInsanity = 20f;
         
         // Private fields
-        private float _sanity = 20f; // 0 - 100
+        public float _sanity = 0;
         private float Sanity {
             get => _sanity;
             set {
@@ -35,14 +35,20 @@ namespace Game.Combat {
                 OnSanityChanged?.Invoke(GetSanityPercentage());
             }
         }
+        
+        public float SanityPercentage => GetSanityPercentage();
+
         private bool _combatEntered = false;
         private List<EnemyBase> _activeEnemies = new();
         private int _enemiesToKill = 0;
+        
+        private bool _lost = false;
         
         internal ChildController Child;
         
         // Events
         public static event Action<float> OnSanityChanged; // Percentage
+        public static event Action OnChildHit;
         
         private void Awake() {
             foreach (GameObject obj in activeStateSwitchOnCombat) {
@@ -106,9 +112,10 @@ namespace Game.Combat {
 
         // Run combat
         private IEnumerator RunCombat() {
-            GameManager.EndTransitionToCombat();
-            
+            _lost = false;
             Sanity = startInsanity;
+
+            GameManager.EndTransitionToCombat();
             
             foreach (Wave wave in wavesData.waves) {
                 yield return StartCoroutine(SpawnWave(wave));
@@ -239,6 +246,8 @@ namespace Game.Combat {
         }
         
         internal void ChildHit(EnemyDamageDealer enemy) {
+            if (_lost) return;
+            OnChildHit?.Invoke();
             Sanity -= enemy.sanityDamage;
             if (Sanity <= 0) {
                 PlayerLost();
@@ -251,6 +260,7 @@ namespace Game.Combat {
         }
 
         private void PlayerLost() {
+            _lost = true;
             GameManager.OnBearDeath();
             StopAllCoroutines();
         }

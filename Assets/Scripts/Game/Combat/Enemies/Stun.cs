@@ -1,3 +1,4 @@
+using Tools.Extensions;
 using UnityEngine;
 
 namespace Game.Combat.Enemies.AttackEnemy {
@@ -24,7 +25,7 @@ namespace Game.Combat.Enemies.AttackEnemy {
             _progress += Time.deltaTime;
             Controller().Rigidbody.linearVelocity = _hitDirection * (Controller().stunKnockbackCurve.Evaluate(_progress) * _hitForce);
             
-            if (_progress >= Controller().stunKnockbackCurve.keys[Controller().stunKnockbackCurve.length - 1].time) {
+            if (_progress >= Controller().stunKnockbackCurve.Time()) {
                 Controller().TransitionToState(_callbackState);
             }
         }
