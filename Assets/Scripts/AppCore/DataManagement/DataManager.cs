@@ -1,3 +1,5 @@
+using System.Collections;
+using Game.Exploration.Enviornment.Interactables.Scrapbook;
 using UnityEngine;
 
 namespace AppCore.DataManagement
@@ -6,6 +8,8 @@ namespace AppCore.DataManagement
     {
         public bool HasStick { get; private set; }
         public bool UnlockedAttack { get; private set; }
+
+        public ArrayList foundItems { get; private set; } = new ArrayList();
 
         public void ObtainedStick()
         {
@@ -19,5 +23,11 @@ namespace AppCore.DataManagement
             UnlockedAttack = true;
             Debug.Log("Can Attack");
         }
+
+        public void FoundScrapbookItem(ScrapbookItem scrapbookItem)
+        {
+            foundItems.Add(scrapbookItem);
+        }
     }
+
 }

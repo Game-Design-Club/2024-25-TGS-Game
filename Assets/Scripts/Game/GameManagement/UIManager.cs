@@ -15,6 +15,10 @@ namespace Game.GameManagement {
         
         public static event Action OnRestartGame;
 
+        public void ResumeGame()
+        {
+        }
+        
         private void OnEnable() {
             GameManager.OnGameEvent += OnGameEvent;
             App.Get<InputManager>().OnUIRestart += OnUIContinue;

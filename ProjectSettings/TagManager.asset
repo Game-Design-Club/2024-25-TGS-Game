@@ -67,6 +67,9 @@ TagManager:
   - name: Foreground
     uniqueID: 1065694261
     locked: 0
+  - name: Kinda UI
+    uniqueID: 1534169787
+    locked: 0
   - name: Debug
     uniqueID: 1400724583
     locked: 0
