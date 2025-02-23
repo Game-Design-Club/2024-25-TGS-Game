@@ -1,3 +1,4 @@
+using Game.Combat.Bear;
 using UnityEngine;
 
 namespace Game.Combat.Enemies.TreeEnemy {
@@ -15,7 +16,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
             Controller<TreeEnemy>().ChangeDistance(Controller<TreeEnemy>().reachSpeed * Time.deltaTime);
         }
 
-        public override void OnHit(Vector2 hitDirection, float hitForce) {
+        public override void OnHit(Vector2 hitDirection, float hitForce, BearDamageType damageType) {
             Controller().TransitionToState(new Retract(Controller()));
         }
     }

@@ -30,7 +30,7 @@ namespace Game.Combat.Enemies.AttackEnemy {
             }
         }
 
-        public override void OnHit(Vector2 hitDirection, float hitForce) {
+        public override void OnHit(Vector2 hitDirection, float hitForce, BearDamageType damageType) {
             HandleHit(hitDirection, hitForce, _callbackState);
         }
     }

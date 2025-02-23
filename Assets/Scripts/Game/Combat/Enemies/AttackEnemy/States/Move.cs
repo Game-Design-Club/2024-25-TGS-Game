@@ -1,3 +1,4 @@
+using Game.Combat.Bear;
 using Tools;
 using UnityEditor.iOS.Xcode;
 using UnityEngine;
@@ -13,7 +14,7 @@ namespace Game.Combat.Enemies.AttackEnemy {
             _targetTransform = Controller().CombatManager.Child.transform;
         }
         
-        public override void OnHit(Vector2 hitDirection, float hitForce) {
+        public override void OnHit(Vector2 hitDirection, float hitForce, BearDamageType damageType) {
             HandleHit(hitDirection, hitForce, new Move(Controller()));
         }
 

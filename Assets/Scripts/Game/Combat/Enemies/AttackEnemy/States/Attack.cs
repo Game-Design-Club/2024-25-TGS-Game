@@ -1,3 +1,4 @@
+using Game.Combat.Bear;
 using Tools;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ namespace Game.Combat.Enemies.AttackEnemy {
             Controller().Animator.SetTrigger(Constants.Animator.AttackEnemy.Attack);
         }
 
-        public override void OnHit(Vector2 hitDirection, float hitForce) {
+        public override void OnHit(Vector2 hitDirection, float hitForce, BearDamageType damageType) {
             HandleHit(hitDirection, hitForce, new Move(Controller()));
         }
 

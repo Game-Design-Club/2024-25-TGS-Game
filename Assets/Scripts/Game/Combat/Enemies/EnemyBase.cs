@@ -30,8 +30,8 @@ namespace Game.Combat.Enemies {
             CurrentState.Enter();
         }
         
-        internal void ProcessHit(Vector2 hitDirection, float knockbackForce) {
-            CurrentState?.OnHit(hitDirection, knockbackForce);
+        internal void ProcessHit(Vector2 hitDirection, float knockbackForce, BearDamageType damageType) {
+            CurrentState?.OnHit(hitDirection, knockbackForce, damageType);
         }
         protected void OnAnimationEnded() {
             CurrentState.OnAnimationEnded();
@@ -43,14 +43,14 @@ namespace Game.Combat.Enemies {
             CurrentState?.Update();
         }
 
-        public void OnBearHit(int damage, Vector2 hitDirection, float knockbackForce) {
-            TakeDamage(damage, hitDirection, knockbackForce);
+        public void OnHitByBear(int damage, Vector2 hitDirection, float knockbackForce, BearDamageType damageType) {
+            TakeDamage(damage, hitDirection, knockbackForce, damageType);
         }
         
-        public void TakeDamage(int damage, Vector2 hitDirection, float knockbackForce) {
+        public void TakeDamage(int damage, Vector2 hitDirection, float knockbackForce, BearDamageType damageType) {
             health -= damage;
             
-            ProcessHit(hitDirection, knockbackForce);
+            ProcessHit(hitDirection, knockbackForce, damageType);
             
             if (health <= 0) {
                 CombatManager.EnemyKilled(this);

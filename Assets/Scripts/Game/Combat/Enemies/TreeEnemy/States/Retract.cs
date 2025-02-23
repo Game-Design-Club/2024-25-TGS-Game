@@ -1,3 +1,4 @@
+using Game.Combat.Bear;
 using Tools;
 using Tools.Extensions;
 using UnityEngine;
@@ -27,7 +28,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
             }
         }
 
-        public override void OnHit(Vector2 hitDirection, float hitForce) {
+        public override void OnHit(Vector2 hitDirection, float hitForce, BearDamageType damageType) {
             Controller().TransitionToState(new Retract(Controller()));
         }
     }

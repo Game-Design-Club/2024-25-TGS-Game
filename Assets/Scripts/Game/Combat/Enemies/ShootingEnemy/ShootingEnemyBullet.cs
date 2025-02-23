@@ -24,7 +24,7 @@ namespace Game.Combat.Enemies {
         }
 
 
-        public void OnBearHit(int damage, Vector2 hitDirection, float knockbackForce) {
+        public void OnHitByBear(int damage, Vector2 hitDirection, float knockbackForce, BearDamageType damageType) {
             Destroy();
         }
     }

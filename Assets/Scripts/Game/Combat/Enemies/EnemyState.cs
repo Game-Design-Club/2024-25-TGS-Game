@@ -1,5 +1,6 @@
-using Game.Combat.Enemies.AttackEnemy;
+using Game.Combat.Bear;
 using UnityEngine;
+using Stun = Game.Combat.Enemies.AttackEnemy.Stun;
 
 namespace Game.Combat.Enemies {
     public abstract class EnemyState {
@@ -25,7 +26,7 @@ namespace Game.Combat.Enemies {
         public virtual void Exit() { }
         public virtual void Update() { }
 
-        public abstract void OnHit(Vector2 hitDirection, float hitForce);
+        public abstract void OnHit(Vector2 hitDirection, float hitForce, BearDamageType damageType);
         internal void HandleHit(Vector2 hitDirection, float hitForce, EnemyState callbackState) {
             Controller().TransitionToState(new Stun(Controller(), hitDirection, hitForce, callbackState));
         }
