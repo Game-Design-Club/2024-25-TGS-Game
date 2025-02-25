@@ -7,13 +7,14 @@ namespace Game.Exploration.Enviornment.Interactables.Scrapbook
     public class ScrapbookPage : ScriptableObject
     {
         [SerializeField] public string title;
-        [SerializeField] public ScrapbookItemAndPos[] items;
+        [SerializeField] public ScrapbookItemUIInfo[] items;
 
         [System.Serializable]
-        public class ScrapbookItemAndPos
+        public class ScrapbookItemUIInfo
         {
             [SerializeField] public ScrapbookItem item;
             [SerializeField] public Vector2 pos;
+            [SerializeField] public Vector2 size = new Vector2(1, 1);
         }
     }
 }

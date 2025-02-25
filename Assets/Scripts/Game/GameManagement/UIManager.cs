@@ -2,16 +2,27 @@ using System;
 using System.Collections;
 using AppCore;
 using AppCore.InputManagement;
+using Game.Combat;
+using Game.Exploration.Enviornment.Interactables.Scrapbook;
+using Game.Exploration.UI;
 using Tools;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace Game.GameManagement {
     public class UIManager : MonoBehaviour {
         [SerializeField] private Animator pauseAnimator;
         [SerializeField] private Animator gameOverAnimator;
         [SerializeField] private PauseUIAnimationEvents pauseEvents;
-        [SerializeField] private GameObject scrapbookCoverObject;
-        [SerializeField] private GameObject scrapbookPageObject;
+        [SerializeField] private GameObject coverObject;
+        [SerializeField] private GameObject sbSpreadObject;
+        [SerializeField] private GameObject sbInfoObject;
+        [SerializeField] private GameObject sbAreaObject;
+        [SerializeField] private Button nextButton;
+        [SerializeField] private Button previousButton;
+        [SerializeField] private ScrapbookPage[] scrapbookPages;
         
         private int scrapbookPage = 0;
         private bool advancingPage = false;
@@ -22,8 +33,13 @@ namespace Game.GameManagement {
         
         public static event Action OnRestartGame;
 
+        [ContextMenu("Reload Page")]
         private void LoadPage()
         {
+            nextButton.interactable = scrapbookPage != scrapbookPages.Length - 1;
+            previousButton.interactable = scrapbookPage != 0;
+            
+            
             Debug.Log("Load page " + scrapbookPage);
         }
         
@@ -49,20 +65,23 @@ namespace Game.GameManagement {
 
         public void NextPage()
         {
+            if (scrapbookPage == scrapbookPages.Length - 1) return;
+            
             scrapbookPage++;
             OpenPage(scrapbookPage);
         }
         
         public void PreviousPage()
         {
+            if (scrapbookPage == 0) return;
             scrapbookPage--;
             OpenPage(scrapbookPage);
         }
 
         public void OnBookDown()
         {
-            scrapbookCoverObject.SetActive(!scrapbookOpen);
-            scrapbookPageObject.SetActive(scrapbookOpen);
+            coverObject.SetActive(!scrapbookOpen);
+            sbSpreadObject.SetActive(scrapbookOpen);
             if (advancingPage)
             {
                 if (scrapbookOpen) LoadPage();
