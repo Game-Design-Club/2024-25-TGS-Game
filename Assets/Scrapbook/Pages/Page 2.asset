@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd923405154848f88b67b459b83b5ca8, type: 3}
   m_Name: Page 2
   m_EditorClassIdentifier: 
-  title: 
-  items: []
+  title: River
+  items:
+  - item: {fileID: 11400000, guid: dd2bd2a1341554b86880365cc7d06ed5, type: 2}
+    pos: {x: 0, y: 0}
+    size: {x: 0, y: 0}

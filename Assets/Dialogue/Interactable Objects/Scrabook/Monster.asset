@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fdbc6d7c9e4547906a28e94815876f, type: 3}
   m_Name: Monster
   m_EditorClassIdentifier: 
-  dialogueChunks: []
+  dialogueChunks:
+  - character: {fileID: 0}
+    text: Scary monster go aahhh
