@@ -1,7 +1,6 @@
 using AppCore;
 using AppCore.InputManagement;
 using Tools;
-using Tools.Extensions;
 using UnityEngine;
 
 namespace Game.Combat.Bear {

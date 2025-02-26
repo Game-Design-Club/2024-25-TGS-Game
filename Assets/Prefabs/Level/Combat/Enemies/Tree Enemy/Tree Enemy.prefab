@@ -222,7 +222,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   sanityRestored: 2
-  sanityDamage: 5
   stunKnockbackCurve:
     serializedVersion: 2
     m_Curve:
@@ -247,6 +246,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  hitParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
   reachSpeed: 1
   reachTurbulenceDistance:
     Min: 1
@@ -259,6 +260,7 @@ MonoBehaviour:
   lineRenderer: {fileID: 8894807425329058142}
   hand: {fileID: 3154611400904854292}
   spritePivot: {fileID: 2946104022227894390}
+  stunDuration: 1
 --- !u!95 &5046098893941231540
 Animator:
   serializedVersion: 7
@@ -551,6 +553,8 @@ MonoBehaviour:
   enemyBase: {fileID: 7762331437166530984}
   hitChild: 1
   hitBear: 0
+  sanityDamage: 10
+  killChildOnAttack: 1
 --- !u!50 &3008030396573926780
 Rigidbody2D:
   serializedVersion: 5
@@ -760,6 +764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBase: {fileID: 7762331437166530984}
+  hitParticles: {fileID: 2305709367884197739, guid: 577243b4fac514a99be246cb00181239, type: 3}
 --- !u!1 &5072264409483899233
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Tools.Extensions;
+using Tools;
 using UnityEngine;
 
 namespace Game.Combat.Waves {

@@ -4,7 +4,6 @@ using UnityEngine.Rendering.Universal;
 using Game.Combat;
 using Game.GameManagement;
 using Tools;
-using Tools.Extensions;
 
 namespace Game.Exploration.Enviornment {
     public class Campfire : MonoBehaviour {

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Tools;
 
 namespace Game.Combat.Enemies {
     public abstract class EnemyBase : MonoBehaviour, IBearHittable {
@@ -7,6 +8,9 @@ namespace Game.Combat.Enemies {
         [SerializeField] private int health = 100;
         [SerializeField] internal int sanityRestored = 10;
         [SerializeField] internal AnimationCurve stunKnockbackCurve;
+        
+        [SerializeField] private ParticleSystem hitParticles;
+        [SerializeField] private ParticleSystem deathParticles;
         
         internal CombatAreaManager CombatManager;
         
@@ -51,10 +55,15 @@ namespace Game.Combat.Enemies {
             health -= damage;
             
             ProcessHit(hitDirection, knockbackForce, damageType);
+
+            if (damage > 0) {
+                this.CreateParticles(hitParticles, transform.position, hitDirection);
+            }
             
             if (health <= 0) {
                 CombatManager.EnemyKilled(this);
                 HandleDeath();
+                this.CreateParticles(deathParticles);
             }
         }
 

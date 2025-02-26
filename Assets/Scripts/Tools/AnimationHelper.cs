@@ -1,5 +1,4 @@
 using System.Collections;
-using Tools.Extensions;
 using UnityEngine;
 
 namespace Tools {
