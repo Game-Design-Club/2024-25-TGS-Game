@@ -638,7 +638,7 @@ MonoBehaviour:
   - {fileID: 2352446917201355284}
   - {fileID: 2278233036092579122}
   cutsceneDuration: 3
-  wavesData: {fileID: 11400000, guid: b47c9f7644b6a4d82b6d2496406a0c81, type: 2}
+  wavesData: {fileID: 11400000, guid: 038096379de4647b89f62bb6f02d7144, type: 2}
   combatAreaSize: {fileID: 8160320414068996284}
   childRestPoint: {fileID: 3093781280680346930}
   maxSanity: 100
