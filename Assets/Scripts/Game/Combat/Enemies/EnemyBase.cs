@@ -63,7 +63,9 @@ namespace Game.Combat.Enemies {
             if (health <= 0) {
                 CombatManager.EnemyKilled(this);
                 HandleDeath();
+                
                 this.CreateParticles(deathParticles);
+                CombatManager.cameraShaker.Shake();
             }
         }
 
