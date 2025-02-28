@@ -1,4 +1,5 @@
 using System;
+using Tools;
 using UnityEngine;
 
 namespace Game.Combat.Enemies.TreeEnemy {
@@ -6,9 +7,11 @@ namespace Game.Combat.Enemies.TreeEnemy {
         public GameObject GameObject => gameObject;
 
         [SerializeField] private TreeEnemy enemyBase;
+        [SerializeField] private ParticleSystem hitParticles;
         
         public void OnHitByBear(int damage, Vector2 hitDirection, float knockbackForce, BearDamageType damageType) {
             enemyBase.HandleAppendageHit(damage, hitDirection, knockbackForce, damageType);
+            this.CreateParticles(hitParticles, transform.position, hitDirection);
         }
     }
 }

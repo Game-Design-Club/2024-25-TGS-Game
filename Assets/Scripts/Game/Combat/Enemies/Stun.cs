@@ -1,4 +1,4 @@
-using Tools.Extensions;
+using Tools;
 using UnityEngine;
 
 namespace Game.Combat.Enemies.AttackEnemy {

@@ -4,7 +4,6 @@ using UnityEngine.Rendering.Universal;
 using Game.Combat;
 using Game.GameManagement;
 using Tools;
-using Tools.Extensions;
 
 namespace Game.Exploration.Enviornment {
     public class Campfire : MonoBehaviour {
@@ -148,7 +147,7 @@ namespace Game.Exploration.Enviornment {
             // Update the base (plus steady combat addition) and smoothly move toward it.
             float baseIntensity = _baseIntensity + CurrentIntensityAddition;
             _currentAppliedIntensity = Mathf.MoveTowards(_currentAppliedIntensity, baseIntensity, intensitySmoothSpeed * Time.deltaTime);
-            _currentAppliedRadius = Mathf.MoveTowards(_currentAppliedRadius, _baseRadius + _flashRadius, radiusSmoothSpeed * Time.deltaTime);
+            _currentAppliedRadius = Mathf.MoveTowards(_currentAppliedRadius, _baseRadius, radiusSmoothSpeed * Time.deltaTime);
 
             float pulseAddition = 0f;
             if (_state == CampfireState.Combat) {
@@ -158,7 +157,7 @@ namespace Game.Exploration.Enviornment {
             float effectiveFlash = _transitionMultiplier * _flashIntensity;
 
             _light.intensity = _currentAppliedIntensity + effectivePulse + effectiveFlash;
-            _light.pointLightOuterRadius = _currentAppliedRadius;
+            _light.pointLightOuterRadius = _currentAppliedRadius + _flashRadius;
         }
     }
 }

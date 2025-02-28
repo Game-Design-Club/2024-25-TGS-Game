@@ -5,6 +5,7 @@ using Game.Combat.Enemies;
 using Game.Combat.Waves;
 using Game.Exploration.Child;
 using Game.GameManagement;
+using Tools.CameraShaking;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace Game.Combat {
         [SerializeField] private CinemachineCamera wideCamera;
         [SerializeField] private CinemachineCamera combatCamera;
         [SerializeField] private List<GameObject> activeStateSwitchOnCombat;
+        [SerializeField] internal CameraShaker cameraShaker;
         [Header("Cutscene")]
         [SerializeField] private float cutsceneDuration = 3f;
         [Header("Enemies")]

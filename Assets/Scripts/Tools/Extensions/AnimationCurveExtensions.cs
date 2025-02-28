@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Tools.Extensions {
+namespace Tools {
     public static class AnimationCurveExtensions {
         public static Keyframe LastKey(this AnimationCurve curve) {
             return curve.keys[curve.length - 1];
