@@ -8,7 +8,7 @@ namespace Game.Exploration.Child {
         
         private Interactable _interactable;
         private bool _interacting = false;
-        private bool _hovering = false;
+        // private bool _hovering = false;
         
         private void OnEnable() {
             App.Get<InputManager>().OnChildInteract += Interact;
@@ -33,14 +33,14 @@ namespace Game.Exploration.Child {
             _interactable = other.GetComponent<Interactable>();
             if (_interactable == null) return;
             _interactable.Hover();
-            _hovering = true;
+            // _hovering = true;
         }
         
         private void OnTriggerExit2D(Collider2D other) {
             _interactable = other.GetComponent<Interactable>();
             if (_interactable == null) return;
             _interactable.Unhover();
-            _hovering = false;
+            // _hovering = false;
         }
     }
 }

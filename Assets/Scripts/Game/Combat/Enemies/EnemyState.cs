@@ -6,6 +6,7 @@ namespace Game.Combat.Enemies {
     public abstract class EnemyState {
         private readonly EnemyBase _controller; // onoly use getcontroller to get, never use it directly
         
+        // ReSharper disable Unity.PerformanceAnalysis
         protected T Controller<T>() where T : EnemyBase {
             if (_controller is T controller) {
                 return controller;

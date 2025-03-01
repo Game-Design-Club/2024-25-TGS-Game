@@ -69,7 +69,7 @@ namespace Game.Combat.Enemies {
             }
         }
 
-        internal void HitChild() {
+        internal void DestroyEnemy() {
             CombatManager.RemoveEnemy(this);
             CurrentState.Die();
         }
