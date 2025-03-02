@@ -46,6 +46,7 @@ namespace Tools {
             public const string Child = "Child";
             public static string Bear = "Bear";
             public static string BearEnemyDamageable = "Bear Enemy Hittable";
+            public static string EnemyDestroyer = "EnemyDestroyer";
         }
 
         public static class Layers {

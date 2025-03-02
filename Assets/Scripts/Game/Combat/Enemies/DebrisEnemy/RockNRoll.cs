@@ -1,3 +1,5 @@
+using System.Collections;
+using Tools;
 using UnityEngine;
 
 namespace Game.Combat.Enemies.DebrisEnemy {
@@ -6,6 +8,8 @@ namespace Game.Combat.Enemies.DebrisEnemy {
 
         private Vector2 _direction;
         private float _speed;
+        
+        private Vector2 _stunAddition;
         
         public override void Enter() {
             _speed = Controller<DebrisEnemy>().rollSpeed;
@@ -27,12 +31,28 @@ namespace Game.Combat.Enemies.DebrisEnemy {
         }
         
         public override void Update() {
-            Controller().Rigidbody.linearVelocity = _direction * _speed;
+            Controller().Rigidbody.linearVelocity = _direction * _speed + _stunAddition;
         }
 
         public override void OnHit(Vector2 hitDirection, float hitForce, BearDamageType damageType) {
-            // _direction += hitDirection * (hitForce * Controller<DebrisEnemy>().hitWeight);
-            // _direction.Normalize();
+            Controller().StopAllCoroutines();
+            Controller().StartCoroutine(Stun(hitDirection, hitForce));
+        }
+
+        private IEnumerator Stun(Vector2 hitDirection, float hitForce) {
+            float t = 0;
+            float hitXChange = hitDirection.x * Controller<DebrisEnemy>().hitDirectionChange;
+            
+            while (t < Controller().stunKnockbackCurve.Time()) {
+                t += Time.deltaTime;
+                _stunAddition = hitDirection * (Controller().stunKnockbackCurve.Evaluate(t) * hitForce * Controller<DebrisEnemy>().hitWeight);
+                _stunAddition.x += hitXChange;
+                yield return null;
+            }
+            _stunAddition = Vector2.zero;
+            
+            _direction.x += hitXChange;
+            _direction.Normalize();
         }
     }
 }

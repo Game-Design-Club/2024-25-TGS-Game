@@ -1,4 +1,6 @@
+using System;
 using System.Numerics;
+using Tools;
 using UnityEngine;
 
 namespace Game.Combat.Enemies.DebrisEnemy {
@@ -7,6 +9,7 @@ namespace Game.Combat.Enemies.DebrisEnemy {
         [SerializeField] internal float directionAngleVariance = 10;
         [SerializeField] internal float rollSpeed = 5;
         [SerializeField] internal float hitWeight = .3f;
+        [SerializeField] internal float hitDirectionChange = .5f;
 
         protected override EnemyState StartingState => new RockNRoll(this);
     }
