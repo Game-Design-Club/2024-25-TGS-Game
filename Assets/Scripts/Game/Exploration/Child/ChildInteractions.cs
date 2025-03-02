@@ -37,9 +37,10 @@ namespace Game.Exploration.Child {
         }
         
         private void OnTriggerExit2D(Collider2D other) {
-            _interactable = other.GetComponent<Interactable>();
-            if (_interactable == null) return;
+            Interactable trigger = other.GetComponent<Interactable>();
+            if (trigger == null) return;
             _interactable.Unhover();
+            _interactable = null;
             _hovering = false;
         }
     }
