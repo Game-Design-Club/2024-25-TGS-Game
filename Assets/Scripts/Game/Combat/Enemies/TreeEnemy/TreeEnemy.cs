@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Game.Combat.Bear;
 using Tools;
 using UnityEngine;
 using UnityEngine.Serialization;

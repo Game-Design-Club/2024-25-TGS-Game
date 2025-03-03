@@ -34,6 +34,7 @@ Transform:
   - {fileID: 2488406721887081267}
   - {fileID: 2420325212577582664}
   - {fileID: 1536387629077927513}
+  - {fileID: 6769085052363087171}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5650275860367768594
@@ -51,6 +52,7 @@ MonoBehaviour:
   appModules:
   - {fileID: 5968417058866004657}
   - {fileID: 227714945853123449}
+  - {fileID: 1448557437356430812}
   - {fileID: 1448557437356430812}
 --- !u!1 &881515136588940350
 GameObject:
@@ -686,6 +688,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06fb9c585a6749c8bd39b89ac9852b89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &5714126151863833212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6769085052363087171}
+  - component: {fileID: 6589433723289595632}
+  m_Layer: 0
+  m_Name: Particles Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6769085052363087171
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5714126151863833212}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7006809860204473121}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6589433723289595632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5714126151863833212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8271e53d9f34cc0bdd26239a5843154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6296375320988745752

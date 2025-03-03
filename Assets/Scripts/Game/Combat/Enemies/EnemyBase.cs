@@ -1,5 +1,6 @@
 using AppCore;
 using AppCore.FreezeFrameManagement;
+using Game.Combat.Bear;
 using UnityEngine;
 using Tools;
 
