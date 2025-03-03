@@ -1,3 +1,5 @@
+using AppCore;
+using AppCore.FreezeFrameManagement;
 using UnityEngine;
 using Tools;
 
@@ -66,6 +68,7 @@ namespace Game.Combat.Enemies {
                 
                 this.CreateParticles(deathParticles);
                 CombatManager.cameraShaker.Shake();
+                App.Get<FreezeFrameManager>().FreezeFrame(0.1f, .2f);
             }
         }
 
