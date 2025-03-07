@@ -28,5 +28,9 @@ namespace AppCore.AudioManagement {
             volume = Mathf.Clamp(volume, 0.0001f, 1f);
             return Mathf.Log10(volume) * 20;
         }
+
+        public void StopSoundEffect(SoundEffect soundEffect) {
+            soundEffectsManager.StopSoundEffect(soundEffect);
+        }
     }
 }
