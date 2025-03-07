@@ -55,6 +55,7 @@ MonoBehaviour:
   mainCollider: {fileID: 1730876717786346433}
   idleWalkSpeed: 7
   swipeWalkSpeed: 2
+  swipeSoundEffect: {fileID: 11400000, guid: 1822fdc255c22444db82735c995f0c3e, type: 2}
   stunKnockbackCurve:
     serializedVersion: 2
     m_Curve:
