@@ -19,16 +19,15 @@ namespace Game.Exploration.Enviornment.LayerChanging {
         }
 
         public static void RegisterLayerChanger(LayerChanger changer) {
-            if (_instance != null) {
-                _instance._layerChangers.Add(changer);
-                foreach (var sr in changer.SpriteRenderers) {
-                    sr.sortingOrder = Mathf.RoundToInt(changer.transform.position.y * 100f) * -1;
-                }
+            if (_instance == null) return;
+            
+            _instance._layerChangers.Add(changer);
+            foreach (var sr in changer.SpriteRenderers) {
+                sr.sortingOrder = Mathf.RoundToInt(changer.transform.position.y * 100f) * -1;
             }
         }
 
         private void Update() {
-            // Cache child's y-coordinate once per frame.
             _childY = child.position.y;
             
             int changerCount = _layerChangers.Count;
@@ -46,6 +45,12 @@ namespace Game.Exploration.Enviornment.LayerChanging {
                     }
                 }
             }
+        }
+
+        public static void UnRegisterLayerChanger(LayerChanger layerChanger) {
+            if (_instance == null) return;
+            
+            _instance._layerChangers.Remove(layerChanger);
         }
     }
 }

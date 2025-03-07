@@ -30,6 +30,7 @@ namespace Game.Exploration.Child {
         }
         
         private void OnTriggerEnter2D(Collider2D other) {
+            if (_hovering) return;
             _interactable = other.GetComponent<Interactable>();
             if (_interactable == null) return;
             _interactable.Hover();
@@ -37,9 +38,11 @@ namespace Game.Exploration.Child {
         }
         
         private void OnTriggerExit2D(Collider2D other) {
-            _interactable = other.GetComponent<Interactable>();
-            if (_interactable == null) return;
-            _interactable.Unhover();
+            if (other.gameObject == null) return;
+            Interactable trigger = other.GetComponent<Interactable>();
+            if (trigger == null) return;
+            _interactable?.Unhover();
+            _interactable = null;
             _hovering = false;
         }
     }

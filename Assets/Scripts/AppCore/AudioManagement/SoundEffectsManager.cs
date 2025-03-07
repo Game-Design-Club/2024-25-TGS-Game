@@ -48,8 +48,16 @@ namespace AppCore.AudioManagement {
             continueCondition ??= () => soundSource != null && soundSource.isPlaying;
             
             while (true) {
+                
                 bool isActive = continueCondition();
-                float desiredVolume = (isActive && !soundEffect.paused()) ? targetVolume : 0f;
+                if (!isActive && Mathf.Approximately(currentVolume, 0f)) {
+                    break;
+                }
+
+                if (soundEffect == null) {
+                    Debug.LogWarning("SoundEffect is null, ");
+                }
+                float desiredVolume = isActive && !soundEffect.paused() ? targetVolume : 0f;
 
                 float fadeRate = 0f;
                 if (desiredVolume > currentVolume) {
@@ -60,9 +68,6 @@ namespace AppCore.AudioManagement {
                 currentVolume = Mathf.MoveTowards(currentVolume, desiredVolume, Time.deltaTime * fadeRate);
                 soundSource.volume = currentVolume;
                 
-                if (!isActive && Mathf.Approximately(currentVolume, 0f)) {
-                    break;
-                }
                 
                 yield return null;
             }
