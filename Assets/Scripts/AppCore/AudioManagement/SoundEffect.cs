@@ -17,7 +17,7 @@ namespace AppCore.AudioManagement {
         [SerializeField] public float fadeInTime = .1f;
         [SerializeField] public float fadeOutTime = .1f;
         public Func<bool> continueCondition = null;
-        public Func<bool> paused = null;
+        public Func<bool> paused = () => false;
         public Vector2? position = null;
 
         public void Play() {

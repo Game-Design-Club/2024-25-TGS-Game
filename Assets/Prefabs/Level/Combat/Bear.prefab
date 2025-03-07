@@ -60,7 +60,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.0024950067
+      time: -0.002495032
       value: 1.3990434
       inSlope: -6.5853834
       outSlope: -6.5853834
@@ -69,7 +69,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.06204868
     - serializedVersion: 3
-      time: 0.63852036
+      time: 0.2667118
       value: 0.0076034665
       inSlope: -1.7746799
       outSlope: Infinity
@@ -78,7 +78,7 @@ MonoBehaviour:
       inWeight: 0.17142397
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1.4894648
+      time: 0.62408245
       value: -0.04407671
       inSlope: Infinity
       outSlope: Infinity

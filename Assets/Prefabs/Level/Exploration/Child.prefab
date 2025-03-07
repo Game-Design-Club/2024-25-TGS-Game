@@ -182,6 +182,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  walkSound: {fileID: 11400000, guid: 812a814a945064100a14118e5c01a96c, type: 2}
 --- !u!114 &7614870204717513076
 MonoBehaviour:
   m_ObjectHideFlags: 0

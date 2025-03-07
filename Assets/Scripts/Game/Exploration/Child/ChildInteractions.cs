@@ -38,6 +38,7 @@ namespace Game.Exploration.Child {
         }
         
         private void OnTriggerExit2D(Collider2D other) {
+            if (other.gameObject == null) return;
             Interactable trigger = other.GetComponent<Interactable>();
             if (trigger == null) return;
             _interactable?.Unhover();
