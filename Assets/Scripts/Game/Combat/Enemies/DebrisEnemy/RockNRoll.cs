@@ -1,4 +1,5 @@
 using System.Collections;
+using Game.Combat.Bear;
 using Tools;
 using UnityEngine;
 

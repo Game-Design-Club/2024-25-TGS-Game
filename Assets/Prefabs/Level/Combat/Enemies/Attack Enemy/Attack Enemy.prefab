@@ -314,7 +314,8 @@ MonoBehaviour:
   hitChild: 1
   hitBear: 1
   sanityDamage: 10
-  killChildOnAttack: 1
+  killEnemyOnChildAttack: 1
+  killEnemyOnBearAttack: 0
 --- !u!70 &2198792805332604159
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
