@@ -1,3 +1,6 @@
+
+using AppCore.AudioManagement;
+
 using AppCore;
 using AppCore.FreezeFrameManagement;
 using Game.Combat.Bear;
@@ -14,6 +17,7 @@ namespace Game.Combat.Enemies {
         
         [SerializeField] private ParticleSystem hitParticles;
         [SerializeField] private ParticleSystem deathParticles;
+        [SerializeField] private SoundEffect deathSound;
         
         internal CombatAreaManager CombatManager;
         
@@ -43,8 +47,16 @@ namespace Game.Combat.Enemies {
         protected void OnAnimationEnded() {
             CurrentState.OnAnimationEnded();
         }
-        protected void HandleDeath() {
+
+        private void HandleDeath() {
+            CombatManager.EnemyKilled(this);
+            
             CurrentState.Die();
+            
+            this.CreateParticles(deathParticles);
+            CombatManager.cameraShaker.Shake();
+            deathSound.Play();
+            App.Get<FreezeFrameManager>().FreezeFrame(0.1f, .2f);
         }
         private void Update() {
             CurrentState?.Update();
@@ -64,12 +76,7 @@ namespace Game.Combat.Enemies {
             }
             
             if (health <= 0) {
-                CombatManager.EnemyKilled(this);
                 HandleDeath();
-                
-                this.CreateParticles(deathParticles);
-                CombatManager.cameraShaker.Shake();
-                App.Get<FreezeFrameManager>().FreezeFrame(0.1f, .2f);
             }
         }
 
