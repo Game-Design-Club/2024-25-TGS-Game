@@ -14,7 +14,11 @@ namespace Game.Exploration.Child {
         public virtual void Update() { }
         
         public virtual void OnMovementInput(Vector2 direction) { }
+
+        public virtual void OnAttackInput(){}
         
+        public virtual void OnAttackAnimationOver(){}
+
         public virtual float? GetWalkSpeed() {
             return Controller.walkSpeed;
         }

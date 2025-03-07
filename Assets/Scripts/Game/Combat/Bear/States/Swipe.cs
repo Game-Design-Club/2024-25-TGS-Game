@@ -1,4 +1,5 @@
 using AppCore;
+using AppCore.AudioManagement;
 using AppCore.InputManagement;
 using Tools;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace Game.Combat.Bear {
             Controller.Animator.SetTrigger(Constants.Animator.Bear.Swipe);
             _startRotation = Controller.LastRotation;
             _swipeInputReleased = !App.Get<InputManager>().GetBearSwipe;
+            Controller.swipeSoundEffect.Play();
         }
 
         public override float? GetWalkSpeed() {

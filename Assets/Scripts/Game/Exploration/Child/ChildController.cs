@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using AppCore;
+using AppCore.AudioManagement;
 using AppCore.InputManagement;
 using Game.GameManagement;
 using Tools;
@@ -16,6 +17,8 @@ namespace Game.Exploration.Child {
         [FormerlySerializedAs("walkToSleepCurve")]
         [Header("Walk to Sleep")]
         [SerializeField] internal AnimationCurve walkToPointCurve;
+        [Header("SFX")]
+        [SerializeField] internal SoundEffect walkSound;
         
         internal Rigidbody2D Rigidbody;
         internal Animator Animator;
@@ -35,10 +38,12 @@ namespace Game.Exploration.Child {
         private void OnEnable() {
             GameManager.OnGameEvent += OnGameEvent;
             App.Get<InputManager>().OnChildMovement += Move;
+            App.Get<InputManager>().OnChildAttack += Attack;
         }
         private void OnDisable() {
             GameManager.OnGameEvent -= OnGameEvent;
             App.Get<InputManager>().OnChildMovement -= Move;
+            App.Get<InputManager>().OnChildAttack -= Attack;
         }
 
         private void Start() {
@@ -80,7 +85,17 @@ namespace Game.Exploration.Child {
             if (direction != Vector2.zero) LastDirection = direction;
             _currentState.OnMovementInput(direction);
         }
-        
+
+        private void Attack()
+        {
+            _currentState.OnAttackInput();
+        }
+
+        private void AttackAnimationEnded()
+        {
+            _currentState.OnAttackAnimationOver();
+        }
+
         private void OnGameEvent(GameEvent gameEvent) {
             _currentState?.OnGameEvent(gameEvent);
         }

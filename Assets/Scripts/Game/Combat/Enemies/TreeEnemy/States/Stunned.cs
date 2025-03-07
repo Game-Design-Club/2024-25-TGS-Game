@@ -1,3 +1,4 @@
+using Game.Combat.Bear;
 using UnityEngine;
 
 namespace Game.Combat.Enemies.TreeEnemy {

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Game.Exploration.Enviornment.LayerChanging {
@@ -6,6 +7,10 @@ namespace Game.Exploration.Enviornment.LayerChanging {
         private void Start() {
             SpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
             LayerChangingManager.RegisterLayerChanger(this);
+        }
+
+        private void OnDestroy() {
+            LayerChangingManager.UnRegisterLayerChanger(this);
         }
     }
 }

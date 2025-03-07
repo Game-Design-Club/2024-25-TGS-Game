@@ -44,6 +44,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""467ac9f4-a6e6-41d1-a401-9bad85c2d947"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -154,6 +163,17 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cc96912b-9f2c-4acb-9e5e-abc7460249de"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -950,6 +970,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Child = asset.FindActionMap("Child", throwIfNotFound: true);
         m_Child_Move = m_Child.FindAction("Move", throwIfNotFound: true);
         m_Child_Interact = m_Child.FindAction("Interact", throwIfNotFound: true);
+        m_Child_Attack = m_Child.FindAction("Attack", throwIfNotFound: true);
         // Bear
         m_Bear = asset.FindActionMap("Bear", throwIfNotFound: true);
         m_Bear_Swipe = m_Bear.FindAction("Swipe", throwIfNotFound: true);
@@ -1039,12 +1060,14 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private List<IChildActions> m_ChildActionsCallbackInterfaces = new List<IChildActions>();
     private readonly InputAction m_Child_Move;
     private readonly InputAction m_Child_Interact;
+    private readonly InputAction m_Child_Attack;
     public struct ChildActions
     {
         private @PlayerInputs m_Wrapper;
         public ChildActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Child_Move;
         public InputAction @Interact => m_Wrapper.m_Child_Interact;
+        public InputAction @Attack => m_Wrapper.m_Child_Attack;
         public InputActionMap Get() { return m_Wrapper.m_Child; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1060,6 +1083,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
         }
 
         private void UnregisterCallbacks(IChildActions instance)
@@ -1070,6 +1096,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
         }
 
         public void RemoveCallbacks(IChildActions instance)
@@ -1332,6 +1361,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
     }
     public interface IBearActions
     {
