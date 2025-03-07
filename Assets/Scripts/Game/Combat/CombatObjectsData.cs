@@ -8,6 +8,8 @@ namespace Game.Combat {
         [FormerlySerializedAs("basicEnemyAttackerPrefab")] [SerializeField] private GameObject attackerPrefab;
         [SerializeField] private GameObject shooterPrefab;
         [SerializeField] private GameObject treePrefab;
+        [SerializeField] private GameObject debrisPrefab;
+        
         private static CombatObjectsData Instance => _instance ??= Resources.Load<CombatObjectsData>("CombatObjectsData");
         private static CombatObjectsData _instance;
 
@@ -16,6 +18,8 @@ namespace Game.Combat {
                 EnemyType.Attacker => Instance.attackerPrefab,
                 EnemyType.Shooter => Instance.shooterPrefab,
                 EnemyType.Tree => Instance.treePrefab,
+                EnemyType.Debris => Instance.debrisPrefab,
+                
                 _ => throw new ArgumentOutOfRangeException(nameof(enemyType), enemyType, null)
             };
         }
@@ -24,6 +28,7 @@ namespace Game.Combat {
     public enum EnemyType {
         Attacker,
         Shooter,
-        Tree
+        Tree,
+        Debris
     }
 }
