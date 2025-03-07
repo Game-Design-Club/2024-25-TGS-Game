@@ -1,4 +1,9 @@
+
 using AppCore.AudioManagement;
+
+using AppCore;
+using AppCore.FreezeFrameManagement;
+using Game.Combat.Bear;
 using UnityEngine;
 using Tools;
 
@@ -51,6 +56,7 @@ namespace Game.Combat.Enemies {
             this.CreateParticles(deathParticles);
             CombatManager.cameraShaker.Shake();
             deathSound.Play();
+            App.Get<FreezeFrameManager>().FreezeFrame(0.1f, .2f);
         }
         private void Update() {
             CurrentState?.Update();

@@ -1,19 +1,7 @@
-using System;
 using UnityEngine;
 
-namespace Game.GameManagement {
-    public class ParticlesManager : MonoBehaviour {
-        public static ParticlesManager Instance { get; private set; }
-
-        private void Awake() {
-            if (Instance == null) {
-                Instance = this;
-            } else {
-                Destroy(gameObject);
-                Debug.LogWarning("Multiple ParticlesManagers found in scene. Destroying duplicate.");
-            }
-        }
-        
+namespace AppCore.ParticlesManagement {
+    public class ParticlesManager : AppModule {
         public void SpawnParticles(ParticleSystem particles, Vector3 position) {
             SpawnParticles(particles, position, 0);
         }
