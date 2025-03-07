@@ -64,8 +64,6 @@ namespace AppCore.AudioManagement {
                     break;
                 }
                 
-                Debug.Log("isActive: " + isActive + ", currentVolume: " + currentVolume + ", desiredVolume: " + desiredVolume);
-                
                 yield return null;
             }
             
@@ -75,7 +73,6 @@ namespace AppCore.AudioManagement {
 
         public void StopSoundEffect(SoundEffect soundEffect) {
             if (_audioSources.ContainsKey(soundEffect)) {
-                Debug.Log("Stopping sound effect " + _audioSources[soundEffect].name);
 
                 soundEffect.paused = () => true;
                 _audioSources.Remove(soundEffect);
