@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Game.Combat.Bear {
     public class BearDamageDealer : MonoBehaviour {
+        [SerializeField] private BearDamageType damageType;
         [SerializeField] private int damage = 50;
         [SerializeField] private float knockbackForce = 10;
         [SerializeField] private bool movementBased = true;
@@ -38,7 +39,7 @@ namespace Game.Combat.Bear {
                 knockbackDirection = dif;
             }
             
-            other.OnBearHit(damage, knockbackDirection.normalized, knockbackForce);
+            other.OnHitByBear(damage, knockbackDirection.normalized, knockbackForce, damageType);
         }
     }
 }

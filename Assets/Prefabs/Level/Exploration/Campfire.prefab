@@ -129,7 +129,7 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 1.5
+  m_PointLightInnerRadius: 0
   m_PointLightOuterRadius: 19.44
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
@@ -153,20 +153,183 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0587bbb12aea4c82825ceebfd206f1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  litIntensity: 2.3
-  litRadius: 17
-  unlitIntensity: 1.7
-  unlitRadius: 12
-  flickerData:
-    count:
-      Min: 3
-      Max: 10
-    duration:
-      Min: 0.03
-      Max: 0.25
-    interval:
-      Min: 0.03
-      Max: 0.1
-    pause:
-      Min: 3
-      Max: 25
+  CombatAreaManager: {fileID: 0}
+  baseCombatIntensity: 1.75
+  baseCombatRadius: 18
+  combatIntensityAddition:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.029154517
+      value: -1
+      inSlope: 0.42262807
+      outSlope: 0.42262807
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.14499341
+    - serializedVersion: 3
+      time: 0.36200815
+      value: -0.8963478
+      inSlope: 0.19969654
+      outSlope: 0.19969654
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: -0.8411163
+      inSlope: 0.021101981
+      outSlope: 0.021101981
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.08309019
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  combatPulseFrequency:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0029154515
+      value: 0.99285716
+      inSlope: -1.2729598
+      outSlope: -1.2729598
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.08864721
+    - serializedVersion: 3
+      time: 0.5586297
+      value: 0.63801056
+      inSlope: -0.39267582
+      outSlope: -0.39267582
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.43438736
+      outWeight: 0.09829305
+    - serializedVersion: 3
+      time: 1.0014577
+      value: 0.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  combatPulseIntensity:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.0135355
+      value: 0.69095373
+      inSlope: -0.690599
+      outSlope: -0.690599
+      tangentMode: 0
+      weightedMode: 2
+      inWeight: 0.33333334
+      outWeight: 0.48167413
+    - serializedVersion: 3
+      time: 0.13423038
+      value: 0.27562103
+      inSlope: -2.1737368
+      outSlope: -2.1737368
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.5023173
+      outWeight: 0.36874017
+    - serializedVersion: 3
+      time: 0.2696879
+      value: 0.14940362
+      inSlope: -0.4850545
+      outSlope: -0.4850545
+      tangentMode: 0
+      weightedMode: 1
+      inWeight: 0.08145835
+      outWeight: 0.1126066
+    - serializedVersion: 3
+      time: 1.0185716
+      value: 0.00681857
+      inSlope: -0.008903336
+      outSlope: -0.008903336
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.55378395
+      outWeight: 0.048608873
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  intensityFlashCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.00021553472
+      value: -0.030180573
+      inSlope: -24.61048
+      outSlope: -24.61048
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.058959603
+      value: -1.4865091
+      inSlope: 1.2405919
+      outSlope: 1.2405919
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.08776696
+    - serializedVersion: 3
+      time: 0.24845794
+      value: -0.030180573
+      inSlope: 7.6851783
+      outSlope: 7.6851783
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  radiusFlashCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -0.00759539
+      inSlope: -18.445377
+      outSlope: -18.445377
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.05836281
+      value: -1.0841196
+      inSlope: 1.2963352
+      outSlope: 1.2963352
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.6362782
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.24926895
+      value: -0.00759539
+      inSlope: 5.6390233
+      outSlope: 5.6390233
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  intensitySmoothSpeed: 1
+  radiusSmoothSpeed: 2
+  _state: 0

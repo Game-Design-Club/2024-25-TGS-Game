@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fbf4b5e275f4110aa5d3c21620f1f5c, type: 3}
+  m_Name: Child Walking
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 8911a16b30d034716bd94b7f9e38919c, type: 3}
+  volume: 0.15
+  pitch: 1
+  pitchRandomness: 0
+  loop: 1
+  parent: {fileID: 0}
+  spatialBlend: 0
+  minDistance: 1
+  maxDistance: 500
+  fadeInTime: 0.5
+  fadeOutTime: 0.5

@@ -53,5 +53,11 @@ namespace Tools {
             public const string ChildGameplay = "Child Gameplay";
             public const string ChildGameplayFront = "Child Gameplay Front";
         }
+
+        public static class Mixer {
+            public const string MasterVolume = "Master Volume";
+            public const string SFXVolume = "SFX Volume";
+            public const string MusicVolume = "Music Volume";
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace Game.Combat.Bear {
         public override void Update() {
             if (_completedKnockback) return;
             _progress += Time.deltaTime;
-            if (_progress >= Controller.stunKnockbackCurve.keys[Controller.stunKnockbackCurve.length - 1].time) {
+            if (_progress >= Controller.stunKnockbackCurve.Time()) {
                 _completedKnockback = true;
             }
         }

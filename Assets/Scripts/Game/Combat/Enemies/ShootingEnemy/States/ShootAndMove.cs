@@ -1,4 +1,5 @@
 using System.Collections;
+using Game.Combat.Bear;
 using UnityEngine;
 
 namespace Game.Combat.Enemies.States {
@@ -33,7 +34,7 @@ namespace Game.Combat.Enemies.States {
             Controller().Rigidbody.rotation = Mathf.Atan2(posDifference.y, posDifference.x) * Mathf.Rad2Deg;
         }
 
-        public override void OnHit(Vector2 hitDirection, float hitForce) {
+        public override void OnHit(Vector2 hitDirection, float hitForce, BearDamageType damageType) {
             HandleHit(hitDirection, hitForce, new ShootAndMove(Controller()));
         }
     }

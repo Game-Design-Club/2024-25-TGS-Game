@@ -1,4 +1,5 @@
 using AppCore;
+using AppCore.AudioManagement;
 using AppCore.InputManagement;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ namespace Game.Combat.Bear {
         [SerializeField] internal float idleWalkSpeed = 5f;
         [Header("Swipe State")]
         [SerializeField] internal float swipeWalkSpeed = 2f;
+        [SerializeField] internal SoundEffect swipeSoundEffect;
         [Header("Stun State")]
         [SerializeField] internal AnimationCurve stunKnockbackCurve;
         [Header("Pounce State")]
