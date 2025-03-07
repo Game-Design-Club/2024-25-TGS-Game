@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using AppCore;
 using AppCore.DialogueManagement;
 using Game.Exploration.Enviornment.Interactables.Scrapbook;
+using Game.GameManagement;
 using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,14 +15,14 @@ namespace Game.Exploration.UI
     {
         public ScrapbookPage.ScrapbookItemUIInfo itemInfo;
         [SerializeField] private RectTransform rt;
-        [SerializeField] private RectTransform rtCanvas;
+        public  RectTransform rtCanvas;
         [SerializeField] private RectTransform rtItemHolder;
-        [SerializeField] private GameObject itemHolder;
         [SerializeField] private Animator animator;
         [SerializeField] private AnimationCurve moveToPosCurve;
         [SerializeField] private float movementDuration;
         [SerializeField] private Image itemImage;
         [SerializeField] private Image holeImage;
+        public UIManager uIManager;
         
         public void Start()
         {
@@ -31,17 +32,29 @@ namespace Game.Exploration.UI
             rt.sizeDelta = itemInfo.size * 100;
         }
 
+        public void Unlock()
+        {
+            
+        }
+
         private Vector2 GetMid()
         {
             Vector2 canvas = new Vector2(0, 0);
             Vector2 world = rtCanvas.TransformPoint(canvas);
             return rt.InverseTransformPoint(world);
         }
-
-
-        public void Hover()
+        
+        public void Hover(bool hover)
         {
-            animator.SetBool("Hovering", !animator.GetBool("Hovering"));
+            animator.SetBool("Hovering", hover);
+            
+            uIManager.FocusOnItem(this, hover);
+        }
+
+        public void ButtonPress()
+        {
+            
+            Hover(!animator.GetBool("Hovering"));
         }
         
         [ContextMenu("Fly In")]
@@ -53,15 +66,10 @@ namespace Game.Exploration.UI
 
         public void OnFinishedFlyIn()
         {
-            App.Get<DialogueManager>().StartDialogue(itemInfo.item.dialogue, FinishedDialogue, AnimatorUpdateMode.UnscaledTime);
-        }
-
-        private void FinishedDialogue()
-        {
             StartCoroutine(MoveToPosition());
             animator.SetBool("Resting", true);
         }
-        
+
         IEnumerator MoveToPosition()
         {
             Vector2 startPosition = GetMid();
@@ -80,7 +88,9 @@ namespace Game.Exploration.UI
             }
 
             // Ensure the object reaches the exact destination
-            rt.anchoredPosition = endPosition;
+            rtItemHolder.anchoredPosition = endPosition;
+            animator.SetBool("Hovering", false);
+            Hover(true);
         }
     }
 }

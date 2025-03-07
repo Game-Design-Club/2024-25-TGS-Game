@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using AppCore;
 using AppCore.DataManagement;
+using Game.GameManagement;
 using UnityEngine;
 
 namespace Game.Exploration.Enviornment.Interactables.Scrapbook
@@ -38,6 +39,9 @@ namespace Game.Exploration.Enviornment.Interactables.Scrapbook
             yield return new WaitForSeconds(2.1f);
             spinnyParticles.Play();
             yield return new WaitForSeconds(2.0f);
+            GameManager.OnGamePaused();
+            GameManager.GetUIManager().OpenScrapbook();
+            GameManager.GetUIManager().OpenToItem(scrapbookItem);
             Destroy(scrapObject);
         }
     }

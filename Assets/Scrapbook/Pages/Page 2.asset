@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Page 2
   m_EditorClassIdentifier: 
   title: River
+  description: The river flows quickly
   items:
   - item: {fileID: 11400000, guid: dd2bd2a1341554b86880365cc7d06ed5, type: 2}
     pos: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    size: {x: 1, y: 1}

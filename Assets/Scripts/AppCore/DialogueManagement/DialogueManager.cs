@@ -55,9 +55,8 @@ namespace AppCore.DialogueManagement {
             _shouldContinue = true;
         }
 
-        public void StartDialogue(Dialogue dialogue, Action callback, AnimatorUpdateMode updateMode = AnimatorUpdateMode.Normal)
+        public void StartDialogue(Dialogue dialogue, Action callback)
         {
-            _animator.updateMode = updateMode;
             if (_currentDialogue != null) {
                 Debug.LogWarning(_currentDialogue == dialogue
                     ? "Tried to play cutscene while already playing that dialogue"

@@ -231,14 +231,13 @@ MonoBehaviour:
   rt: {fileID: 7001774422808650933}
   rtCanvas: {fileID: 0}
   rtItemHolder: {fileID: 9045839033879749889}
-  itemHolder: {fileID: 6625677957401648585}
   animator: {fileID: 7320699479719389408}
   moveToPosCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -247,7 +246,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -257,8 +256,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  movementDuration: 0.5
   itemImage: {fileID: 5919813337894595628}
   holeImage: {fileID: 7703782159360591728}
+  uIManager: {fileID: 0}
 --- !u!1 &6625677957401648585
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,7 +494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8480874087636283213, guid: c3dbae0e415e640b8a3796ecdbcee86c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Hover
+      value: ButtonPress
       objectReference: {fileID: 0}
     - target: {fileID: 8480874087636283213, guid: c3dbae0e415e640b8a3796ecdbcee86c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

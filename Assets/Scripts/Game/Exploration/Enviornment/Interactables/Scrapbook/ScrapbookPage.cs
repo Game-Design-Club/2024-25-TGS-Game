@@ -7,6 +7,7 @@ namespace Game.Exploration.Enviornment.Interactables.Scrapbook
     public class ScrapbookPage : ScriptableObject
     {
         [SerializeField] public string title;
+        [SerializeField] public string description;
         [SerializeField] public ScrapbookItemUIInfo[] items;
 
         [System.Serializable]
