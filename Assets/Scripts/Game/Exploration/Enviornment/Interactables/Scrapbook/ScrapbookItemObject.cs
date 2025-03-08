@@ -27,6 +27,7 @@ namespace Game.Exploration.Enviornment.Interactables.Scrapbook
 
         public override void InteractionEnded()
         {
+            GameManager.SetDialogue();
             App.Get<DataManager>().FoundScrapbookItem(scrapbookItem);
             animator.SetTrigger("Spin and Grow");
             interactableParticleSystem.Stop();

@@ -118,6 +118,10 @@ namespace Game.GameManagement {
         public static void OnPlayerRespawn() {
             GameEventType = GameEventType.ExploreEnter;
         }
+
+        public static void SetDialogue() {
+            GameEventType = GameEventType.Dialogue;
+        }
     }
     
     public struct GameEvent {
