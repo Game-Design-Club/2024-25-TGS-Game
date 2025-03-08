@@ -103,7 +103,7 @@ namespace Game.GameManagement {
             GameEventType = GameEventType.Dialogue;
         }
 
-        private void DialogueEnd() {
+        public static void DialogueEnd() {
             GameEventType = _lastGameEventType;
         }
 

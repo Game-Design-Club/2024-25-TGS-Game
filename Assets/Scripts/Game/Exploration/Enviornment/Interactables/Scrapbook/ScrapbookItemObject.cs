@@ -44,6 +44,7 @@ namespace Game.Exploration.Enviornment.Interactables.Scrapbook
             GameManager.GetUIManager().OpenScrapbook();
             GameManager.GetUIManager().OpenToItem(scrapbookItem);
             Destroy(scrapObject);
+            GameManager.DialogueEnd();
         }
     }
 }
