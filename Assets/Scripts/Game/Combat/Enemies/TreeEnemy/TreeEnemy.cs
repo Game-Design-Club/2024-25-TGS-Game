@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Game.Combat.Bear;
 using Tools;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -16,6 +17,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
         [SerializeField] private LineRenderer lineRenderer;
         [SerializeField] private Transform hand;
         [SerializeField] private Transform spritePivot;
+        [SerializeField] internal float stunDuration = 1f;
 
         protected override EnemyState StartingState => new Reach(this);
         
@@ -163,17 +165,13 @@ namespace Game.Combat.Enemies.TreeEnemy {
             SetDistance(CurrentDistance + distance);
         }
         
-        public void Hit() {
-            TransitionToState(new Retract(this));
-        }
-
         public void SetDistance(float distance) {
             if (distance > _maxDistance) {
                 distance = _maxDistance;
                 TransitionToState(new Attack(this));
             }
             if (distance < 0) {
-                OnBearHit(100000, Vector2.zero, 0);
+                OnHitByBear(100000, Vector2.zero, 0, BearDamageType.Swipe);
                 return;
             }
             SetLength(distance);
@@ -184,6 +182,14 @@ namespace Game.Combat.Enemies.TreeEnemy {
             direction.Normalize();
             int i = GetMaxIndex(CurrentDistance);
             AddPoints(_points[i], i);
+        }
+
+        public void HandleAppendageHit(int damage, Vector2 hitDirection, float knockbackForce, BearDamageType damageType) {
+            if (damageType == BearDamageType.Swipe) {
+                TransitionToState(new Retract(this));
+            } else {
+                TransitionToState(new Stunned(this));
+            }
         }
     }
 }

@@ -1,3 +1,4 @@
+using Tools;
 using UnityEngine;
 
 namespace Game.Exploration.Child
@@ -10,7 +11,7 @@ namespace Game.Exploration.Child
 
         public override void Enter()
         {
-            Controller.Animator.SetTrigger("Attack");
+            Controller.Animator.SetTrigger(Constants.Animator.Child.Attack);
         }
 
         public override float? GetWalkSpeed()

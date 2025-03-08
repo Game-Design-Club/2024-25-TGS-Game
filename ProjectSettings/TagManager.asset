@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Interactable
   - Bear Enemy Hittable
+  - EnemyDestroyer
   layers:
   - Default
   - TransparentFX

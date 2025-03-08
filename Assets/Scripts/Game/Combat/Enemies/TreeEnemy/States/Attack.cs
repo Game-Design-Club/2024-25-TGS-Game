@@ -1,3 +1,4 @@
+using Game.Combat.Bear;
 using Tools;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
             Controller().Animator.ResetTrigger(Constants.Animator.TreeEnemy.Reset);
         }
 
-        public override void OnHit(Vector2 hitDirection, float hitForce) {
+        public override void OnHit(Vector2 hitDirection, float hitForce, BearDamageType damageType) {
             Controller().Animator.SetTrigger(Constants.Animator.TreeEnemy.Reset);
             Controller().TransitionToState(new Retract(Controller()));
         }

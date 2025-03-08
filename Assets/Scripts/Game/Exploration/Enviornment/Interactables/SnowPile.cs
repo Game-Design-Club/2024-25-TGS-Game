@@ -7,8 +7,7 @@ using UnityEngine;
 
 namespace Game.Exploration.Enviornment.Interactables
 {
-    public class SnowPile : MonoBehaviour, Interactable
-    {
+    public class SnowPile : MonoBehaviour, Interactable {
         [SerializeField] private Dialogue preStick;
         [SerializeField] private Dialogue postStick;
         [SerializeField] private ParticleSystem interactableParticleSystem;

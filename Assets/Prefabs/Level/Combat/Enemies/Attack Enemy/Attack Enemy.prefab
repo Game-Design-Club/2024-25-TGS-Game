@@ -83,7 +83,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   sanityRestored: 15
-  sanityDamage: 3
   stunKnockbackCurve:
     serializedVersion: 2
     m_Curve:
@@ -108,6 +107,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  hitParticles: {fileID: 2305709367884197739, guid: 577243b4fac514a99be246cb00181239, type: 3}
+  deathParticles: {fileID: 2305709367884197739, guid: 158e5268b5ba24de0b9d88bcb580da1d, type: 3}
+  deathSound: {fileID: 11400000, guid: 56b988d4f50d3438fab33c116acf7cde, type: 2}
   moveSpeed: 0.7
   rotationPivot: {fileID: 1960590372705007930}
   spriteRenderer: {fileID: 4944907021056922652}
@@ -311,6 +313,9 @@ MonoBehaviour:
   enemyBase: {fileID: 6498845324442879315}
   hitChild: 1
   hitBear: 1
+  sanityDamage: 10
+  killEnemyOnChildAttack: 1
+  killEnemyOnBearAttack: 0
 --- !u!70 &2198792805332604159
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

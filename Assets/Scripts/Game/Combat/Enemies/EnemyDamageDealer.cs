@@ -3,6 +3,7 @@ using Game.Combat.Bear;
 using Game.GameManagement;
 using Tools;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Combat.Enemies {
     public class EnemyDamageDealer : MonoBehaviour {
@@ -11,7 +12,8 @@ namespace Game.Combat.Enemies {
         [SerializeField] private bool hitChild = true;
         [SerializeField] private bool hitBear = true;
         [SerializeField] internal float sanityDamage = 10;
-        [SerializeField] private bool killChildOnAttack = true;
+        [FormerlySerializedAs("killChildOnAttack")] [SerializeField] private bool killEnemyOnChildAttack = true;
+        [SerializeField] private bool killEnemyOnBearAttack = true;
         
         private CombatAreaManager _combatManager;
         
@@ -39,13 +41,16 @@ namespace Game.Combat.Enemies {
         
         private void OnTriggerEnter2D(Collider2D other) {
             if (hitChild && other.CompareTag(Constants.Tags.Child)) {
-                if (enemyBase != null && killChildOnAttack) {
-                    enemyBase.HitChild();
+                if (enemyBase != null && killEnemyOnChildAttack) {
+                    enemyBase.DestroyEnemy();
                 }
                 HandleHit();
                 _combatManager.ChildHit(this);
             }
             if (hitBear && _canDamage && other.TryGetComponent(out BearEnemyHitbox bearEnemyHitbox)) {
+                if (enemyBase != null && killEnemyOnBearAttack) {
+                    enemyBase.DestroyEnemy();
+                }
                 Vector2 dif = GetDirection(other);
                 bearEnemyHitbox.bearController.OnHit(dif, hitForce);
                 _canDamage = false;

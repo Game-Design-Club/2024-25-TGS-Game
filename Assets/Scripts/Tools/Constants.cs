@@ -24,6 +24,7 @@ namespace Tools {
             }
             public static class Child {
                 public const string Sleep = "Sleep";
+                public static string Attack = "Attack";
             }
 
             public static class DialogueBox {
@@ -46,11 +47,18 @@ namespace Tools {
             public const string Child = "Child";
             public static string Bear = "Bear";
             public static string BearEnemyDamageable = "Bear Enemy Hittable";
+            public static string EnemyDestroyer = "EnemyDestroyer";
         }
 
         public static class Layers {
             public const string ChildGameplay = "Child Gameplay";
             public const string ChildGameplayFront = "Child Gameplay Front";
+        }
+
+        public static class Mixer {
+            public const string MasterVolume = "Master Volume";
+            public const string SFXVolume = "SFX Volume";
+            public const string MusicVolume = "Music Volume";
         }
     }
 }

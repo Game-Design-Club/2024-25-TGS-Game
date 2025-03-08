@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Tools;
 using UnityEngine;
 
 namespace Game.Combat.Waves {
@@ -20,7 +21,7 @@ namespace Game.Combat.Waves {
         
         public List<float> GetSpawnTimes() {
             _spawnTimes = new List<float>();
-            float totalTime = spawnRate.keys[spawnRate.length - 1].time;
+            float totalTime = spawnRate.LastKey().time;
             float lastTime = 0;
             float time = 0;
             float value = 0;

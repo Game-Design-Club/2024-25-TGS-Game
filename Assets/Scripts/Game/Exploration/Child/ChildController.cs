@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using AppCore;
+using AppCore.AudioManagement;
 using AppCore.InputManagement;
 using Game.GameManagement;
 using Tools;
@@ -16,6 +17,8 @@ namespace Game.Exploration.Child {
         [FormerlySerializedAs("walkToSleepCurve")]
         [Header("Walk to Sleep")]
         [SerializeField] internal AnimationCurve walkToPointCurve;
+        [Header("SFX")]
+        [SerializeField] internal SoundEffect walkSound;
         
         internal Rigidbody2D Rigidbody;
         internal Animator Animator;
