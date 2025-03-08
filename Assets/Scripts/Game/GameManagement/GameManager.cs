@@ -9,6 +9,7 @@ namespace Game.GameManagement {
         // Child/Bear, and Paused/Unpaused
         // Controls InputMapping, and transitions between states
         [SerializeField] public float transitionDuration = 1f;
+        [SerializeField] public UIManager UIManager;
         
         public static float TransitionDuration => _instance.transitionDuration;
         
@@ -30,6 +31,11 @@ namespace Game.GameManagement {
         
         private static GameEventType _lastGameEventType;
         private static GameEventType _gameEventType;
+
+        public static UIManager GetUIManager()
+        {
+            return _instance.UIManager;
+        }
         private static GameEventType GameEventType {
             get => _gameEventType;
             set {
@@ -73,7 +79,7 @@ namespace Game.GameManagement {
             App.Get<DialogueManager>().OnDialogueEnd -= DialogueEnd;
         }
         
-        private void OnGamePaused() {
+        public static void OnGamePaused() {
             IsPaused = !IsPaused;
         }
         
@@ -111,6 +117,10 @@ namespace Game.GameManagement {
 
         public static void OnPlayerRespawn() {
             GameEventType = GameEventType.ExploreEnter;
+        }
+
+        public static void SetDialogue() {
+            GameEventType = GameEventType.Dialogue;
         }
     }
     

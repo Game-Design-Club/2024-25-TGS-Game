@@ -1,13 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using AppCore.InputManagement;
-using Game.GameManagement;
 using TMPro;
 using Tools;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -58,7 +55,8 @@ namespace AppCore.DialogueManagement {
             _shouldContinue = true;
         }
 
-        public void StartDialogue(Dialogue dialogue, Action callback) {
+        public void StartDialogue(Dialogue dialogue, Action callback)
+        {
             if (_currentDialogue != null) {
                 Debug.LogWarning(_currentDialogue == dialogue
                     ? "Tried to play cutscene while already playing that dialogue"

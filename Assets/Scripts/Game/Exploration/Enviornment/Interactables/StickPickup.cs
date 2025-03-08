@@ -15,7 +15,6 @@ namespace Game.Exploration.Enviornment.Interactables
 
         public override void InteractionEnded()
         {
-            EndInteraction();
             App.Get<DataManager>().ObtainedStick();
             pickupParticleObject.PlayAndDetach();
             Destroy(stickObject);
