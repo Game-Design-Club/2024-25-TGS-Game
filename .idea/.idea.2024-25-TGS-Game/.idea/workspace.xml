@@ -6,25 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Game UI/Pausing/Pause Animator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Game UI/Pausing/Pause Animator.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Game UI/Scrapbook/Fly In.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Game UI/Scrapbook/Fly In.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Game UI/Scrapbook/Scrapbook Item.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Game UI/Scrapbook/Scrapbook Item.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Dialogue/Interactable Objects/Scrabook/Bear.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Dialogue/Interactable Objects/Scrabook/Bear.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Dialogue/Interactable Objects/Scrabook/Hand.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Dialogue/Interactable Objects/Scrabook/Hand.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Dialogue/Interactable Objects/Scrabook/Monster.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Dialogue/Interactable Objects/Scrabook/Monster.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Scrapbook Item UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Scrapbook Item UI.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrapbook/Pages/Page 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrapbook/Pages/Page 1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrapbook/Pages/Page 2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrapbook/Pages/Page 2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AppCore/DialogueManagement/DialogueManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AppCore/DialogueManagement/DialogueManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/Interactables/Scrapbook/ScrapbookItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/Interactables/Scrapbook/ScrapbookItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/Interactables/Scrapbook/ScrapbookItemObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/Interactables/Scrapbook/ScrapbookItemObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/Interactables/Scrapbook/ScrapbookPage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/Interactables/Scrapbook/ScrapbookPage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AppCore/DataManagement/DataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AppCore/DataManagement/DataManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/UI/ScrapbookItemUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/UI/ScrapbookItemUIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameManagement/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameManagement/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameManagement/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameManagement/UIManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -147,7 +132,7 @@
       <workItem from="1740074192588" duration="12996000" />
       <workItem from="1740183421755" duration="19012000" />
       <workItem from="1740508671028" duration="9265000" />
-      <workItem from="1741388232544" duration="1549000" />
+      <workItem from="1741388232544" duration="6571000" />
     </task>
     <servers />
   </component>

@@ -3129,6 +3129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionDuration: 1
+  UIManager: {fileID: 1603150436}
 --- !u!4 &1377460970 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4788482362888496459, guid: 0f5bcebd3f2b04d21903d64ac1210c09, type: 3}

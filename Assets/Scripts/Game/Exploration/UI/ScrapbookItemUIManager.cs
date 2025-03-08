@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using AppCore;
+using AppCore.DataManagement;
 using AppCore.DialogueManagement;
 using Game.Exploration.Enviornment.Interactables.Scrapbook;
 using Game.GameManagement;
@@ -22,19 +23,39 @@ namespace Game.Exploration.UI
         [SerializeField] private float movementDuration;
         [SerializeField] private Image itemImage;
         [SerializeField] private Image holeImage;
-        public UIManager uIManager;
-        
+        [SerializeField] private GameObject imageObject;
+        [HideInInspector] public UIManager uIManager;
+
+        private void OnEnable()
+        {
+            UIManager.OnPageUp += CheckForFlyIn;
+        }
+
+        private void OnDisable()
+        {
+            UIManager.OnPageUp -= CheckForFlyIn;
+        }
+
+        private void CheckForFlyIn()
+        {            
+            DataManager dataManager = App.Get<DataManager>();
+
+            if (dataManager.newItem != null && dataManager.newItem.Equals(itemInfo.item))
+            {
+                FlyIn();
+                dataManager.ClearNewItem();
+            }
+        }
+
         public void Start()
         {
             itemImage.sprite = itemInfo.item.sprite;
             holeImage.sprite = itemInfo.item.sprite;
             rt.anchoredPosition = itemInfo.pos;
             rt.sizeDelta = itemInfo.size * 100;
-        }
-
-        public void Unlock()
-        {
-            
+            DataManager dataManager = App.Get<DataManager>();
+            imageObject.SetActive(!(dataManager.newItem != null && dataManager.newItem.Equals(itemInfo.item)) && dataManager.HasScrapbookItem(itemInfo.item));
+            Debug.Log(dataManager.HasScrapbookItem(itemInfo.item));
         }
 
         private Vector2 GetMid()
@@ -62,6 +83,11 @@ namespace Game.Exploration.UI
         {
             animator.SetBool("Resting", false);
             rtItemHolder.anchoredPosition = GetMid();
+        }
+
+        public void SetActive()
+        {
+            imageObject.SetActive(true);
         }
 
         public void OnFinishedFlyIn()

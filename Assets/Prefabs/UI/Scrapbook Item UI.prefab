@@ -259,6 +259,7 @@ MonoBehaviour:
   movementDuration: 0.5
   itemImage: {fileID: 5919813337894595628}
   holeImage: {fileID: 7703782159360591728}
+  imageObject: {fileID: 1690458060205846571}
   uIManager: {fileID: 0}
 --- !u!1 &6625677957401648585
 GameObject:

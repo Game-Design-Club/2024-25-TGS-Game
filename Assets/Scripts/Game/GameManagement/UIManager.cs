@@ -38,6 +38,7 @@ namespace Game.GameManagement {
         private bool _canRestart = false;
         
         public static event Action OnRestartGame;
+        public static event Action OnPageUp;
 
         public void FocusOnItem(ScrapbookItemUIManager itemUI, bool focus)
         {
@@ -142,6 +143,7 @@ namespace Game.GameManagement {
         public void OnBookUp()
         {
             advancingPage = false;
+            OnPageUp?.Invoke();
         }
         
         private void OnEnable() {
