@@ -55,7 +55,6 @@ namespace Game.Exploration.UI
             rt.sizeDelta = itemInfo.size * 100;
             DataManager dataManager = App.Get<DataManager>();
             imageObject.SetActive(!(dataManager.newItem != null && dataManager.newItem.Equals(itemInfo.item)) && dataManager.HasScrapbookItem(itemInfo.item));
-            Debug.Log(dataManager.HasScrapbookItem(itemInfo.item));
         }
 
         private Vector2 GetMid()
