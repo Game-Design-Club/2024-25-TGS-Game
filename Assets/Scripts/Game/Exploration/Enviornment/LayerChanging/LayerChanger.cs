@@ -10,7 +10,6 @@ namespace Game.Exploration.Enviornment.LayerChanging {
             SpriteRenderer[] childRenderers = GetComponentsInChildren<SpriteRenderer>();
 
             SpriteRenderers = selfRenderer != null ? childRenderers.Concat(new[] { selfRenderer }).ToArray() : childRenderers;
-            Debug.Log(SpriteRenderers.Length);
             LayerChangingManager.RegisterLayerChanger(this);
         }
 

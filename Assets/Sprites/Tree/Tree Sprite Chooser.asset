@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0012b715587cc43d99b36881a5b6682d, type: 3}
+  m_Name: Tree Sprite Chooser
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: -4832618155596115187, guid: e3f812d76b9dd48399610966fcbe2c87, type: 3}
+  - {fileID: 4296731722166109183, guid: 9c2c10c8ceab1483fab5c7d1062aa6a5, type: 3}
+  - {fileID: -3819293021117696179, guid: fb685611007ec433a8693a1989b3b620, type: 3}
+  - {fileID: -6716156461439571400, guid: a9769287fadb54c7daac449b2a1a9008, type: 3}
