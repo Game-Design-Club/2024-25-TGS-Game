@@ -7,6 +7,7 @@ using Game.Exploration.UI;
 using TMPro;
 using Tools;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Game.GameManagement {
@@ -23,6 +24,7 @@ namespace Game.GameManagement {
         [SerializeField] private GameObject sbItemHolderObject;
         [SerializeField] private Button nextButton;
         [SerializeField] private Button previousButton;
+        [SerializeField] private Button resumeButton;
         [SerializeField] private ScrapbookPage[] scrapbookPages;
         [SerializeField] private GameObject scrapbookUIItemPrefab;
         
@@ -36,6 +38,13 @@ namespace Game.GameManagement {
         
         public static event Action OnRestartGame;
         public static event Action OnPageUp;
+
+        private void Start() {
+            rtCanvas.gameObject.SetActive(false);
+            EventSystem.current.firstSelectedGameObject = resumeButton.gameObject;
+            // sbSpreadObject.SetActive(false);
+            // coverObject.SetActive(false);
+        }
 
         public void FocusOnItem(ScrapbookItemUIManager itemUI, bool focus)
         {
@@ -128,6 +137,7 @@ namespace Game.GameManagement {
 
         public void OnBookDown()
         {
+            EventSystem.current.SetSelectedGameObject(null);
             coverObject.SetActive(!scrapbookOpen);
             sbSpreadObject.SetActive(scrapbookOpen);
             if (advancingPage)
