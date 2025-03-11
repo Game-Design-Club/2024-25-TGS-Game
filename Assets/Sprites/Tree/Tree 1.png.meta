@@ -116,12 +116,12 @@ TextureImporter:
       name: Tree 1_0
       rect:
         serializedVersion: 2
-        x: 534
-        y: 101
-        width: 304
-        height: 410
+        x: 860
+        y: 177
+        width: 202
+        height: 334
       alignment: 9
-      pivot: {x: 0.47016466, y: 0.15987828}
+      pivot: {x: 0.51506513, y: 0.11235631}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
