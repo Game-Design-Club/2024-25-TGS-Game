@@ -2,14 +2,11 @@ using System;
 using System.Collections;
 using AppCore;
 using AppCore.InputManagement;
-using Game.Combat;
 using Game.Exploration.Enviornment.Interactables.Scrapbook;
 using Game.Exploration.UI;
 using TMPro;
 using Tools;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Game.GameManagement {
