@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateTransform: {fileID: 6922884373588637876}
+  walkParticles: {fileID: 0}
   walkSpeed: 5
   walkToPointCurve:
     serializedVersion: 2
@@ -443,6 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f63497b59584889bf82118af7966e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  childController: {fileID: 7678688238882676191}
 --- !u!1 &5624644137111096651
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,7 +639,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1400724583
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.16862746}

@@ -16,13 +16,11 @@ namespace AppCore.DataManagement
         {
             HasStick = true;
             UnlockAttack();
-            Debug.Log("Has Stick");
         }
         
         public void UnlockAttack()
         {
             UnlockedAttack = true;
-            Debug.Log("Can Attack");
         }
 
         public void FoundScrapbookItem(ScrapbookItem scrapbookItem)
