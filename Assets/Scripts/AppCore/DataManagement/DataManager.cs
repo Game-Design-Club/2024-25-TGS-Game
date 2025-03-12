@@ -1,48 +1,129 @@
-using System.Collections;
-using Game.Exploration.Enviornment.Interactables.Scrapbook;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using Game.Exploration.Enviornment.Interactables.Scrapbook;
 
 namespace AppCore.DataManagement
 {
     public class DataManager : AppModule
     {
-        public bool HasStick { get; private set; }
-        public bool UnlockedAttack { get; private set; }
+        private string saveFilePath;
+        private Dictionary<string, bool> boolFlags = new();
+        public List<ScrapbookItem> FoundScrapbookItems { get; private set; } = new();
+        public Vector3 PlayerPosition { get; private set; } = Vector3.zero;
 
-        public ArrayList foundItems { get; private set; } = new ArrayList();
-        public ScrapbookItem newItem { get; private set; }
+        private void Awake() {
+            saveFilePath = Application.persistentDataPath;
+        }
 
-        public void ObtainedStick()
+        public void LoadData(int fileNumber)
         {
-            HasStick = true;
-            UnlockAttack();
+            saveFilePath = Path.Combine(Application.persistentDataPath, $"savedata{fileNumber}.json");
+            Load();
         }
         
-        public void UnlockAttack()
-        {
-            UnlockedAttack = true;
+        [ContextMenu("Reset Data")]
+        public void ResetData() {
+            boolFlags.Clear();
+            FoundScrapbookItems.Clear();
+            PlayerPosition = Vector3.zero;
         }
 
-        public void FoundScrapbookItem(ScrapbookItem scrapbookItem)
-        {
-            newItem = scrapbookItem;
-            foundItems.Add(scrapbookItem);
+        public bool GetFlag(string key) {
+            if (boolFlags.TryGetValue(key, out var result)) return result;
+            
+            Debug.LogWarning("Flag not found: " + key);
+            return false;
         }
 
-        public void ClearNewItem()
-        {
-            newItem = null;
+        public void SetFlag(string key, bool value) {
+            boolFlags[key] = value;
         }
 
-        public bool HasScrapbookItem(ScrapbookItem scrapbookItem)
+        public void AddScrapbookItem(ScrapbookItem item)
         {
-            foreach (ScrapbookItem item in foundItems)
+            if (!FoundScrapbookItems.Contains(item))
             {
-                if (scrapbookItem.Equals(item)) return true;
+                FoundScrapbookItems.Add(item);
+            }
+        }
+
+        public bool HasScrapbookItem(ScrapbookItem item)
+        {
+            return FoundScrapbookItems.Contains(item);
+        }
+
+        public void UpdatePlayerPosition(Vector3 newPosition)
+        {
+            PlayerPosition = newPosition;
+        }
+
+        public void Save() {
+            SaveData data = new SaveData();
+            
+            data.boolFlags = new List<BoolFlag>();
+            foreach (var pair in boolFlags)
+            {
+                data.boolFlags.Add(new BoolFlag { key = pair.Key, value = pair.Value });
             }
 
-            return false;
+            data.foundScrapbookItems = FoundScrapbookItems;
+            data.playerPosition = PlayerPosition;
+
+            string json = JsonUtility.ToJson(data, true);
+            File.WriteAllText(saveFilePath, json);
+            Debug.Log("Game data saved");
+        }
+
+        private void Load()
+        {
+            if (File.Exists(saveFilePath))
+            {
+                string json = File.ReadAllText(saveFilePath);
+                SaveData data = JsonUtility.FromJson<SaveData>(json);
+
+                boolFlags = new Dictionary<string, bool>();
+                foreach (BoolFlag flag in data.boolFlags)
+                {
+                    boolFlags[flag.key] = flag.value;
+                }
+
+                FoundScrapbookItems = data.foundScrapbookItems;
+                PlayerPosition = data.playerPosition;
+            }
+            else
+            {
+                Debug.Log("No save file found, starting a new one.");
+            }
+        }
+
+        private void OnApplicationQuit()
+        {
+            Save();
+        }
+
+        private void Update() {
+            Debug.Log(
+                $"Player position: {PlayerPosition}, " + 
+                $"Found scrapbook items: {FoundScrapbookItems.Count}, " +
+                $"Bool flags: {boolFlags.Count}"
+            );
         }
     }
 
+    [System.Serializable]
+    public class BoolFlag
+    {
+        public string key;
+        public bool value;
+    }
+
+    [System.Serializable]
+    public class SaveData
+    {
+        public List<BoolFlag> boolFlags;
+        public List<ScrapbookItem> foundScrapbookItems;
+        public Vector3 playerPosition;
+    }
 }

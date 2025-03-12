@@ -7,7 +7,7 @@ namespace Game.Combat.Bear {
         private bool _swipeBuffer = false;
         
         public override void Enter() {
-            Controller.Animator.SetTrigger(Constants.Animator.Bear.Growl);
+            Controller.Animator.SetTrigger(AnimationConstants.Bear.Growl);
         }
 
         public override float? GetWalkSpeed() {
@@ -23,7 +23,7 @@ namespace Game.Combat.Bear {
         }
 
         public override void OnAnimationEnded(int id) {
-            if (id != Constants.Animator.BearIDs.Growl) return;
+            if (id != AnimationConstants.BearIDs.Growl) return;
             if (_swipeBuffer) {
                 Controller.TransitionToState(new Swipe(Controller));
             } else {

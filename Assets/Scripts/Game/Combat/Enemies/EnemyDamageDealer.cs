@@ -40,7 +40,7 @@ namespace Game.Combat.Enemies {
         }
         
         private void OnTriggerEnter2D(Collider2D other) {
-            if (hitChild && other.CompareTag(Constants.Tags.Child)) {
+            if (hitChild && other.CompareTag(Tags.Child)) {
                 if (enemyBase != null && killEnemyOnChildAttack) {
                     enemyBase.DestroyEnemy();
                 }

@@ -86,7 +86,7 @@ namespace Game.Combat.Enemies {
         }
         
         private void OnTriggerEnter2D(Collider2D other) {
-            if (other.CompareTag(Constants.Tags.EnemyDestroyer)) {
+            if (other.CompareTag(Tags.EnemyDestroyer)) {
                 DestroyEnemy();
             }
         }

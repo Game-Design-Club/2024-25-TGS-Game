@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using AppCore;
@@ -6,7 +5,6 @@ using AppCore.DataManagement;
 using AppCore.DialogueManagement;
 using Game.Exploration.Enviornment.Interactables.Scrapbook;
 using Game.GameManagement;
-using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +14,7 @@ namespace Game.Exploration.UI
     {
         public ScrapbookPage.ScrapbookItemUIInfo itemInfo;
         [SerializeField] private RectTransform rt;
-        public  RectTransform rtCanvas;
+        public RectTransform rtCanvas;
         [SerializeField] private RectTransform rtItemHolder;
         [SerializeField] private Animator animator;
         [SerializeField] private AnimationCurve moveToPosCurve;
@@ -25,6 +23,8 @@ namespace Game.Exploration.UI
         [SerializeField] private Image holeImage;
         [SerializeField] private GameObject imageObject;
         [HideInInspector] public UIManager uIManager;
+        
+        public bool isNewItem = false;
 
         private void OnEnable()
         {
@@ -37,13 +37,11 @@ namespace Game.Exploration.UI
         }
 
         private void CheckForFlyIn()
-        {            
-            DataManager dataManager = App.Get<DataManager>();
-
-            if (dataManager.newItem != null && dataManager.newItem.Equals(itemInfo.item))
+        {
+            if (isNewItem)
             {
                 FlyIn();
-                dataManager.ClearNewItem();
+                isNewItem = false;
             }
         }
 
@@ -53,8 +51,9 @@ namespace Game.Exploration.UI
             holeImage.sprite = itemInfo.item.sprite;
             rt.anchoredPosition = itemInfo.pos;
             rt.sizeDelta = itemInfo.size * 100;
+
             DataManager dataManager = App.Get<DataManager>();
-            imageObject.SetActive(!(dataManager.newItem != null && dataManager.newItem.Equals(itemInfo.item)) && dataManager.HasScrapbookItem(itemInfo.item));
+            imageObject.SetActive(!isNewItem && dataManager.HasScrapbookItem(itemInfo.item));
         }
 
         private Vector2 GetMid()
@@ -67,13 +66,11 @@ namespace Game.Exploration.UI
         public void Hover(bool hover)
         {
             animator.SetBool("Hovering", hover);
-            
             uIManager.FocusOnItem(this, hover);
         }
 
         public void ButtonPress()
         {
-            
             Hover(!animator.GetBool("Hovering"));
         }
         
@@ -99,7 +96,6 @@ namespace Game.Exploration.UI
         {
             Vector2 startPosition = GetMid();
             Vector2 endPosition = new Vector2(0, 0);
-            // Debug.Log("Start: " + startPosition + " End: " + endPosition);
             float elapsedTime = 0f;
 
             while (elapsedTime < movementDuration)
@@ -107,12 +103,11 @@ namespace Game.Exploration.UI
                 elapsedTime += Time.unscaledDeltaTime;
                 float t = elapsedTime / movementDuration;
                 Vector2 cPos = Vector3.Lerp(startPosition, endPosition, moveToPosCurve.Evaluate(t));
-                // Debug.Log(cPos + " " + elapsedTime + " / " + movementDuration + " : " + t);
                 rtItemHolder.anchoredPosition = cPos;
                 yield return null; // Wait for the next frame
             }
 
-            // Ensure the object reaches the exact destination
+            // Snap to the final position and update states.
             rtItemHolder.anchoredPosition = endPosition;
             animator.SetBool("Hovering", false);
             Hover(true);

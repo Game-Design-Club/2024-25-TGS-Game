@@ -1,6 +1,6 @@
 namespace Tools {
-    public static class Constants {
-        public static class Animator {
+    // public static class Constants {
+        public static class AnimationConstants {
             public static class GameUI {
                 public const string IsPaused = "IsPaused";
                 public static string IsGameOver = "IsGameOver";
@@ -60,5 +60,9 @@ namespace Tools {
             public const string SFXVolume = "SFX Volume";
             public const string MusicVolume = "Music Volume";
         }
-    }
+
+        public static class BoolFlags {
+            public const string HasStick = "HasStick";
+        }
+    // }
 }

@@ -1,5 +1,6 @@
 using System;
 using AppCore;
+using AppCore.DataManagement;
 using AppCore.DialogueManagement;
 using AppCore.InputManagement;
 using UnityEngine;
@@ -65,6 +66,7 @@ namespace Game.GameManagement {
 
         private void Start() {
             GameEventType = GameEventType.Explore;
+            App.Get<DataManager>().LoadData(0);
         }
 
         private void OnEnable() {

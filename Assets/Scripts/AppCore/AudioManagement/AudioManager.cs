@@ -11,12 +11,12 @@ namespace AppCore.AudioManagement {
 
         private void Awake()
         {
-            mixer.SetFloat(Constants.Mixer.MasterVolume, ConvertToDecibels(masterVolume));
+            mixer.SetFloat(Mixer.MasterVolume, ConvertToDecibels(masterVolume));
         }
 
         private void OnValidate()
         {
-            mixer.SetFloat(Constants.Mixer.MasterVolume, ConvertToDecibels(masterVolume));
+            mixer.SetFloat(Mixer.MasterVolume, ConvertToDecibels(masterVolume));
         }
 
 

@@ -13,11 +13,11 @@ namespace Game.Combat.Bear {
         }
 
         public override void Enter() {
-            Controller.Animator.SetTrigger(Constants.Animator.Bear.GrowlChargeup);
+            Controller.Animator.SetTrigger(AnimationConstants.Bear.GrowlChargeup);
         }
 
         public override void OnAnimationEnded(int id) {
-            if (id != Constants.Animator.BearIDs.GrowlChargeup) return;
+            if (id != AnimationConstants.BearIDs.GrowlChargeup) return;
             _ready = true;
         }
 

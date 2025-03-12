@@ -11,7 +11,7 @@ namespace Game.Exploration.Child
 
         public override void Enter()
         {
-            Controller.Animator.SetTrigger(Constants.Animator.Child.Attack);
+            Controller.Animator.SetTrigger(AnimationConstants.Child.Attack);
         }
 
         public override float? GetWalkSpeed()

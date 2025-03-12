@@ -5,10 +5,10 @@ namespace Game.Combat.Bear {
         public Idle(BearController controller) : base(controller) { }
 
         public override void Enter() {
-            Controller.Animator.SetTrigger(Constants.Animator.Bear.Idle);
-            Controller.Animator.ResetTrigger(Constants.Animator.Bear.Swipe);
-            Controller.Animator.ResetTrigger(Constants.Animator.Bear.Growl);
-            Controller.Animator.ResetTrigger(Constants.Animator.Bear.GrowlChargeup);
+            Controller.Animator.SetTrigger(AnimationConstants.Bear.Idle);
+            Controller.Animator.ResetTrigger(AnimationConstants.Bear.Swipe);
+            Controller.Animator.ResetTrigger(AnimationConstants.Bear.Growl);
+            Controller.Animator.ResetTrigger(AnimationConstants.Bear.GrowlChargeup);
         }
 
         public override void OnSwipeInput() {
