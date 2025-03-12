@@ -10,8 +10,6 @@ namespace Game.Exploration.Enviornment.Interactables
     public class SnowPile : MonoBehaviour, Interactable {
         [SerializeField] private Dialogue preStick;
         [SerializeField] private Dialogue postStick;
-        [SerializeField] private ParticleSystem interactableParticleSystem;
-        [SerializeField] private ParticleSystem attackableParticleSystem;
         
         public void Interact(Action overCallback)
         {
@@ -23,15 +21,11 @@ namespace Game.Exploration.Enviornment.Interactables
         public void Hover()
         {
             bool hasStick = App.Get<DataManager>().HasStick;
-            ParticleSystem tempParticleSystem = !hasStick ? interactableParticleSystem : attackableParticleSystem;
-            tempParticleSystem.Play();
         }
 
         public void Unhover()
         {
             bool hasStick = App.Get<DataManager>().HasStick;
-            ParticleSystem tempParticleSystem = !hasStick ? interactableParticleSystem : attackableParticleSystem;
-            tempParticleSystem.Stop();
         }
     }
 }

@@ -15,8 +15,8 @@ namespace Game.Combat.Enemies {
         [SerializeField] internal int sanityRestored = 10;
         [SerializeField] internal AnimationCurve stunKnockbackCurve;
         
-        [SerializeField] private ParticleSystem hitParticles;
-        [SerializeField] private ParticleSystem deathParticles;
+        [SerializeField] private GameObject hitParticles;
+        [SerializeField] private GameObject deathParticles;
         [SerializeField] private SoundEffect deathSound;
         
         internal CombatAreaManager CombatManager;

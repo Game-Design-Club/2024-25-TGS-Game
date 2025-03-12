@@ -1,11 +1,15 @@
-using System;
+using System.Linq;
 using UnityEngine;
 
 namespace Game.Exploration.Enviornment.LayerChanging {
     public class LayerChanger : MonoBehaviour {
         internal SpriteRenderer[] SpriteRenderers;
+
         private void Start() {
-            SpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+            SpriteRenderer selfRenderer = GetComponent<SpriteRenderer>();
+            SpriteRenderer[] childRenderers = GetComponentsInChildren<SpriteRenderer>();
+
+            SpriteRenderers = selfRenderer != null ? childRenderers.Concat(new[] { selfRenderer }).ToArray() : childRenderers;
             LayerChangingManager.RegisterLayerChanger(this);
         }
 
