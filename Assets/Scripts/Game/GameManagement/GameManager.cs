@@ -66,7 +66,6 @@ namespace Game.GameManagement {
 
         private void Start() {
             GameEventType = GameEventType.Explore;
-            App.Get<DataManager>().LoadData(0);
         }
 
         private void OnEnable() {

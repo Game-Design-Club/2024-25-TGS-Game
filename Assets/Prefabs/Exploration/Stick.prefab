@@ -105,6 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7783129591759476760}
   - component: {fileID: 101127389737684872}
+  - component: {fileID: 1453988534903709046}
   m_Layer: 6
   m_Name: Stick
   m_TagString: Untagged
@@ -185,6 +186,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1453988534903709046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9209999304950862102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec19df5c9ac4352a65ab6f768e9879c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generateNewID: 0
+  flagName: hasStick
+  flipFlag: 1
 --- !u!1001 &361251635581379004
 PrefabInstance:
   m_ObjectHideFlags: 0

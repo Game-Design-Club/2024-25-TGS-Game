@@ -51,7 +51,7 @@ namespace Game.GameManagement {
         {
             if (focus) currentFocused?.Hover(false);
             
-            sbInfoTitle.text = focus ? itemUI.itemInfo.item.name : scrapbookPages[scrapbookPage].title;
+            sbInfoTitle.text = focus ? itemUI.itemInfo.item.itemName : scrapbookPages[scrapbookPage].title;
             sbInfoDescription.text = focus ? itemUI.itemInfo.item.description : scrapbookPages[scrapbookPage].description;
             currentFocused = focus ? itemUI : null;
         }

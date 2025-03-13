@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -8,37 +7,40 @@ namespace AppCore.DataManagement
 {
     public class DataManager : AppModule
     {
-        private string saveFilePath;
-        private Dictionary<string, bool> boolFlags = new();
-        public List<ScrapbookItem> FoundScrapbookItems { get; private set; } = new();
-        public Vector3 PlayerPosition { get; private set; } = Vector3.zero;
+        private string _saveFilePath;
+        private Dictionary<string, bool> _boolFlags;
+        public List<ScrapbookItem> FoundScrapbookItems { get; private set; }
+        public Vector3 PlayerPosition { get; private set; }
 
         private void Awake() {
-            saveFilePath = Application.persistentDataPath;
+            _saveFilePath = Application.persistentDataPath;
+            App.Get<DataManager>().LoadData(0);
         }
 
         public void LoadData(int fileNumber)
         {
-            saveFilePath = Path.Combine(Application.persistentDataPath, $"savedata{fileNumber}.json");
+            _saveFilePath = Path.Combine(Application.persistentDataPath, $"savedata{fileNumber}.json");
             Load();
         }
         
         [ContextMenu("Reset Data")]
         public void ResetData() {
-            boolFlags.Clear();
-            FoundScrapbookItems.Clear();
+            _boolFlags = new();
+            FoundScrapbookItems = new();
             PlayerPosition = Vector3.zero;
+            _saveFilePath = Path.Combine(Application.persistentDataPath, "savedata0.json");
+            Save();
         }
 
         public bool GetFlag(string key) {
-            if (boolFlags.TryGetValue(key, out var result)) return result;
+            if (_boolFlags.TryGetValue(key, out var result)) return result;
             
-            Debug.LogWarning("Flag not found: " + key);
+            // Debug.LogWarning("Flag not found: " + key);
             return false;
         }
 
         public void SetFlag(string key, bool value) {
-            boolFlags[key] = value;
+            _boolFlags[key] = value;
         }
 
         public void AddScrapbookItem(ScrapbookItem item)
@@ -63,7 +65,7 @@ namespace AppCore.DataManagement
             SaveData data = new SaveData();
             
             data.boolFlags = new List<BoolFlag>();
-            foreach (var pair in boolFlags)
+            foreach (var pair in _boolFlags)
             {
                 data.boolFlags.Add(new BoolFlag { key = pair.Key, value = pair.Value });
             }
@@ -72,21 +74,22 @@ namespace AppCore.DataManagement
             data.playerPosition = PlayerPosition;
 
             string json = JsonUtility.ToJson(data, true);
-            File.WriteAllText(saveFilePath, json);
-            Debug.Log("Game data saved");
+            File.WriteAllText(_saveFilePath, json);
+            
+            Debug.Log("Saved file: " + _saveFilePath + ", " + json, gameObject);
         }
 
         private void Load()
         {
-            if (File.Exists(saveFilePath))
+            if (File.Exists(_saveFilePath))
             {
-                string json = File.ReadAllText(saveFilePath);
+                string json = File.ReadAllText(_saveFilePath);
                 SaveData data = JsonUtility.FromJson<SaveData>(json);
 
-                boolFlags = new Dictionary<string, bool>();
+                _boolFlags = new Dictionary<string, bool>();
                 foreach (BoolFlag flag in data.boolFlags)
                 {
-                    boolFlags[flag.key] = flag.value;
+                    _boolFlags[flag.key] = flag.value;
                 }
 
                 FoundScrapbookItems = data.foundScrapbookItems;
@@ -104,11 +107,19 @@ namespace AppCore.DataManagement
         }
 
         private void Update() {
-            Debug.Log(
-                $"Player position: {PlayerPosition}, " + 
-                $"Found scrapbook items: {FoundScrapbookItems.Count}, " +
-                $"Bool flags: {boolFlags.Count}"
-            );
+            // Debug.Log(
+                // $"Player position: {PlayerPosition}, " + 
+                // $"Found scrapbook items: {FoundScrapbookItems.Count}, " +
+                // $"Bool flags: {_boolFlags.Count}"
+            // );
+        }
+
+        public bool FlagExists(string flagName) {
+            return _boolFlags.ContainsKey(flagName);
+        }
+
+        public bool TryGetFlag(out bool value, string flagName) {
+            return _boolFlags.TryGetValue(flagName, out value);
         }
     }
 

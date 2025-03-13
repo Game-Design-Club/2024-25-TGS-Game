@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 9047069439208151188}
   - component: {fileID: 1806057249852035889}
   - component: {fileID: 7526101656099666947}
+  - component: {fileID: 7406985562178754116}
   m_Layer: 8
   m_Name: Snow Pile
   m_TagString: Untagged
@@ -216,6 +217,35 @@ MonoBehaviour:
   - {fileID: 74911391529782985}
   destroyedBaseParticles: {fileID: 568410290651238150, guid: b85bfddedafa04f20853dcb3710640ed, type: 3}
   destroyedHitParticles: {fileID: 568410290651238150, guid: b7a01d0271489433491c661a5706a205, type: 3}
+  onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7406985562178754116}
+        m_TargetAssemblyTypeName: AppCore.DataManagement.DestroyIfSavedFlag, Assembly-CSharp
+        m_MethodName: SetFlag
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7406985562178754116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782377763635205384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec19df5c9ac4352a65ab6f768e9879c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generateNewID: 0
+  flagName: 
 --- !u!1 &1487179585885585086
 GameObject:
   m_ObjectHideFlags: 0
