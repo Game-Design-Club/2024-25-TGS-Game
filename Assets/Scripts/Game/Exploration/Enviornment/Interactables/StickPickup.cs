@@ -2,6 +2,7 @@ using System;
 using AppCore;
 using AppCore.DataManagement;
 using AppCore.DialogueManagement;
+using Tools;
 using UnityEngine;
 
 namespace Game.Exploration.Enviornment.Interactables
@@ -15,7 +16,7 @@ namespace Game.Exploration.Enviornment.Interactables
 
         public override void InteractionEnded()
         {
-            App.Get<DataManager>().ObtainedStick();
+            App.Get<DataManager>().SetFlag(BoolFlags.HasStick, true);
             pickupParticleObject.PlayAndDetach();
             Destroy(stickObject);
         }

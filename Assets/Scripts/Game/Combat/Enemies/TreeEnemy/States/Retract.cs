@@ -10,7 +10,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
         private float _startDistance = 0;
 
         public override void Enter() {
-            Controller().Animator.SetTrigger(Constants.Animator.TreeEnemy.Reset);
+            Controller().Animator.SetTrigger(AnimationConstants.TreeEnemy.Reset);
             _startDistance = Controller<TreeEnemy>().CurrentDistance;
         }
 

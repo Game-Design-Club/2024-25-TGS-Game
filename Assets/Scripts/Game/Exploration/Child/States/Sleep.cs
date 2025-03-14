@@ -16,7 +16,7 @@ namespace Game.Exploration.Child {
         }
 
         public override void Exit() {
-            Controller.Animator.SetBool(Constants.Animator.Child.Sleep, false);
+            Controller.Animator.SetBool(AnimationConstants.Child.Sleep, false);
             Controller.Rigidbody.bodyType = RigidbodyType2D.Dynamic;
         }
 
@@ -32,7 +32,7 @@ namespace Game.Exploration.Child {
 
         private IEnumerator WalkToPoint() {
             yield return Controller.MoveToPosition(Controller.Rigidbody, _walkToPoint, Controller.walkToPointCurve);
-            Controller.Animator.SetBool(Constants.Animator.Child.Sleep, true);
+            Controller.Animator.SetBool(AnimationConstants.Child.Sleep, true);
             Controller.Rigidbody.linearVelocity = Vector2.zero;
             Controller.Rigidbody.bodyType = RigidbodyType2D.Static;
         }

@@ -34,7 +34,7 @@ namespace Game.Exploration.Enviornment.LayerChanging {
             for (int i = 0; i < changerCount; i++) {
                 var changer = _layerChangers[i];
                 bool childIsBehind = (_childY - changer.transform.position.y) < 0;
-                string targetLayer = childIsBehind ? Constants.Layers.ChildGameplay : Constants.Layers.ChildGameplayFront;
+                string targetLayer = childIsBehind ? Layers.ChildGameplay : Layers.ChildGameplayFront;
 
                 var spriteRenderers = changer.SpriteRenderers;
                 int rendererCount = spriteRenderers.Length;

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using AppCore;
 using AppCore.AudioManagement;
+using AppCore.DataManagement;
 using AppCore.InputManagement;
 using Game.GameManagement;
 using Tools;
@@ -47,6 +48,10 @@ namespace Game.Exploration.Child {
         }
 
         private void Start() {
+            Vector3? position = App.Get<DataManager>().PlayerPosition;
+            if (position.HasValue) {
+                transform.position = (Vector3)position;
+            }
             TransitionToState(new Move(this));
         }
         
@@ -78,6 +83,8 @@ namespace Game.Exploration.Child {
                 }
                 rotateTransform.rotation = Quaternion.Euler(0, 0, (float)rotation);
             }
+            
+            App.Get<DataManager>().UpdatePlayerPosition(transform.position);
         }
         
         private void Move(Vector2 direction) {

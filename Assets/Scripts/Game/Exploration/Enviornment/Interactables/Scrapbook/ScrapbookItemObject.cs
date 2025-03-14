@@ -27,8 +27,11 @@ namespace Game.Exploration.Enviornment.Interactables.Scrapbook
 
         public override void InteractionEnded()
         {
-            GameManager.SetDialogue();
-            App.Get<DataManager>().FoundScrapbookItem(scrapbookItem);
+            App.Get<DataManager>().AddScrapbookItem(scrapbookItem);
+    
+            UIManager uiManager = GameManager.GetUIManager();
+            uiManager.SetNewItem(scrapbookItem);
+    
             animator.SetTrigger("Spin and Grow");
             interactableParticleSystem.Stop();
             spriteRenderer.sortingLayerName = "Kinda UI";

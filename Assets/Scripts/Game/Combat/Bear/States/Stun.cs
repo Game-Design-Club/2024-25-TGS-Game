@@ -17,7 +17,7 @@ namespace Game.Combat.Bear {
             _hitForce = hitForce;
         }
         public override void Enter() {
-            Controller.Animator.SetTrigger(Constants.Animator.Bear.Stun);
+            Controller.Animator.SetTrigger(AnimationConstants.Bear.Stun);
         }
 
         public override float? GetWalkSpeed() {
@@ -37,7 +37,7 @@ namespace Game.Combat.Bear {
         }
         
         public override void OnAnimationEnded(int id) {
-            if (id != Constants.Animator.BearIDs.Stun) return;
+            if (id != AnimationConstants.BearIDs.Stun) return;
             if (App.Get<InputManager>().GetBearSwipe) {
                 Controller.TransitionToState(new GrowlChargeup(Controller));
             } else {

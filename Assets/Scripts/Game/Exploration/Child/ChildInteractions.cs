@@ -4,8 +4,6 @@ using UnityEngine;
 
 namespace Game.Exploration.Child {
     public class ChildInteractions : MonoBehaviour {
-        [SerializeField] private float interactionLeaveTime = 0.3f;
-        
         private Interactable _interactable;
         private bool _interacting = false;
         private bool _hovering = false;

@@ -232,6 +232,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Pile
       objectReference: {fileID: 0}
+    - target: {fileID: 7406985562178754116, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
+      propertyPath: flagName
+      value: Snow Pilebe9c7afc-5145-405f-bd51-334b90d8130a
+      objectReference: {fileID: 0}
     - target: {fileID: 9047069439208151188, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.465071
@@ -1445,6 +1449,14 @@ PrefabInstance:
     - target: {fileID: 782377763635205384, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
       propertyPath: m_Name
       value: Snow Pile (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7406985562178754116, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
+      propertyPath: flagName
+      value: Snow Pile (1)fda335da-89b4-46da-982f-44ca42bbbe2b
+      objectReference: {fileID: 0}
+    - target: {fileID: 7406985562178754116, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
+      propertyPath: generateNewID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9047069439208151188, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2806,7 +2818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4649313712946160752, guid: 2fba5342069744a01806d4c64bf2923b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.56
+      value: -5.34
       objectReference: {fileID: 0}
     - target: {fileID: 4649313712946160752, guid: 2fba5342069744a01806d4c64bf2923b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5070,6 +5082,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Pile (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7406985562178754116, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
+      propertyPath: flagName
+      value: Snow Pile (2)2188cdd2-7540-4583-b99a-158dfb28a543
+      objectReference: {fileID: 0}
+    - target: {fileID: 7406985562178754116, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
+      propertyPath: generateNewID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9047069439208151188, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.59
@@ -5718,6 +5738,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2812305634354190683}
     m_Modifications:
+    - target: {fileID: 1453988534903709046, guid: 7509c9c7d1a544234ac1086850baa0e6, type: 3}
+      propertyPath: flagName
+      value: HasStick
+      objectReference: {fileID: 0}
     - target: {fileID: 7783129591759476760, guid: 7509c9c7d1a544234ac1086850baa0e6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.51
@@ -5783,6 +5807,14 @@ PrefabInstance:
     - target: {fileID: 782377763635205384, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
       propertyPath: m_Name
       value: Snow Pile (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7406985562178754116, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
+      propertyPath: flagName
+      value: Snow Pile (3)1a5773a0-c4a0-4607-a45b-98ac073b549a
+      objectReference: {fileID: 0}
+    - target: {fileID: 7406985562178754116, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
+      propertyPath: generateNewID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9047069439208151188, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
       propertyPath: m_LocalPosition.x

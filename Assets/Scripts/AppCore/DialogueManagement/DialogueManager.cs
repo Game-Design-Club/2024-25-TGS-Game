@@ -71,7 +71,7 @@ namespace AppCore.DialogueManagement {
         private IEnumerator PlayDialogue() {
             OnDialogueStart?.Invoke();
             dialogueBox.SetActive(true);
-            _animator.SetBool(Constants.Animator.DialogueBox.IsOpen, true);
+            _animator.SetBool(AnimationConstants.DialogueBox.IsOpen, true);
 
             // For each chunk in the dialogue:
             foreach (DialogueChunk currentChunk in _currentDialogue) {
@@ -84,7 +84,7 @@ namespace AppCore.DialogueManagement {
             _currentDialogue = null;
             OnDialogueEnd?.Invoke();
             _onDialogueComplete?.Invoke();
-            _animator.SetBool(Constants.Animator.DialogueBox.IsOpen, false);
+            _animator.SetBool(AnimationConstants.DialogueBox.IsOpen, false);
         }
 
         private void SetupChunk(DialogueChunk chunk) {

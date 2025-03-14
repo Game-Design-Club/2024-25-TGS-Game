@@ -1,6 +1,7 @@
 using AppCore;
 using AppCore.DataManagement;
 using Game.GameManagement;
+using Tools;
 using UnityEngine;
 
 namespace Game.Exploration.Child {
@@ -8,7 +9,9 @@ namespace Game.Exploration.Child {
         public Move(ChildController controller) : base(controller) { }
 
         public override void OnAttackInput() {
-            if (App.Get<DataManager>().UnlockedAttack) Controller.TransitionToState(new Attack(Controller));
+            if (App.Get<DataManager>().GetFlag(BoolFlags.HasStick)) {
+                Controller.TransitionToState(new Attack(Controller));
+            }
         }
 
         public override void Enter() {

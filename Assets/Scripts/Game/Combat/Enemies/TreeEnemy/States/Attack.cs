@@ -9,15 +9,15 @@ namespace Game.Combat.Enemies.TreeEnemy {
         private bool _shouldDie = false;
 
         public override void Enter() {
-            Controller().Animator.SetTrigger(Constants.Animator.TreeEnemy.Attack);
+            Controller().Animator.SetTrigger(AnimationConstants.TreeEnemy.Attack);
         }
 
         public override void Exit() {
-            Controller().Animator.ResetTrigger(Constants.Animator.TreeEnemy.Reset);
+            Controller().Animator.ResetTrigger(AnimationConstants.TreeEnemy.Reset);
         }
 
         public override void OnHit(Vector2 hitDirection, float hitForce, BearDamageType damageType) {
-            Controller().Animator.SetTrigger(Constants.Animator.TreeEnemy.Reset);
+            Controller().Animator.SetTrigger(AnimationConstants.TreeEnemy.Reset);
             Controller().TransitionToState(new Retract(Controller()));
         }
 

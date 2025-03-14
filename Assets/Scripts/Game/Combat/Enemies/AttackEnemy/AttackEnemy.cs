@@ -18,7 +18,7 @@ namespace Game.Combat.Enemies.AttackEnemy {
         }
         
         internal void OnEntityEnterTrigger(Collider2D other) {
-            if (other.CompareTag(Constants.Tags.Child) || other.CompareTag(Constants.Tags.Bear)) {
+            if (other.CompareTag(Tags.Child) || other.CompareTag(Tags.Bear)) {
                 TransitionToState(new Attack(this));
             }
         }

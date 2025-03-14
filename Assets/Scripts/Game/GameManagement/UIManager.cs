@@ -35,7 +35,8 @@ namespace Game.GameManagement {
         
         private bool _isGameOver = false;
         private bool _canRestart = false;
-        
+        private ScrapbookItem newScrapbookItem;
+
         public static event Action OnRestartGame;
         public static event Action OnPageUp;
 
@@ -50,7 +51,7 @@ namespace Game.GameManagement {
         {
             if (focus) currentFocused?.Hover(false);
             
-            sbInfoTitle.text = focus ? itemUI.itemInfo.item.name : scrapbookPages[scrapbookPage].title;
+            sbInfoTitle.text = focus ? itemUI.itemInfo.item.itemName : scrapbookPages[scrapbookPage].title;
             sbInfoDescription.text = focus ? itemUI.itemInfo.item.description : scrapbookPages[scrapbookPage].description;
             currentFocused = focus ? itemUI : null;
         }
@@ -67,9 +68,8 @@ namespace Game.GameManagement {
             previousButton.interactable = scrapbookPage != 0;
 
             ScrapbookPage page = scrapbookPages[scrapbookPage];
-            
             sbAreaTitle.text = page.title;
-            
+    
             foreach (ScrapbookPage.ScrapbookItemUIInfo info in page.items)
             {
                 GameObject o = Instantiate(scrapbookUIItemPrefab, sbItemHolderObject.transform);
@@ -77,8 +77,15 @@ namespace Game.GameManagement {
                 m.uIManager = this;
                 m.itemInfo = info;
                 m.rtCanvas = rtCanvas;
+        
+                // Check if this item is the new one
+                if (newScrapbookItem != null && newScrapbookItem.Equals(info.item))
+                {
+                    m.isNewItem = true;
+                    newScrapbookItem = null; // Reset after marking it
+                }
             }
-            
+    
             FocusOnItem(null, false);
         }
 
@@ -98,6 +105,11 @@ namespace Game.GameManagement {
                     }
                 }
             }
+        }
+        
+        public void SetNewItem(ScrapbookItem item)
+        {
+            newScrapbookItem = item;
         }
         
         private void OpenPage(int pageNum)
@@ -177,13 +189,13 @@ namespace Game.GameManagement {
         }
         private void HandlePause(GameEvent gameEvent) {
             Time.timeScale = gameEvent.IsPaused ? 0 : 1;
-            pauseAnimator.SetBool(Constants.Animator.GameUI.IsPaused, gameEvent.IsPaused);
+            pauseAnimator.SetBool(AnimationConstants.GameUI.IsPaused, gameEvent.IsPaused);
             pauseAnimator.SetBool("BookUp", true);
             if (!gameEvent.IsPaused) CloseScrapbook();
         }
 
         private void HandleGameOver() {
-            gameOverAnimator.SetBool(Constants.Animator.GameUI.IsGameOver, true);
+            gameOverAnimator.SetBool(AnimationConstants.GameUI.IsGameOver, true);
             _isGameOver = true;
             StartCoroutine(WaitToRestartGame());
         }
@@ -200,7 +212,7 @@ namespace Game.GameManagement {
                 _isGameOver = false;
                 _canRestart = false;
 
-                gameOverAnimator.SetBool(Constants.Animator.GameUI.IsGameOver, false);
+                gameOverAnimator.SetBool(AnimationConstants.GameUI.IsGameOver, false);
             }
         }
     }
