@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Game.Exploration.Enviornment.LayerChanging {
     public class LayerChangingManager : MonoBehaviour {
         [SerializeField] private Transform child;
-        private readonly List<LayerChanger> _layerChangers = new List<LayerChanger>();
+        private readonly List<LayerChangerData> _layerChangers = new();
 
         private static LayerChangingManager _instance;
         private float _childY;
@@ -18,10 +18,11 @@ namespace Game.Exploration.Enviornment.LayerChanging {
             }
         }
 
-        public static void RegisterLayerChanger(LayerChanger changer) {
+        public static void RegisterLayerChanger(LayerChangerData changerData, float yOffset = 0) {
             if (_instance == null) return;
-            
-            _instance._layerChangers.Add(changer);
+
+            _instance._layerChangers.Add(changerData);
+            LayerChanger changer = changerData.Changer;
             foreach (var sr in changer.SpriteRenderers) {
                 sr.sortingOrder = Mathf.RoundToInt(changer.transform.position.y * 100f) * -1;
             }
@@ -32,8 +33,9 @@ namespace Game.Exploration.Enviornment.LayerChanging {
             
             int changerCount = _layerChangers.Count;
             for (int i = 0; i < changerCount; i++) {
-                var changer = _layerChangers[i];
-                bool childIsBehind = (_childY - changer.transform.position.y) < 0;
+                LayerChangerData changerData = _layerChangers[i];
+                LayerChanger changer = changerData.Changer;
+                bool childIsBehind = (_childY - (changer.transform.position.y + changerData.YOffset)) < 0;
                 string targetLayer = childIsBehind ? Layers.ChildGameplay : Layers.ChildGameplayFront;
 
                 var spriteRenderers = changer.SpriteRenderers;
@@ -47,10 +49,20 @@ namespace Game.Exploration.Enviornment.LayerChanging {
             }
         }
 
-        public static void UnRegisterLayerChanger(LayerChanger layerChanger) {
+        public static void UnRegisterLayerChanger(LayerChangerData layerChanger) {
             if (_instance == null) return;
             
             _instance._layerChangers.Remove(layerChanger);
+        }
+    }
+    
+    public class LayerChangerData {
+        public LayerChanger Changer;
+        public float YOffset;
+        
+        public LayerChangerData(LayerChanger changer, float yOffset) {
+            Changer = changer;
+            YOffset = yOffset;
         }
     }
 }

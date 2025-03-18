@@ -1,3 +1,4 @@
+using Game.Exploration.Enviornment.LayerChanging;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -19,7 +20,14 @@ namespace Tools.LevelDesign {
                 objectNumber = 0;
             }
             if (TryGetComponent(out SpriteRenderer spriteRenderer)) {
-                spriteRenderer.sprite = spriteChooserData.objects[objectNumber];
+                spriteRenderer.sprite = spriteChooserData.objects[objectNumber].sprite;
+                if (TryGetComponent(out BoxCollider2D boxCollider2D)) {
+                    boxCollider2D.size = spriteChooserData.objects[objectNumber].size;
+                    boxCollider2D.offset = spriteChooserData.objects[objectNumber].offset;
+                }
+                if (TryGetComponent(out LayerChanger layerChanger)) {
+                    layerChanger.yOffset = spriteChooserData.objects[objectNumber].YOffset;
+                }
             } else {
                 Debug.LogError($"{nameof(SpriteChooser)} requires a {nameof(SpriteRenderer)} component");
             }
