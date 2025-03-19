@@ -1,6 +1,5 @@
 using Game.Combat.Bear;
 using UnityEngine;
-using Stun = Game.Combat.Enemies.AttackEnemy.Stun;
 
 namespace Game.Combat.Enemies {
     public abstract class EnemyState {

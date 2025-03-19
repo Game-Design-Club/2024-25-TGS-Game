@@ -5,6 +5,13 @@ using UnityEngine;
 namespace Game.Combat.Enemies.TreeEnemy {
     public class Retract : EnemyState {
         public Retract(EnemyBase controller) : base(controller) { }
+        public Retract(EnemyBase controller, float multiplier, float extraStunTime) : base(controller) {
+            _stunMultiplier = multiplier;
+            _extraStunTime = extraStunTime;
+        }
+        
+        private float _stunMultiplier = 1;
+        private float _extraStunTime = 0;
 
         private float _timer = 0;
         private float _startDistance = 0;
@@ -21,9 +28,9 @@ namespace Game.Combat.Enemies.TreeEnemy {
         public override void Update() {
             _timer += Time.deltaTime;
             AnimationCurve drawbackCurve = Controller().stunKnockbackCurve;
-            Controller<TreeEnemy>().SetDistance(_startDistance - drawbackCurve.Evaluate(_timer));
+            Controller<TreeEnemy>().SetDistance((_startDistance - drawbackCurve.Evaluate(_timer) * _stunMultiplier));
             if (_timer > drawbackCurve.Time()) {
-                Controller().TransitionToState(new Reach(Controller()));
+                Controller().TransitionToState(new Stunned(Controller(), _extraStunTime));
             }
         }
 

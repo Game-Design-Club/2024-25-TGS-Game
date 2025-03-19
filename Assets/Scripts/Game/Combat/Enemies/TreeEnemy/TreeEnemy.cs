@@ -188,7 +188,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
             if (damageType == BearDamageType.Swipe) {
                 TransitionToState(new Retract(this));
             } else {
-                TransitionToState(new Stunned(this));
+                TransitionToState(new Retract(this, .3f, 1));
             }
         }
     }

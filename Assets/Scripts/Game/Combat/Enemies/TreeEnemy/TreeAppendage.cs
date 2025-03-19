@@ -12,7 +12,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
         
         public void OnHitByBear(int damage, Vector2 hitDirection, float knockbackForce, BearDamageType damageType) {
             enemyBase.HandleAppendageHit(damage, hitDirection, knockbackForce, damageType);
-            this.CreateParticles(hitParticles, transform.position, hitDirection);
+            // this.CreateParticles(hitParticles, transform.position, hitDirection);
         }
     }
 }

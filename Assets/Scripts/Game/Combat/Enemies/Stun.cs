@@ -2,7 +2,7 @@ using Game.Combat.Bear;
 using Tools;
 using UnityEngine;
 
-namespace Game.Combat.Enemies.AttackEnemy {
+namespace Game.Combat.Enemies {
     public class Stun : EnemyState {
         private Vector2 _hitDirection;
         private float _hitForce;

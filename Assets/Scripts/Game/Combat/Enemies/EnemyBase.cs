@@ -55,7 +55,7 @@ namespace Game.Combat.Enemies {
             
             this.CreateParticles(deathParticles);
             CombatManager.cameraShaker.Shake();
-            deathSound.Play();
+            deathSound?.Play();
             App.Get<FreezeFrameManager>().FreezeFrame(0.1f, .2f);
         }
         private void Update() {

@@ -5,8 +5,8 @@ using Game.Exploration.Enviornment.Interactables.Scrapbook;
 
 namespace AppCore.DataManagement
 {
-    public class DataManager : AppModule
-    {
+    public class DataManager : AppModule {
+        [SerializeField] private int currentSaveFile;
         private string _saveFilePath;
         private Dictionary<string, bool> _boolFlags;
         public List<ScrapbookItem> FoundScrapbookItems { get; private set; }
@@ -14,7 +14,7 @@ namespace AppCore.DataManagement
 
         private void Awake() {
             _saveFilePath = Application.persistentDataPath;
-            App.Get<DataManager>().LoadData(0);
+            App.Get<DataManager>().LoadData(currentSaveFile);
         }
 
         public void LoadData(int fileNumber)
