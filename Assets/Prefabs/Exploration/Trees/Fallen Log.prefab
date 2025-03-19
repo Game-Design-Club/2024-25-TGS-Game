@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8577493048593242262
+--- !u!1 &1577214540447390552
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,57 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4915198296667603227}
-  - component: {fileID: 4713343852143491820}
-  - component: {fileID: 7053833504867334029}
-  - component: {fileID: 7446625056286375111}
-  - component: {fileID: 4774359437629617248}
+  - component: {fileID: 2800199864376394453}
+  - component: {fileID: 220188254335890499}
+  - component: {fileID: 413695885130743561}
+  - component: {fileID: 2354233216917354414}
   m_Layer: 8
-  m_Name: Tree
+  m_Name: Fallen Log
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4915198296667603227
+--- !u!4 &2800199864376394453
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8577493048593242262}
+  m_GameObject: {fileID: 1577214540447390552}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.89, y: -8.48, z: 0}
+  m_LocalPosition: {x: -18.95, y: -11.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4713343852143491820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8577493048593242262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a36de2c97fca4185bf0664423ad575d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  randomize: 0
-  objectNumber: 3
-  spriteChooserData: {fileID: 11400000, guid: a0aa937e15faa49fea0e3e72e1b447e6, type: 2}
-  useRandomizeFlags: 0
-  randomizeFlags: 01010101
---- !u!61 &7053833504867334029
+--- !u!61 &220188254335890499
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8577493048593242262}
+  m_GameObject: {fileID: 1577214540447390552}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -86,38 +68,38 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.05}
+  m_Offset: {x: 0.006249428, y: -0.2062459}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.47139618, y: 0.17716172}
-    oldSize: {x: 3.86, y: 6.84}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.5, y: 1.585}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 3.4499722, y: 0.92498684}
   m_EdgeRadius: 0
---- !u!114 &7446625056286375111
+--- !u!114 &413695885130743561
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8577493048593242262}
+  m_GameObject: {fileID: 1577214540447390552}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a3b40db671e240b2b4775411b8ca47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   yOffset: 0
---- !u!212 &4774359437629617248
+--- !u!212 &2354233216917354414
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8577493048593242262}
+  m_GameObject: {fileID: 1577214540447390552}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -155,7 +137,7 @@ SpriteRenderer:
   m_SortingLayerID: 1353156089
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4296731722166109183, guid: 9c2c10c8ceab1483fab5c7d1062aa6a5, type: 3}
+  m_Sprite: {fileID: -1673732733077124514, guid: 7c43cf39496a04c70b5869285dbda15d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

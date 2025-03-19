@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Game.Exploration.Enviornment.LayerChanging;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -7,12 +8,45 @@ namespace Tools.LevelDesign {
         [SerializeField] private bool randomize = false;
         [SerializeField] private int objectNumber;
         [FormerlySerializedAs("_spriteChoserData")] [SerializeField] private SpriteChooserData spriteChooserData;
+        [SerializeField] private bool useRandomizeFlags = false;
+        [SerializeField] private bool[] randomizeFlags;
+        
+        private List<int> _possibleObjects = new List<int>();
 
         private void OnValidate() {
             if (randomize) {
-                objectNumber = Random.Range(0, spriteChooserData.objects.Length);
-                randomize = false;
+                RandomizeSpriteInternal(useRandomizeFlags, randomizeFlags);
             }
+
+        }
+
+        private void RandomizeSpriteInternal(bool shouldUseFlags = false, bool[] creatorRandomizeFlags = null) {
+            if (!shouldUseFlags) {
+                objectNumber = Random.Range(0, spriteChooserData.objects.Length);
+            } else {
+                CalculatePossibleObjects(creatorRandomizeFlags);
+            }
+            ChangeSprite();
+
+            randomize = false;
+        }
+
+        private void CalculatePossibleObjects(bool[] creatorRandomizeFlags) {
+            _possibleObjects.Clear();
+            for (int i = 0; i < creatorRandomizeFlags.Length; i++) {
+                if (creatorRandomizeFlags[i]) {
+                    _possibleObjects.Add(i);
+                }
+            }
+            if (_possibleObjects.Count == 0) {
+                objectNumber = 0;
+                Debug.LogWarning("No flags set for randomization");
+            } else {
+                objectNumber = _possibleObjects[Random.Range(0, _possibleObjects.Count)];
+            }
+        }
+
+        private void ChangeSprite() {
             if (objectNumber >= spriteChooserData.objects.Length) {
                 objectNumber = spriteChooserData.objects.Length - 1;
             }
@@ -31,6 +65,14 @@ namespace Tools.LevelDesign {
             } else {
                 Debug.LogError($"{nameof(SpriteChooser)} requires a {nameof(SpriteRenderer)} component");
             }
+        }
+
+        public void RandomizeSprite(bool[] RandomizedFlags) {
+            RandomizeSpriteInternal(true, RandomizedFlags);
+        }
+
+        public void RandomizeSprite() {
+            RandomizeSpriteInternal();
         }
     }
 }
