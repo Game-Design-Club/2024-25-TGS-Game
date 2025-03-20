@@ -63,6 +63,7 @@ namespace Game.GameManagement {
         private void OnDestroy() {
             if (_instance == this) {
                 _instance = null;
+                _isPaused = false;
             }
         }
 

@@ -101,7 +101,7 @@ namespace AppCore.DataManagement
 
         private void OnApplicationQuit()
         {
-            Save();
+            // Save();
         }
 
         private void Update() {
