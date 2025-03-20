@@ -131,6 +131,14 @@ namespace Game.GameManagement {
             App.Get<DataManager>().Save();
             App.Get<SceneLoader>().LoadScene(Scenes.MainMenu);
         }
+
+        public static void StartCutscene() {
+            GameEventType = GameEventType.Cutscene;
+        }
+
+        public static void EndCutscene() {
+            GameEventType = _lastGameEventType;
+        }
     }
     
     public struct GameEvent {

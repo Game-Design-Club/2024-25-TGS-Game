@@ -32,8 +32,8 @@ namespace Game.Exploration.Enviornment.Interactables.Scrapbook
             //TODO change sorting layer
         }
 
-        public override void InteractionEnded()
-        {
+        public override void InteractionEnded() {
+            GameManager.StartCutscene();
             App.Get<DataManager>().AddScrapbookItem(scrapbookItem.itemName);
     
             UIManager uiManager = GameManager.GetUIManager();
@@ -53,7 +53,7 @@ namespace Game.Exploration.Enviornment.Interactables.Scrapbook
             GameManager.GetUIManager().OpenScrapbook();
             GameManager.GetUIManager().OpenToItem(scrapbookItem);
             Destroy(scrapObject);
-            GameManager.DialogueEnd();
+            // GameManager.DialogueEnd();
         }
     }
 }

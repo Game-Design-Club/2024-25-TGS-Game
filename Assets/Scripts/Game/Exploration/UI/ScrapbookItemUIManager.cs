@@ -111,6 +111,9 @@ namespace Game.Exploration.UI
             rtItemHolder.anchoredPosition = endPosition;
             animator.SetBool("Hovering", false);
             Hover(true);
+
+            GameManager.EndCutscene();
+            Debug.Log("End Cutscene");
         }
     }
 }

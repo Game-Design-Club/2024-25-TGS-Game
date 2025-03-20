@@ -73,7 +73,7 @@ namespace AppCore.DataManagement
             string json = JsonUtility.ToJson(data, true);
             File.WriteAllText(_saveFilePath, json);
             
-            Debug.Log("Saved file: " + _saveFilePath + ", " + json, gameObject);
+            // Debug.Log("Saved file: " + _saveFilePath + ", " + json, gameObject);
         }
 
         private void Load()
