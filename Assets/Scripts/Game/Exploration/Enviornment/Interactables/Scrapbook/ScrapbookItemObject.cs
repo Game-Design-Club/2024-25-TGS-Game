@@ -16,6 +16,12 @@ namespace Game.Exploration.Enviornment.Interactables.Scrapbook
         [Header("Scrapbook Item")]
         [SerializeField] private ScrapbookItem scrapbookItem;
 
+        private void Awake() {
+            if (App.Get<DataManager>().HasScrapbookItem(scrapbookItem.itemName)) {
+                Destroy(scrapObject);
+            }
+        }
+
         private void Start()
         {
             spriteRenderer.sprite = scrapbookItem.sprite;
@@ -28,7 +34,7 @@ namespace Game.Exploration.Enviornment.Interactables.Scrapbook
 
         public override void InteractionEnded()
         {
-            App.Get<DataManager>().AddScrapbookItem(scrapbookItem);
+            App.Get<DataManager>().AddScrapbookItem(scrapbookItem.itemName);
     
             UIManager uiManager = GameManager.GetUIManager();
             uiManager.SetNewItem(scrapbookItem);

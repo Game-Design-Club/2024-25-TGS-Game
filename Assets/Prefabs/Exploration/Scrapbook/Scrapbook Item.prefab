@@ -5099,12 +5099,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 11400000, guid: b1dde3e8eba5d4439b867b2c85c4eaf5, type: 2}
-  interactableParticleSystem: {fileID: 2141393156507415786}
   spriteRenderer: {fileID: 8215420212385245490}
   scrapObject: {fileID: 8016517610345329024}
-  scrapbookItem: {fileID: 11400000, guid: 4257638ffc72d4a62ae353b6614f3d54, type: 2}
   animator: {fileID: 787387381174452929}
   spinnyParticles: {fileID: 2486023793042277882}
+  scrapbookItem: {fileID: 11400000, guid: 4257638ffc72d4a62ae353b6614f3d54, type: 2}
 --- !u!1 &8016517610345329024
 GameObject:
   m_ObjectHideFlags: 0
@@ -5246,10 +5245,5 @@ PrefabInstance:
 --- !u!4 &224563569402644610 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3410435734865878773, guid: 5cb2dd87531cf45aeb0943f845e57a7d, type: 3}
-  m_PrefabInstance: {fileID: 3191225139098785399}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &2141393156507415786 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3602391389286179485, guid: 5cb2dd87531cf45aeb0943f845e57a7d, type: 3}
   m_PrefabInstance: {fileID: 3191225139098785399}
   m_PrefabAsset: {fileID: 0}

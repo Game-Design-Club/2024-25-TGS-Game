@@ -3,6 +3,8 @@ using AppCore;
 using AppCore.DataManagement;
 using AppCore.DialogueManagement;
 using AppCore.InputManagement;
+using AppCore.SceneManagement;
+using Tools;
 using UnityEngine;
 
 namespace Game.GameManagement {
@@ -122,6 +124,11 @@ namespace Game.GameManagement {
 
         public static void SetDialogue() {
             GameEventType = GameEventType.Dialogue;
+        }
+        
+        public void SaveAndQuit() {
+            App.Get<DataManager>().Save();
+            App.Get<SceneLoader>().LoadScene(Scenes.MainMenu);
         }
     }
     

@@ -4,10 +4,15 @@ using UnityEngine;
 
 namespace Game.Combat.Enemies.TreeEnemy {
     public class Retract : EnemyState {
-        public Retract(EnemyBase controller) : base(controller) { }
+        public Retract(EnemyBase controller) : base(controller) {
+            Controller<TreeEnemy>().stunObject.SetActive(false);
+        }
         public Retract(EnemyBase controller, float multiplier, float extraStunTime) : base(controller) {
             _stunMultiplier = multiplier;
             _extraStunTime = extraStunTime;
+            if (_extraStunTime > 0) {
+                Controller<TreeEnemy>().stunObject.SetActive(true);
+            }
         }
         
         private float _stunMultiplier = 1;
@@ -30,7 +35,11 @@ namespace Game.Combat.Enemies.TreeEnemy {
             AnimationCurve drawbackCurve = Controller().stunKnockbackCurve;
             Controller<TreeEnemy>().SetDistance((_startDistance - drawbackCurve.Evaluate(_timer) * _stunMultiplier));
             if (_timer > drawbackCurve.Time()) {
-                Controller().TransitionToState(new Stunned(Controller(), _extraStunTime));
+                if (_extraStunTime > 0) {
+                    Controller().TransitionToState(new Stunned(Controller(), _extraStunTime));
+                } else {
+                    Controller().TransitionToState(new Reach(Controller()));
+                }
             }
         }
 

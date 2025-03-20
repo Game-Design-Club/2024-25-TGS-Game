@@ -40,6 +40,11 @@ namespace Tools {
                 public const string Attack = "Attack";
                 public const string Reset = "Reset";
             }
+
+            public static class Transitions {
+                public const string FadeOut = "Fade Out";
+                public const string FadeIn = "Fade In";
+            }
         }
 
         public static class Tags {
@@ -63,6 +68,11 @@ namespace Tools {
 
         public static class BoolFlags {
             public const string HasStick = "HasStick";
+        }
+
+        public static class Scenes {
+            public const int MainMenu = 0;
+            public const int Game = 1;
         }
     // }
 }

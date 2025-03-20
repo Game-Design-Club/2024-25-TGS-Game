@@ -9,7 +9,15 @@ namespace Game.Combat.Enemies.TreeEnemy {
         
         private float _targetTime;
         private float _progress = 0;
-        
+
+        public override void Enter() {
+            Controller<TreeEnemy>().stunObject.SetActive(true);
+        }
+
+        public override void Exit() {
+            Controller<TreeEnemy>().stunObject.SetActive(false);
+        }
+
         public override void Update() {
             _progress += Time.deltaTime;
             
