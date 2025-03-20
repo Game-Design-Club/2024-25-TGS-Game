@@ -11,9 +11,10 @@ namespace Game.Exploration.Enviornment.Interactables.Scrapbook
     {
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private GameObject scrapObject;
-        [SerializeField] private ScrapbookItem scrapbookItem;
         [SerializeField] private Animator animator;
         [SerializeField] private ParticleSystem spinnyParticles;
+        [Header("Scrapbook Item")]
+        [SerializeField] private ScrapbookItem scrapbookItem;
 
         private void Start()
         {
@@ -33,7 +34,6 @@ namespace Game.Exploration.Enviornment.Interactables.Scrapbook
             uiManager.SetNewItem(scrapbookItem);
     
             animator.SetTrigger("Spin and Grow");
-            interactableParticleSystem.Stop();
             spriteRenderer.sortingLayerName = "Kinda UI";
             StartCoroutine(Blow());
         }

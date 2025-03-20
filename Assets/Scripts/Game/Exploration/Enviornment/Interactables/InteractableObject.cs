@@ -8,7 +8,6 @@ namespace Game.Exploration.Enviornment.Interactables {
     public class InteractableObject : MonoBehaviour, Interactable 
     {
         [SerializeField] protected Dialogue dialogue;
-        [SerializeField] protected ParticleSystem interactableParticleSystem;
         private Action overCallback;
         
         public virtual void Interact(Action overCallback)
@@ -17,7 +16,14 @@ namespace Game.Exploration.Enviornment.Interactables {
             InteractStarted();
             App.Get<DialogueManager>().StartDialogue(dialogue, EndInteraction);
         }
-        
+
+        public void Hover() {
+            
+        }
+
+        public void Unhover() {
+        }
+
         public virtual void InteractStarted(){}
 
         public virtual void InteractionEnded()
@@ -28,14 +34,6 @@ namespace Game.Exploration.Enviornment.Interactables {
         {
             InteractionEnded();
             overCallback();
-        }
-
-        public void Hover() {
-            interactableParticleSystem.Play();
-        }
-
-        public void Unhover() {
-            interactableParticleSystem.Stop();
         }
 
     }

@@ -5019,7 +5019,7 @@ GameObject:
   - component: {fileID: 5425190742251434024}
   - component: {fileID: 442983107697546467}
   m_Layer: 9
-  m_Name: Popup Trigger
+  m_Name: Scrapbook Data
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

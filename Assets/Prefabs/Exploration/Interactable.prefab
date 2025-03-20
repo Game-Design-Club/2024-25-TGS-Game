@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a3b40db671e240b2b4775411b8ca47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yOffset: 0
 --- !u!1 &8633843699223720355
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +162,7 @@ GameObject:
   - component: {fileID: 8783581035157266076}
   - component: {fileID: 1565963452862776253}
   m_Layer: 9
-  m_Name: Popup Trigger
+  m_Name: Interactable Data
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace AppCore.DataManagement {
     public class DestroyIfSavedFlag : MonoBehaviour {
-        [Header("Flags are true if they have been destroyed")]
         [SerializeField] private bool generateNewID;
         [SerializeField] private string flagName;
 
