@@ -5,6 +5,8 @@ namespace Tools.LevelDesign {
     public class LevelCreator : MonoBehaviour {
         [SerializeField] private int activeModuleIndex;
         [SerializeField] public bool isPlacing = false;
+        [SerializeField] public bool snapToGrid = true;
+        [SerializeField] public float gridSize = .5f;
         [SerializeField] private LevelCreatorModule[] modules;
         public GameObject ObjectPlacingPrefab => modules[activeModuleIndex].objectPlacingPrefab;
         public Transform ParentTransform => modules[activeModuleIndex].parentTransform;

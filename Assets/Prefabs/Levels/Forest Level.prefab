@@ -225,10 +225,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5f9aaa5a224409a186662bd1170287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeModuleIndex: 2
-  isPlacing: 0
+  activeModuleIndex: 0
+  isPlacing: 1
+  snapToGrid: 1
+  gridSize: 0.5
   modules:
-  - activeModule: 0
+  - activeModule: 1
     objectPlacingPrefab: {fileID: 8577493048593242262, guid: ce476618ef542423cb54193cbaa29a65, type: 3}
     parentTransform: {fileID: 7275778133703382113}
     tryRandomize: 1
@@ -240,7 +242,7 @@ MonoBehaviour:
     tryRandomize: 1
     useFlags: 0
     customRandomizeFlags: 
-  - activeModule: 1
+  - activeModule: 0
     objectPlacingPrefab: {fileID: 8016517610345329024, guid: 5223dd9a596274c6a961b73605f35260, type: 3}
     parentTransform: {fileID: 5881611343048652690}
     tryRandomize: 0
