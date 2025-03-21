@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -6,11 +7,17 @@ using Game.Exploration.Enviornment.Interactables.Scrapbook;
 namespace AppCore.DataManagement
 {
     public class DataManager : AppModule {
-        // [SerializeField] private int currentSaveFile;
+        [SerializeField] private int defaultSaveFile = 0;
         private string _saveFilePath;
         private Dictionary<string, bool> _boolFlags;
         public List<string> FoundScrapbookItems { get; private set; }
         public Vector3 PlayerPosition { get; private set; }
+
+        private void Awake() {
+            if (_saveFilePath == null) {
+                LoadData(defaultSaveFile);
+            }
+        }
 
         public void LoadData(int fileNumber)
         {
