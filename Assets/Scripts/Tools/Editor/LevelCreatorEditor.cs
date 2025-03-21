@@ -41,6 +41,9 @@ namespace Tools.Editor {
             GameObject newObj = (GameObject)PrefabUtility.InstantiatePrefab(_creator.ObjectPlacingPrefab);
             
             if (newObj != null) {
+                if (_creator.snapToGrid) {
+                    position = new Vector2(Mathf.Round(position.x / _creator.gridSize) * _creator.gridSize, Mathf.Round(position.y / _creator.gridSize) * _creator.gridSize);
+                }
                 newObj.transform.position = position;
 
                 if (_creator.ParentTransform != null) {

@@ -18,6 +18,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
         [SerializeField] private Transform hand;
         [SerializeField] private Transform spritePivot;
         [SerializeField] internal float stunDuration = 1f;
+        [SerializeField] internal GameObject stunObject;
 
         protected override EnemyState StartingState => new Reach(this);
         
@@ -34,6 +35,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
             SetDistance(CurrentDistance);
             SetRotation();
             base.Start();
+            stunObject.SetActive(false);
         }
 
         private void SetRotation() {

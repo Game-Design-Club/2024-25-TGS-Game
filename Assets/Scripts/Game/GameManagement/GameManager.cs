@@ -3,6 +3,8 @@ using AppCore;
 using AppCore.DataManagement;
 using AppCore.DialogueManagement;
 using AppCore.InputManagement;
+using AppCore.SceneManagement;
+using Tools;
 using UnityEngine;
 
 namespace Game.GameManagement {
@@ -61,6 +63,7 @@ namespace Game.GameManagement {
         private void OnDestroy() {
             if (_instance == this) {
                 _instance = null;
+                _isPaused = false;
             }
         }
 
@@ -122,6 +125,19 @@ namespace Game.GameManagement {
 
         public static void SetDialogue() {
             GameEventType = GameEventType.Dialogue;
+        }
+        
+        public void SaveAndQuit() {
+            App.Get<DataManager>().Save();
+            App.Get<SceneLoader>().LoadScene(Scenes.MainMenu);
+        }
+
+        public static void StartCutscene() {
+            GameEventType = GameEventType.Cutscene;
+        }
+
+        public static void EndCutscene() {
+            GameEventType = _lastGameEventType;
         }
     }
     

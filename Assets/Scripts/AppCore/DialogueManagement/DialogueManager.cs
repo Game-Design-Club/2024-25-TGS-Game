@@ -37,6 +37,8 @@ namespace AppCore.DialogueManagement {
         
         public event Action OnDialogueStart;
         public event Action OnDialogueEnd;
+        
+        private bool _isPlayingDialogue => _currentDialogue != null;
 
         private void Awake() {
             dialogueBox.SetActive(false);
@@ -225,6 +227,7 @@ namespace AppCore.DialogueManagement {
 
         /// LateUpdate: we now set alpha/offset for each character based on whether it’s revealed or not, and any effects.
         private void LateUpdate() {
+            if (!_isPlayingDialogue) return;
             dialogueText.ForceMeshUpdate();
             ApplyEffectsToText();
         }

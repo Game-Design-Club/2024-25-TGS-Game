@@ -34,24 +34,33 @@ namespace AppCore.InputManagement {
                 case GameEventType.Combat:
                     _playerInputs.Bear.Enable();
                     _playerInputs.Child.Disable();
+                    _playerInputs.UI.Enable();
                     break;
                 case GameEventType.Explore:
                     _playerInputs.Bear.Disable();
                     _playerInputs.Child.Enable();
+                    _playerInputs.UI.Enable();
                     break;
                 case GameEventType.CombatEnter:
                     _playerInputs.Bear.Disable();
                     _playerInputs.Child.Disable();
+                    _playerInputs.UI.Enable();
                     break;
                 case GameEventType.ExploreEnter:
                     _playerInputs.Bear.Disable();
                     _playerInputs.Child.Enable();
+                    _playerInputs.UI.Enable();
                     break;
                 case GameEventType.Cutscene:
+                    _playerInputs.Bear.Disable();
+                    _playerInputs.Child.Disable();
+                    _playerInputs.UI.Disable();
+                    break;
                 case GameEventType.Dialogue:
                 case GameEventType.BearDeath:
                     _playerInputs.Bear.Disable();
                     _playerInputs.Child.Disable();
+                    _playerInputs.UI.Enable();
                     break;
             }
         }

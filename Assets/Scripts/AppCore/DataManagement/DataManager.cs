@@ -6,16 +6,11 @@ using Game.Exploration.Enviornment.Interactables.Scrapbook;
 namespace AppCore.DataManagement
 {
     public class DataManager : AppModule {
-        [SerializeField] private int currentSaveFile;
+        // [SerializeField] private int currentSaveFile;
         private string _saveFilePath;
         private Dictionary<string, bool> _boolFlags;
-        public List<ScrapbookItem> FoundScrapbookItems { get; private set; }
+        public List<string> FoundScrapbookItems { get; private set; }
         public Vector3 PlayerPosition { get; private set; }
-
-        private void Awake() {
-            _saveFilePath = Application.persistentDataPath;
-            App.Get<DataManager>().LoadData(currentSaveFile);
-        }
 
         public void LoadData(int fileNumber)
         {
@@ -23,13 +18,15 @@ namespace AppCore.DataManagement
             Load();
         }
         
-        [ContextMenu("Reset Data")]
+        // [ContextMenu("Reset Data")]
         public void ResetData() {
-            _boolFlags = new();
-            FoundScrapbookItems = new();
-            PlayerPosition = Vector3.zero;
-            _saveFilePath = Path.Combine(Application.persistentDataPath, "savedata0.json");
-            Save();
+            for (int i = 0; i < 10; i++) {
+                _boolFlags = new();
+                FoundScrapbookItems = new();
+                PlayerPosition = Vector3.zero;
+                _saveFilePath = Path.Combine(Application.persistentDataPath, $"savedata{i}.json");
+                Save();
+            }
         }
 
         public bool GetFlag(string key) {
@@ -43,7 +40,7 @@ namespace AppCore.DataManagement
             _boolFlags[key] = value;
         }
 
-        public void AddScrapbookItem(ScrapbookItem item)
+        public void AddScrapbookItem(string item)
         {
             if (!FoundScrapbookItems.Contains(item))
             {
@@ -51,7 +48,7 @@ namespace AppCore.DataManagement
             }
         }
 
-        public bool HasScrapbookItem(ScrapbookItem item)
+        public bool HasScrapbookItem(string item)
         {
             return FoundScrapbookItems.Contains(item);
         }
@@ -76,7 +73,7 @@ namespace AppCore.DataManagement
             string json = JsonUtility.ToJson(data, true);
             File.WriteAllText(_saveFilePath, json);
             
-            Debug.Log("Saved file: " + _saveFilePath + ", " + json, gameObject);
+            // Debug.Log("Saved file: " + _saveFilePath + ", " + json, gameObject);
         }
 
         private void Load()
@@ -98,12 +95,13 @@ namespace AppCore.DataManagement
             else
             {
                 Debug.Log("No save file found, starting a new one.");
+                ResetData();
             }
         }
 
         private void OnApplicationQuit()
         {
-            Save();
+            // Save();
         }
 
         private void Update() {
@@ -134,7 +132,7 @@ namespace AppCore.DataManagement
     public class SaveData
     {
         public List<BoolFlag> boolFlags;
-        public List<ScrapbookItem> foundScrapbookItems;
+        public List<string> foundScrapbookItems;
         public Vector3 playerPosition;
     }
 }
