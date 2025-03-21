@@ -15,6 +15,42 @@ namespace Tools.Editor {
             SceneView.duringSceneGui -= OnSceneGUI;
         }
 
+        public override void OnInspectorGUI()
+        {
+            serializedObject.Update();
+
+            LevelCreator levelCreator = (LevelCreator)target;
+            // Draw a custom dropdown for selecting the active module
+            if (levelCreator.modules != null && levelCreator.modules.Length > 0)
+            {
+                string[] moduleNames = new string[levelCreator.modules.Length];
+                for (int i = 0; i < levelCreator.modules.Length; i++)
+                {
+                    // Use the prefab name if available, otherwise show a default module label
+                    moduleNames[i] = (levelCreator.modules[i].objectPlacingPrefab != null) ? levelCreator.modules[i].objectPlacingPrefab.name : $"Module {i}";
+                }
+                SerializedProperty activeModuleIndexProp = serializedObject.FindProperty("activeModuleIndex");
+                activeModuleIndexProp.intValue = EditorGUILayout.Popup("Active Module", activeModuleIndexProp.intValue, moduleNames);
+            }
+            else
+            {
+                EditorGUILayout.LabelField("No modules defined.");
+            }
+
+            // Draw all other properties, except activeModuleIndex (which is already handled)
+            SerializedProperty property = serializedObject.GetIterator();
+            bool enterChildren = true;
+            while (property.NextVisible(enterChildren))
+            {
+                if (property.name == "activeModuleIndex") continue;
+                EditorGUILayout.PropertyField(property, true);
+                enterChildren = false;
+            }
+
+            serializedObject.ApplyModifiedProperties();
+        }
+
+        
         private void OnSceneGUI(SceneView sceneView) {
             _creator = target as LevelCreator;
             if (_creator == null) return;

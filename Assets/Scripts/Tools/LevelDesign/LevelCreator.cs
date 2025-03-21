@@ -4,14 +4,12 @@ using UnityEngine.Serialization;
 
 namespace Tools.LevelDesign {
     public class LevelCreator : MonoBehaviour {
-        [Header("Change to switch between modules")]
-        [SerializeField] private int activeModuleIndex;
-        [SerializeField] private string currentPlacing;
         [Header("General Settings")]
         [SerializeField] public bool isPlacing = false;
         [SerializeField] public bool snapToGrid = true;
         [SerializeField] public float gridSize = .5f;
-        [SerializeField] private LevelCreatorModule[] modules;
+        [SerializeField] public LevelCreatorModule[] modules;
+        [HideInInspector] public int activeModuleIndex = 0;
         public GameObject ObjectPlacingPrefab => modules[activeModuleIndex].objectPlacingPrefab;
         public Transform ParentTransform => modules[activeModuleIndex].parentTransform;
         public bool TryRandomize => modules[activeModuleIndex].tryRandomize;
@@ -28,7 +26,6 @@ namespace Tools.LevelDesign {
                     modules[i].activeModule = false;
                 }
             }
-            currentPlacing = modules[activeModuleIndex].objectPlacingPrefab.name;
         }
     }
 }
