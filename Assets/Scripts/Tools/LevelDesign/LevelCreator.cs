@@ -8,6 +8,9 @@ namespace Tools.LevelDesign {
         [SerializeField] public bool isPlacing = false;
         [SerializeField] public bool snapToGrid = true;
         [SerializeField] public float gridSize = .5f;
+        [SerializeField] public bool fillArea = false;
+        [SerializeField] public float areaSize = .5f;
+        [SerializeField] public float density = .05f;
         [SerializeField] public LevelCreatorModule[] modules;
         [HideInInspector] public int activeModuleIndex = 0;
         public GameObject ObjectPlacingPrefab => modules[activeModuleIndex].objectPlacingPrefab;

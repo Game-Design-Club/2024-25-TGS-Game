@@ -5,8 +5,10 @@ using UnityEngine;
 
 namespace Tools.Editor {
     [CustomEditor(typeof(LevelCreator))]
-    public class LevelCreatorEditor : UnityEditor.Editor {
+    public class LevelCreatorEditor : UnityEditor.Editor
+    {
         private LevelCreator _creator;
+        private Vector2 lastMousePosition;
         private void OnEnable() {
             SceneView.duringSceneGui += OnSceneGUI;
         }
@@ -57,13 +59,53 @@ namespace Tools.Editor {
             if (!_creator.isPlacing) return;
         
             Event e = Event.current;
-
-            if (e.type == EventType.MouseDown && e.button == 0) {
-                Vector2 mousePosition = HandleUtility.GUIPointToWorldRay(e.mousePosition).origin;
+            Vector2 mousePosition = HandleUtility.GUIPointToWorldRay(e.mousePosition).origin;
+            if (_creator.snapToGrid) {
+                mousePosition = new Vector2(Mathf.Round(mousePosition.x / _creator.gridSize) * _creator.gridSize, Mathf.Round(mousePosition.y / _creator.gridSize) * _creator.gridSize);
+            }
             
-                PlaceObject(mousePosition);
+            if (e.type == EventType.MouseDown && e.button == 0) {
+                if (_creator.fillArea)
+                {
+                    FillArea(mousePosition);
+                }
+                else
+                {
+                    PlaceObject(mousePosition);
+                }
 
                 e.Use();
+            } 
+            if (e.type == EventType.Repaint && _creator.fillArea)
+            {
+                Color rectColor = new Color(0.5f, 0.5f, 0.5f, 0.3f);
+                
+                Handles.color = rectColor;
+
+                Vector3 halfSize = new Vector3(_creator.areaSize / 2, _creator.areaSize / 2, 0);
+                Vector3 rectCenter = new Vector3(mousePosition.x, mousePosition.y, 0);
+                Vector3[] verts = new Vector3[]
+                {
+                    rectCenter + new Vector3(-halfSize.x, -halfSize.y, 0),
+                    rectCenter + new Vector3(-halfSize.x, halfSize.y, 0),
+                    rectCenter + new Vector3(halfSize.x, halfSize.y, 0),
+                    rectCenter + new Vector3(halfSize.x, -halfSize.y, 0)
+                };
+                
+                Handles.DrawSolidRectangleWithOutline(verts, rectColor, Color.black);
+                
+                
+                SceneView.RepaintAll();
+            }
+
+            lastMousePosition = mousePosition;
+        }
+
+        private void FillArea(Vector2 center)
+        {
+            for (int i = 0; i < _creator.density * _creator.areaSize * _creator.areaSize; i++)
+            {
+                PlaceObject(new Vector2(center.x + Random.Range(-_creator.areaSize, _creator.areaSize) / 2, center.y + Random.Range(-_creator.areaSize, _creator.areaSize) / 2));
             }
         }
 
@@ -77,9 +119,6 @@ namespace Tools.Editor {
             GameObject newObj = (GameObject)PrefabUtility.InstantiatePrefab(_creator.ObjectPlacingPrefab);
             
             if (newObj != null) {
-                if (_creator.snapToGrid) {
-                    position = new Vector2(Mathf.Round(position.x / _creator.gridSize) * _creator.gridSize, Mathf.Round(position.y / _creator.gridSize) * _creator.gridSize);
-                }
                 newObj.transform.position = position;
 
                 if (_creator.ParentTransform != null) {
