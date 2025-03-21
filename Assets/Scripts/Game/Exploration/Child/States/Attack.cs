@@ -5,8 +5,10 @@ namespace Game.Exploration.Child
 {
     public class Attack : ChildState
     {
-        public Attack(ChildController controller) : base(controller)
-        {
+        private float _startRotation;
+        
+        public Attack(ChildController controller) : base(controller) {
+            _startRotation = controller.LastRotation;
         }
 
         public override void Enter()
@@ -17,6 +19,10 @@ namespace Game.Exploration.Child
         public override float? GetWalkSpeed()
         {
             return Controller.walkSpeed * .25f;
+        }
+
+        public override float? GetRotation() {
+            return _startRotation;
         }
 
         public override void OnAttackAnimationOver()

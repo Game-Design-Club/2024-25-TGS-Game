@@ -196,6 +196,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828cfcbe98e74cecba40691d79a9100e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  interactDistance: 0.2
+  boxCollider: {fileID: 5901805375566032894}
 --- !u!1 &2952745855003341940
 GameObject:
   m_ObjectHideFlags: 0

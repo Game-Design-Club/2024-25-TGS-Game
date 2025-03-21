@@ -227,7 +227,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &1565963452862776253
 MonoBehaviour:
@@ -242,7 +242,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 11400000, guid: 096afede74f02464096e10dfd6088f7b, type: 2}
-  interactableParticleSystem: {fileID: 2768560892403154133}
 --- !u!1001 &1699445404173491784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -300,11 +299,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cb2dd87531cf45aeb0943f845e57a7d, type: 3}
---- !u!198 &2768560892403154133 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3602391389286179485, guid: 5cb2dd87531cf45aeb0943f845e57a7d, type: 3}
-  m_PrefabInstance: {fileID: 1699445404173491784}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4089806861691568317 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3410435734865878773, guid: 5cb2dd87531cf45aeb0943f845e57a7d, type: 3}
