@@ -22,14 +22,16 @@ namespace Tools.Editor {
             serializedObject.Update();
 
             LevelCreator levelCreator = (LevelCreator)target;
+
             // Draw a custom dropdown for selecting the active module
             if (levelCreator.modules != null && levelCreator.modules.Length > 0)
             {
                 string[] moduleNames = new string[levelCreator.modules.Length];
                 for (int i = 0; i < levelCreator.modules.Length; i++)
                 {
-                    // Use the prefab name if available, otherwise show a default module label
-                    moduleNames[i] = (levelCreator.modules[i].objectPlacingPrefab != null) ? levelCreator.modules[i].objectPlacingPrefab.name : $"Module {i}";
+                    moduleNames[i] = (levelCreator.modules[i].objectPlacingPrefab != null)
+                        ? levelCreator.modules[i].objectPlacingPrefab.name
+                        : $"Module {i}";
                 }
                 SerializedProperty activeModuleIndexProp = serializedObject.FindProperty("activeModuleIndex");
                 activeModuleIndexProp.intValue = EditorGUILayout.Popup("Active Module", activeModuleIndexProp.intValue, moduleNames);
@@ -39,19 +41,26 @@ namespace Tools.Editor {
                 EditorGUILayout.LabelField("No modules defined.");
             }
 
-            // Draw all other properties, except activeModuleIndex (which is already handled)
+            // Iterate through properties and selectively draw them
             SerializedProperty property = serializedObject.GetIterator();
-            bool enterChildren = true;
-            while (property.NextVisible(enterChildren))
+            property.NextVisible(true); // Skip "m_Script"
+
+            while (property.NextVisible(false))
             {
                 if (property.name == "activeModuleIndex") continue;
+
+                // Conditional drawing for fillArea
+                if (property.name == "areaSize" && !levelCreator.fillArea) continue;
+                if (property.name == "density" && !levelCreator.fillArea) continue;
+
+                // Conditional drawing for gridSize
+                if (property.name == "gridSize" && !levelCreator.snapToGrid) continue;
+
                 EditorGUILayout.PropertyField(property, true);
-                enterChildren = false;
             }
 
             serializedObject.ApplyModifiedProperties();
         }
-
         
         private void OnSceneGUI(SceneView sceneView) {
             _creator = target as LevelCreator;

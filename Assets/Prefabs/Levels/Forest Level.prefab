@@ -329,10 +329,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5f9aaa5a224409a186662bd1170287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeModuleIndex: 0
-  isPlacing: 1
-  snapToGrid: 1
+  isPlacing: 0
+  snapToGrid: 0
   gridSize: 1
+  fillArea: 0
+  areaSize: 20
+  density: 1
   modules:
   - activeModule: 1
     objectPlacingPrefab: {fileID: 8577493048593242262, guid: ce476618ef542423cb54193cbaa29a65, type: 3}
@@ -382,6 +384,7 @@ MonoBehaviour:
     tryRandomize: 0
     useFlags: 0
     customRandomizeFlags: 
+  activeModuleIndex: 0
 --- !u!1 &6398849865347432884
 GameObject:
   m_ObjectHideFlags: 0
