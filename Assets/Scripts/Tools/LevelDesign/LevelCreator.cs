@@ -1,9 +1,13 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Tools.LevelDesign {
     public class LevelCreator : MonoBehaviour {
+        [Header("Change to switch between modules")]
         [SerializeField] private int activeModuleIndex;
+        [SerializeField] private string currentPlacing;
+        [Header("General Settings")]
         [SerializeField] public bool isPlacing = false;
         [SerializeField] public bool snapToGrid = true;
         [SerializeField] public float gridSize = .5f;
@@ -24,6 +28,7 @@ namespace Tools.LevelDesign {
                     modules[i].activeModule = false;
                 }
             }
+            currentPlacing = modules[activeModuleIndex].objectPlacingPrefab.name;
         }
     }
 }
