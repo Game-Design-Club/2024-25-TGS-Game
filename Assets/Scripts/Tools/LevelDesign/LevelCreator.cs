@@ -16,6 +16,7 @@ namespace Tools.LevelDesign {
         public GameObject ObjectPlacingPrefab => modules[activeModuleIndex].objectPlacingPrefab;
         public Transform ParentTransform => modules[activeModuleIndex].parentTransform;
         public bool TryRandomize => modules[activeModuleIndex].tryRandomize;
+        public bool RandomizeFlip => modules[activeModuleIndex].randomizeFlip;
         public bool UseFlags => modules[activeModuleIndex].useFlags;
         public bool[] CustomRandomizeFlags => modules[activeModuleIndex].customRandomizeFlags;
 

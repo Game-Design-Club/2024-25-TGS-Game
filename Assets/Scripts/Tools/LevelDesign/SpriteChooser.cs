@@ -6,6 +6,7 @@ using UnityEngine.Serialization;
 namespace Tools.LevelDesign {
     public class SpriteChooser : MonoBehaviour {
         [SerializeField] private bool randomize = false;
+        [SerializeField] private bool randomizeFlip = false;
         [SerializeField] private int objectNumber;
         [FormerlySerializedAs("_spriteChoserData")] [SerializeField] private SpriteChooserData spriteChooserData;
         [SerializeField] private bool useRandomizeFlags = false;
@@ -18,6 +19,10 @@ namespace Tools.LevelDesign {
                 RandomizeSpriteInternal(useRandomizeFlags, randomizeFlags);
             }
 
+            if (randomizeFlip)
+            {
+                RandomizeFlip();
+            }
         }
 
         private void RandomizeSpriteInternal(bool shouldUseFlags = false, bool[] creatorRandomizeFlags = null) {
@@ -74,5 +79,16 @@ namespace Tools.LevelDesign {
         public void RandomizeSprite() {
             RandomizeSpriteInternal();
         }
+
+        public void RandomizeFlip()
+        {
+            if (TryGetComponent(out SpriteRenderer spriteRenderer))
+            {
+                spriteRenderer.flipX = Random.Range(0, 2) == 0;
+            }
+
+            randomizeFlip = false;
+        }
+
     }
 }

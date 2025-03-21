@@ -3,6 +3,7 @@ using Tools.LevelDesign;
 using UnityEditor;
 using UnityEngine;
 
+
 namespace Tools.Editor {
     [CustomEditor(typeof(LevelCreator))]
     public class LevelCreatorEditor : UnityEditor.Editor
@@ -138,6 +139,18 @@ namespace Tools.Editor {
                     RandomizeObject(newObj);
                 }
 
+                if (_creator.RandomizeFlip)
+                {
+                    SpriteChooser spriteChooser = newObj.GetComponent<SpriteChooser>();
+                    if (spriteChooser != null)
+                    {
+                        spriteChooser.RandomizeFlip();
+                    }else if (newObj.TryGetComponent(out SpriteRenderer spriteRenderer))
+                    {
+                        spriteRenderer.flipX = spriteRenderer.flipX = Random.Range(0, 2) == 0;
+                    }
+                }
+
                 Undo.RegisterCreatedObjectUndo(newObj, "Place Prefab");
             }
         }
@@ -152,5 +165,7 @@ namespace Tools.Editor {
                 }
             }
         }
+        
+        // private void RandomizeFlip(GameObject newObj)
     }
 }

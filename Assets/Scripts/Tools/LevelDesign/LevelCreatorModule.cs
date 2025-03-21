@@ -9,6 +9,7 @@ namespace Tools.LevelDesign {
         [SerializeField] public GameObject objectPlacingPrefab;
         [SerializeField] public Transform parentTransform;
         [SerializeField] public bool tryRandomize = true;
+        [SerializeField] public bool randomizeFlip = false;
         [SerializeField] public bool useFlags = false;
         [FormerlySerializedAs("randomizeFlags")] [SerializeField] public bool[] customRandomizeFlags;
     }
