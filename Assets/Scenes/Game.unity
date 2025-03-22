@@ -4071,6 +4071,54 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
+      propertyPath: areaSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
+      propertyPath: areaShape
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
+      propertyPath: isErasing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
+      propertyPath: isPlacing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
+      propertyPath: thickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
+      propertyPath: areaThickness
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
+      propertyPath: innerAreaSize
+      value: 3.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
+      propertyPath: activeModuleIndex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
+      propertyPath: modules.Array.data[0].activeModule
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
+      propertyPath: modules.Array.data[1].activeModule
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
+      propertyPath: modules.Array.data[2].activeModule
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
+      propertyPath: modules.Array.data[3].activeModule
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4779849897277469613, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
       propertyPath: m_Name
       value: Forest Level

@@ -54,6 +54,8 @@ namespace Tools.Editor {
                 // Conditional drawing for fillArea
                 if (property.name == "areaSize" && !levelCreator.fillArea) continue;
                 if (property.name == "density" && !levelCreator.fillArea) continue;
+                if (property.name == "areaThickness" && (!levelCreator.fillArea || levelCreator.areaShape != LevelCreator.Shape.Ring)) continue;
+                
 
                 // Conditional drawing for gridSize
                 if (property.name == "gridSize" && !levelCreator.snapToGrid) continue;
@@ -89,23 +91,40 @@ namespace Tools.Editor {
             } 
             if (e.type == EventType.Repaint && _creator.fillArea)
             {
-                Color rectColor = new Color(0.5f, 0.5f, 0.5f, 0.3f);
+                Color color = new Color(0.5f, 0.5f, 0.5f, 0.3f);
                 
-                Handles.color = rectColor;
-
-                Vector3 halfSize = new Vector3(_creator.areaSize / 2, _creator.areaSize / 2, 0);
-                Vector3 rectCenter = new Vector3(mousePosition.x, mousePosition.y, 0);
-                Vector3[] verts = new Vector3[]
+                Handles.color = color;
+                
+                if (_creator.areaShape == LevelCreator.Shape.Square)
                 {
-                    rectCenter + new Vector3(-halfSize.x, -halfSize.y, 0),
-                    rectCenter + new Vector3(-halfSize.x, halfSize.y, 0),
-                    rectCenter + new Vector3(halfSize.x, halfSize.y, 0),
-                    rectCenter + new Vector3(halfSize.x, -halfSize.y, 0)
-                };
-                
-                Handles.DrawSolidRectangleWithOutline(verts, rectColor, Color.black);
-                
-                
+                    Vector3 halfSize = new Vector3(_creator.areaSize / 2, _creator.areaSize / 2, 0);
+                    Vector3 rectCenter = new Vector3(mousePosition.x, mousePosition.y, 0);
+                    Vector3[] verts = new Vector3[]
+                    {
+                        rectCenter + new Vector3(-halfSize.x, -halfSize.y, 0),
+                        rectCenter + new Vector3(-halfSize.x, halfSize.y, 0),
+                        rectCenter + new Vector3(halfSize.x, halfSize.y, 0),
+                        rectCenter + new Vector3(halfSize.x, -halfSize.y, 0)
+                    };
+
+                    Handles.DrawSolidRectangleWithOutline(verts, color, Color.black);
+                }else if (_creator.areaShape == LevelCreator.Shape.Circle)
+                {
+                    float radius = _creator.areaSize / 2;
+                    
+                    Handles.DrawSolidDisc(mousePosition, Vector3.forward, radius);
+                }else if (_creator.areaShape == LevelCreator.Shape.Ring)
+                {
+                    float radius = (_creator.areaSize - _creator.thickness) / 2;
+                    
+                    float thickness =
+                        Screen.height / (2f * SceneView.lastActiveSceneView.camera.orthographicSize)  *
+                        (_creator.thickness / 2);
+                    
+                    Handles.DrawWireDisc(mousePosition, Vector3.forward, radius, thickness);
+                    
+                }
+
                 SceneView.RepaintAll();
             }
 

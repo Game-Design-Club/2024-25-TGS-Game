@@ -4,12 +4,25 @@ using UnityEngine.Serialization;
 
 namespace Tools.LevelDesign {
     public class LevelCreator : MonoBehaviour {
-        [Header("General Settings")]
+        public enum Shape
+        {
+            Square,
+            Circle,
+            Ring
+        }
+        
+
+            [Header("General Settings")]
         [SerializeField] public bool isPlacing = false;
+        private bool wasPlacing = false;
+        [SerializeField] public bool isErasing = false;
+        private bool wasErasing = false;
         [SerializeField] public bool snapToGrid = true;
         [SerializeField] public float gridSize = .5f;
         [SerializeField] public bool fillArea = false;
         [SerializeField] public float areaSize = .5f;
+        [FormerlySerializedAs("areaThickness")] [SerializeField] public float thickness = 10f;
+        [SerializeField] public Shape areaShape = Shape.Square;
         [SerializeField] public float density = .05f;
         [SerializeField] public LevelCreatorModule[] modules;
         [HideInInspector] public int activeModuleIndex = 0;
@@ -20,7 +33,11 @@ namespace Tools.LevelDesign {
         public bool UseFlags => modules[activeModuleIndex].useFlags;
         public bool[] CustomRandomizeFlags => modules[activeModuleIndex].customRandomizeFlags;
 
-        private void OnValidate() {
+        private void OnValidate()
+        {
+            if (isErasing && !wasErasing) isPlacing = false;
+            if (isPlacing && !wasPlacing) isErasing = false;
+            
             if (activeModuleIndex < 0) activeModuleIndex = 0;
             if (activeModuleIndex >= modules.Length) activeModuleIndex = modules.Length - 1;
             for (int i = 0; i < modules.Length; i++) {
@@ -30,6 +47,8 @@ namespace Tools.LevelDesign {
                     modules[i].activeModule = false;
                 }
             }
+            wasPlacing = isPlacing;
+            wasErasing = isErasing;
         }
     }
 }
