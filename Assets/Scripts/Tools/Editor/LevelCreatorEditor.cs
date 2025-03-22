@@ -1,8 +1,12 @@
+using System;
+using System.Diagnostics;
 using AppCore.DataManagement;
 using Game.GameManagement;
 using Tools.LevelDesign;
 using UnityEditor;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
+using Random = UnityEngine.Random;
 
 
 namespace Tools.Editor {
@@ -91,7 +95,7 @@ namespace Tools.Editor {
             } 
             if (e.type == EventType.Repaint && _creator.fillArea)
             {
-                Color color = new Color(0.5f, 0.5f, 0.5f, 0.3f);
+                Color color = new Color(1f, 1f, 1f, 0.3f);
                 
                 Handles.color = color;
                 
@@ -135,7 +139,37 @@ namespace Tools.Editor {
         {
             for (int i = 0; i < _creator.density * _creator.areaSize * _creator.areaSize; i++)
             {
-                PlaceObject(new Vector2(center.x + Random.Range(-_creator.areaSize, _creator.areaSize) / 2, center.y + Random.Range(-_creator.areaSize, _creator.areaSize) / 2));
+                Vector2 position = new Vector2();
+
+                if (_creator.areaShape == LevelCreator.Shape.Square)
+                {
+                    position = new Vector2(center.x + Random.Range(-_creator.areaSize, _creator.areaSize) / 2,
+                        center.y + Random.Range(-_creator.areaSize, _creator.areaSize) / 2);
+                }else if (_creator.areaShape == LevelCreator.Shape.Circle ||
+                          _creator.areaShape == LevelCreator.Shape.Ring)
+                {
+                    // Random angle between 0 and 2 * PI
+                    float angle = Random.Range(0f, 2f * Mathf.PI);
+                    
+                    // Random radius with a uniform distribution
+                    float radiusMultiplier = Mathf.Sqrt(Random.Range(0f, 1f));
+
+                    float radius = _creator.areaShape == LevelCreator.Shape.Ring
+                        ? radiusMultiplier * _creator.thickness + _creator.areaSize / 2 - _creator.thickness
+                        : radiusMultiplier * (_creator.areaSize / 2);
+                    
+                    // Convert polar coordinates (angle, r) to Cartesian coordinates (x, y)
+                    float x = radius * Mathf.Cos(angle);
+                    float y = radius * Mathf.Sin(angle);
+
+                    position = center + new Vector2(x, y);
+                }
+                else
+                {
+                    throw new ArgumentException($"Area Shape: {_creator.areaShape} does not exist");
+                }
+                
+                PlaceObject(position);
             }
         }
 
