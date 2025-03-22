@@ -28,17 +28,31 @@ namespace Game.Exploration.Child {
             if (_interacting) return;
             
             // Origin starts from edge of box collider
-            Vector2 direction = _controller.LastDirection;
+            // vertical left first, then vertical right, then horizontal top, then horizontal bottom
+            Vector2 direction = new Vector2(_controller.LastDirection.x, 0);
             Vector2 origin = transform.position;
-            origin.x += direction.x * boxCollider.size.x / 2;
-            origin.y += direction.y * boxCollider.size.y / 2;
+            origin.x += _controller.LastDirection.x * boxCollider.size.x / 2;
+            origin.y += boxCollider.size.y / 2;
+            TryInteraction(origin, direction); // vertical left
+            origin.y -= boxCollider.size.y;
+            TryInteraction(origin, direction); // vertical right
             
+            direction = new Vector2(0, _controller.LastDirection.y);
+            origin = transform.position;
+            origin.y += _controller.LastDirection.y * boxCollider.size.y / 2;
+            origin.x += boxCollider.size.x / 2;
+            TryInteraction(origin, direction); // horizontal top
+            origin.x -= boxCollider.size.x;
+            TryInteraction(origin, direction); // horizontal bottom
+        }
+        
+        private void TryInteraction(Vector2 origin, Vector2 direction) {
             RaycastHit2D hit = Physics2D.Raycast(origin, direction, interactDistance, interactableLayer);
             if (hit.collider == null) return;
             Interactable interactable = hit.collider.GetComponent<Interactable>();
             if (interactable == null) return;
             interactable.Interact(InteractionOver);
-            _interacting = false;
+            _interacting = true;
         }
         
         private void InteractionOver() {

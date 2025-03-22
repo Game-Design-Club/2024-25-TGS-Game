@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using Game.Exploration.Enviornment.Interactables.Scrapbook;
 
 namespace AppCore.DataManagement
 {
@@ -106,9 +104,8 @@ namespace AppCore.DataManagement
             }
         }
 
-        private void OnApplicationQuit()
-        {
-            // Save();
+        private void OnApplicationQuit() {
+            Save();
         }
 
         private void Update() {
