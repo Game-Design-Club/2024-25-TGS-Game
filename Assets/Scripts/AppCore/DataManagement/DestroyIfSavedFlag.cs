@@ -3,14 +3,14 @@ using UnityEngine;
 
 namespace AppCore.DataManagement {
     public class DestroyIfSavedFlag : MonoBehaviour {
-        [SerializeField] private bool generateNewID;
         [SerializeField] private string flagName;
 
-        private void OnValidate() {
-            if (generateNewID) {
-                flagName = name + Guid.NewGuid();
-                generateNewID = false;
-            }
+        public void GenerateID() {
+            flagName = name + Guid.NewGuid();
+        }
+
+        private void Reset() {
+            GenerateID();
         }
 
         private void Awake() {

@@ -1,3 +1,4 @@
+using AppCore.DataManagement;
 using Game.GameManagement;
 using Tools.LevelDesign;
 using UnityEditor;
@@ -141,8 +142,7 @@ namespace Tools.Editor {
 
                 if (_creator.RandomizeFlip)
                 {
-                    SpriteChooser spriteChooser = newObj.GetComponent<SpriteChooser>();
-                    if (spriteChooser != null)
+                    if (newObj.TryGetComponent(out SpriteChooser spriteChooser))
                     {
                         spriteChooser.RandomizeFlip();
                     }else if (newObj.TryGetComponent(out SpriteRenderer spriteRenderer))
@@ -150,7 +150,12 @@ namespace Tools.Editor {
                         spriteRenderer.flipX = spriteRenderer.flipX = Random.Range(0, 2) == 0;
                     }
                 }
-
+                
+                if (newObj.TryGetComponent(out DestroyIfSavedFlag destroyIfSavedFlag))
+                {
+                    destroyIfSavedFlag.GenerateID();
+                }
+                
                 Undo.RegisterCreatedObjectUndo(newObj, "Place Prefab");
             }
         }
