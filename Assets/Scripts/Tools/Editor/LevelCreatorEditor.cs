@@ -137,7 +137,14 @@ namespace Tools.Editor {
 
         private void FillArea(Vector2 center)
         {
-            for (int i = 0; i < _creator.density * _creator.areaSize * _creator.areaSize; i++)
+            float area = _creator.areaSize * _creator.areaSize;
+            if (_creator.areaShape == LevelCreator.Shape.Circle || _creator.areaShape == LevelCreator.Shape.Ring)
+            {
+                area = Mathf.PI * (_creator.areaSize / 2) * (_creator.areaSize / 2);
+                
+                if (_creator.areaShape == LevelCreator.Shape.Ring) area -= Mathf.PI * (_creator.areaSize / 2 - _creator.thickness) * (_creator.areaSize / 2 - _creator.thickness);
+            }
+            for (int i = 0; i < _creator.density * area; i++)
             {
                 Vector2 position = new Vector2();
 
@@ -155,7 +162,7 @@ namespace Tools.Editor {
                     float radiusMultiplier = Mathf.Sqrt(Random.Range(0f, 1f));
 
                     float radius = _creator.areaShape == LevelCreator.Shape.Ring
-                        ? radiusMultiplier * _creator.thickness + _creator.areaSize / 2 - _creator.thickness
+                        ? _creator.areaSize / 2 - radiusMultiplier * _creator.thickness
                         : radiusMultiplier * (_creator.areaSize / 2);
                     
                     // Convert polar coordinates (angle, r) to Cartesian coordinates (x, y)
