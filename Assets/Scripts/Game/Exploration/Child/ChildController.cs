@@ -13,6 +13,7 @@ namespace Game.Exploration.Child {
     public class ChildController : MonoBehaviour {
         [Header("References")]
         [SerializeField] private Transform rotateTransform;
+        [SerializeField] private SpriteRenderer spriteRenderer;
         [Header("Idle State")]
         [SerializeField] internal float walkSpeed = 5f;
         [FormerlySerializedAs("walkToSleepCurve")]
@@ -49,9 +50,7 @@ namespace Game.Exploration.Child {
 
         private void Start() {
             Vector3? position = App.Get<DataManager>().PlayerPosition;
-            if (position.HasValue) {
-                transform.position = (Vector3)position;
-            }
+            transform.position = (Vector3)position;
             TransitionToState(new Move(this));
         }
         
@@ -85,6 +84,8 @@ namespace Game.Exploration.Child {
             }
             
             App.Get<DataManager>().UpdatePlayerPosition(transform.position);
+            
+            spriteRenderer.sortingOrder = Mathf.RoundToInt(transform.position.y * 100f) * -1;
         }
         
         private void Move(Vector2 direction) {

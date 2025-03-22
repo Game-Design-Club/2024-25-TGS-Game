@@ -1,16 +1,22 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Tools.LevelDesign {
     public class LevelCreator : MonoBehaviour {
-        [SerializeField] private int activeModuleIndex;
+        [Header("General Settings")]
         [SerializeField] public bool isPlacing = false;
         [SerializeField] public bool snapToGrid = true;
         [SerializeField] public float gridSize = .5f;
-        [SerializeField] private LevelCreatorModule[] modules;
+        [SerializeField] public bool fillArea = false;
+        [SerializeField] public float areaSize = .5f;
+        [SerializeField] public float density = .05f;
+        [SerializeField] public LevelCreatorModule[] modules;
+        [HideInInspector] public int activeModuleIndex = 0;
         public GameObject ObjectPlacingPrefab => modules[activeModuleIndex].objectPlacingPrefab;
         public Transform ParentTransform => modules[activeModuleIndex].parentTransform;
         public bool TryRandomize => modules[activeModuleIndex].tryRandomize;
+        public bool RandomizeFlip => modules[activeModuleIndex].randomizeFlip;
         public bool UseFlags => modules[activeModuleIndex].useFlags;
         public bool[] CustomRandomizeFlags => modules[activeModuleIndex].customRandomizeFlags;
 

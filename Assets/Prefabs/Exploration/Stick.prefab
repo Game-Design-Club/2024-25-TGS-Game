@@ -77,7 +77,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 27.23, y: 3.4}
+  m_Size: {x: 11.75, y: 1.5}
   m_EdgeRadius: 0
 --- !u!114 &3031237297071172725
 MonoBehaviour:
@@ -92,7 +92,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 11400000, guid: e25443c980f974a0c89519b102a28a7b, type: 2}
-  interactableParticleSystem: {fileID: 3818260367638741793}
   stickObject: {fileID: 9209999304950862102}
   pickupParticleObject: {fileID: 4593642983392778367}
 --- !u!1 &9209999304950862102
@@ -200,7 +199,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generateNewID: 0
   flagName: hasStick
-  flipFlag: 1
 --- !u!1001 &361251635581379004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -265,11 +263,6 @@ PrefabInstance:
 --- !u!4 &3050943872610991945 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3410435734865878773, guid: 5cb2dd87531cf45aeb0943f845e57a7d, type: 3}
-  m_PrefabInstance: {fileID: 361251635581379004}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &3818260367638741793 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3602391389286179485, guid: 5cb2dd87531cf45aeb0943f845e57a7d, type: 3}
   m_PrefabInstance: {fileID: 361251635581379004}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3011001738041879881

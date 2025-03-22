@@ -113,7 +113,6 @@ namespace Game.Exploration.UI
             Hover(true);
 
             GameManager.EndCutscene();
-            Debug.Log("End Cutscene");
         }
     }
 }
