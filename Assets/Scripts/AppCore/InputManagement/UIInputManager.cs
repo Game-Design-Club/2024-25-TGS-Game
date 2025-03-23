@@ -8,21 +8,9 @@ namespace AppCore.InputManagement {
         public event Action OnUIRestart;
 
         private void SubscribeToUIInput() {
-            _playerInputs.UI.Cancel.performed += CallCancel;
-            _playerInputs.UI.Continue.performed += CallContinue;
-            _playerInputs.UI.Restart.performed += CallRestart;
+            _playerInputs.UI.Cancel.performed += _ => OnUICancel?.Invoke();
+            _playerInputs.UI.Continue.performed += _ => OnDialogueContinue?.Invoke();
+            _playerInputs.UI.Restart.performed += _ => OnUIRestart?.Invoke();
         }
-        
-        private void UnsubscribeFromUIInput() {
-            _playerInputs.UI.Cancel.performed -= CallCancel;
-            _playerInputs.UI.Continue.performed -= CallContinue;
-            _playerInputs.UI.Restart.performed -= CallRestart;
-        }
-
-        private void CallCancel(InputAction.CallbackContext obj) { OnUICancel?.Invoke(); }
-        
-        private void CallContinue(InputAction.CallbackContext obj) { OnDialogueContinue?.Invoke(); }
-        
-        private void CallRestart(InputAction.CallbackContext obj) { OnUIRestart?.Invoke(); }
     }
 }

@@ -1,4 +1,5 @@
 using Game.GameManagement;
+using UnityEngine;
 
 namespace AppCore.InputManagement {
     public partial class InputManager : AppModule {
@@ -20,13 +21,7 @@ namespace AppCore.InputManagement {
         }
         
         private void OnDisable() {
-            GameManager.OnGameEvent -= OnGameEvent;
-            
-            _playerInputs.Disable();
-            
-            UnsubscribeFromUIInput();
-            UnsubscribeFromChildInput();
-            UnsubscribeFromBearInput();
+            Debug.LogError("Input Manager Was Disabled???!!!");
         }
 
         private void OnGameEvent(GameEvent gameEvent) {

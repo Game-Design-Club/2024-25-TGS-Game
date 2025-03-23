@@ -25,6 +25,7 @@ namespace Tools {
             public static class Child {
                 public const string Sleep = "Sleep";
                 public static string Attack = "Attack";
+                public static string Jump = "Jump";
             }
 
             public static class DialogueBox {

@@ -26,6 +26,7 @@ namespace Game.Exploration.Child {
         
         private void Interact() {
             if (_interacting) return;
+            if (!_controller.CanInteract()) return;
             
             // Origin starts from edge of box collider
             // vertical left first, then vertical right, then horizontal top, then horizontal bottom

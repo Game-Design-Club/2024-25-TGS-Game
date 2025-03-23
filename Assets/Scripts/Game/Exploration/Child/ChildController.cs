@@ -16,8 +16,12 @@ namespace Game.Exploration.Child {
         [SerializeField] private SpriteRenderer spriteRenderer;
         [Header("Idle State")]
         [SerializeField] internal float walkSpeed = 5f;
-        [FormerlySerializedAs("walkToSleepCurve")]
+        [Header("Jumping")]
+        [SerializeField] internal float minJumpTime = 1f;
+        [SerializeField] internal float maxJumpTime = 1.5f;
+        [SerializeField] internal float jumpSpeed = 4f;
         [Header("Walk to Sleep")]
+        [FormerlySerializedAs("walkToSleepCurve")]
         [SerializeField] internal AnimationCurve walkToPointCurve;
         [Header("SFX")]
         [SerializeField] internal SoundEffect walkSound;
@@ -41,11 +45,15 @@ namespace Game.Exploration.Child {
             GameManager.OnGameEvent += OnGameEvent;
             App.Get<InputManager>().OnChildMovement += Move;
             App.Get<InputManager>().OnChildAttack += Attack;
+            App.Get<InputManager>().OnChildJump += Jump;
+            App.Get<InputManager>().OnChildJumpReleased += JumpReleased;
         }
         private void OnDisable() {
             GameManager.OnGameEvent -= OnGameEvent;
             App.Get<InputManager>().OnChildMovement -= Move;
             App.Get<InputManager>().OnChildAttack -= Attack;
+            App.Get<InputManager>().OnChildJump -= Jump;
+            App.Get<InputManager>().OnChildJumpReleased -= JumpReleased;
         }
 
         private void Start() {
@@ -94,22 +102,18 @@ namespace Game.Exploration.Child {
             _currentState.OnMovementInput(direction);
         }
 
-        private void Attack()
-        {
-            _currentState.OnAttackInput();
-        }
+        private void Attack() { _currentState.OnAttackInput(); }
 
-        private void AttackAnimationEnded()
-        {
-            _currentState.OnAttackAnimationOver();
-        }
+        private void Jump() { _currentState.OnJumpInput(); }
 
-        private void OnGameEvent(GameEvent gameEvent) {
-            _currentState?.OnGameEvent(gameEvent);
-        }
-        
-        public void Sleep(Vector3 position) {
-            _currentState.Sleep(position);
-        }
+        private void JumpReleased() { _currentState.OnJumpInputReleased(); }
+
+        private void AttackAnimationEnded() { _currentState.OnAttackAnimationOver(); }
+
+        private void OnGameEvent(GameEvent gameEvent) { _currentState?.OnGameEvent(gameEvent); }
+
+        public void Sleep(Vector3 position) { _currentState.Sleep(position); }
+
+        public bool CanInteract() { return _currentState.CanInteract(); }
     }
 }
