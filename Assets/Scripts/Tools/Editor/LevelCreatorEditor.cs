@@ -259,8 +259,35 @@ namespace Tools.Editor {
 
         private void EraseArea(Vector2 center)
         {
+            Collider2D[] colliders;
+            if (_creator.areaShape == LevelCreator.Shape.Circle || _creator.areaShape == LevelCreator.Shape.Ring)
+            {
+                colliders = Physics2D.OverlapCircleAll(center, _creator.areaSize / 2);
+            }
+            else if (_creator.areaShape == LevelCreator.Shape.Square)
+            {
+                colliders = Physics2D.OverlapBoxAll(center, new Vector2(_creator.areaSize, _creator.areaSize), 0);
+            }
+            else
+            {
+                return;
+            }
             
+            
+            foreach (Collider2D col in colliders)
+            {
+                GameObject gameObject = col.gameObject;
+                if (_creator.areaShape == LevelCreator.Shape.Ring &&
+                    Vector2.Distance(center, gameObject.transform.position) <
+                    _creator.areaSize / 2 - _creator.thickness) continue;
+                
+                GameObject prefabSource = PrefabUtility.GetCorrespondingObjectFromSource(gameObject);
+                if (prefabSource == _creator.ObjectPlacingPrefab)
+                {
+                    DestroyImmediate(gameObject);
+                }
+            }
         }
-        
+
     }
 }

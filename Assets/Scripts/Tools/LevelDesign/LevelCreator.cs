@@ -20,7 +20,7 @@ namespace Tools.LevelDesign {
         [SerializeField] public Shape areaShape = Shape.Square;
         [SerializeField] public float areaSize = .5f;
         [SerializeField] public float thickness = 10f;
-        [Range(0, 1)][SerializeField] public float density = .05f;
+        [Range(0f, 1f)][SerializeField] public float density = .05f;
         [SerializeField] public LevelCreatorModule[] modules;
         [HideInInspector] public int activeModuleIndex = 0;
         public GameObject ObjectPlacingPrefab => modules[activeModuleIndex].objectPlacingPrefab;
