@@ -1,8 +1,6 @@
 using System;
-using System.Diagnostics;
 using System.Linq;
 using AppCore.DataManagement;
-using Game.GameManagement;
 using Tools.LevelDesign;
 using UnityEditor;
 using UnityEngine;
@@ -81,7 +79,7 @@ namespace Tools.Editor {
 
                 if (_creator.isErasing && property.name == "useArea") EditorGUI.BeginDisabledGroup(true);
                 EditorGUILayout.PropertyField(property, true);
-                if (_creator.isErasing && property.name == "areaSize") EditorGUI.EndDisabledGroup();
+                if (_creator.isErasing && property.name == "useArea") EditorGUI.EndDisabledGroup();
 
                 
                 EditorGUI.indentLevel = 0;
@@ -294,34 +292,40 @@ namespace Tools.Editor {
             
             foreach (Collider2D col in colliders)
             {
+                if (!col) continue;
                 GameObject gameObject = col.gameObject;
                 Vector2 diff = (Vector2) gameObject.transform.position - center;
-                
+    
                 if (_creator.areaShape == LevelCreator.Shape.Ring &&
-                    diff.magnitude <
-                    _creator.areaSize / 2 - _creator.thickness) continue;
-                
-                GameObject prefabSource = PrefabUtility.GetCorrespondingObjectFromSource(gameObject);
-
+                    diff.magnitude < _creator.areaSize / 2 - _creator.thickness)
+                    continue;
+    
+                // Determine the threshold using your existing logic
                 float dist = 0;
-                if (_creator.useCurve) switch (_creator.areaShape)
+                if (_creator.useCurve)
                 {
-                    case LevelCreator.Shape.Square:
-                        dist = Mathf.Max(Mathf.Abs(diff.x), Mathf.Abs(diff.y));
-                        break;
-                    case LevelCreator.Shape.Circle:
-                        dist = diff.magnitude;
-                        break;
-                    case LevelCreator.Shape.Ring:
-                        dist = diff.magnitude - (_creator.areaSize / 2 - _creator.thickness);
-                        break;
+                    switch (_creator.areaShape)
+                    {
+                        case LevelCreator.Shape.Square:
+                            dist = Mathf.Max(Mathf.Abs(diff.x), Mathf.Abs(diff.y));
+                            break;
+                        case LevelCreator.Shape.Circle:
+                            dist = diff.magnitude;
+                            break;
+                        case LevelCreator.Shape.Ring:
+                            dist = diff.magnitude - (_creator.areaSize / 2 - _creator.thickness);
+                            break;
+                    }
                 }
-
                 float threshold = !_creator.useCurve
                     ? _creator.strength
                     : Mathf.Clamp(_creator.strengthCurve.Evaluate(dist / maxDist), 0f, 1f);
+    
                 
-                if (prefabSource == _creator.ObjectPlacingPrefab && Random.Range(0f, 1f) < threshold)
+                string instancePrefabPath = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(gameObject);
+                string treePrefabPath = AssetDatabase.GetAssetPath(_creator.ObjectPlacingPrefab);
+    
+                if (!string.IsNullOrEmpty(instancePrefabPath) && instancePrefabPath == treePrefabPath && Random.Range(0f, 1f) < threshold)
                 {
                     Undo.RegisterFullObjectHierarchyUndo(gameObject, "Erase Object");
                     Undo.DestroyObjectImmediate(gameObject);

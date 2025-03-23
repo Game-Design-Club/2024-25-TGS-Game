@@ -23,7 +23,7 @@ namespace Tools.LevelDesign {
         [SerializeField] public Shape areaShape = Shape.Square;
         [SerializeField] public float areaSize = .5f;
         [SerializeField] public float thickness = 10f;
-        [Range(0f, 1f)][SerializeField] public float density = .05f;
+        [Range(0f, .3f)][SerializeField] public float density = .05f;
         [SerializeField] public LevelCreatorModule[] modules;
         [HideInInspector] public int activeModuleIndex = 0;
         public GameObject ObjectPlacingPrefab => modules[activeModuleIndex].objectPlacingPrefab;
@@ -47,7 +47,7 @@ namespace Tools.LevelDesign {
                 }
             }
 
-            areaSize = Mathf.Max(0, areaSize);
+            areaSize = Mathf.Clamp(Mathf.Max(0, areaSize), 0, 100);
             thickness = Mathf.Clamp(thickness, 1, areaSize / 2);
             gridSize = Mathf.Max(0, gridSize);
         }
