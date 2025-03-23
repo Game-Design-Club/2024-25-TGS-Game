@@ -14,6 +14,9 @@ namespace Tools.LevelDesign {
         [Header("General Settings")]
         [SerializeField] public bool isActive = false;
         [SerializeField] public bool isErasing = false;
+        [SerializeField] public bool useCurve = false;
+        [SerializeField] public AnimationCurve strengthCurve = new AnimationCurve();
+        [Range(0f, 1f)][SerializeField] public float strength = 1f;
         [SerializeField] public bool snapToGrid = true;
         [SerializeField] public float gridSize = .5f;
         [SerializeField] public bool useArea = false;

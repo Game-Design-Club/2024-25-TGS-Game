@@ -51,20 +51,25 @@ namespace Tools.Editor {
             // Iterate through properties and selectively draw them
             SerializedProperty property = serializedObject.GetIterator();
             property.NextVisible(true); // Skip "m_Script"
-            string[] indentProperty = new[] { "areaSize", "density", "thickness", "areaShape", "gridSize" };
+            string[] indentProperty = new[] { "areaSize", "density", "thickness", "areaShape", "gridSize", "useCurve", "curve", "strength"};
 
             while (property.NextVisible(false))
             {
                 if (property.name == "activeModuleIndex") continue;
 
+                
+                if (property.name == "useCurve" && !_creator.isErasing) continue;
+                if (property.name == "strengthCurve" && (!_creator.isErasing || !_creator.useCurve)) continue;
+                if (property.name == "strength" && (!_creator.isErasing || _creator.useCurve)) continue;
+                
                 // Conditional drawing for fillArea
                 if (!levelCreator.useArea)
                 {
                     if (property.name == "areaSize") continue;
-                    if (property.name == "density") continue;
                     if (property.name == "areaShape") continue;
                 }
                 
+                if (property.name == "density" && (_creator.isErasing || !levelCreator.useArea)) continue;
                 if (property.name == "thickness" && (!levelCreator.useArea || levelCreator.areaShape != LevelCreator.Shape.Ring)) continue;
                 
 
@@ -272,19 +277,54 @@ namespace Tools.Editor {
             {
                 return;
             }
-            
+
+            float maxDist = 0;
+            if (_creator.useCurve) switch (_creator.areaShape)
+            {
+                case LevelCreator.Shape.Square:
+                    maxDist = _creator.areaSize;
+                    break;
+                case LevelCreator.Shape.Circle:
+                    maxDist = _creator.areaSize / 2;
+                    break;
+                case LevelCreator.Shape.Ring:
+                    maxDist = _creator.thickness;
+                    break;
+            }
             
             foreach (Collider2D col in colliders)
             {
                 GameObject gameObject = col.gameObject;
+                Vector2 diff = (Vector2) gameObject.transform.position - center;
+                
                 if (_creator.areaShape == LevelCreator.Shape.Ring &&
-                    Vector2.Distance(center, gameObject.transform.position) <
+                    diff.magnitude <
                     _creator.areaSize / 2 - _creator.thickness) continue;
                 
                 GameObject prefabSource = PrefabUtility.GetCorrespondingObjectFromSource(gameObject);
-                if (prefabSource == _creator.ObjectPlacingPrefab)
+
+                float dist = 0;
+                if (_creator.useCurve) switch (_creator.areaShape)
                 {
-                    DestroyImmediate(gameObject);
+                    case LevelCreator.Shape.Square:
+                        dist = Mathf.Abs(diff.x) + Mathf.Abs(diff.y);
+                        break;
+                    case LevelCreator.Shape.Circle:
+                        dist = diff.magnitude;
+                        break;
+                    case LevelCreator.Shape.Ring:
+                        dist = diff.magnitude - (_creator.areaSize / 2 - _creator.thickness);
+                        break;
+                }
+
+                float threshold = !_creator.useCurve
+                    ? _creator.strength
+                    : Mathf.Clamp(_creator.strengthCurve.Evaluate(dist / maxDist), 0f, 1f);
+                
+                if (prefabSource == _creator.ObjectPlacingPrefab && Random.Range(0f, 1f) < threshold)
+                {
+                    Undo.RegisterFullObjectHierarchyUndo(gameObject, "Erase Object");
+                    Undo.DestroyObjectImmediate(gameObject);
                 }
             }
         }
