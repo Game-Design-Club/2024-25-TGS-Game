@@ -28,16 +28,16 @@ namespace Tools.Editor {
         {
             serializedObject.Update();
 
-            LevelCreator levelCreator = (LevelCreator)target;
+            _creator = (LevelCreator)target;
 
             // Draw a custom dropdown for selecting the active module
-            if (levelCreator.modules != null && levelCreator.modules.Length > 0)
+            if (_creator.modules != null && _creator.modules.Length > 0)
             {
-                string[] moduleNames = new string[levelCreator.modules.Length];
-                for (int i = 0; i < levelCreator.modules.Length; i++)
+                string[] moduleNames = new string[_creator.modules.Length];
+                for (int i = 0; i < _creator.modules.Length; i++)
                 {
-                    moduleNames[i] = (levelCreator.modules[i].objectPlacingPrefab != null)
-                        ? levelCreator.modules[i].objectPlacingPrefab.name
+                    moduleNames[i] = (_creator.modules[i].objectPlacingPrefab != null)
+                        ? _creator.modules[i].objectPlacingPrefab.name
                         : $"Module {i}";
                 }
                 SerializedProperty activeModuleIndexProp = serializedObject.FindProperty("activeModuleIndex");
@@ -63,25 +63,25 @@ namespace Tools.Editor {
                 if (property.name == "strength" && (!_creator.isErasing || _creator.useCurve)) continue;
                 
                 // Conditional drawing for fillArea
-                if (!levelCreator.useArea)
+                if (!_creator.useArea)
                 {
                     if (property.name == "areaSize") continue;
                     if (property.name == "areaShape") continue;
                 }
                 
-                if (property.name == "density" && (_creator.isErasing || !levelCreator.useArea)) continue;
-                if (property.name == "thickness" && (!levelCreator.useArea || levelCreator.areaShape != LevelCreator.Shape.Ring)) continue;
+                if (property.name == "density" && (_creator.isErasing || !_creator.useArea)) continue;
+                if (property.name == "thickness" && (!_creator.useArea || _creator.areaShape != LevelCreator.Shape.Ring)) continue;
                 
 
 
                 // Conditional drawing for gridSize
-                if (property.name == "gridSize" && !levelCreator.snapToGrid) continue;
+                if (property.name == "gridSize" && !_creator.snapToGrid) continue;
 
                 if (indentProperty.Contains(property.name)) EditorGUI.indentLevel++;
 
                 if (_creator.isErasing && property.name == "useArea") EditorGUI.BeginDisabledGroup(true);
                 EditorGUILayout.PropertyField(property, true);
-                if (_creator.isErasing && property.name == "useArea") EditorGUI.EndDisabledGroup();
+                if (_creator.isErasing && property.name == "areaSize") EditorGUI.EndDisabledGroup();
 
                 
                 EditorGUI.indentLevel = 0;
