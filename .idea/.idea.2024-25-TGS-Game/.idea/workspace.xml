@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Levels/Forest Level.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Levels/Forest Level.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tools/Editor/LevelCreatorEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/Editor/LevelCreatorEditor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tools/LevelDesign/LevelCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/LevelDesign/LevelCreator.cs" afterDir="false" />
     </list>
@@ -141,7 +140,7 @@
       <workItem from="1742179227409" duration="6796000" />
       <workItem from="1742360820587" duration="8436000" />
       <workItem from="1742428154544" duration="11523000" />
-      <workItem from="1742686730380" duration="1369000" />
+      <workItem from="1742686730380" duration="3482000" />
     </task>
     <servers />
   </component>

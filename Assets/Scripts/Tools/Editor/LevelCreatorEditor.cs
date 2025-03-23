@@ -73,8 +73,11 @@ namespace Tools.Editor {
                 if (property.name == "gridSize" && !levelCreator.snapToGrid) continue;
 
                 if (indentProperty.Contains(property.name)) EditorGUI.indentLevel++;
-                
+
+                if (_creator.isErasing && property.name == "useArea") EditorGUI.BeginDisabledGroup(true);
                 EditorGUILayout.PropertyField(property, true);
+                if (_creator.isErasing && property.name == "useArea") EditorGUI.EndDisabledGroup();
+
                 
                 EditorGUI.indentLevel = 0;
             }
@@ -86,7 +89,7 @@ namespace Tools.Editor {
         private void OnSceneGUI(SceneView sceneView) {
             _creator = target as LevelCreator;
             if (_creator == null) return;
-            if (!_creator.isPlacing) return;
+            if (!_creator.isActive) return;
         
             Event e = Event.current;
             Vector2 mousePosition = HandleUtility.GUIPointToWorldRay(e.mousePosition).origin;
@@ -94,10 +97,18 @@ namespace Tools.Editor {
                 mousePosition = new Vector2(Mathf.Round(mousePosition.x / _creator.gridSize) * _creator.gridSize, Mathf.Round(mousePosition.y / _creator.gridSize) * _creator.gridSize);
             }
             
+            
             if (e.type == EventType.MouseDown && e.button == 0) {
                 if (_creator.useArea)
                 {
-                    FillArea(mousePosition);
+                    if (!_creator.isErasing)
+                    {
+                        FillArea(mousePosition);
+                    }
+                    else
+                    {
+                        EraseArea(mousePosition);
+                    }
                 }
                 else
                 {
@@ -106,6 +117,8 @@ namespace Tools.Editor {
 
                 e.Use();
             } 
+            
+            
             if (e.type == EventType.Repaint && _creator.useArea)
             {
                 Color color = new Color(1f, 1f, 1f, 0.3f);
@@ -192,7 +205,7 @@ namespace Tools.Editor {
                 PlaceObject(position);
             }
         }
-
+        
         private void PlaceObject(Vector2 position) {
             _creator = (LevelCreator)target;
             if (_creator.ObjectPlacingPrefab == null) {
@@ -243,7 +256,11 @@ namespace Tools.Editor {
                 }
             }
         }
+
+        private void EraseArea(Vector2 center)
+        {
+            
+        }
         
-        // private void RandomizeFlip(GameObject newObj)
     }
 }

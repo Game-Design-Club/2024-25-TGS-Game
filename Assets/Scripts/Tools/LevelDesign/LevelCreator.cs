@@ -11,19 +11,16 @@ namespace Tools.LevelDesign {
             Ring
         }
         
-
-            [Header("General Settings")]
-        [SerializeField] public bool isPlacing = false;
-        private bool wasPlacing = false;
+        [Header("General Settings")]
+        [SerializeField] public bool isActive = false;
         [SerializeField] public bool isErasing = false;
-        private bool wasErasing = false;
         [SerializeField] public bool snapToGrid = true;
         [SerializeField] public float gridSize = .5f;
         [SerializeField] public bool useArea = false;
         [SerializeField] public Shape areaShape = Shape.Square;
         [SerializeField] public float areaSize = .5f;
         [SerializeField] public float thickness = 10f;
-        [SerializeField] public float density = .05f;
+        [Range(0, 1)][SerializeField] public float density = .05f;
         [SerializeField] public LevelCreatorModule[] modules;
         [HideInInspector] public int activeModuleIndex = 0;
         public GameObject ObjectPlacingPrefab => modules[activeModuleIndex].objectPlacingPrefab;
@@ -35,9 +32,8 @@ namespace Tools.LevelDesign {
 
         private void OnValidate()
         {
-            if (isErasing && !wasErasing) isPlacing = false;
-            if (isPlacing && !wasPlacing) isErasing = false;
-            
+            if (isErasing) useArea = true;
+
             if (activeModuleIndex < 0) activeModuleIndex = 0;
             if (activeModuleIndex >= modules.Length) activeModuleIndex = modules.Length - 1;
             for (int i = 0; i < modules.Length; i++) {
@@ -47,8 +43,10 @@ namespace Tools.LevelDesign {
                     modules[i].activeModule = false;
                 }
             }
-            wasPlacing = isPlacing;
-            wasErasing = isErasing;
+
+            areaSize = Mathf.Max(0, areaSize);
+            thickness = Mathf.Clamp(thickness, 0, areaSize / 2);
+            gridSize = Mathf.Max(0, gridSize);
         }
     }
 }
