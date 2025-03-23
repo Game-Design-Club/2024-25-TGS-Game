@@ -45,7 +45,7 @@ namespace Tools.LevelDesign {
             }
 
             areaSize = Mathf.Max(0, areaSize);
-            thickness = Mathf.Clamp(thickness, 0, areaSize / 2);
+            thickness = Mathf.Clamp(thickness, 1, areaSize / 2);
             gridSize = Mathf.Max(0, gridSize);
         }
     }
