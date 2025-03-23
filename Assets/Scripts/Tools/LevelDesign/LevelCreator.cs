@@ -19,10 +19,10 @@ namespace Tools.LevelDesign {
         private bool wasErasing = false;
         [SerializeField] public bool snapToGrid = true;
         [SerializeField] public float gridSize = .5f;
-        [SerializeField] public bool fillArea = false;
-        [SerializeField] public float areaSize = .5f;
-        [FormerlySerializedAs("areaThickness")] [SerializeField] public float thickness = 10f;
+        [SerializeField] public bool useArea = false;
         [SerializeField] public Shape areaShape = Shape.Square;
+        [SerializeField] public float areaSize = .5f;
+        [SerializeField] public float thickness = 10f;
         [SerializeField] public float density = .05f;
         [SerializeField] public LevelCreatorModule[] modules;
         [HideInInspector] public int activeModuleIndex = 0;

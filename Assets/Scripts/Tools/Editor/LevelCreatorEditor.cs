@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using System.Linq;
 using AppCore.DataManagement;
 using Game.GameManagement;
 using Tools.LevelDesign;
@@ -50,24 +51,36 @@ namespace Tools.Editor {
             // Iterate through properties and selectively draw them
             SerializedProperty property = serializedObject.GetIterator();
             property.NextVisible(true); // Skip "m_Script"
+            string[] indentProperty = new[] { "areaSize", "density", "thickness", "areaShape", "gridSize" };
 
             while (property.NextVisible(false))
             {
                 if (property.name == "activeModuleIndex") continue;
 
                 // Conditional drawing for fillArea
-                if (property.name == "areaSize" && !levelCreator.fillArea) continue;
-                if (property.name == "density" && !levelCreator.fillArea) continue;
-                if (property.name == "areaThickness" && (!levelCreator.fillArea || levelCreator.areaShape != LevelCreator.Shape.Ring)) continue;
+                if (!levelCreator.useArea)
+                {
+                    if (property.name == "areaSize") continue;
+                    if (property.name == "density") continue;
+                    if (property.name == "areaShape") continue;
+                }
                 
+                if (property.name == "thickness" && (!levelCreator.useArea || levelCreator.areaShape != LevelCreator.Shape.Ring)) continue;
+                
+
 
                 // Conditional drawing for gridSize
                 if (property.name == "gridSize" && !levelCreator.snapToGrid) continue;
 
+                if (indentProperty.Contains(property.name)) EditorGUI.indentLevel++;
+                
                 EditorGUILayout.PropertyField(property, true);
+                
+                EditorGUI.indentLevel = 0;
             }
 
             serializedObject.ApplyModifiedProperties();
+
         }
         
         private void OnSceneGUI(SceneView sceneView) {
@@ -82,7 +95,7 @@ namespace Tools.Editor {
             }
             
             if (e.type == EventType.MouseDown && e.button == 0) {
-                if (_creator.fillArea)
+                if (_creator.useArea)
                 {
                     FillArea(mousePosition);
                 }
@@ -93,7 +106,7 @@ namespace Tools.Editor {
 
                 e.Use();
             } 
-            if (e.type == EventType.Repaint && _creator.fillArea)
+            if (e.type == EventType.Repaint && _creator.useArea)
             {
                 Color color = new Color(1f, 1f, 1f, 0.3f);
                 
@@ -162,7 +175,7 @@ namespace Tools.Editor {
                     float radiusMultiplier = Mathf.Sqrt(Random.Range(0f, 1f));
 
                     float radius = _creator.areaShape == LevelCreator.Shape.Ring
-                        ? _creator.areaSize / 2 - radiusMultiplier * _creator.thickness
+                        ? _creator.areaSize / 2 - (1 - radiusMultiplier) * _creator.thickness
                         : radiusMultiplier * (_creator.areaSize / 2);
                     
                     // Convert polar coordinates (angle, r) to Cartesian coordinates (x, y)
