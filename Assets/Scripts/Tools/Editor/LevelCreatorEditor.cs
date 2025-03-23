@@ -282,7 +282,7 @@ namespace Tools.Editor {
             if (_creator.useCurve) switch (_creator.areaShape)
             {
                 case LevelCreator.Shape.Square:
-                    maxDist = _creator.areaSize;
+                    maxDist = _creator.areaSize / 2;
                     break;
                 case LevelCreator.Shape.Circle:
                     maxDist = _creator.areaSize / 2;
@@ -307,7 +307,7 @@ namespace Tools.Editor {
                 if (_creator.useCurve) switch (_creator.areaShape)
                 {
                     case LevelCreator.Shape.Square:
-                        dist = Mathf.Abs(diff.x) + Mathf.Abs(diff.y);
+                        dist = Mathf.Max(Mathf.Abs(diff.x), Mathf.Abs(diff.y));
                         break;
                     case LevelCreator.Shape.Circle:
                         dist = diff.magnitude;
