@@ -43,7 +43,8 @@ namespace Game.Exploration.Child {
         internal float LastSpeed;
         
         private ChildState _currentState;
-        public PlayerPointCollision PointCollision => new PlayerPointCollision(transform.position);
+        public PlayerPointCollision NewPointCollision => new(transform.position);
+        private Vector2? _forceDirection = null;
 
         private void Awake() {
             TryGetComponent(out Rigidbody);
@@ -83,7 +84,14 @@ namespace Game.Exploration.Child {
             
             float? speed = _currentState.GetWalkSpeed();
             if (speed.HasValue) {
-                Rigidbody.linearVelocity = (float)speed * _currentState.GetWalkDirection();
+                Vector2 direction;
+                if (_forceDirection.HasValue) {
+                    direction = _forceDirection.Value;
+                } else {
+                    direction = _currentState.GetWalkDirection();
+                }
+                direction.Normalize();
+                Rigidbody.linearVelocity = (float)speed * direction;
                 LastSpeed = (float)speed;
             }
             
@@ -111,6 +119,51 @@ namespace Game.Exploration.Child {
             if (direction != Vector2.zero) LastDirection = direction;
             _currentState.OnMovementInput(direction);
         }
+        
+        private IEnumerator MoveUntilGrounded() {
+            float xSize = boxCollider.size.x / 2;
+            float ySize = boxCollider.size.y / 2;
+            int i = 0;
+            while (true) {
+                Vector2 pos = Rigidbody.position;
+                PlayerPointCollision topLeft = new PlayerPointCollision(pos + new Vector2(-xSize, ySize));
+                PlayerPointCollision topRight = new PlayerPointCollision(pos + new Vector2(xSize, ySize));
+                PlayerPointCollision bottomLeft = new PlayerPointCollision(pos + new Vector2(-xSize, -ySize));
+                PlayerPointCollision bottomRight = new PlayerPointCollision(pos + new Vector2(xSize, -ySize));
+            
+                if (topLeft.TouchingGround && topRight.TouchingGround && bottomLeft.TouchingGround && bottomRight.TouchingGround) {
+                    break;
+                }
+            
+                _forceDirection = Vector2.zero;
+                if (topLeft.TouchingGround) {
+                    _forceDirection += new Vector2(-1, 1);
+                }
+                if (topRight.TouchingGround) {
+                    _forceDirection += new Vector2(1, 1);
+                }
+                if (bottomLeft.TouchingGround) {
+                    _forceDirection += new Vector2(-1, -1);
+                }
+                if (bottomRight.TouchingGround) {
+                    _forceDirection += new Vector2(1, -1);
+                }
+
+                if (_forceDirection == Vector2.zero) {
+                    Debug.LogWarning("No force direction on child");
+                    break;
+                }
+
+                yield return new WaitForFixedUpdate();
+                i++;
+                if (i > 500) {
+                    Debug.LogError("Jumping for way too long");
+                    break;
+                }
+            }
+            TransitionToState(new Move(this));
+            _forceDirection = null;
+        }
 
         private void Attack() { _currentState.OnAttackInput(); }
 
@@ -125,5 +178,7 @@ namespace Game.Exploration.Child {
         public void Sleep(Vector3 position) { _currentState.Sleep(position); }
 
         public bool CanInteract() { return _currentState.CanInteract(); }
+
+        internal void StartMoveUntilGrounded() { StartCoroutine(MoveUntilGrounded()); }
     }
 }

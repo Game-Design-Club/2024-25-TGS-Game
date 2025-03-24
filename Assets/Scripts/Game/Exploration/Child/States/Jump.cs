@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using AppCore;
 using AppCore.InputManagement;
@@ -11,6 +12,7 @@ namespace Game.Exploration.Child {
         private float _t = 0;
         private bool _jumpReleased = false;
         private Vector2 _jumpDirection;
+        private bool _doneJumping = false;
         
         public override void Enter() {
             Controller.Animator.SetBool(AnimationConstants.Child.Jump, true);
@@ -22,6 +24,7 @@ namespace Game.Exploration.Child {
         }
 
         public override void Update() {
+            if (_doneJumping) return;
             _t += Time.deltaTime;
             if (_jumpReleased && _t >= Controller.minJumpTime) {
                 DoneJumping();
@@ -35,6 +38,7 @@ namespace Game.Exploration.Child {
         }
         
         private void DoneJumping() {
+            _doneJumping = true;
             Vector2 pos = Controller.Rigidbody.position;
             float xSize = Controller.boxCollider.size.x / 2;
             float ySize = Controller.boxCollider.size.y / 2;
@@ -44,15 +48,30 @@ namespace Game.Exploration.Child {
             PlayerPointCollision bottomLeft = new PlayerPointCollision(pos + new Vector2(-xSize, -ySize));
             PlayerPointCollision bottomRight = new PlayerPointCollision(pos + new Vector2(xSize, -ySize));
             
-            if (topLeft.TouchingRiver && topRight.TouchingRiver && bottomLeft.TouchingRiver && bottomRight.TouchingRiver) {
-                Controller.TransitionToState(new Float(Controller));
-                return;
-            }
-            if (topLeft.TouchingGround && topRight.TouchingGround && bottomLeft.TouchingGround && bottomRight.TouchingGround) {
+            if (DoAll(point => point.TouchingGround)) {
                 Controller.TransitionToState(new Move(Controller));
                 return;
             }
-            Controller.TransitionToState(new Move(Controller));
+            
+            if (DoAny(point => point.TouchingLog) || DoAny(point => point.TouchingRock)) {
+                Controller.StartMoveUntilGrounded();
+                return;
+            }
+            
+            if (DoAll(point => point.TouchingRiver)) {
+                Controller.TransitionToState(new Float(Controller));
+                return;
+            }
+            
+            Controller.StartMoveUntilGrounded();
+            
+            bool DoAll(Func<PlayerPointCollision, bool> predicate) {
+                return predicate(topLeft) && predicate(topRight) && predicate(bottomLeft) && predicate(bottomRight);
+            }
+
+            bool DoAny(Func<PlayerPointCollision, bool> predicate) {
+                return predicate(topLeft) || predicate(topRight) || predicate(bottomLeft) || predicate(bottomRight);
+            }
         }
 
         public override void OnJumpInputReleased() {

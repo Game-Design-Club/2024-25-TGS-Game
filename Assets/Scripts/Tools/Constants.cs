@@ -57,6 +57,9 @@ namespace Tools {
             public static string EnemyDestroyer = "EnemyDestroyer";
             public static string River = "River";
             public static string Ground = "Ground";
+            public static string Rock = "Rock";
+            public static string Log = "Log";
+            public static string RiverBase = "River Base";
         }
 
         public static class Layers {

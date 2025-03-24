@@ -1,9 +1,19 @@
+using System;
 using UnityEngine;
 
 namespace Game.Exploration.Enviornment.River {
     public class RiverChunk : MonoBehaviour {
         [SerializeField] private RiverDirection direction;
-        
+        [SerializeField] private Transform directionSprite;
+
+        private void OnValidate() {
+            directionSprite.rotation = Quaternion.Euler(0, 0, -(int) direction * 45);
+        }
+
+        private void Awake() {
+            directionSprite.gameObject.SetActive(false);
+        }
+
         public Vector2 GetDirection => direction switch {
             RiverDirection.Up => Vector2.up,
             RiverDirection.UpRight => new Vector2(1, 1),

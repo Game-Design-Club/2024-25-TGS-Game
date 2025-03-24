@@ -7,6 +7,7 @@ namespace Game.Exploration.Child {
         public Float(ChildController controller) : base(controller) { }
         
         RiverChunk _currentChunk;
+        private bool _doneFloating = false;
 
         public override void Enter() {
             Controller.Animator.SetBool(AnimationConstants.Child.Float, true);
@@ -15,10 +16,13 @@ namespace Game.Exploration.Child {
         }
 
         public override void Update() {
-            if (Controller.PointCollision.TouchingRiver) {
-                _currentChunk = Controller.PointCollision.River;
-            } else {
-                Controller.TransitionToState(new Move(Controller));
+            if (_doneFloating) return;
+            PlayerPointCollision pointCollision = Controller.NewPointCollision;
+            if (pointCollision.TouchingGround || pointCollision.TouchingLog) {
+                Controller.StartMoveUntilGrounded();
+                _doneFloating = true;
+            } else if (pointCollision.TouchingRiver) {
+                _currentChunk = pointCollision.River;
             }
         }
 

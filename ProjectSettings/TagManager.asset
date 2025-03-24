@@ -12,6 +12,9 @@ TagManager:
   - EnemyDestroyer
   - River
   - Ground
+  - Log
+  - Rock
+  - River Base
   layers:
   - Default
   - TransparentFX
