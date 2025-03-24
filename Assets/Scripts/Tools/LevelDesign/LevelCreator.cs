@@ -51,6 +51,8 @@ namespace Tools.LevelDesign {
             areaSize = Mathf.Clamp(Mathf.Max(0, areaSize), 0, 100);
             thickness = Mathf.Clamp(thickness, 1, areaSize / 2);
             gridSize = Mathf.Max(0, gridSize);
+            gridOffset.x %= gridSize;
+            gridOffset.y %= gridSize;
         }
     }
 }
