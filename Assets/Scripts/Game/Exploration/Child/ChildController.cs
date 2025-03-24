@@ -25,6 +25,10 @@ namespace Game.Exploration.Child {
         [SerializeField] internal AnimationCurve walkToPointCurve;
         [Header("SFX")]
         [SerializeField] internal SoundEffect walkSound;
+        [Header("Misc")]
+        [SerializeField] internal int childLayer;
+        [SerializeField] internal int jumpableLayer;
+        
         
         internal Rigidbody2D Rigidbody;
         internal Animator Animator;

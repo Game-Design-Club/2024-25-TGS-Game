@@ -20,10 +20,6 @@ namespace AppCore.InputManagement {
             SubscribeToBearInput();
         }
         
-        private void OnDisable() {
-            Debug.LogError("Input Manager Was Disabled???!!!");
-        }
-
         private void OnGameEvent(GameEvent gameEvent) {
             switch (gameEvent.GameEventType) {
                 case GameEventType.Combat:

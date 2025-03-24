@@ -16,6 +16,7 @@ namespace Game.Exploration.Child {
             if (!App.Get<InputManager>().GetChildJump) {
                 _jumpReleased = true;
             }
+            Physics2D.IgnoreLayerCollision(Controller.childLayer, Controller.jumpableLayer, true);
         }
 
         public override void Update() {
@@ -45,6 +46,8 @@ namespace Game.Exploration.Child {
 
         public override void Exit() {
             Controller.Animator.SetBool(AnimationConstants.Child.Jump, false);
+            Physics2D.IgnoreLayerCollision(Controller.childLayer, Controller.jumpableLayer, false);
+            
         }
     }
 }

@@ -377,7 +377,7 @@ GameObject:
   - component: {fileID: 6136753667668719404}
   - component: {fileID: 1426669052964081732}
   - component: {fileID: 2034719501900989585}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: River
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -722,6 +722,14 @@ PrefabInstance:
     - target: {fileID: 4649313712946160752, guid: 2fba5342069744a01806d4c64bf2923b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678688238882676191, guid: 2fba5342069744a01806d4c64bf2923b, type: 3}
+      propertyPath: childLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678688238882676191, guid: 2fba5342069744a01806d4c64bf2923b, type: 3}
+      propertyPath: jumpableLayer.m_Bits
+      value: 1024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
