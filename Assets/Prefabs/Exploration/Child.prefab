@@ -111,7 +111,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.5}
+  m_Size: {x: 0.95, y: 0.5}
   m_EdgeRadius: 0
 --- !u!95 &7692773190743548414
 Animator:
@@ -147,12 +147,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d76e71f77f0452ebc575fab3d575e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentStateName: CurrentState
   rotateTransform: {fileID: 6922884373588637876}
   spriteRenderer: {fileID: 5847314838264712324}
+  boxCollider: {fileID: 5901805375566032894}
   walkSpeed: 5
   minJumpTime: 1
   maxJumpTime: 1.5
   jumpSpeed: 4
+  floatSpeed: 2
   walkToPointCurve:
     serializedVersion: 2
     m_Curve:

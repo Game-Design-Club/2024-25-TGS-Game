@@ -21,6 +21,7 @@ namespace Game.Exploration.Child {
         }
 
         public override void Enter() {
+            Physics2D.IgnoreLayerCollision(Controller.childLayer, Controller.jumpableLayer, false);
             Controller.walkSound.paused = () => Controller.LastInput.magnitude <= .1f;
             Controller.walkSound.Play();
         }

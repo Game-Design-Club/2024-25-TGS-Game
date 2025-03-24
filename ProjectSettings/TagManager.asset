@@ -10,7 +10,8 @@ TagManager:
   - Interactable
   - Bear Enemy Hittable
   - EnemyDestroyer
-  - Jumpable
+  - River
+  - Ground
   layers:
   - Default
   - TransparentFX

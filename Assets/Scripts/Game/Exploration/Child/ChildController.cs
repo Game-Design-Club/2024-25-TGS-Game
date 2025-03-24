@@ -11,15 +11,19 @@ using UnityEngine.Serialization;
 
 namespace Game.Exploration.Child {
     public class ChildController : MonoBehaviour {
+        [SerializeField] private string currentStateName = "CurrentState";
         [Header("References")]
         [SerializeField] private Transform rotateTransform;
         [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] internal BoxCollider2D boxCollider;
         [Header("Idle State")]
         [SerializeField] internal float walkSpeed = 5f;
         [Header("Jumping")]
         [SerializeField] internal float minJumpTime = 1f;
         [SerializeField] internal float maxJumpTime = 1.5f;
         [SerializeField] internal float jumpSpeed = 4f;
+        [Header("Floating")]
+        [SerializeField] internal float floatSpeed = 1f;
         [Header("Walk to Sleep")]
         [FormerlySerializedAs("walkToSleepCurve")]
         [SerializeField] internal AnimationCurve walkToPointCurve;
@@ -39,7 +43,8 @@ namespace Game.Exploration.Child {
         internal float LastSpeed;
         
         private ChildState _currentState;
-        
+        public PlayerPointCollision PointCollision => new PlayerPointCollision(transform.position);
+
         private void Awake() {
             TryGetComponent(out Rigidbody);
             TryGetComponent(out Animator);
@@ -70,6 +75,7 @@ namespace Game.Exploration.Child {
             _currentState?.Exit();
             _currentState = newState;
             _currentState.Enter();
+            currentStateName = _currentState.GetType().Name;
         }
 
         private void Update() {
