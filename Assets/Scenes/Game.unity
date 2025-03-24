@@ -4072,16 +4072,52 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
+      propertyPath: areaSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
+      propertyPath: gridSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
+      propertyPath: useCurve
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
+      propertyPath: areaShape
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
       propertyPath: isErasing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
+      propertyPath: thickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
+      propertyPath: snapToGrid
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
+      propertyPath: gridOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
+      propertyPath: gridOffset.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
       propertyPath: activeModuleIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
+      propertyPath: modules.Array.data[0].activeModule
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
       propertyPath: modules.Array.data[1].activeModule
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3360241122670118459, guid: 56da11354b9d94f49be17eadfb15a369, type: 3}
       propertyPath: modules.Array.data[3].activeModule

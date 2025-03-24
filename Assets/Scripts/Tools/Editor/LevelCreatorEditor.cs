@@ -49,13 +49,13 @@ namespace Tools.Editor {
             // Iterate through properties and selectively draw them
             SerializedProperty property = serializedObject.GetIterator();
             property.NextVisible(true); // Skip "m_Script"
-            string[] indentProperty = new[] { "areaSize", "density", "thickness", "areaShape", "gridSize", "useCurve", "curve", "strength"};
+            string[] indentProperty = new[] { "areaSize", "density", "thickness", "areaShape", "gridSize", "useCurve", "curve", "strength", "gridOffset"};
 
             while (property.NextVisible(false))
             {
                 if (property.name == "activeModuleIndex") continue;
 
-                
+                //Conditional drawing for isErasing 
                 if (property.name == "useCurve" && !_creator.isErasing) continue;
                 if (property.name == "strengthCurve" && (!_creator.isErasing || !_creator.useCurve)) continue;
                 if (property.name == "strength" && (!_creator.isErasing || _creator.useCurve)) continue;
@@ -67,21 +67,31 @@ namespace Tools.Editor {
                     if (property.name == "areaShape") continue;
                 }
                 
+                //Misc conditional
                 if (property.name == "density" && (_creator.isErasing || !_creator.useArea)) continue;
                 if (property.name == "thickness" && (!_creator.useArea || _creator.areaShape != LevelCreator.Shape.Ring)) continue;
                 
 
 
                 // Conditional drawing for gridSize
-                if (property.name == "gridSize" && !_creator.snapToGrid) continue;
+                if (!_creator.snapToGrid)
+                {
+                    if (property.name == "gridSize") continue;
+                    if (property.name == "gridOffset") continue;
+                }
 
+                //indentation adjustment
                 if (indentProperty.Contains(property.name)) EditorGUI.indentLevel++;
 
+                //deactivating useArea when isErasing
                 if (_creator.isErasing && property.name == "useArea") EditorGUI.BeginDisabledGroup(true);
+                
                 EditorGUILayout.PropertyField(property, true);
+                
+                //Ending deactivation
                 if (_creator.isErasing && property.name == "useArea") EditorGUI.EndDisabledGroup();
 
-                
+                //indentation reset
                 EditorGUI.indentLevel = 0;
             }
 
@@ -96,11 +106,13 @@ namespace Tools.Editor {
         
             Event e = Event.current;
             Vector2 mousePosition = HandleUtility.GUIPointToWorldRay(e.mousePosition).origin;
+            
+            //Changing position if snapping to grid
             if (_creator.snapToGrid) {
-                mousePosition = new Vector2(Mathf.Round(mousePosition.x / _creator.gridSize) * _creator.gridSize, Mathf.Round(mousePosition.y / _creator.gridSize) * _creator.gridSize);
+                mousePosition = new Vector2(Mathf.Round((mousePosition.x - _creator.gridOffset.x) / _creator.gridSize) * _creator.gridSize + _creator.gridOffset.x, Mathf.Round((mousePosition.y - _creator.gridOffset.y) / _creator.gridSize) * _creator.gridSize + _creator.gridOffset.y);
             }
             
-            
+            //adding/removing from scene
             if (e.type == EventType.MouseDown && e.button == 0) {
                 if (_creator.useArea)
                 {
@@ -121,7 +133,7 @@ namespace Tools.Editor {
                 e.Use();
             } 
             
-            
+            //Drawing preview of area
             if (e.type == EventType.Repaint && _creator.useArea)
             {
                 Color color = new Color(1f, 1f, 1f, 0.3f);
@@ -166,6 +178,7 @@ namespace Tools.Editor {
 
         private void FillArea(Vector2 center)
         {
+            //Finding the area (unit^2) of the area
             float area = _creator.areaSize * _creator.areaSize;
             if (_creator.areaShape == LevelCreator.Shape.Circle || _creator.areaShape == LevelCreator.Shape.Ring)
             {
@@ -173,10 +186,13 @@ namespace Tools.Editor {
                 
                 if (_creator.areaShape == LevelCreator.Shape.Ring) area -= Mathf.PI * (_creator.areaSize / 2 - _creator.thickness) * (_creator.areaSize / 2 - _creator.thickness);
             }
+            
+            //randomly generating new objects
             for (int i = 0; i < _creator.density * area; i++)
             {
                 Vector2 position = new Vector2();
 
+                //generation dependant on shape
                 if (_creator.areaShape == LevelCreator.Shape.Square)
                 {
                     position = new Vector2(center.x + Random.Range(-_creator.areaSize, _creator.areaSize) / 2,
@@ -184,12 +200,15 @@ namespace Tools.Editor {
                 }else if (_creator.areaShape == LevelCreator.Shape.Circle ||
                           _creator.areaShape == LevelCreator.Shape.Ring)
                 {
+                    //Generation of uniformly random points in a circle had help from El Señor GPT
+                    
                     // Random angle between 0 and 2 * PI
                     float angle = Random.Range(0f, 2f * Mathf.PI);
                     
                     // Random radius with a uniform distribution
                     float radiusMultiplier = Mathf.Sqrt(Random.Range(0f, 1f));
 
+                    //Adjustment for ring if needed
                     float radius = _creator.areaShape == LevelCreator.Shape.Ring
                         ? _creator.areaSize / 2 - (1 - radiusMultiplier) * _creator.thickness
                         : radiusMultiplier * (_creator.areaSize / 2);
@@ -262,6 +281,7 @@ namespace Tools.Editor {
 
         private void EraseArea(Vector2 center)
         {
+            //Finding objects
             Collider2D[] colliders;
             if (_creator.areaShape == LevelCreator.Shape.Circle || _creator.areaShape == LevelCreator.Shape.Ring)
             {
@@ -276,6 +296,7 @@ namespace Tools.Editor {
                 return;
             }
 
+            //
             float maxDist = 0;
             if (_creator.useCurve) switch (_creator.areaShape)
             {

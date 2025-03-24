@@ -19,6 +19,7 @@ namespace Tools.LevelDesign {
         [Range(0f, 1f)][SerializeField] public float strength = 1f;
         [SerializeField] public bool snapToGrid = true;
         [SerializeField] public float gridSize = .5f;
+        [SerializeField] public Vector2 gridOffset = new Vector2();
         [SerializeField] public bool useArea = false;
         [SerializeField] public Shape areaShape = Shape.Square;
         [SerializeField] public float areaSize = .5f;
