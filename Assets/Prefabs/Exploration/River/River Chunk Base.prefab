@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2366050138768145638, guid: 739f4bc265068469cbc5936c4dd8be58, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366050138768145638, guid: 739f4bc265068469cbc5936c4dd8be58, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
     - target: {fileID: 4361508689109109653, guid: 739f4bc265068469cbc5936c4dd8be58, type: 3}
       propertyPath: m_Name
       value: River Chunk Base

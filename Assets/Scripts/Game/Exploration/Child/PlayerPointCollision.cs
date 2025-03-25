@@ -36,7 +36,7 @@ namespace Game.Exploration.Child {
                 }
             }
             
-            if (!TouchingRiverAddition && !TouchingRiverBase && !TouchingRock && !TouchingLog) {
+            if (!TouchingRiverBase && !TouchingRock && !TouchingLog) {
                 TouchingGround = true;
             }
         }

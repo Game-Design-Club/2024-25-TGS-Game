@@ -278,7 +278,14 @@ MonoBehaviour:
     customRandomizeFlags: 
   - activeModule: 0
     objectPlacingPrefab: {fileID: 7816022986181279604, guid: dec5a2f3c092c42bd80a4220283dc574, type: 3}
-    parentTransform: {fileID: 5191933452643209079}
+    parentTransform: {fileID: 7638828750428747691}
+    tryRandomize: 0
+    randomizeFlip: 0
+    useFlags: 0
+    customRandomizeFlags: 
+  - activeModule: 0
+    objectPlacingPrefab: {fileID: 6445704979239630697, guid: 54f75fe77847a45b389521f7f80173f2, type: 3}
+    parentTransform: {fileID: 7638828750428747691}
     tryRandomize: 0
     randomizeFlip: 0
     useFlags: 0
