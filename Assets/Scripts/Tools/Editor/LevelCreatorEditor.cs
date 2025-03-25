@@ -13,7 +13,7 @@ namespace Tools.Editor {
     public class LevelCreatorEditor : UnityEditor.Editor
     {
         private LevelCreator _creator;
-        private Vector2 lastMousePosition;
+        private bool showModulesFoldout = true;
         private void OnEnable() {
             SceneView.duringSceneGui += OnSceneGUI;
         }
@@ -27,11 +27,12 @@ namespace Tools.Editor {
             serializedObject.Update();
 
             _creator = (LevelCreator)target;
-
+            
             // Draw a custom dropdown for selecting the active module
+            string[] moduleNames = Array.Empty<string>();
             if (_creator.modules != null && _creator.modules.Length > 0)
             {
-                string[] moduleNames = new string[_creator.modules.Length];
+                moduleNames = new string[_creator.modules.Length];
                 for (int i = 0; i < _creator.modules.Length; i++)
                 {
                     moduleNames[i] = (_creator.modules[i].objectPlacingPrefab != null)
@@ -172,8 +173,6 @@ namespace Tools.Editor {
 
                 SceneView.RepaintAll();
             }
-
-            lastMousePosition = mousePosition;
         }
 
         private void FillArea(Vector2 center)
