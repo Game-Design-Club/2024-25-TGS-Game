@@ -152,10 +152,10 @@ MonoBehaviour:
   spriteRenderer: {fileID: 5847314838264712324}
   boxCollider: {fileID: 5901805375566032894}
   walkSpeed: 5
-  minJumpTime: 1
-  maxJumpTime: 1.5
-  jumpSpeed: 4
-  floatSpeed: 2
+  minJumpTime: 0.6
+  maxJumpTime: 0.85
+  jumpSpeed: 6
+  floatSpeed: 1
   walkToPointCurve:
     serializedVersion: 2
     m_Curve:
