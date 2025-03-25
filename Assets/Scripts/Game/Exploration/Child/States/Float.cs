@@ -27,7 +27,7 @@ namespace Game.Exploration.Child {
         }
 
         public override float? GetWalkSpeed() {
-            return Controller.floatSpeed;
+            return _currentChunk.floatSpeed;
         }
 
         public override Vector2 GetWalkDirection() {

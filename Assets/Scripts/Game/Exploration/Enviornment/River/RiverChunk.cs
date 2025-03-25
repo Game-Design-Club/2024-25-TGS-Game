@@ -5,6 +5,7 @@ namespace Game.Exploration.Enviornment.River {
     public class RiverChunk : MonoBehaviour {
         [SerializeField] private RiverDirection direction;
         [SerializeField] private Transform directionSprite;
+        [SerializeField] public float floatSpeed = 3f;
 
         private void OnValidate() {
             directionSprite.rotation = Quaternion.Euler(0, 0, -(int) direction * 45);
