@@ -262,12 +262,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5f9aaa5a224409a186662bd1170287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlacing: 1
+  isActive: 0
+  isErasing: 0
+  saveToPrefab: 0
+  useCurve: 0
+  strengthCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  strength: 1
   snapToGrid: 1
   gridSize: 0.5
-  fillArea: 0
+  gridOffset: {x: 0, y: 0}
+  useArea: 0
+  areaShape: 0
   areaSize: 0.5
+  thickness: 1
   density: 0.05
+  activeModuleIndex: 0
   modules:
   - activeModule: 1
     objectPlacingPrefab: {fileID: 6189955152648283016, guid: 46179f401b36e4658b40aa35f4160e91, type: 3}
@@ -290,7 +304,6 @@ MonoBehaviour:
     randomizeFlip: 0
     useFlags: 0
     customRandomizeFlags: 
-  activeModuleIndex: 0
 --- !u!1 &2947400815717347156
 GameObject:
   m_ObjectHideFlags: 0
