@@ -6,7 +6,8 @@ namespace Game.Exploration.Child {
     public class PlayerPointCollision {
         public readonly Collider2D[] Colliders = new Collider2D[10];
         public Vector2 Point;
-        public bool TouchingRiver => TouchingRiverAddition || TouchingRiverBase;
+        public bool TouchingRiver => TouchingRiverBase || (TouchingRiverAddition && TouchingRiverBase);
+        public bool TouchingLand => TouchingGround || TouchingRock || TouchingLog;  
         public bool TouchingRiverAddition = false;
         public bool TouchingRiverBase = false;
         public bool TouchingRock = false;

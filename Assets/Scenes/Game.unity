@@ -1683,10 +1683,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: River Test
       objectReference: {fileID: 0}
-    - target: {fileID: 5286235483656264352, guid: d8689ee7af411491fab888ce8631a8f0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -39,39 +39,7 @@ namespace Game.Exploration.Child {
         
         private void DoneJumping() {
             _doneJumping = true;
-            Vector2 pos = Controller.Rigidbody.position;
-            float xSize = Controller.boxCollider.size.x / 2;
-            float ySize = Controller.boxCollider.size.y / 2;
-            
-            PlayerPointCollision topLeft = new PlayerPointCollision(pos + new Vector2(-xSize, ySize));
-            PlayerPointCollision topRight = new PlayerPointCollision(pos + new Vector2(xSize, ySize));
-            PlayerPointCollision bottomLeft = new PlayerPointCollision(pos + new Vector2(-xSize, -ySize));
-            PlayerPointCollision bottomRight = new PlayerPointCollision(pos + new Vector2(xSize, -ySize));
-            
-            if (DoAll(point => point.TouchingGround)) {
-                Controller.TransitionToState(new Move(Controller));
-                return;
-            }
-            
-            if (DoAny(point => point.TouchingLog) || DoAny(point => point.TouchingRock)) {
-                Controller.StartMoveUntilGrounded();
-                return;
-            }
-            
-            if (DoAll(point => point.TouchingRiver)) {
-                Controller.TransitionToState(new Float(Controller));
-                return;
-            }
-            
-            Controller.StartMoveUntilGrounded();
-            
-            bool DoAll(Func<PlayerPointCollision, bool> predicate) {
-                return predicate(topLeft) && predicate(topRight) && predicate(bottomLeft) && predicate(bottomRight);
-            }
-
-            bool DoAny(Func<PlayerPointCollision, bool> predicate) {
-                return predicate(topLeft) || predicate(topRight) || predicate(bottomLeft) || predicate(bottomRight);
-            }
+            Controller.LandPlayer();
         }
 
         public override void OnJumpInputReleased() {

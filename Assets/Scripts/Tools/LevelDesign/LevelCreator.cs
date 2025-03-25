@@ -11,7 +11,7 @@ namespace Tools.LevelDesign {
         [SerializeField] public bool fillArea = false;
         [SerializeField] public float areaSize = .5f;
         [SerializeField] public float density = .05f;
-        [SerializeField] public LevelCreatorModule[] modules;
+        [SerializeField] public LevelCreatorModule[] modules = Array.Empty<LevelCreatorModule>();
         [HideInInspector] public int activeModuleIndex = 0;
         public GameObject ObjectPlacingPrefab => modules[activeModuleIndex].objectPlacingPrefab;
         public Transform ParentTransform => modules[activeModuleIndex].parentTransform;

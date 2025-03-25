@@ -69,7 +69,11 @@ namespace Game.Exploration.Child {
         private void Start() {
             Vector3? position = App.Get<DataManager>().PlayerPosition;
             transform.position = (Vector3)position;
-            TransitionToState(new Move(this));
+            if (new PlayerPointCollision(transform.position).TouchingRiver) {
+                TransitionToState(new Float(this));
+            } else {
+                TransitionToState(new Move(this));
+            }
         }
         
         internal void TransitionToState(ChildState newState) {
@@ -131,21 +135,21 @@ namespace Game.Exploration.Child {
                 PlayerPointCollision bottomLeft = new PlayerPointCollision(pos + new Vector2(-xSize, -ySize));
                 PlayerPointCollision bottomRight = new PlayerPointCollision(pos + new Vector2(xSize, -ySize));
             
-                if (topLeft.TouchingGround && topRight.TouchingGround && bottomLeft.TouchingGround && bottomRight.TouchingGround) {
+                if (topLeft.TouchingLand && topRight.TouchingLand && bottomLeft.TouchingLand && bottomRight.TouchingLand) {
                     break;
                 }
             
                 _forceDirection = Vector2.zero;
-                if (topLeft.TouchingGround) {
+                if (topLeft.TouchingLand) {
                     _forceDirection += new Vector2(-1, 1);
                 }
-                if (topRight.TouchingGround) {
+                if (topRight.TouchingLand) {
                     _forceDirection += new Vector2(1, 1);
                 }
-                if (bottomLeft.TouchingGround) {
+                if (bottomLeft.TouchingLand) {
                     _forceDirection += new Vector2(-1, -1);
                 }
-                if (bottomRight.TouchingGround) {
+                if (bottomRight.TouchingLand) {
                     _forceDirection += new Vector2(1, -1);
                 }
 
@@ -180,5 +184,42 @@ namespace Game.Exploration.Child {
         public bool CanInteract() { return _currentState.CanInteract(); }
 
         internal void StartMoveUntilGrounded() { StartCoroutine(MoveUntilGrounded()); }
+
+        public void LandPlayer() {
+            Vector2 pos = Rigidbody.position;
+            float xSize = boxCollider.size.x / 2;
+            float ySize = boxCollider.size.y / 2;
+            
+            PlayerPointCollision topLeft = new PlayerPointCollision(pos + new Vector2(-xSize, ySize));
+            PlayerPointCollision topRight = new PlayerPointCollision(pos + new Vector2(xSize, ySize));
+            PlayerPointCollision bottomLeft = new PlayerPointCollision(pos + new Vector2(-xSize, -ySize));
+            PlayerPointCollision bottomRight = new PlayerPointCollision(pos + new Vector2(xSize, -ySize));
+            
+            if (DoAll(point => point.TouchingGround)) {
+                TransitionToState(new Move(this));
+                return;
+            }
+            
+            if (DoAny(point => point.TouchingLog) || DoAny(point => point.TouchingRock)) {
+                StartMoveUntilGrounded();
+                return;
+            }
+            
+            if (DoAll(point => point.TouchingRiver)) {
+                TransitionToState(new Float(this));
+                return;
+            }
+            
+            StartMoveUntilGrounded();
+            
+            bool DoAll(Func<PlayerPointCollision, bool> predicate) {
+                return predicate(topLeft) && predicate(topRight) && predicate(bottomLeft) && predicate(bottomRight);
+            }
+
+            bool DoAny(Func<PlayerPointCollision, bool> predicate) {
+                return predicate(topLeft) || predicate(topRight) || predicate(bottomLeft) || predicate(bottomRight);
+            }
+
+        }
     }
 }
