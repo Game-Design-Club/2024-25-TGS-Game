@@ -68,6 +68,7 @@ namespace Game.GameManagement {
         }
 
         private void Start() {
+            GameEventType = GameEventType.ExploreEnter;
             GameEventType = GameEventType.Explore;
         }
 

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace AppCore.DataManagement
 {
@@ -10,6 +11,7 @@ namespace AppCore.DataManagement
         private Dictionary<string, bool> _boolFlags;
         public List<string> FoundScrapbookItems { get; private set; }
         public Vector3 PlayerPosition { get; private set; }
+        [FormerlySerializedAs("setPlayerPosition")] public bool firstLevelLoad = true;
 
         private void Awake() {
             if (_saveFilePath == null) {
@@ -30,6 +32,7 @@ namespace AppCore.DataManagement
                 FoundScrapbookItems = new();
                 PlayerPosition = Vector3.zero;
                 _saveFilePath = Path.Combine(Application.persistentDataPath, $"savedata{i}.json");
+                firstLevelLoad = true;
                 Save();
             }
         }
@@ -61,6 +64,7 @@ namespace AppCore.DataManagement
         public void UpdatePlayerPosition(Vector3 newPosition)
         {
             PlayerPosition = newPosition;
+            firstLevelLoad = false;
         }
 
         public void Save() {
@@ -74,6 +78,7 @@ namespace AppCore.DataManagement
 
             data.foundScrapbookItems = FoundScrapbookItems;
             data.playerPosition = PlayerPosition;
+            data.firstLevelLoad = firstLevelLoad;
 
             string json = JsonUtility.ToJson(data, true);
             File.WriteAllText(_saveFilePath, json);
@@ -96,6 +101,7 @@ namespace AppCore.DataManagement
 
                 FoundScrapbookItems = data.foundScrapbookItems;
                 PlayerPosition = data.playerPosition;
+                firstLevelLoad = data.firstLevelLoad;
             }
             else
             {
@@ -138,5 +144,6 @@ namespace AppCore.DataManagement
         public List<BoolFlag> boolFlags;
         public List<string> foundScrapbookItems;
         public Vector3 playerPosition;
+        public bool firstLevelLoad = true;
     }
 }

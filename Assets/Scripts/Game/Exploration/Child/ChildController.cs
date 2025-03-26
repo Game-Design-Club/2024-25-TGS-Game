@@ -67,8 +67,13 @@ namespace Game.Exploration.Child {
         }
 
         private void Start() {
-            Vector3? position = App.Get<DataManager>().PlayerPosition;
-            transform.position = (Vector3)position;
+            Vector3 position;
+            if (App.Get<DataManager>().firstLevelLoad) {
+                position = LevelManager.GetCurrentLevel().spawnPoint.position;
+            } else {
+                position = App.Get<DataManager>().PlayerPosition;
+            }
+            transform.position = position;
             if (new PlayerPointCollision(transform.position).TouchingRiver) {
                 TransitionToState(new Float(this));
             } else {
