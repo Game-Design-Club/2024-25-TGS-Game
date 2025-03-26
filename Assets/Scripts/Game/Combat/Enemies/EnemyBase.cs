@@ -70,13 +70,13 @@ namespace Game.Combat.Enemies {
             health -= damage;
             
             ProcessHit(hitDirection, knockbackForce, damageType);
-
-            if (damage > 0) {
-                this.CreateParticles(hitParticles, transform.position, hitDirection);
-            }
             
             if (health <= 0) {
                 HandleDeath();
+            }
+            
+            if (damage > 0) {
+                this.CreateParticles(hitParticles, transform.position, hitDirection);
             }
         }
 

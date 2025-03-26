@@ -15,13 +15,14 @@ namespace AppCore {
         
         private readonly Dictionary<Type, AppModule> _moduleDictionary = new();
         
+        // ReSharper disable Unity.PerformanceAnalysis
         public static T Get<T>() where T : AppModule {
             if (_instance._moduleDictionary.TryGetValue(typeof(T), out AppModule module)) {
                 return (T) module;
-            } else {
-                Debug.LogError($"No instance of {typeof(T)} found in App.");
-                return null;
             }
+
+            Debug.LogError($"No instance of {typeof(T)} found in App.");
+            return null;
         }
 
         private void Awake() {

@@ -53,6 +53,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""76ae9fd1-628b-4c20-b78c-df5128c7ce87"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -174,6 +183,17 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""41de53bc-f819-4d44-beeb-8615661509e2"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -971,6 +991,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Child_Move = m_Child.FindAction("Move", throwIfNotFound: true);
         m_Child_Interact = m_Child.FindAction("Interact", throwIfNotFound: true);
         m_Child_Attack = m_Child.FindAction("Attack", throwIfNotFound: true);
+        m_Child_Jump = m_Child.FindAction("Jump", throwIfNotFound: true);
         // Bear
         m_Bear = asset.FindActionMap("Bear", throwIfNotFound: true);
         m_Bear_Swipe = m_Bear.FindAction("Swipe", throwIfNotFound: true);
@@ -1061,6 +1082,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Child_Move;
     private readonly InputAction m_Child_Interact;
     private readonly InputAction m_Child_Attack;
+    private readonly InputAction m_Child_Jump;
     public struct ChildActions
     {
         private @PlayerInputs m_Wrapper;
@@ -1068,6 +1090,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Child_Move;
         public InputAction @Interact => m_Wrapper.m_Child_Interact;
         public InputAction @Attack => m_Wrapper.m_Child_Attack;
+        public InputAction @Jump => m_Wrapper.m_Child_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Child; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1086,6 +1109,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
         }
 
         private void UnregisterCallbacks(IChildActions instance)
@@ -1099,6 +1125,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
         }
 
         public void RemoveCallbacks(IChildActions instance)
@@ -1362,6 +1391,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
     public interface IBearActions
     {

@@ -12,11 +12,11 @@ namespace Game.Exploration.Child {
         public virtual void Enter() { }
         public virtual void Exit() { }
         public virtual void Update() { }
-        
         public virtual void OnMovementInput(Vector2 direction) { }
 
         public virtual void OnAttackInput(){}
-        
+        public virtual void OnJumpInput() {}
+        public virtual void OnJumpInputReleased() { }
         public virtual void OnAttackAnimationOver(){}
 
         public virtual float? GetWalkSpeed() {
@@ -48,5 +48,7 @@ namespace Game.Exploration.Child {
         public void Sleep(Vector3 position) {
             Controller.TransitionToState(new Sleep(Controller, position));
         }
+
+        public virtual bool CanInteract() { return true; }
     }
 }

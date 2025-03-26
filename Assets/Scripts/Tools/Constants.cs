@@ -25,6 +25,8 @@ namespace Tools {
             public static class Child {
                 public const string Sleep = "Sleep";
                 public static string Attack = "Attack";
+                public static string Jump = "Jump";
+                public static string Float = "Float";
             }
 
             public static class DialogueBox {
@@ -53,6 +55,11 @@ namespace Tools {
             public static string Bear = "Bear";
             public static string BearEnemyDamageable = "Bear Enemy Hittable";
             public static string EnemyDestroyer = "EnemyDestroyer";
+            public static string River = "River";
+            public static string Ground = "Ground";
+            public static string Rock = "Rock";
+            public static string Log = "Log";
+            public static string RiverBase = "River Base";
         }
 
         public static class Layers {

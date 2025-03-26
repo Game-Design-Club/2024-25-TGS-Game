@@ -14,7 +14,14 @@ namespace Game.Exploration.Child {
             }
         }
 
+        public override void OnJumpInput() {
+            // if (App.Get<DataManager>().GetFlag(BoolFlags.HasJump)) {
+            Controller.TransitionToState(new Jump(Controller));
+        //}
+        }
+
         public override void Enter() {
+            Physics2D.IgnoreLayerCollision(Controller.childLayer, Controller.jumpableLayer, false);
             Controller.walkSound.paused = () => Controller.LastInput.magnitude <= .1f;
             Controller.walkSound.Play();
         }

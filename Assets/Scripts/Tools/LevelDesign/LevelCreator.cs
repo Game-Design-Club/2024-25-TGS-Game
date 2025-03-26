@@ -25,8 +25,8 @@ namespace Tools.LevelDesign {
         [SerializeField] public float areaSize = .5f;
         [SerializeField] public float thickness = 10f;
         [Range(0f, .3f)][SerializeField] public float density = .05f;
-        [SerializeField] public LevelCreatorModule[] modules;
         [HideInInspector] public int activeModuleIndex = 0;
+        [SerializeField] public LevelCreatorModule[] modules = Array.Empty<LevelCreatorModule>();
         public GameObject ObjectPlacingPrefab => modules[activeModuleIndex].objectPlacingPrefab;
         public Transform ParentTransform => modules[activeModuleIndex].parentTransform;
         public bool TryRandomize => modules[activeModuleIndex].tryRandomize;

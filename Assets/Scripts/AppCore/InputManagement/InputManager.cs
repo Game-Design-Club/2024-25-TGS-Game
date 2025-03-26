@@ -1,4 +1,5 @@
 using Game.GameManagement;
+using UnityEngine;
 
 namespace AppCore.InputManagement {
     public partial class InputManager : AppModule {
@@ -19,16 +20,6 @@ namespace AppCore.InputManagement {
             SubscribeToBearInput();
         }
         
-        private void OnDisable() {
-            GameManager.OnGameEvent -= OnGameEvent;
-            
-            _playerInputs.Disable();
-            
-            UnsubscribeFromUIInput();
-            UnsubscribeFromChildInput();
-            UnsubscribeFromBearInput();
-        }
-
         private void OnGameEvent(GameEvent gameEvent) {
             switch (gameEvent.GameEventType) {
                 case GameEventType.Combat:
