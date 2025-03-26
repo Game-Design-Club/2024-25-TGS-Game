@@ -41,7 +41,7 @@ namespace Game.GameManagement {
         public static event Action OnPageUp;
 
         private void Start() {
-            rtCanvas.gameObject.SetActive(false);
+            rtCanvas.gameObject.SetActive(true);
             EventSystem.current.firstSelectedGameObject = resumeButton.gameObject;
             // sbSpreadObject.SetActive(false);
             // coverObject.SetActive(false);
