@@ -21,8 +21,13 @@ namespace Game.Exploration.Enviornment.River {
             
             Vector2 effectiveSize = new Vector2(originSize.x * child.localScale.x / lossyScale.x, originSize.y * child.localScale.y / lossyScale.y);
             collider.size = effectiveSize;
+
+            Vector2 position = child.position;
+            if (child.TryGetComponent(out Rigidbody2D rb)) {
+                position = rb.position;
+            }
             
-            collider.offset = transform.InverseTransformPoint(child.position);
+            collider.offset = transform.InverseTransformPoint(position);
             collider.compositeOperation = Collider2D.CompositeOperation.Difference;
             addedColliders.Add(collider);
         }

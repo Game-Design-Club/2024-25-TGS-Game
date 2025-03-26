@@ -259,10 +259,12 @@ namespace Tools.Editor {
                     }
                 }
                 
-                if (newObj.TryGetComponent(out DestroyIfSavedFlag destroyIfSavedFlag))
+                DataID dataID = newObj.GetComponent<DataID>();
+                if (dataID != null)
                 {
-                    destroyIfSavedFlag.GenerateID();
+                    dataID.GenerateID();
                 }
+                
                 
                 Undo.RegisterCreatedObjectUndo(newObj, "Place Prefab");
             }
