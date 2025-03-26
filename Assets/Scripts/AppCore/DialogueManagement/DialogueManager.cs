@@ -59,10 +59,11 @@ namespace AppCore.DialogueManagement {
 
         public void StartDialogue(Dialogue dialogue, Action callback)
         {
+            Debug.Log("Starting dialoguee: " + dialogue.name);
             if (_currentDialogue != null) {
                 Debug.LogWarning(_currentDialogue == dialogue
-                    ? "Tried to play cutscene while already playing that dialogue"
-                    : "Tried to play a cutscene while playing another dialogue");
+                    ? "Tried to play dialogue while already playing that dialogue"
+                    : "Tried to play dialogue while playing another dialogue");
             }
 
             _currentDialogue = dialogue;

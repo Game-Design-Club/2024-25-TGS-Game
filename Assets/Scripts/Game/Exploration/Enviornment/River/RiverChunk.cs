@@ -8,7 +8,7 @@ namespace Game.Exploration.Enviornment.River {
         [SerializeField] public float floatSpeed = 3f;
 
         private void OnValidate() {
-            directionSprite.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.right, direction));
+            directionSprite.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, direction));
         }
 
         private void Awake() {

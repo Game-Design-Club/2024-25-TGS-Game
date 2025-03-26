@@ -8,7 +8,7 @@ namespace AppCore.ParticlesManagement {
         
         public void SpawnParticles(GameObject particles, Vector3 position, float rotation) {
             if (particles == null) return;
-            Instantiate(particles, position, Quaternion.Euler(0, 0, rotation), transform);
+            Instantiate(particles, position, Quaternion.Euler(0, 0, rotation));
         }
         
         public void SpawnParticles(GameObject particles, Vector3 position, Quaternion rotation, Vector2 scale) {

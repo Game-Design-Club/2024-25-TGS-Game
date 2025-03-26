@@ -34,26 +34,27 @@ namespace Game.Exploration.Child {
             Vector2 origin = transform.position;
             origin.x += _controller.LastDirection.x * boxCollider.size.x / 2;
             origin.y += boxCollider.size.y / 2;
-            TryInteraction(origin, direction); // vertical left
+            if (TryInteraction(origin, direction)) return; // vertical left
             origin.y -= boxCollider.size.y;
-            TryInteraction(origin, direction); // vertical right
+            if (TryInteraction(origin, direction)) return; // vertical right
             
             direction = new Vector2(0, _controller.LastDirection.y);
             origin = transform.position;
             origin.y += _controller.LastDirection.y * boxCollider.size.y / 2;
             origin.x += boxCollider.size.x / 2;
-            TryInteraction(origin, direction); // horizontal top
+            if (TryInteraction(origin, direction)) return; // horizontal top
             origin.x -= boxCollider.size.x;
-            TryInteraction(origin, direction); // horizontal bottom
+            if (TryInteraction(origin, direction)) return; // horizontal bottom
         }
         
-        private void TryInteraction(Vector2 origin, Vector2 direction) {
+        private bool TryInteraction(Vector2 origin, Vector2 direction) {
             RaycastHit2D hit = Physics2D.Raycast(origin, direction, interactDistance, interactableLayer);
-            if (hit.collider == null) return;
+            if (hit.collider == null) return false;
             Interactable interactable = hit.collider.GetComponent<Interactable>();
-            if (interactable == null) return;
+            if (interactable == null) return false;
             interactable.Interact(InteractionOver);
             _interacting = true;
+            return true;
         }
         
         private void InteractionOver() {

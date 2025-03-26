@@ -264,7 +264,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 0
   isErasing: 0
-  saveToPrefab: 0
   useCurve: 0
   strengthCurve:
     serializedVersion: 2
@@ -279,7 +278,7 @@ MonoBehaviour:
   useArea: 0
   areaShape: 0
   areaSize: 0.5
-  thickness: 1
+  thickness: 0.25
   density: 0.05
   activeModuleIndex: 0
   modules:
