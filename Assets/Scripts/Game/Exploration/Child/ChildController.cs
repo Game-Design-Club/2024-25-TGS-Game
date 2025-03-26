@@ -43,7 +43,7 @@ namespace Game.Exploration.Child {
         internal float LastSpeed;
         
         private ChildState _currentState;
-        public PlayerPointCollision NewPointCollision => new(transform.position);
+        public PointCollision NewPointCollision => new(transform.position);
         private Vector2? _forceDirection = null;
 
         private void Awake() {
@@ -74,7 +74,7 @@ namespace Game.Exploration.Child {
                 position = App.Get<DataManager>().PlayerPosition;
             }
             transform.position = position;
-            if (new PlayerPointCollision(transform.position).TouchingRiver) {
+            if (new PointCollision(transform.position).TouchingRiver) {
                 TransitionToState(new Float(this));
             } else {
                 TransitionToState(new Move(this));
@@ -130,49 +130,15 @@ namespace Game.Exploration.Child {
         }
         
         private IEnumerator MoveUntilGrounded() {
-            float xSize = boxCollider.size.x / 2;
-            float ySize = boxCollider.size.y / 2;
-            int i = 0;
-            while (true) {
-                Vector2 pos = Rigidbody.position;
-                PlayerPointCollision topLeft = new PlayerPointCollision(pos + new Vector2(-xSize, ySize));
-                PlayerPointCollision topRight = new PlayerPointCollision(pos + new Vector2(xSize, ySize));
-                PlayerPointCollision bottomLeft = new PlayerPointCollision(pos + new Vector2(-xSize, -ySize));
-                PlayerPointCollision bottomRight = new PlayerPointCollision(pos + new Vector2(xSize, -ySize));
-            
-                if (topLeft.TouchingLand && topRight.TouchingLand && bottomLeft.TouchingLand && bottomRight.TouchingLand) {
-                    break;
-                }
-            
-                _forceDirection = Vector2.zero;
-                if (topLeft.TouchingLand) {
-                    _forceDirection += new Vector2(-1, 1);
-                }
-                if (topRight.TouchingLand) {
-                    _forceDirection += new Vector2(1, 1);
-                }
-                if (bottomLeft.TouchingLand) {
-                    _forceDirection += new Vector2(-1, -1);
-                }
-                if (bottomRight.TouchingLand) {
-                    _forceDirection += new Vector2(1, -1);
-                }
-
-                if (_forceDirection == Vector2.zero) {
-                    Debug.LogWarning("No force direction on child");
-                    break;
-                }
-
-                yield return new WaitForFixedUpdate();
-                i++;
-                if (i > 500) {
-                    Debug.LogError("Jumping for way too long");
-                    break;
-                }
-            }
+            yield return PointCollisionHelper.MoveToInArea(
+                boxCollider,
+                Rigidbody,
+                dir => _forceDirection = dir,
+                point => point.TouchingLand);
             TransitionToState(new Move(this));
             _forceDirection = null;
         }
+        
 
         private void Attack() { _currentState.OnAttackInput(); }
 
@@ -195,10 +161,10 @@ namespace Game.Exploration.Child {
             float xSize = boxCollider.size.x / 2;
             float ySize = boxCollider.size.y / 2;
             
-            PlayerPointCollision topLeft = new PlayerPointCollision(pos + new Vector2(-xSize, ySize));
-            PlayerPointCollision topRight = new PlayerPointCollision(pos + new Vector2(xSize, ySize));
-            PlayerPointCollision bottomLeft = new PlayerPointCollision(pos + new Vector2(-xSize, -ySize));
-            PlayerPointCollision bottomRight = new PlayerPointCollision(pos + new Vector2(xSize, -ySize));
+            PointCollision topLeft = new PointCollision(pos + new Vector2(-xSize, ySize));
+            PointCollision topRight = new PointCollision(pos + new Vector2(xSize, ySize));
+            PointCollision bottomLeft = new PointCollision(pos + new Vector2(-xSize, -ySize));
+            PointCollision bottomRight = new PointCollision(pos + new Vector2(xSize, -ySize));
             
             if (DoAll(point => point.TouchingGround)) {
                 TransitionToState(new Move(this));
@@ -217,11 +183,11 @@ namespace Game.Exploration.Child {
             
             StartMoveUntilGrounded();
             
-            bool DoAll(Func<PlayerPointCollision, bool> predicate) {
+            bool DoAll(Func<PointCollision, bool> predicate) {
                 return predicate(topLeft) && predicate(topRight) && predicate(bottomLeft) && predicate(bottomRight);
             }
 
-            bool DoAny(Func<PlayerPointCollision, bool> predicate) {
+            bool DoAny(Func<PointCollision, bool> predicate) {
                 return predicate(topLeft) || predicate(topRight) || predicate(bottomLeft) || predicate(bottomRight);
             }
 
