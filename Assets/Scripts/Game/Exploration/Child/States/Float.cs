@@ -17,7 +17,7 @@ namespace Game.Exploration.Child {
 
         public override void Update() {
             if (_doneFloating) return;
-            PlayerPointCollision pointCollision = Controller.NewPointCollision;
+            PointCollision pointCollision = Controller.NewPointCollision;
             if (pointCollision.TouchingGround || pointCollision.TouchingLog) {
                 Controller.StartMoveUntilGrounded();
                 _doneFloating = true;

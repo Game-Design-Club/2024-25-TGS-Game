@@ -1,0 +1,57 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Tools {
+    public class PointCollisionHelper {
+        public static IEnumerator MoveToInArea(BoxCollider2D boxCollider, Rigidbody2D Rigidbody, Action<Vector2> resultDirection, Func<PointCollision, bool> isTarget, float buffer = 0, Vector2 constraint = default) {
+            float xSize = (boxCollider.size.x / 2) * boxCollider.transform.lossyScale.x - buffer;
+            float ySize = (boxCollider.size.y / 2) * boxCollider.transform.lossyScale.y - buffer;       
+            int i = 0;
+            while (true) {
+                Vector2 pos = Rigidbody.position;
+                PointCollision topLeft = new PointCollision(pos + new Vector2(-xSize, ySize), boxCollider);
+                PointCollision topRight = new PointCollision(pos + new Vector2(xSize, ySize), boxCollider);
+                PointCollision bottomLeft = new PointCollision(pos + new Vector2(-xSize, -ySize), boxCollider);
+                PointCollision bottomRight = new PointCollision(pos + new Vector2(xSize, -ySize), boxCollider);
+            
+                if (isTarget(topLeft) && isTarget(topRight) && isTarget(bottomLeft) && isTarget(bottomRight)) {
+                    break;
+                }
+                
+                Vector2 direction = Vector2.zero;
+                if (isTarget(topLeft)) {
+                    direction += new Vector2(-1, 1);
+                }
+                if (isTarget(topRight)) {
+                    direction += new Vector2(1, 1);
+                }
+                if (isTarget(bottomLeft)) {
+                    direction += new Vector2(-1, -1);
+                }
+                if (isTarget(bottomRight)) {
+                    direction += new Vector2(1, -1);
+                }
+                
+                if (constraint != default) {
+                    direction *= constraint;
+                }
+
+                if (direction == Vector2.zero) {
+                    // Debug.LogWarning("No force direction");
+                    // break;
+                }
+                
+                direction.Normalize();
+                resultDirection(direction);
+                yield return new WaitForFixedUpdate();
+                i++;
+                if (i > 500) {
+                    break;
+                }
+            }
+        }
+        
+    }
+}

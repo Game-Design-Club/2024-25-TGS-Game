@@ -18,16 +18,16 @@ namespace Game.Exploration.Enviornment.River {
             BoxCollider2D originCollider = child.GetComponent<BoxCollider2D>();
             Vector2 originSize = originCollider.size;
             Vector3 lossyScale = transform.lossyScale;
-            // Account for the child's local scale by multiplying the origin collider's size by child.localScale and adjusting for RiverManager's scaling
+            
             Vector2 effectiveSize = new Vector2(originSize.x * child.localScale.x / lossyScale.x, originSize.y * child.localScale.y / lossyScale.y);
             collider.size = effectiveSize;
-            // Compute offset relative to RiverManager's local space
+            
             collider.offset = transform.InverseTransformPoint(child.position);
             collider.compositeOperation = Collider2D.CompositeOperation.Difference;
             addedColliders.Add(collider);
         }
 
-        internal void ComputeCollider() {
+        public void ComputeCollider() {
             foreach (BoxCollider2D collider in addedColliders) {
                 Destroy(collider);
             }
