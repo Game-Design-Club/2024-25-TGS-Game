@@ -1,12 +1,28 @@
 using System;
+using System.Collections.Generic;
 using Game.GameManagement;
 using UnityEngine;
 
 namespace Game.Exploration.Enviornment.Particles {
     public class EnvironmentParticles : MonoBehaviour {
-        [SerializeField] private ParticleSystem windParticles;
-        [SerializeField] private ParticleSystem snowParticles;
-        [SerializeField] private ParticleSystem blackSnowParticles;
+        [SerializeField] private Transform exploreParticles;
+        [SerializeField] private Transform combatParticles;
+
+        private List<ParticleSystem> _exploreParticles = new List<ParticleSystem>();
+        private List<ParticleSystem> _combatParticles = new List<ParticleSystem>();
+
+        private void Awake() {
+            foreach (Transform child in exploreParticles) {
+                if (child.TryGetComponent(out ParticleSystem ps)) {
+                    _exploreParticles.Add(ps);
+                }
+            }
+            foreach (Transform child in combatParticles) {
+                if (child.TryGetComponent(out ParticleSystem ps)) {
+                    _combatParticles.Add(ps);
+                }
+            }
+        }
 
         private void OnEnable() {
             GameManager.OnGameEvent += HandleGameEvent;
@@ -18,13 +34,20 @@ namespace Game.Exploration.Enviornment.Particles {
 
         private void HandleGameEvent(GameEvent obj) {
             if (obj.GameEventType == GameEventType.Explore) {
-                windParticles?.Play();
-                snowParticles?.Play();
-                blackSnowParticles?.Stop();
+                foreach (ParticleSystem ps in _exploreParticles) {
+                    ps.Play();
+                }
+                foreach (ParticleSystem ps in _combatParticles) {
+                    ps.Stop();
+                }
             } else if (obj.GameEventType == GameEventType.Combat) {
-                windParticles?.Stop();
-                snowParticles?.Stop();
-                blackSnowParticles?.Play();
+                foreach (ParticleSystem ps in _combatParticles) {
+                    ps.Play();
+                }
+
+                foreach (ParticleSystem ps in _exploreParticles) {
+                    ps.Stop();
+                }
             }
         }
     }
