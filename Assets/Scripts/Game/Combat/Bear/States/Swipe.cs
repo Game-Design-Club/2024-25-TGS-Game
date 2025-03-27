@@ -26,7 +26,7 @@ namespace Game.Combat.Bear {
         
         public override void OnAnimationEnded(int id) {
             if (id != AnimationConstants.BearIDs.Swipe) return;
-            if (!App.Get<InputManager>().GetBearSwipe) {
+            if (App.Get<InputManager>().GetBearSwipe) {
                 Controller.TransitionToState(new GrowlChargeup(Controller));
             } else {
                 Controller.TransitionToState(new Idle(Controller));

@@ -9,8 +9,6 @@ using UnityEngine;
 
 namespace Game.GameManagement {
     public class GameManager : MonoBehaviour {
-        // Child/Bear, and Paused/Unpaused
-        // Controls InputMapping, and transitions between states
         [SerializeField] public float transitionDuration = 1f;
         [SerializeField] public UIManager UIManager;
         
