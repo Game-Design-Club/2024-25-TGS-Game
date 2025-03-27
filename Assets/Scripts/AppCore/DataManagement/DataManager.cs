@@ -61,7 +61,6 @@ namespace AppCore.DataManagement
         
         public void SetCustomData(string key, object value) {
             _customData[key] = value;
-            Debug.Log("Set custom data: " + key + " = " + value);
         }
         
         public object GetCustomData(string key) {
@@ -77,11 +76,9 @@ namespace AppCore.DataManagement
         
         public bool TryGetCustomData(string key, out object value) {
             if (_customData != null && _customData.TryGetValue(key, out value)) {
-                Debug.Log("Found custom data: " + key + " = " + value);
                 return true;
             }
             value = null;
-            Debug.LogWarning("Custom data not found: " + key);
             return false;
         }
         

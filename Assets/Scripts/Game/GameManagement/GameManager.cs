@@ -39,9 +39,9 @@ namespace Game.GameManagement {
         {
             return _instance.UIManager;
         }
-        private static GameEventType GameEventType {
+        public static GameEventType GameEventType {
             get => _gameEventType;
-            set {
+            private set {
                 _lastGameEventType = _gameEventType;
                 _gameEventType = value;
                 OnGameEvent?.Invoke(new GameEvent {
