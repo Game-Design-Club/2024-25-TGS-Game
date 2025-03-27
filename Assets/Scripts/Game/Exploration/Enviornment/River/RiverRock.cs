@@ -123,6 +123,10 @@ namespace Game.Exploration.Enviornment.River {
         }
 
         private void OnCollisionEnter2D(Collision2D other) {
+            if (other.gameObject.CompareTag(Tags.River) || other.gameObject.CompareTag(Tags.RiverBase)) {
+                Physics2D.IgnoreCollision(_collider, other.collider);
+                return;
+            }
             Vector2 collisionNormal = other.contacts[0].normal;
             if (Mathf.Abs(collisionNormal.x) > Mathf.Abs(collisionNormal.y)) {
                 _lastPushDirection = new Vector2(1, 0);
