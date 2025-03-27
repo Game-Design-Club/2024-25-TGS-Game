@@ -207,7 +207,7 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 512
-  interactDistance: 0.4
+  interactDistance: 0.7
   boxCollider: {fileID: 5901805375566032894}
 --- !u!1 &2952745855003341940
 GameObject:
