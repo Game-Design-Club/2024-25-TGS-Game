@@ -21,7 +21,7 @@ namespace Game.GameManagement {
         private static GameManager _instance;
         
         private static bool _isPaused;
-        private static bool IsPaused {
+        public static bool IsPaused {
             get => _isPaused;
             set {
                 _isPaused = value;
