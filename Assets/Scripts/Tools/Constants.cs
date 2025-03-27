@@ -62,9 +62,8 @@ namespace Tools {
             public static string RiverBase = "River Base";
         }
 
-        public static class Layers {
-            public const string ChildGameplay = "Child Gameplay";
-            public const string ChildGameplayFront = "Child Gameplay Front";
+        public static class PhysicsLayers {
+            public const int ChildWall = 8;
         }
 
         public static class Mixer {

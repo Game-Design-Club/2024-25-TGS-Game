@@ -6,9 +6,11 @@ using AppCore.DataManagement;
 using Game.Exploration.Child;
 using Tools;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Exploration.Enviornment.River {
     public class RiverRock : MonoBehaviour, DataID {
+        [FormerlySerializedAs("blockPlayer")] [SerializeField] private bool blockChild = false;
         [SerializeField] private float slideIntoRiverVelocity = 3f;
         [SerializeField] private float landScale = 1.8f;
         [SerializeField] private float targetScale = 1.5f;
@@ -72,8 +74,14 @@ namespace Game.Exploration.Enviornment.River {
         }
 
         private void SetInRiver() {
-            _collider.isTrigger = true;
-            _rb.bodyType = RigidbodyType2D.Dynamic;
+            if (!blockChild) {
+                _collider.isTrigger = true;
+                _rb.bodyType = RigidbodyType2D.Dynamic;
+            } else {
+                gameObject.layer = PhysicsLayers.ChildWall;
+                _rb.bodyType = RigidbodyType2D.Kinematic;
+            }
+
             _rb.linearVelocity = Vector2.zero;
         }
 

@@ -571,6 +571,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1968545387}
     m_Modifications:
+    - target: {fileID: 1221414976625510412, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
+      propertyPath: blockChild
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3132762231799129043, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -611,12 +615,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4973666934668534577, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
+      propertyPath: blockChild
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5160864187399740703, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
+      propertyPath: blockChild
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233709197852011002, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
+      propertyPath: blockChild
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5632859212272781605, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
       propertyPath: m_Name
       value: Forest Level 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6064226832810400961, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
+      propertyPath: blockChild
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223207539543932979, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
+      propertyPath: blockChild
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7735155511534418931, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
+      propertyPath: blockChild
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8263102695424374509, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
       propertyPath: thickness
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8815277047880402742, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
+      propertyPath: blockChild
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
