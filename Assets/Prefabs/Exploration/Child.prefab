@@ -152,8 +152,48 @@ MonoBehaviour:
   spriteRenderer: {fileID: 5847314838264712324}
   boxCollider: {fileID: 5901805375566032894}
   walkSpeed: 5
-  minJumpTime: 0.6
-  maxJumpTime: 0.85
+  jumpSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1.810852
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.0388591
+      value: 5.9586134
+      inSlope: -0.10261072
+      outSlope: -0.10261072
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.44694054
+    - serializedVersion: 3
+      time: 0.41178447
+      value: 5.9586134
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6904116
+      value: 1.1471603
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   jumpSpeed: 6
   floatSpeed: 1
   walkToPointCurve:

@@ -7,7 +7,7 @@ namespace Tools.Debugging {
     public class ClickToTeleport : MonoBehaviour {
         [SerializeField] private bool isEnabled = false;
         private void Update() {
-            if (Input.GetMouseButtonDown(0)) {
+            if (isEnabled && Input.GetMouseButtonDown(0)) {
                 TeleportToTarget();
             }
         }

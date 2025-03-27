@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1234393639065257923}
   - component: {fileID: 3698807136699223456}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 6540374039330504967}
   - component: {fileID: 5426905425996822447}
   - component: {fileID: 171698484545744243}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Center Rock
   m_TagString: Rock
   m_Icon: {fileID: 0}
@@ -253,11 +253,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4361508689109109653, guid: 739f4bc265068469cbc5936c4dd8be58, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4586891215755521239, guid: 739f4bc265068469cbc5936c4dd8be58, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5280710934238618261, guid: 739f4bc265068469cbc5936c4dd8be58, type: 3}
       propertyPath: m_LocalScale.x
@@ -355,11 +355,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4361508689109109653, guid: 739f4bc265068469cbc5936c4dd8be58, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4586891215755521239, guid: 739f4bc265068469cbc5936c4dd8be58, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5280710934238618261, guid: 739f4bc265068469cbc5936c4dd8be58, type: 3}
       propertyPath: m_LocalScale.x

@@ -19,8 +19,7 @@ namespace Game.Exploration.Child {
         [Header("Idle State")]
         [SerializeField] internal float walkSpeed = 5f;
         [Header("Jumping")]
-        [SerializeField] internal float minJumpTime = 1f;
-        [SerializeField] internal float maxJumpTime = 1.5f;
+        [SerializeField] internal AnimationCurve jumpSpeedCurve;
         [SerializeField] internal float jumpSpeed = 4f;
         [Header("Floating")]
         [SerializeField] internal float floatSpeed = 1f;

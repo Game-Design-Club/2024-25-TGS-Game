@@ -10,12 +10,9 @@ namespace Game.Combat.Bear {
 
         private float _startRotation;
         
-        private bool _swipeInputReleased = false;
-        
         public override void Enter() {
             Controller.Animator.SetTrigger(AnimationConstants.Bear.Swipe);
             _startRotation = Controller.LastRotation;
-            _swipeInputReleased = !App.Get<InputManager>().GetBearSwipe;
             Controller.swipeSoundEffect.Play();
         }
 
@@ -27,13 +24,9 @@ namespace Game.Combat.Bear {
             return _startRotation;
         }
         
-        public override void OnSwipeInputReleased() {
-            _swipeInputReleased = true;
-        }
-
         public override void OnAnimationEnded(int id) {
             if (id != AnimationConstants.BearIDs.Swipe) return;
-            if (!_swipeInputReleased) {
+            if (!App.Get<InputManager>().GetBearSwipe) {
                 Controller.TransitionToState(new GrowlChargeup(Controller));
             } else {
                 Controller.TransitionToState(new Idle(Controller));
