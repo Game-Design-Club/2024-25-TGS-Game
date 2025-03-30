@@ -68,14 +68,15 @@ namespace Game.Combat {
 
         // Start combat
         internal void EnterCombatArea(ChildController child) {
-            if (_combatEntered) return;
+            if (_combatEntered) {
+                return;
+            }
+            _combatEntered = true;
             Child = child;
             StartCoroutine(TransitionToCombat());
         }
         
         private IEnumerator TransitionToCombat() {
-            _combatEntered = true;
-            
             GameManager.StartTransitionToCombat();
             
             Setup();
@@ -100,8 +101,8 @@ namespace Game.Combat {
             
             GameManager.EndTransitionToExploration();
             
-            _combatEntered = false;
             gameObject.SetActive(false);
+            StopAllCoroutines();
         }
         
         private void Setup() {
@@ -225,8 +226,6 @@ namespace Game.Combat {
             StartCoroutine(TransitionToExploration());
         }
         private void Cleanup() {
-            StopAllCoroutines();
-            
             wideCamera.Priority = 0;
             combatCamera.Priority = 0;
             

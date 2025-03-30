@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Combat.Enemies.AttackEnemy {
     internal class Attack : EnemyState {
-        public Attack(EnemyBase controller) : base(controller) { }
+        public Attack(AttackEnemy controller) : base(controller) { }
         
         private bool _died = false;
         
@@ -13,7 +13,7 @@ namespace Game.Combat.Enemies.AttackEnemy {
         }
 
         public override void OnHit(Vector2 hitDirection, float hitForce, BearDamageType damageType) {
-            HandleHit(hitDirection, hitForce, new Move(Controller()));
+            HandleHit(hitDirection, hitForce, damageType, new Move(Controller()));
         }
 
         public override void OnAnimationEnded() {

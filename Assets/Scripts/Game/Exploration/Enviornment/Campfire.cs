@@ -83,13 +83,16 @@ namespace Game.Exploration.Enviornment {
 
         private void OnGameEvent(GameEvent gameEvent) {
             StopAllCoroutines();
-            if (gameEvent.GameEventType == GameEventType.CombatEnter) {
-                _state = CampfireState.Combat;
-                StartCoroutine(TransitionLighting(baseCombatIntensity, baseCombatRadius, GameManager.TransitionDuration, 1f));
-            }
-            else if (gameEvent.GameEventType == GameEventType.ExploreEnter) {
-                _state = CampfireState.Explore;
-                StartCoroutine(TransitionLighting(_exploreIntensity, _exploreRadius, GameManager.TransitionDuration, 0f));
+            switch (gameEvent.GameEventType) {
+                case GameEventType.CombatEnter:
+                    _state = CampfireState.Combat;
+                    StartCoroutine(TransitionLighting(baseCombatIntensity, baseCombatRadius, GameManager.TransitionDuration, 1f));
+                    break;
+                case GameEventType.ExploreEnter:
+                    _state = CampfireState.Explore;
+                    StartCoroutine(TransitionLighting(_exploreIntensity, _exploreRadius, GameManager.TransitionDuration, 0f));
+                    
+                    break;
             }
         }
 
@@ -145,7 +148,10 @@ namespace Game.Exploration.Enviornment {
 
         private void Update() {
             // Update the base (plus steady combat addition) and smoothly move toward it.
-            float baseIntensity = _baseIntensity + CurrentIntensityAddition;
+            float baseIntensity = _baseIntensity;
+            if (_state == CampfireState.Combat) {
+                baseIntensity += CurrentIntensityAddition;
+            }
             _currentAppliedIntensity = Mathf.MoveTowards(_currentAppliedIntensity, baseIntensity, intensitySmoothSpeed * Time.deltaTime);
             _currentAppliedRadius = Mathf.MoveTowards(_currentAppliedRadius, _baseRadius, radiusSmoothSpeed * Time.deltaTime);
 

@@ -15,7 +15,7 @@ namespace Game.Combat.Enemies.AttackEnemy {
         }
         
         public override void OnHit(Vector2 hitDirection, float hitForce, BearDamageType damageType) {
-            HandleHit(hitDirection, hitForce, new Move(Controller()));
+            HandleHit(hitDirection, hitForce, damageType, new Move(Controller()));
         }
 
         public override void Exit() {

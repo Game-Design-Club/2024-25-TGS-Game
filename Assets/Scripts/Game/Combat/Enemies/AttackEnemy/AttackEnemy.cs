@@ -10,7 +10,7 @@ namespace Game.Combat.Enemies.AttackEnemy {
         protected override EnemyState StartingState => new Move(this);
 
         internal bool StartingFlipX;
-        
+
         private void Awake() {
             TryGetComponent(out Animator);
             TryGetComponent(out Rigidbody);

@@ -27,8 +27,12 @@ namespace Game.Combat.Enemies {
         public virtual void Update() { }
 
         public abstract void OnHit(Vector2 hitDirection, float hitForce, BearDamageType damageType);
-        internal void HandleHit(Vector2 hitDirection, float hitForce, EnemyState callbackState) {
-            Controller().TransitionToState(new Stun(Controller(), hitDirection, hitForce, callbackState));
+        internal void HandleHit(Vector2 hitDirection, float hitForce, BearDamageType damageType, EnemyState callbackState) {
+            float stunDuration = 0;
+            if (damageType is BearDamageType.Growl or BearDamageType.Pounce) {
+                stunDuration = _controller.stunDuration;
+            }
+            Controller().TransitionToState(new Stun(Controller(), hitDirection, hitForce, stunDuration,callbackState));
         }
         
         public virtual void OnAnimationEnded() { }
