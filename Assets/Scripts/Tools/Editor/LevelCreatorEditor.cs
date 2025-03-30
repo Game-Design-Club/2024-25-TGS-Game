@@ -281,6 +281,7 @@ namespace Tools.Editor {
 
         private void EraseArea(Vector2 center)
         {
+            Debug.Log("Erase Area");
             //Finding objects
             Collider2D[] colliders;
             if (_creator.areaShape == LevelCreator.Shape.Circle || _creator.areaShape == LevelCreator.Shape.Ring)
@@ -296,6 +297,7 @@ namespace Tools.Editor {
                 return;
             }
 
+            Debug.Log(colliders.Length);
             //
             float maxDist = 0;
             if (_creator.useCurve) switch (_creator.areaShape)
