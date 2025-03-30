@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/Farm/HayBale.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/Farm/HayBale.cs" afterDir="false" />
-    </list>
+    <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -160,7 +158,7 @@
       <workItem from="1742179227409" duration="6796000" />
       <workItem from="1742360820587" duration="8436000" />
       <workItem from="1742428154544" duration="11523000" />
-      <workItem from="1743285324705" duration="1769000" />
+      <workItem from="1743285324705" duration="2058000" />
     </task>
     <servers />
   </component>

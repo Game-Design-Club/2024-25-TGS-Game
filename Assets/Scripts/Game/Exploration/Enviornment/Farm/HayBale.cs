@@ -1,12 +1,13 @@
 using System;
 using AppCore;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Exploration.Enviornment.Farm
 {
     public class HayBale : MonoBehaviour
     {
-        [SerializeField] private bool horizontal = true;
+        [SerializeField] private bool vertical = true;
         private bool isRolling = false;
         private float direction = 0;
         [SerializeField] private float maxSpeed = 0;
@@ -17,7 +18,7 @@ namespace Game.Exploration.Enviornment.Farm
 
         private void OnValidate()
         {
-            transform.rotation = Quaternion.Euler(0, 0, horizontal ? 0 : 90);
+            transform.rotation = Quaternion.Euler(0, 0, vertical ? 0 : 90);
         }
 
         [ContextMenu("Roll Negative")]
@@ -43,7 +44,7 @@ namespace Game.Exploration.Enviornment.Farm
         {
             if (!isRolling) return;
             float velocity = speedRamp.Evaluate(timeRolling) * maxSpeed * direction * Time.deltaTime;
-            transform.position += new Vector3(horizontal ? velocity : 0, horizontal ? 0 : velocity, 0);
+            transform.position += new Vector3(vertical ? velocity : 0, vertical ? 0 : velocity, 0);
         }
 
         private void Stop()
