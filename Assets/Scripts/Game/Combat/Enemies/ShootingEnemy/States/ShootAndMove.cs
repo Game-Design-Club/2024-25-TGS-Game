@@ -35,8 +35,11 @@ namespace Game.Combat.Enemies {
         }
 
         public override void OnHit(Vector2 hitDirection, float hitForce, BearDamageType damageType) {
-            Controller().StopAllCoroutines();
-            HandleHit(hitDirection, hitForce, damageType, new ShootAndMove(Controller()));
+            if (damageType is BearDamageType.Swipe) {
+                Controller().TransitionToState(new ShootAndMove(Controller()));
+            } else {
+                HandleHit(hitDirection, hitForce, damageType, new ShootAndMove(Controller()));
+            }
         }
 
         public void StartShootCycle() {

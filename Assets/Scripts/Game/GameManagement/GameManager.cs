@@ -81,7 +81,13 @@ namespace Game.GameManagement {
             App.Get<DialogueManager>().OnDialogueStart -= DialogueStart;
             App.Get<DialogueManager>().OnDialogueEnd -= DialogueEnd;
         }
-        
+
+        private void OnApplicationFocus(bool hasFocus) {
+            if (!hasFocus) {
+                OnGamePaused();
+            }
+        }
+
         public static void OnGamePaused() {
             IsPaused = !IsPaused;
         }

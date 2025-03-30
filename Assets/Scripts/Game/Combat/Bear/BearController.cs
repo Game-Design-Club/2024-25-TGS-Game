@@ -1,3 +1,4 @@
+using System.Collections;
 using AppCore;
 using AppCore.AudioManagement;
 using AppCore.InputManagement;
@@ -14,6 +15,7 @@ namespace Game.Combat.Bear {
         [Header("Swipe State")]
         [SerializeField] internal float swipeWalkSpeed = 2f;
         [SerializeField] internal SoundEffect swipeSoundEffect;
+        [SerializeField] internal float swipeCooldown = .2f;
         [Header("Stun State")]
         [SerializeField] internal AnimationCurve stunKnockbackCurve;
         [Header("Pounce State")]
@@ -115,6 +117,15 @@ namespace Game.Combat.Bear {
 
         private void OnPounceReleased() {
             _currentState.OnPounceInputReleased();
+        }
+
+        public void TransitionAfterSeconds(BearState state, float seconds) {
+            StartCoroutine(TransitionAfterSecondsRoutine(state, seconds));
+        }
+
+        private IEnumerator TransitionAfterSecondsRoutine(BearState state, float seconds) {
+            yield return new WaitForSeconds(seconds);
+            TransitionToState(state);
         }
     }
 }
