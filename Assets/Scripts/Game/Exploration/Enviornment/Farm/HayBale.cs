@@ -14,10 +14,10 @@ namespace Game.Exploration.Enviornment.Farm
         private float rollingStarted;
         private float timeRolling => Time.time - rollingStarted;
 
-        private void Start()
+
+        private void OnValidate()
         {
-            if (horizontal) return;
-            transform.rotation = Quaternion.Euler(0, 0, 90);
+            transform.rotation = Quaternion.Euler(0, 0, horizontal ? 0 : 90);
         }
 
         [ContextMenu("Roll Negative")]
