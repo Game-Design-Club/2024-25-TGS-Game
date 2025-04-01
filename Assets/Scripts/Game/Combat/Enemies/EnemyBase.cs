@@ -14,6 +14,8 @@ namespace Game.Combat.Enemies {
         [SerializeField] private int health = 100;
         [SerializeField] internal int sanityRestored = 10;
         [SerializeField] internal AnimationCurve stunKnockbackCurve;
+        [SerializeField] internal GameObject stunObject;
+        [SerializeField] internal float stunDuration;
         
         [SerializeField] private GameObject hitParticles;
         [SerializeField] private GameObject deathParticles;
@@ -32,6 +34,7 @@ namespace Game.Combat.Enemies {
         }
 
         private protected void Start() {
+            stunObject.SetActive(false);
             TransitionToState(StartingState);
         }
 
@@ -56,7 +59,7 @@ namespace Game.Combat.Enemies {
             this.CreateParticles(deathParticles);
             CombatManager.cameraShaker.Shake();
             deathSound?.Play();
-            App.Get<FreezeFrameManager>().FreezeFrame(0.1f, .2f);
+            App.Get<FreezeFrameManager>().FreezeFrame();
         }
         private void Update() {
             CurrentState?.Update();

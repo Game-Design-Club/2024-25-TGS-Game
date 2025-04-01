@@ -19,6 +19,8 @@ namespace Game.Combat.Waves {
         private static float _timeStep = 0.1f;
 
         
+        // Uses numerical integration to calculate the times to spawn enemies
+        // Numerical integration goes through the spawn rate curveto find the area under a non-formulaic curve
         public List<float> GetSpawnTimes() {
             _spawnTimes = new List<float>();
             float totalTime = spawnRate.LastKey().time;
@@ -28,7 +30,6 @@ namespace Game.Combat.Waves {
             
             _spawnTimes.Add(0);
             
-            // wooo calculus
             while (time < totalTime) {
                 time += _timeStep;
                 value += spawnRate.Evaluate(time) * _timeStep;

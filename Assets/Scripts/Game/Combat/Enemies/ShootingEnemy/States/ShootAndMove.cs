@@ -1,41 +1,50 @@
 using System.Collections;
 using Game.Combat.Bear;
+using Tools;
 using UnityEngine;
 
-namespace Game.Combat.Enemies.States {
+namespace Game.Combat.Enemies {
     internal class ShootAndMove : EnemyState {
         public ShootAndMove(EnemyBase controller) : base(controller) { }
 
-        private Transform _targetTransform;
-        
-        private Coroutine _shootCoroutine;
-        
         public override void Enter() {
-            _targetTransform = Controller().CombatManager.Child.transform;
-            _shootCoroutine = Controller().StartCoroutine(Shoot());
+            Controller().Animator.SetTrigger(AnimationConstants.ShootEnemy.Teleport);
         }
 
         public override void Exit() {
-            Controller().StopCoroutine(_shootCoroutine);
+            Controller().StopAllCoroutines();
         }
 
         private IEnumerator Shoot() {
-            while (true) {
-                yield return new WaitForSeconds(Controller<ShootingEnemy>().shootInterval);
-                Controller<ShootingEnemy>().Shoot();
-            }
+            yield return new WaitForSeconds(Controller<ShootingEnemy>().shootWaitTime);
+            Controller<ShootingEnemy>().Shoot();
+            yield return new WaitForSeconds(Controller<ShootingEnemy>().teleportWaitTime);
+            Controller().Animator.SetTrigger(AnimationConstants.ShootEnemy.Teleport);
         }
 
-        public override void Update() {
-            Vector2 posDifference = -(Controller().transform.position - _targetTransform.position);
-            if (posDifference.magnitude > Controller<ShootingEnemy>().attackDistance) {
-                Controller().Rigidbody.linearVelocity = posDifference.normalized * Controller<ShootingEnemy>().moveSpeed;
-            }
-            Controller().Rigidbody.rotation = Mathf.Atan2(posDifference.y, posDifference.x) * Mathf.Rad2Deg;
+        private void FindNewLocation() {
+            Vector2 childPos = Controller().CombatManager.Child.transform.position;
+            Vector2 randomDirection = Random.insideUnitCircle.normalized;
+            float randomDistance = Controller<ShootingEnemy>().spawnDistance.Random();
+            Vector2 newLocation = childPos + randomDirection * randomDistance;
+
+            Controller().Rigidbody.position = newLocation;
+            
+            Vector2 posDifference = childPos - Controller().Rigidbody.position;
+            Controller<ShootingEnemy>().rotatePivot.rotation = Quaternion.Euler(0,0,Mathf.Atan2(posDifference.y, posDifference.x) * Mathf.Rad2Deg);
         }
 
         public override void OnHit(Vector2 hitDirection, float hitForce, BearDamageType damageType) {
-            HandleHit(hitDirection, hitForce, new ShootAndMove(Controller()));
+            if (damageType is BearDamageType.Swipe) {
+                Controller().TransitionToState(new ShootAndMove(Controller()));
+            } else {
+                HandleHit(hitDirection, hitForce, damageType, new ShootAndMove(Controller()));
+            }
+        }
+
+        public void StartShootCycle() {
+            FindNewLocation();
+            Controller().StartCoroutine(Shoot());
         }
     }
 }

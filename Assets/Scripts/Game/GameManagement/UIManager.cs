@@ -215,5 +215,9 @@ namespace Game.GameManagement {
                 gameOverAnimator.SetBool(AnimationConstants.GameUI.IsGameOver, false);
             }
         }
+
+        private void OnApplicationPause(bool pauseStatus) {
+            
+        }
     }
 }

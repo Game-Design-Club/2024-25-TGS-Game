@@ -17,8 +17,6 @@ namespace Game.Combat.Enemies.TreeEnemy {
         [SerializeField] private LineRenderer lineRenderer;
         [SerializeField] private Transform hand;
         [SerializeField] private Transform spritePivot;
-        [SerializeField] internal float stunDuration = 1f;
-        [SerializeField] internal GameObject stunObject;
 
         protected override EnemyState StartingState => new Reach(this);
         

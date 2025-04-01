@@ -47,6 +47,9 @@ namespace Tools {
                 public const string FadeOut = "Fade Out";
                 public const string FadeIn = "Fade In";
             }
+
+            public class ShootEnemy {
+                public const string Teleport = "Teleport"; }
         }
 
         public static class Tags {

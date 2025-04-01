@@ -1096,7 +1096,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageType: 2
   damage: 0
-  knockbackForce: 10
+  knockbackForce: 3
   movementBased: 0
   directionWeight: 0
   frends: []
