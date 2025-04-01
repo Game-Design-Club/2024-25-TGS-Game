@@ -51,7 +51,7 @@ namespace AppCore.DataManagement
             _boolFlags[key] = value;
         }
         
-        public bool FlagExists(string flagName) {
+        public bool DoesFlagExist(string flagName) {
             return _boolFlags.ContainsKey(flagName);
         }
 

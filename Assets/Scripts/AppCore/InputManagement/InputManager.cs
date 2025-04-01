@@ -20,6 +20,7 @@ namespace AppCore.InputManagement {
             SubscribeToBearInput();
         }
         
+        // things woo
         private void OnGameEvent(GameEvent gameEvent) {
             switch (gameEvent.GameEventType) {
                 case GameEventType.Combat:
@@ -39,7 +40,7 @@ namespace AppCore.InputManagement {
                     break;
                 case GameEventType.ExploreEnter:
                     _playerInputs.Bear.Disable();
-                    _playerInputs.Child.Enable();
+                    _playerInputs.Child.Disable();
                     _playerInputs.UI.Enable();
                     break;
                 case GameEventType.Cutscene:

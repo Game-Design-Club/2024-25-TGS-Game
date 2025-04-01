@@ -15,8 +15,6 @@ namespace AppCore.DialogueManagement {
         private static readonly TextEffectType[] ExpirableEffects = {
             TextEffectType.Color, TextEffectType.Bold, TextEffectType.Italic, TextEffectType.Pause
         };
-        
-        
 
         private List<TextEffect> _activeEffects = new();
 
