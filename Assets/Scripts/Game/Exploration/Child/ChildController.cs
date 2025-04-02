@@ -18,6 +18,9 @@ namespace Game.Exploration.Child {
         [SerializeField] internal BoxCollider2D boxCollider;
         [Header("Idle State")]
         [SerializeField] internal float walkSpeed = 5f;
+        [Header("Attack")]
+        [SerializeField] internal ParticleSystem swishParticles;
+        [SerializeField] internal Transform swishMatchTransform;
         [Header("Jumping")]
         [SerializeField] internal AnimationCurve jumpSpeedCurve;
         [SerializeField] internal float jumpSpeed = 4f;
@@ -90,6 +93,7 @@ namespace Game.Exploration.Child {
         private void Update() {
             _currentState.Update();
             
+            
             float? speed = _currentState.GetWalkSpeed();
             if (speed.HasValue) {
                 Vector2 direction;
@@ -118,8 +122,6 @@ namespace Game.Exploration.Child {
             }
             
             App.Get<DataManager>().UpdatePlayerPosition(transform.position);
-            
-            spriteRenderer.sortingOrder = Mathf.RoundToInt(transform.position.y * 100f) * -1;
         }
         
         private void Move(Vector2 direction) {

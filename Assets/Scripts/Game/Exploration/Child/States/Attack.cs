@@ -14,6 +14,18 @@ namespace Game.Exploration.Child
         public override void Enter()
         {
             Controller.Animator.SetTrigger(AnimationConstants.Child.Attack);
+            Controller.swishParticles.Play();
+        }
+
+        public override void Exit() {
+            Controller.swishParticles.Stop();
+        }
+
+        public override void Update() {
+            Controller.swishParticles.transform.position = Controller.swishMatchTransform.position;
+            float rotation = Controller.LastRotation +
+                             (Controller.swishParticles.transform.lossyScale.x < 0 ? 180 : 0);
+            Controller.swishParticles.transform.rotation = Quaternion.Euler(0, 0, rotation);
         }
 
         public override float? GetWalkSpeed()

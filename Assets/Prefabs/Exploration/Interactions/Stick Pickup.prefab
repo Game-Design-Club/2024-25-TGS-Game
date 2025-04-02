@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 101127389737684872}
   - component: {fileID: 1453988534903709046}
   m_Layer: 6
-  m_Name: Stick
+  m_Name: Stick Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
