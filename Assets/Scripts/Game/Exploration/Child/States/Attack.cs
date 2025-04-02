@@ -22,10 +22,15 @@ namespace Game.Exploration.Child
         }
 
         public override void Update() {
+            if (new PointCollision(Controller.swishMatchTransform.position).TouchingGround) {
+                Controller.swishParticles.Play();
+            } else {
+                Controller.swishParticles.Stop();
+            }
             Controller.swishParticles.transform.position = Controller.swishMatchTransform.position;
             float rotation = Controller.LastRotation +
                              (Controller.swishParticles.transform.lossyScale.x < 0 ? 180 : 0);
-            Controller.swishParticles.transform.rotation = Quaternion.Euler(0, 0, rotation);
+            Controller.swishParticles.transform.rotation = Quaternion.Euler(0, 0, rotation); 
         }
 
         public override float? GetWalkSpeed()

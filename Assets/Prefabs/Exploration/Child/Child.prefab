@@ -582,6 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yOffset: 0
+  isStaticLayer: 0
 --- !u!1001 &3036928875231655931
 PrefabInstance:
   m_ObjectHideFlags: 0

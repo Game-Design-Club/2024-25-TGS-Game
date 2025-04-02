@@ -147,12 +147,16 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  hitParticles: {fileID: 2305709367884197739, guid: 577243b4fac514a99be246cb00181239, type: 3}
-  deathParticles: {fileID: 2305709367884197739, guid: 158e5268b5ba24de0b9d88bcb580da1d, type: 3}
+  stunObject: {fileID: 0}
+  stunDuration: 0
+  hitParticles: {fileID: 5761495649415307529, guid: 577243b4fac514a99be246cb00181239, type: 3}
+  deathParticles: {fileID: 5761495649415307529, guid: 158e5268b5ba24de0b9d88bcb580da1d, type: 3}
+  deathSound: {fileID: 11400000, guid: 56b988d4f50d3438fab33c116acf7cde, type: 2}
   maxAngle: 35
   directionAngleVariance: 20
   rollSpeed: 3
   hitWeight: 2
+  hitDirectionChange: 0.5
 --- !u!1 &3378371463213774398
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,7 +330,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1741993609
-  m_SortingLayer: 5
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2135585597343286014, guid: 5aa8b770bc43046bc8d993d0d5b7f4a5, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -359,7 +363,7 @@ MonoBehaviour:
   m_CastsShadows: 1
   m_SelfShadows: 0
   m_AlphaCutoff: 0.1
-  m_ApplyToSortingLayers: 00000000dbba7ca8f985a7501f6b80ab2f3047ef3534853f
+  m_ApplyToSortingLayers: 00000000dbba7ca8f985a7503534853f
   m_ShapePath:
   - {x: -0.37183854, y: -0.18878871, z: 0}
   - {x: -0.3577578, y: 0.19582915, z: 0}

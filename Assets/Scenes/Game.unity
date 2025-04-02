@@ -571,10 +571,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1968545387}
     m_Modifications:
-    - target: {fileID: 2228827419742886851, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
-      propertyPath: wavesData
-      value: 
-      objectReference: {fileID: 11400000, guid: 07686b57cf0a740ceacbb1157e2537e8, type: 2}
     - target: {fileID: 3132762231799129043, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -621,7 +617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8263102695424374509, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
       propertyPath: thickness
-      value: 1
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
