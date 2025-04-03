@@ -34,14 +34,14 @@ namespace Game.Exploration.Child {
         public virtual void OnGameEvent(GameEvent gameEvent) { }
         
         private float? DefaultRotation(Vector2 input) {
-            if (input.x > 0 && input.y > 0) return 45;
-            if (input.x > 0 && input.y < 0) return 315;
-            if (input.x < 0 && input.y > 0) return 135;
-            if (input.x < 0 && input.y < 0) return 225;
-            if (input.x > 0) return 0;
-            if (input.x < 0) return 180;
-            if (input.y > 0) return 90;
-            if (input.y < 0) return 270;
+            if (input.x > 0 && input.y > 0) return 45; // up right
+            if (input.x > 0 && input.y < 0) return 315; // down right
+            if (input.x < 0 && input.y > 0) return 135; // up left
+            if (input.x < 0 && input.y < 0) return 225; // down left
+            if (input.x > 0) return 0; // right
+            if (input.x < 0) return 180; // left
+            if (input.y > 0) return 90; // up
+            if (input.y < 0) return 270; // down
             return null;
         }
 
