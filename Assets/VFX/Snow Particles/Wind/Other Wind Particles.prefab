@@ -49,6 +49,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8454910655563673969, guid: 61d6812c8f8d5458c9497a0207329e1c, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454910655563673969, guid: 61d6812c8f8d5458c9497a0207329e1c, type: 3}
       propertyPath: VelocityModule.x.maxCurve.m_Curve.Array.size
       value: 4
       objectReference: {fileID: 0}
