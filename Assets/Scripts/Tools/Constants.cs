@@ -49,7 +49,12 @@ namespace Tools {
             }
 
             public class ShootEnemy {
-                public const string Teleport = "Teleport"; }
+                public const string Teleport = "Teleport";
+            }
+
+            public class CombatArea {
+                public const string EnterCombat = "To Combat";
+            }
         }
 
         public static class Tags {

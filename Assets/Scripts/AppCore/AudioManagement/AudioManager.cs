@@ -21,6 +21,7 @@ namespace AppCore.AudioManagement {
 
 
         public void PlaySoundEffect(SoundEffect soundEffect) {
+            Debug.Log("3");
             soundEffectsManager.PlaySoundEffect(soundEffect);
         }
         

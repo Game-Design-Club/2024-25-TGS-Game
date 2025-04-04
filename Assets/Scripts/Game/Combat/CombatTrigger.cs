@@ -7,12 +7,12 @@ namespace Game.Combat {
         [SerializeField] private CombatAreaManager combatAreaManager;
 
         private void Start() {
-            combatAreaManager.gameObject.SetActive(false);
+            // combatAreaManager.gameObject.SetActive(false);
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
             if (!other.TryGetComponent(out ChildController child)) return;
-            combatAreaManager.gameObject.SetActive(true);
+            // combatAreaManager.gameObject.SetActive(true);
             combatAreaManager.EnterCombatArea(child);
         }
     }

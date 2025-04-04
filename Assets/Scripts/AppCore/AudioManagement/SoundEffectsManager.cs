@@ -13,6 +13,7 @@ namespace AppCore.AudioManagement {
         private Dictionary<SoundEffect, AudioSource> _audioSources = new();
 
         public void PlaySoundEffect(SoundEffect soundEffect) {
+            Debug.Log("4");
             if (soundEffect == null) {
                 Debug.LogWarning("SoundEffect is null");
                 return;
@@ -82,7 +83,7 @@ namespace AppCore.AudioManagement {
                 soundEffect.paused = () => true;
                 _audioSources.Remove(soundEffect);
             } else {
-                Debug.LogWarning("SoundEffect not found in _audioSources");
+                // Debug.LogWarning("SoundEffect not found in _audioSources");
             }
         }
     }

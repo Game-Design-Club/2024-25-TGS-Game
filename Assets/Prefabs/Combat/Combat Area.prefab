@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4788482362888496459}
+  - component: {fileID: 5932728601690648864}
+  - component: {fileID: 5360710642429611934}
   m_Layer: 0
   m_Name: Combat Area
   m_TagString: Untagged
@@ -29,7 +31,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 909333257860817449}
   - {fileID: 3337068583925731010}
   - {fileID: 7153343661888878019}
   - {fileID: 7487876463496856571}
@@ -40,6 +41,55 @@ Transform:
   - {fileID: 3093781280680346930}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &5932728601690648864
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59771880351777042}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c86848ce82174428b26f8e3102ad152, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5360710642429611934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59771880351777042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6b256dd67f024be8b9d3635d625eb89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wideCamera: {fileID: 2488909640438279325}
+  combatCamera: {fileID: 1767333542341737850}
+  activeStateSwitchOnCombat:
+  - {fileID: 2278233036092579122}
+  cameraShaker: {fileID: 7594641313779416057}
+  bearController: {fileID: 3384564173759752939}
+  breathSound: {fileID: 11400000, guid: ae282a4e76a01451e9ba7ab1cb0d6a5a, type: 2}
+  heartBeatSound: {fileID: 11400000, guid: 2401a9914c1334d949c0743799f0c303, type: 2}
+  wavesData: {fileID: 0}
+  combatAreaSize: {fileID: 8160320414068996284}
+  childRestPoint: {fileID: 3093781280680346930}
+  maxSanity: 100
+  loseSanityThreshold: 0
+  startInsanity: 20
+  _sanity: 0
 --- !u!1 &1173487503144974866
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,64 +738,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &2964648679299691315
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 909333257860817449}
-  - component: {fileID: 7261700994843069981}
-  m_Layer: 0
-  m_Name: Combat Area Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &909333257860817449
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2964648679299691315}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4788482362888496459}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7261700994843069981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2964648679299691315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6b256dd67f024be8b9d3635d625eb89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wideCamera: {fileID: 2488909640438279325}
-  combatCamera: {fileID: 1767333542341737850}
-  activeStateSwitchOnCombat:
-  - {fileID: 2352446917201355284}
-  - {fileID: 2278233036092579122}
-  cameraShaker: {fileID: 7594641313779416057}
-  cutsceneDuration: 3
-  wavesData: {fileID: 0}
-  combatAreaSize: {fileID: 8160320414068996284}
-  childRestPoint: {fileID: 3093781280680346930}
-  maxSanity: 100
-  loseSanityThreshold: 0
-  startInsanity: 20
-  _sanity: 0
 --- !u!1 &3481727079973666914
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,7 +846,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.5, y: 3.5}
+  m_Size: {x: 25, y: 15}
   m_EdgeRadius: 0
 --- !u!114 &3133697455516205556
 MonoBehaviour:
@@ -868,7 +860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0b3b3f475fe4ab7913d5db44ecebf04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combatAreaManager: {fileID: 7261700994843069981}
+  combatAreaManager: {fileID: 5360710642429611934}
 --- !u!1 &3758684071540434696
 GameObject:
   m_ObjectHideFlags: 0
@@ -1719,7 +1711,7 @@ PrefabInstance:
     - target: {fileID: 115772742223864000, guid: a11c4f6d86dcc46cbb39c7c4be3399cb, type: 3}
       propertyPath: CombatAreaManager
       value: 
-      objectReference: {fileID: 7261700994843069981}
+      objectReference: {fileID: 5360710642429611934}
     - target: {fileID: 2560669878070721251, guid: a11c4f6d86dcc46cbb39c7c4be3399cb, type: 3}
       propertyPath: m_Name
       value: Campfire
@@ -1835,11 +1827,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34584760a8e6847c3bb625d2cc10fdd4, type: 3}
---- !u!1 &2352446917201355284 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 806380564681305239, guid: 34584760a8e6847c3bb625d2cc10fdd4, type: 3}
+--- !u!114 &3384564173759752939 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 391012684785706088, guid: 34584760a8e6847c3bb625d2cc10fdd4, type: 3}
   m_PrefabInstance: {fileID: 3140492009717124739}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ea223bb1b724eeca54491e5563e4dae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7487876463496856571 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5512127907509128568, guid: 34584760a8e6847c3bb625d2cc10fdd4, type: 3}

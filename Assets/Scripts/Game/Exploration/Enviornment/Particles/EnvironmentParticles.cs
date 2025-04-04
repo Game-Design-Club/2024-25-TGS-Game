@@ -8,8 +8,8 @@ namespace Game.Exploration.Enviornment.Particles {
         [SerializeField] private Transform exploreParticles;
         [SerializeField] private Transform combatParticles;
 
-        private List<ParticleSystem> _exploreParticles = new List<ParticleSystem>();
-        private List<ParticleSystem> _combatParticles = new List<ParticleSystem>();
+        private List<ParticleSystem> _exploreParticles = new();
+        private List<ParticleSystem> _combatParticles = new();
 
         private void Awake() {
             foreach (Transform child in exploreParticles) {
@@ -33,14 +33,14 @@ namespace Game.Exploration.Enviornment.Particles {
         }
 
         private void HandleGameEvent(GameEvent obj) {
-            if (obj.GameEventType == GameEventType.Explore) {
+            if (obj.GameEventType == GameEventType.ExploreEnter) {
                 foreach (ParticleSystem ps in _exploreParticles) {
                     ps.Play();
                 }
                 foreach (ParticleSystem ps in _combatParticles) {
                     ps.Stop();
                 }
-            } else if (obj.GameEventType == GameEventType.Combat) {
+            } else if (obj.GameEventType == GameEventType.CombatEnter) {
                 foreach (ParticleSystem ps in _combatParticles) {
                     ps.Play();
                 }
