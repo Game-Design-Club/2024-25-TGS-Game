@@ -249,14 +249,16 @@ MonoBehaviour:
   stunObject: {fileID: 4352213440001984457}
   stunDuration: 1
   hitParticles: {fileID: 0}
-  deathParticles: {fileID: 0}
-  deathSound: {fileID: 0}
+  hitSound: {fileID: 0}
+  deathParticles: {fileID: 5761495649415307529, guid: 158e5268b5ba24de0b9d88bcb580da1d, type: 3}
+  deathSound: {fileID: 11400000, guid: 56b988d4f50d3438fab33c116acf7cde, type: 2}
   reachSpeed: 1
   reachTurbulenceDistance:
     Min: 1
     Max: 5
   reachTurbulenceAngle: 30
   childRange: 1.5
+  dieRange: 0.5
   maxChunks: 100
   chunksPerSegment: 10
   debugLineRenderer: {fileID: 7071856634648569526}

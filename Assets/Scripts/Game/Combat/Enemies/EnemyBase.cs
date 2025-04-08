@@ -18,6 +18,7 @@ namespace Game.Combat.Enemies {
         [SerializeField] internal float stunDuration;
         
         [SerializeField] private GameObject hitParticles;
+        [SerializeField] private SoundEffect hitSound;
         [SerializeField] private GameObject deathParticles;
         [SerializeField] private SoundEffect deathSound;
         
@@ -80,6 +81,7 @@ namespace Game.Combat.Enemies {
             
             if (damage > 0) {
                 this.CreateParticles(hitParticles, transform.position, hitDirection);
+                hitSound.Play();
             }
         }
 
