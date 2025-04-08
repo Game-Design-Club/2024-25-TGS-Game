@@ -88,21 +88,30 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.8518073
-      inSlope: -1.2145731
-      outSlope: -1.2145731
+      value: 1.3606069
+      inSlope: -2.9098063
+      outSlope: -2.9098063
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.07171722
+      outWeight: 0.04813547
+    - serializedVersion: 3
+      time: 0.104928724
+      value: 0.67431444
+      inSlope: -1.4605218
+      outSlope: -1.4605218
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.07083343
     - serializedVersion: 3
       time: 1
       value: 0.066821575
-      inSlope: -0.0010017428
-      outSlope: -0.0010017428
+      inSlope: -0.40598732
+      outSlope: -0.40598732
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.08594912
+      inWeight: 0.100415505
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -436,7 +445,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 5010937811877483842, guid: 9df01c7c594ae4847a89ca342dfee9e8, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -467,19 +476,19 @@ MonoBehaviour:
   m_AlphaCutoff: 0.1
   m_ApplyToSortingLayers: 00000000dbba7ca8f985a7503534853f
   m_ShapePath:
-  - {x: -0.45888075, y: -0.27382702, z: 0}
-  - {x: -0.2622484, y: -0.24742664, z: 0}
+  - {x: -0.11270127, y: -0.32175952, z: 0}
+  - {x: -0.123776615, y: -0.24742664, z: 0}
   - {x: -0.09297916, y: -0.033193946, z: 0}
   - {x: -0.043548554, y: 0.36240947, z: 0}
-  - {x: 0.1120648, y: 0.43390745, z: 0}
-  - {x: 0.45467496, y: 0.29485574, z: 0}
-  - {x: 0.20038587, y: 0.29091144, z: 0}
-  - {x: 0.19618014, y: -0.0034922212, z: 0}
-  - {x: 0.360205, y: -0.08760753, z: 0}
+  - {x: 0.037503064, y: 0.36999738, z: 0}
+  - {x: 0.06588878, y: 0.33213663, z: 0}
+  - {x: 0.093869105, y: 0.24830474, z: 0}
+  - {x: 0.15357344, y: -0.0034922212, z: 0}
+  - {x: 0.14184564, y: -0.103585064, z: 0}
   - {x: 0.1246821, y: -0.18013439, z: 0}
   - {x: 0.17935705, y: -0.32313043, z: 0}
-  - {x: 0.4, y: -0.4, z: 0}
-  m_ShapePathHash: 867722460
+  - {x: 0.03784302, y: -0.32543823, z: 0}
+  m_ShapePathHash: -1661475526
   m_InstanceId: 0
   m_ShadowShape2DComponent: {fileID: 0}
   m_ShadowShape2DProvider:
@@ -488,8 +497,8 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: -0.0021028817, y: 0.016953737, z: 0}
-      m_Extent: {x: 0.45677787, y: 0.41695374, z: 0}
+      m_Center: {x: 0.027790219, y: 0.02227959, z: 0}
+      m_Extent: {x: 0.15156683, y: 0.34771782, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0.05
     m_FlipX: 0
