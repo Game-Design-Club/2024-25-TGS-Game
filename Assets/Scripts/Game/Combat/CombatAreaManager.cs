@@ -60,6 +60,10 @@ namespace Game.Combat {
         public static event Action OnChildHit;
         
         private void Awake() {
+            if (wavesData == null) {
+                Debug.LogError("wavesData is null");
+            }
+            
             foreach (GameObject obj in activeStateSwitchOnCombat) {
                 obj.SetActive(false);
             }
@@ -112,7 +116,6 @@ namespace Game.Combat {
         }
         
         public void AnimStartBreathing() {
-            Debug.Log("1");
             breathSound.Play();
         }
         

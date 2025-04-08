@@ -33,7 +33,10 @@ namespace Game.Combat.Enemies.TreeEnemy {
         public override void Update() {
             _timer += Time.deltaTime;
             AnimationCurve drawbackCurve = Controller().stunKnockbackCurve;
-            Controller<TreeEnemy>().SetDistance((_startDistance - drawbackCurve.Evaluate(_timer) * _stunMultiplier));
+            Controller<TreeEnemy>().SetDistance(_startDistance - drawbackCurve.Evaluate(_timer) * _stunMultiplier);
+            if (Controller<TreeEnemy>().GetDistance() < Controller<TreeEnemy>().dieRange) {
+                Controller<TreeEnemy>().Die();
+            }
             if (_timer > drawbackCurve.Time()) {
                 if (_extraStunTime > 0) {
                     Controller().TransitionToState(new Stunned(Controller(), _extraStunTime));

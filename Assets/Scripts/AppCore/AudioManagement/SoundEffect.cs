@@ -21,7 +21,6 @@ namespace AppCore.AudioManagement {
         public Vector2? position = null;
 
         public void Play() {
-            Debug.Log("2");
             App.Get<AudioManager>().PlaySoundEffect(this);
         }
 

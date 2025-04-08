@@ -401,7 +401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5082725842503736023
 RectTransform:
   m_ObjectHideFlags: 0
@@ -443,7 +443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.33868816, g: 0.34498858, b: 0.4056604, a: 1}
+  m_Color: {r: 0.12936339, g: 0.101548605, b: 0.13207549, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -504,6 +504,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f5de02c317b485f8fcc86161602d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  printSave: 0
+  defaultSaveFile: 0
+  firstLevelLoad: 1
 --- !u!1 &3595409744219396187
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,7 +835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.11047822, g: 0.09611962, b: 0.1509434, a: 1}
+  m_Color: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -937,6 +940,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06fb9c585a6749c8bd39b89ac9852b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultDuration: 0.15
+  defaultTimeScale: 0.15
 --- !u!1 &5492278155389830555
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ namespace Game.Combat.Bear {
             if (App.Get<InputManager>().GetBearSwipe) {
                 Controller.TransitionToState(new GrowlChargeup(Controller));
             } else {
-                Controller.TransitionAfterSeconds(new Idle(Controller), Controller.swipeCooldown);
+                Controller.TransitionToState(new Idle(Controller, Controller.swipeCooldown));
             }
         }
     }
