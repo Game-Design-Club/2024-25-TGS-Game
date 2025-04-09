@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3fd7ce2a258984b2aa33894a37fcb199, type: 3}
   volume: 0.4
   pitch: 1
-  pitchRandomness: 0.5
+  pitchRandomness: 0.2
   loop: 0
   parent: {fileID: 0}
   spatialBlend: 0.4
