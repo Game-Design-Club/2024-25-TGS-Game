@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 58c139a4435f64cd38fcad2f4be1559a
+guid: 050c4225e5c394914bc95e7e3f642a03
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2646930393529890578
-    second: Untitled_Artwork-1 2_0
+      213: -2559190936789288728
+    second: Rock 3_0
+  - first:
+      213: -862053262972914756
+    second: Rock 3_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Untitled_Artwork-1 2_0
+      name: Rock 3_0
       rect:
         serializedVersion: 2
-        x: 1316
-        y: 440
-        width: 551
-        height: 365
+        x: 250
+        y: 781
+        width: 491
+        height: 169
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ee84774c4d6344bd0800000000000000
-      internalID: -2646930393529890578
+      spriteID: 8e87644f66deb7cd0800000000000000
+      internalID: -2559190936789288728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock 3_1
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 729
+        width: 725
+        height: 399
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb3780bef1f5904f0800000000000000
+      internalID: -862053262972914756
       vertices: []
       indices: 
       edges: []

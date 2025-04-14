@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a2e7c04357f6a4ef2a1790a272477cdc
+guid: bbb731b37e95e473087b484d98dd73bb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3410439384014351281
-    second: Untitled_Artwork-4_0
+      213: 234962400443040618
+    second: Big Bird 2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Untitled_Artwork-4_0
+      name: Big Bird 2_0
       rect:
         serializedVersion: 2
-        x: 293
-        y: 471
-        width: 1375
-        height: 640
+        x: 0
+        y: 0
+        width: 2048
+        height: 2048
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1bb6d2cec80545f20800000000000000
-      internalID: 3410439384014351281
+      spriteID: a630bfdee01c24300800000000000000
+      internalID: 234962400443040618
       vertices: []
       indices: 
       edges: []

@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 7eb2c6a7228974797a77f558245a2e12
+guid: 51388f0d8bdeb41f2aaa727b072e8bff
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1399841339835054098
-    second: Untitled_Artwork-2 2_0
+      213: 1624750168156013987
+    second: Snowy Rock 4_0
+  - first:
+      213: -1983346385536060515
+    second: Snowy Rock 4_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Untitled_Artwork-2 2_0
+      name: Snowy Rock 4_0
       rect:
         serializedVersion: 2
-        x: 649
-        y: 484
-        width: 562
-        height: 270
+        x: 269
+        y: 817
+        width: 600
+        height: 409
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ee78935d7b3c29ce0800000000000000
-      internalID: -1399841339835054098
+      spriteID: 3a502bd6ba54c8610800000000000000
+      internalID: 1624750168156013987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snowy Rock 4_1
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 887
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d93719778fcb974e0800000000000000
+      internalID: -1983346385536060515
       vertices: []
       indices: 
       edges: []
