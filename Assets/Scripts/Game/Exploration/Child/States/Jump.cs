@@ -10,40 +10,26 @@ namespace Game.Exploration.Child {
         public Jump(ChildController controller) : base(controller) { }
 
         private float _t = 0;
-        private bool _jumpReleased = false;
         private Vector2 _jumpDirection;
-        private bool _doneJumping = false;
+        private bool _doneMoving = false;
         
         public override void Enter() {
             Controller.Animator.SetBool(AnimationConstants.Child.Jump, true);
-            if (!App.Get<InputManager>().GetChildJump) {
-                _jumpReleased = true;
-            }
             Physics2D.IgnoreLayerCollision(Controller.childLayer, Controller.jumpableLayer, true);
             _jumpDirection = Controller.LastDirection;
         }
 
         public override void Update() {
-            if (_doneJumping) return;
             _t += Time.deltaTime;
-            if (_jumpReleased && _t >= Controller.minJumpTime) {
-                DoneJumping();
-                return;
-            }
-
-            if (_t >= Controller.maxJumpTime) {
-                DoneJumping();
+            if (!_doneMoving && _t >= Controller.jumpSpeedCurve.Time()) {
+                DoneMoving();
                 return;
             }
         }
         
-        private void DoneJumping() {
-            _doneJumping = true;
+        private void DoneMoving() {
+            _doneMoving = true;
             Controller.LandPlayer();
-        }
-
-        public override void OnJumpInputReleased() {
-            _jumpReleased = true;
         }
 
         public override bool CanInteract() {
@@ -51,7 +37,7 @@ namespace Game.Exploration.Child {
         }
 
         public override float? GetWalkSpeed() {
-            return Controller.jumpSpeed;
+            return Controller.jumpSpeedCurve.Evaluate(_t);
         }
         
         public override Vector2 GetWalkDirection() {

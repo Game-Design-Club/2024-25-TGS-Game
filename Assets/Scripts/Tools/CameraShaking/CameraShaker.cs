@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using Game.CameraManagement;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Serialization;

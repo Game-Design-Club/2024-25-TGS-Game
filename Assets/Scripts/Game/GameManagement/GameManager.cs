@@ -9,8 +9,6 @@ using UnityEngine;
 
 namespace Game.GameManagement {
     public class GameManager : MonoBehaviour {
-        // Child/Bear, and Paused/Unpaused
-        // Controls InputMapping, and transitions between states
         [SerializeField] public float transitionDuration = 1f;
         [SerializeField] public UIManager UIManager;
         
@@ -21,7 +19,7 @@ namespace Game.GameManagement {
         private static GameManager _instance;
         
         private static bool _isPaused;
-        private static bool IsPaused {
+        public static bool IsPaused {
             get => _isPaused;
             set {
                 _isPaused = value;
@@ -39,9 +37,9 @@ namespace Game.GameManagement {
         {
             return _instance.UIManager;
         }
-        private static GameEventType GameEventType {
+        public static GameEventType GameEventType {
             get => _gameEventType;
-            set {
+            private set {
                 _lastGameEventType = _gameEventType;
                 _gameEventType = value;
                 OnGameEvent?.Invoke(new GameEvent {
@@ -83,7 +81,15 @@ namespace Game.GameManagement {
             App.Get<DialogueManager>().OnDialogueStart -= DialogueStart;
             App.Get<DialogueManager>().OnDialogueEnd -= DialogueEnd;
         }
-        
+
+        private void OnApplicationFocus(bool hasFocus) {
+            #if !UNITY_EDITOR
+            if (!hasFocus) {
+                OnGamePaused();
+            }
+            #endif
+        }
+
         public static void OnGamePaused() {
             IsPaused = !IsPaused;
         }

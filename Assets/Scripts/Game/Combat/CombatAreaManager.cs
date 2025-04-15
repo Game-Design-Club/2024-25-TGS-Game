@@ -1,10 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using AppCore.AudioManagement;
+using Game.Combat.Bear;
 using Game.Combat.Enemies;
 using Game.Combat.Waves;
 using Game.Exploration.Child;
 using Game.GameManagement;
+using Tools;
 using Tools.CameraShaking;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -16,8 +19,10 @@ namespace Game.Combat {
         [SerializeField] private CinemachineCamera combatCamera;
         [SerializeField] private List<GameObject> activeStateSwitchOnCombat;
         [SerializeField] internal CameraShaker cameraShaker;
+        [SerializeField] private BearController bearController;
         [Header("Cutscene")]
-        [SerializeField] private float cutsceneDuration = 3f;
+        [SerializeField] private SoundEffect breathSound;
+        [SerializeField] private SoundEffect heartBeatSound;
         [Header("Enemies")]
         [SerializeField] private WavesData wavesData;
         [Header("Combat Area")]
@@ -47,15 +52,23 @@ namespace Game.Combat {
         private bool _lost = false;
         
         internal ChildController Child;
+
+        private Animator _animator;
         
         // Events
         public static event Action<float> OnSanityChanged; // Percentage
         public static event Action OnChildHit;
         
         private void Awake() {
+            if (wavesData == null) {
+                Debug.LogError("wavesData is null");
+            }
+            
             foreach (GameObject obj in activeStateSwitchOnCombat) {
                 obj.SetActive(false);
             }
+
+            TryGetComponent(out _animator);
         }
 
         private void OnEnable() {
@@ -68,29 +81,49 @@ namespace Game.Combat {
 
         // Start combat
         internal void EnterCombatArea(ChildController child) {
-            if (_combatEntered) return;
+            if (_combatEntered) {
+                return;
+            }
+            _combatEntered = true;
             Child = child;
-            StartCoroutine(TransitionToCombat());
+            Sanity = startInsanity;
+            TransitionToCombat();
         }
         
-        private IEnumerator TransitionToCombat() {
-            _combatEntered = true;
-            
+        private void TransitionToCombat() {
             GameManager.StartTransitionToCombat();
             
             Setup();
-                        
-            Child.Sleep(childRestPoint.position);
-
-            yield return new WaitForSeconds(GameManager.TransitionDuration);
             
-            StartCoroutine(RunCombat());
-            
-            yield return new WaitForSeconds(cutsceneDuration);
-            
-            combatCamera.Priority = 200;
+            _animator.SetTrigger(AnimationConstants.CombatArea.EnterCombat);
         }
         
+        // Animation events
+        public void AnimSleepChild() {
+            Child.Sleep(childRestPoint.position);
+        }
+
+        public void AnimStartCombatRun() {
+            StartCoroutine(RunCombat());
+        }
+
+        public void AnimSetCombatCamera() {
+            combatCamera.Priority = 200;
+        }
+
+        public void AnimAwakeBear() {
+            bearController.gameObject.SetActive(true);
+        }
+        
+        public void AnimStartBreathing() {
+            breathSound.Play();
+        }
+        
+        public void AnimStartHeartbeat() {
+            heartBeatSound.Play();
+        }
+        
+        // Animation events
         private IEnumerator TransitionToExploration() {
             GameManager.StartTransitionToExploration();
             
@@ -100,8 +133,8 @@ namespace Game.Combat {
             
             GameManager.EndTransitionToExploration();
             
-            _combatEntered = false;
             gameObject.SetActive(false);
+            StopAllCoroutines();
         }
         
         private void Setup() {
@@ -115,7 +148,6 @@ namespace Game.Combat {
         // Run combat
         private IEnumerator RunCombat() {
             _lost = false;
-            Sanity = startInsanity;
 
             GameManager.EndTransitionToCombat();
             
@@ -225,8 +257,6 @@ namespace Game.Combat {
             StartCoroutine(TransitionToExploration());
         }
         private void Cleanup() {
-            StopAllCoroutines();
-            
             wideCamera.Priority = 0;
             combatCamera.Priority = 0;
             

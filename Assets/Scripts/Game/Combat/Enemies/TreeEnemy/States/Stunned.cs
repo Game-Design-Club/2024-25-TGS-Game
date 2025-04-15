@@ -11,11 +11,11 @@ namespace Game.Combat.Enemies.TreeEnemy {
         private float _progress = 0;
 
         public override void Enter() {
-            Controller<TreeEnemy>().stunObject.SetActive(true);
+            Controller().stunObject.SetActive(true);
         }
 
         public override void Exit() {
-            Controller<TreeEnemy>().stunObject.SetActive(false);
+            Controller().stunObject.SetActive(false);
         }
 
         public override void Update() {
@@ -27,7 +27,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
         }
 
         public override void OnHit(Vector2 hitDirection, float knockbackForce, BearDamageType damageType) {
-            
+            Controller().TransitionToState(new Retract(Controller()));
         }
     }
 }

@@ -11,14 +11,13 @@ namespace Game.Combat.Enemies.TreeEnemy {
         [SerializeField] private FloatRange reachTurbulenceDistance = new(0.5f, 1.5f);
         [SerializeField] private float reachTurbulenceAngle = 10f;
         [SerializeField] private float childRange = 1f;
+        [SerializeField] internal float dieRange = 0.5f;
         [FormerlySerializedAs("maxSegments")] [SerializeField] private int maxChunks = 10;
         [SerializeField] private int chunksPerSegment = 5;
         [SerializeField] private LineRenderer debugLineRenderer;
         [SerializeField] private LineRenderer lineRenderer;
         [SerializeField] private Transform hand;
         [SerializeField] private Transform spritePivot;
-        [SerializeField] internal float stunDuration = 1f;
-        [SerializeField] internal GameObject stunObject;
 
         protected override EnemyState StartingState => new Reach(this);
         
@@ -29,7 +28,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
         private float _endDirection;
         
         private float _maxDistance = -1;
-        
+
         private new void Start() {
             CalculatePoints();
             SetDistance(CurrentDistance);
@@ -173,10 +172,14 @@ namespace Game.Combat.Enemies.TreeEnemy {
                 TransitionToState(new Attack(this));
             }
             if (distance < 0) {
-                OnHitByBear(100000, Vector2.zero, 0, BearDamageType.Swipe);
+                Die();
                 return;
             }
             SetLength(distance);
+        }
+
+        internal void Die() {
+            OnHitByBear(100000, Vector2.zero, 0, BearDamageType.Swipe);
         }
 
         internal void CreateNewPoints() {
@@ -192,6 +195,10 @@ namespace Game.Combat.Enemies.TreeEnemy {
             } else {
                 TransitionToState(new Retract(this, .1f, 2));
             }
+        }
+
+        public float GetDistance() {
+            return CurrentDistance;
         }
     }
 }

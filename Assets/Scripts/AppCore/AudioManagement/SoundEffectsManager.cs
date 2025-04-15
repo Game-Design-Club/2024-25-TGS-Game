@@ -78,11 +78,10 @@ namespace AppCore.AudioManagement {
 
         public void StopSoundEffect(SoundEffect soundEffect) {
             if (_audioSources.ContainsKey(soundEffect)) {
-
                 soundEffect.paused = () => true;
                 _audioSources.Remove(soundEffect);
             } else {
-                Debug.LogWarning("SoundEffect not found in _audioSources");
+                // Debug.LogWarning("SoundEffect not found in _audioSources");
             }
         }
     }

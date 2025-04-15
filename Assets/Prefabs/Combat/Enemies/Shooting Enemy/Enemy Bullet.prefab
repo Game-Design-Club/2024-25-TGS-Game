@@ -77,7 +77,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1741993609
-  m_SortingLayer: 5
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -169,6 +169,7 @@ MonoBehaviour:
   enemyBase: {fileID: 0}
   hitChild: 1
   hitBear: 1
-  sanityDamage: 5
-  killChildOnAttack: 0
+  sanityDamage: 2
+  killEnemyOnChildAttack: 0
+  killEnemyOnBearAttack: 1
   sideKnockbackWeight: 0.3

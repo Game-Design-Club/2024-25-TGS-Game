@@ -16,9 +16,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f313d484ed1fb4bff8801da725a46533, type: 3}
   volume: 1
   pitch: 1
-  pitchRandomness: 0
+  pitchRandomness: 0.25
   loop: 0
   parent: {fileID: 0}
   spatialBlend: 0
   minDistance: 1
   maxDistance: 500
+  fadeInTime: 0.1
+  fadeOutTime: 0.1

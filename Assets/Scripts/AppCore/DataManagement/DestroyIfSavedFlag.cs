@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 namespace AppCore.DataManagement {
-    public class DestroyIfSavedFlag : MonoBehaviour {
+    public class DestroyIfSavedFlag : MonoBehaviour, DataID {
         [SerializeField] private string flagName;
 
         public void GenerateID() {

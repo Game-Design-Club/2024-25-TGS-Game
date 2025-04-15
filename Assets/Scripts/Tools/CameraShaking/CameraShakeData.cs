@@ -1,6 +1,6 @@
 using System;
 
-namespace Game.CameraManagement {
+namespace Tools.CameraShaking {
     [Serializable] public struct CameraShakeData {
         public float intensity;
         public float frequency;

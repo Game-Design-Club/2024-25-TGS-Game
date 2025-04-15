@@ -23,28 +23,44 @@ namespace Game.Exploration.Child {
         private void OnDisable() {
             App.Get<InputManager>().OnChildInteract -= Interact;
         }
+
+        private bool TryRayInteraction(Vector2 baseOffset, Vector2 deltaOffset, Vector2 direction) {
+            Vector2 origin = (Vector2)transform.position + baseOffset;
+            if (TryInteraction(origin, direction)) return true;
+            origin += deltaOffset;
+            return TryInteraction(origin, direction);
+        }
         
         private void Interact() {
             if (_interacting) return;
             if (!_controller.CanInteract()) return;
-            
-            // Origin starts from edge of box collider
-            // vertical left first, then vertical right, then horizontal top, then horizontal bottom
-            Vector2 direction = new Vector2(_controller.LastDirection.x, 0);
-            Vector2 origin = transform.position;
-            origin.x += _controller.LastDirection.x * boxCollider.size.x / 2;
-            origin.y += boxCollider.size.y / 2;
-            if (TryInteraction(origin, direction)) return; // vertical left
-            origin.y -= boxCollider.size.y;
-            if (TryInteraction(origin, direction)) return; // vertical right
-            
-            direction = new Vector2(0, _controller.LastDirection.y);
-            origin = transform.position;
-            origin.y += _controller.LastDirection.y * boxCollider.size.y / 2;
-            origin.x += boxCollider.size.x / 2;
-            if (TryInteraction(origin, direction)) return; // horizontal top
-            origin.x -= boxCollider.size.x;
-            if (TryInteraction(origin, direction)) return; // horizontal bottom
+
+            // First try using LastDirection if available
+            if (_controller.LastDirection != Vector2.zero) {
+                Vector2 lastDir = _controller.LastDirection.normalized;
+                if (Mathf.Abs(lastDir.x) > 0.1f) {
+                    if (TryRayInteraction(new Vector2(lastDir.x * boxCollider.size.x / 2, boxCollider.size.y / 2), new Vector2(0, -boxCollider.size.y), new Vector2(lastDir.x, 0))) return;
+                }
+                if (Mathf.Abs(lastDir.y) > 0.1f) {
+                    if (TryRayInteraction(new Vector2(boxCollider.size.x / 2, lastDir.y * boxCollider.size.y / 2), new Vector2(-boxCollider.size.x, 0), new Vector2(0, lastDir.y))) return;
+                }
+            }
+
+            if (_controller.LastInput == Vector2.zero) {
+                // Standing still: check all four cardinal directions
+                if (TryRayInteraction(new Vector2(-boxCollider.size.x / 2, boxCollider.size.y / 2), new Vector2(0, -boxCollider.size.y), Vector2.left)) return;
+                if (TryRayInteraction(new Vector2(boxCollider.size.x / 2, boxCollider.size.y / 2), new Vector2(0, -boxCollider.size.y), Vector2.right)) return;
+                if (TryRayInteraction(new Vector2(boxCollider.size.x / 2, boxCollider.size.y / 2), new Vector2(-boxCollider.size.x, 0), Vector2.up)) return;
+                if (TryRayInteraction(new Vector2(boxCollider.size.x / 2, -boxCollider.size.y / 2), new Vector2(-boxCollider.size.x, 0), Vector2.down)) return;
+            } else {
+                Vector2 moveDir = _controller.LastInput.normalized;
+                if (Mathf.Abs(moveDir.x) > 0.1f) {
+                    if (TryRayInteraction(new Vector2(moveDir.x * boxCollider.size.x / 2, boxCollider.size.y / 2), new Vector2(0, -boxCollider.size.y), new Vector2(moveDir.x, 0))) return;
+                }
+                if (Mathf.Abs(moveDir.y) > 0.1f) {
+                    if (TryRayInteraction(new Vector2(boxCollider.size.x / 2, moveDir.y * boxCollider.size.y / 2), new Vector2(-boxCollider.size.x, 0), new Vector2(0, moveDir.y))) return;
+                }
+            }
         }
         
         private bool TryInteraction(Vector2 origin, Vector2 direction) {
