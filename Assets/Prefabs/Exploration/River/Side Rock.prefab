@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 171698484545744243, guid: dec5a2f3c092c42bd80a4220283dc574, type: 3}
+      propertyPath: blockChild
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1106943974954260505, guid: dec5a2f3c092c42bd80a4220283dc574, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -60,6 +64,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5426905425996822447, guid: dec5a2f3c092c42bd80a4220283dc574, type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7580877965058606551, guid: dec5a2f3c092c42bd80a4220283dc574, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9894004
@@ -79,6 +87,10 @@ PrefabInstance:
     - target: {fileID: 8352099597003196220, guid: dec5a2f3c092c42bd80a4220283dc574, type: 3}
       propertyPath: direction.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459562490908291748, guid: dec5a2f3c092c42bd80a4220283dc574, type: 3}
+      propertyPath: m_TagString
+      value: River
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

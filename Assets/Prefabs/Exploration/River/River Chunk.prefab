@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4182093758602509837}
   m_Layer: 10
   m_Name: River Chunk
-  m_TagString: River Base
+  m_TagString: River
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

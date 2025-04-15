@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: River Chunk Base
       objectReference: {fileID: 0}
+    - target: {fileID: 4361508689109109653, guid: 739f4bc265068469cbc5936c4dd8be58, type: 3}
+      propertyPath: m_TagString
+      value: River Base
+      objectReference: {fileID: 0}
     - target: {fileID: 5280710934238618261, guid: 739f4bc265068469cbc5936c4dd8be58, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
