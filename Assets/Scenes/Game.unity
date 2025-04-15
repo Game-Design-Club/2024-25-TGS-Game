@@ -571,14 +571,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1968545387}
     m_Modifications:
-    - target: {fileID: 2629978872422019522, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2629978872422019522, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3132762231799129043, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -623,17 +615,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Forest Level 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7035655106350156869, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7035655106350156869, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8263102695424374509, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
       propertyPath: thickness
-      value: 0.25
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -56,7 +56,7 @@ namespace Game.Exploration.Enviornment.River {
             if (InRiver) {
                 spriteRenderer.localScale = new Vector3(targetScale, targetScale, 1f);
                 SetInRiver();
-                new PointCollision(_rb.position).RiverManager?.ComputeCollider();
+                new PointCollision(_rb.position).RiverManager?.ComputeColliderRemovals();
             } else {
                 spriteRenderer.localScale = new Vector3(landScale, landScale, 1f);
             }
@@ -97,7 +97,7 @@ namespace Game.Exploration.Enviornment.River {
                     _lastPushDirection));
             _isMoving = false;
             InRiver = true;
-            new PointCollision(_rb.position).RiverManager?.ComputeCollider();
+            new PointCollision(_rb.position).RiverManager?.ComputeColliderRemovals();
         }
 
         private IEnumerator MakeSmaller() {
@@ -115,7 +115,7 @@ namespace Game.Exploration.Enviornment.River {
         private void Update() {
             if (_isMoving) {
                 _rb.linearVelocity = _moveDirection * slideIntoRiverVelocity;
-                new PointCollision(_rb.position).RiverManager?.ComputeCollider();
+                new PointCollision(_rb.position).RiverManager?.ComputeColliderRemovals();
             } else {
                 _rb.linearVelocity = Vector2.zero;
             }

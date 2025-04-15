@@ -1,19 +1,62 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Exploration.Enviornment.River {
     public class RiverManager : MonoBehaviour {
         [SerializeField] private Transform logParent;
         [SerializeField] private Transform rockParent;
+        [SerializeField] private Transform spriteParent;
+        [Range(1, 20)]
+        [SerializeField] private int length = 5;
+        [Range(.1f, 10f)]
+        [SerializeField] private float size = 2f;
+        [Range(0, 5f)]
+        [SerializeField] private float sizeBuffer = 0.3f;
+        [SerializeField] private BoxCollider2D[] riverColliders;
+        [Header("Visuals")]
+        [SerializeField] private GameObject baseSpriteObject;
+        [SerializeField] private Transform spriteVisualization;
+        [SerializeField] private RiverChunk moveSpeedGetter;
         
-        private List<BoxCollider2D> _addedColliders = new List<BoxCollider2D>();
+        private List<BoxCollider2D> _addedColliders = new();
+        private GameObject[] _sprites;
+
+        private float _offset;
         
         private void Start() {
-            ComputeCollider();
+            SpriteRenderer baseSpriteRenderer = baseSpriteObject.GetComponent<SpriteRenderer>();
+            _offset = baseSpriteRenderer.bounds.size.x;
+
+            Destroy(spriteVisualization.gameObject);
+            SetColliderSizes();
+            ComputeColliderRemovals();
+            CreateSprites();
         }
 
-        private void AddCollider(Transform child) {
+        private void OnValidate() {
+            transform.localScale = new Vector3(size, size, 1);
+            SpriteRenderer spriteRenderer = baseSpriteObject.GetComponent<SpriteRenderer>();
+            spriteVisualization.localScale = new Vector3(
+                spriteRenderer.bounds.size.x * length * transform.lossyScale.x,
+                spriteRenderer.bounds.size.y * transform.lossyScale.y,
+                1);
+            SetColliderSizes();
+        }
+
+        private void SetColliderSizes() {
+            SpriteRenderer baseSpriteRenderer = baseSpriteObject.GetComponent<SpriteRenderer>();
+            foreach (BoxCollider2D collider in riverColliders) {
+                if (collider == null) continue;
+                collider.size = new Vector2(
+                    baseSpriteRenderer.bounds.size.x * length,
+                    baseSpriteRenderer.bounds.size.y - sizeBuffer);
+            }
+        }
+
+        private void RemoveColliderArea(Transform child) {
             BoxCollider2D addedCollider = gameObject.AddComponent<BoxCollider2D>();
             BoxCollider2D originCollider = child.GetComponent<BoxCollider2D>();
             Vector2 originSize = originCollider.size;
@@ -32,18 +75,44 @@ namespace Game.Exploration.Enviornment.River {
             _addedColliders.Add(addedCollider);
         }
 
-        public void ComputeCollider() {
+        public void ComputeColliderRemovals() {
             foreach (BoxCollider2D collider in _addedColliders) {
                 Destroy(collider);
             }
             _addedColliders.Clear();
 
             foreach (Transform child in logParent) {
-                AddCollider(child);
+                RemoveColliderArea(child);
             }
 
             foreach (Transform child in rockParent) {
-                AddCollider(child);
+                RemoveColliderArea(child);
+            }
+        }
+        
+        private void CreateSprites() {
+            _sprites = new GameObject[length];
+            float currentOffset = -_offset*length / 2;
+            for (int i = 0; i < length; i++) {
+                GameObject instance = Instantiate(baseSpriteObject, spriteParent);
+                _sprites[i] = instance;
+                _sprites[i].transform.localPosition = new Vector3(currentOffset, 0, 0);
+                currentOffset += _offset;
+            }
+        }
+        
+        private void Update() {
+            for (int i = 0; i < length; i++) {
+                _sprites[i].transform.localPosition += Vector3.right * (moveSpeedGetter.direction.x * (moveSpeedGetter.floatSpeed * Time.deltaTime));
+
+                // If moving to the right
+                if (moveSpeedGetter.direction.x > 0 && _sprites[i].transform.localPosition.x > _offset * length / 2) {
+                    _sprites[i].transform.localPosition = new Vector3(-_offset * length / 2, 0, 0);
+                }
+                // If moving to the left
+                else if (moveSpeedGetter.direction.x < 0 && _sprites[i].transform.localPosition.x < -_offset * length / 2) {
+                    _sprites[i].transform.localPosition = new Vector3(_offset * length / 2, 0, 0);
+                }
             }
         }
     }
