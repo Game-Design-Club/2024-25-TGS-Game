@@ -24,6 +24,9 @@ namespace Game.Exploration.Child {
         [Header("Jumping")]
         [SerializeField] internal AnimationCurve jumpSpeedCurve;
         [SerializeField] internal float jumpSpeed = 4f;
+        [SerializeField] internal ParticleSystem jumpParticles;
+        [SerializeField] internal ParticleSystem landGroundParticles;
+        [SerializeField] internal ParticleSystem landRiverParticles;
         [Header("Floating")]
         [SerializeField] internal float floatSpeed = 1f;
         [Header("Walk to Sleep")]
@@ -169,16 +172,19 @@ namespace Game.Exploration.Child {
             
             if (DoAll(point => point.TouchingGround)) {
                 TransitionToState(new Move(this));
+                landGroundParticles.Play();
                 return;
             }
             
             if (DoAny(point => point.TouchingLog) || DoAny(point => point.TouchingRock)) {
                 StartMoveUntilGrounded();
+                landGroundParticles.Play();
                 return;
             }
             
             if (DoAll(point => point.TouchingRiver)) {
                 TransitionToState(new Float(this));
+                landRiverParticles.Play();
                 return;
             }
             

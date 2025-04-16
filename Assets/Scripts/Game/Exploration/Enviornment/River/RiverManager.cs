@@ -15,6 +15,7 @@ namespace Game.Exploration.Enviornment.River {
         [SerializeField] private float size = 2f;
         [Range(0, 5f)]
         [SerializeField] private float sizeBuffer = 0.3f;
+        [SerializeField] private float overlap = 0.1f;
         [SerializeField] private BoxCollider2D[] riverColliders;
         [Header("Visuals")]
         [SerializeField] private GameObject baseSpriteObject;
@@ -28,7 +29,7 @@ namespace Game.Exploration.Enviornment.River {
         
         private void Start() {
             SpriteRenderer baseSpriteRenderer = baseSpriteObject.GetComponent<SpriteRenderer>();
-            _offset = baseSpriteRenderer.bounds.size.x;
+            _offset = baseSpriteRenderer.bounds.size.x - overlap;
 
             Destroy(spriteVisualization.gameObject);
             SetColliderSizes();
@@ -103,7 +104,9 @@ namespace Game.Exploration.Enviornment.River {
         
         private void Update() {
             for (int i = 0; i < length; i++) {
-                _sprites[i].transform.localPosition += Vector3.right * (moveSpeedGetter.direction.x * (moveSpeedGetter.floatSpeed * Time.deltaTime));
+                Rigidbody2D rb = _sprites[i].GetComponent<Rigidbody2D>();
+                rb.position += moveSpeedGetter.direction * (moveSpeedGetter.floatSpeed * Time.deltaTime);
+                // _sprites[i].transform.localPosition += Vector3.right * (moveSpeedGetter.direction.x * (moveSpeedGetter.floatSpeed * Time.deltaTime));
 
                 // If moving to the right
                 if (moveSpeedGetter.direction.x > 0 && _sprites[i].transform.localPosition.x > _offset * length / 2) {

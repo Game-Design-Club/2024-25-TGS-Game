@@ -6,24 +6,27 @@
   <component name="ChangeListManager">
     <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Interactions/Snow Pile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Interactions/Snow Pile.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/River/River Chunk Base.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/River/River Chunk Base.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/River/River Chunk.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/River/River Chunk.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Child/Child.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Child/Child.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/River/Center Rock.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/River/Center Rock.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/River/Log.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/River/Log.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/River/River Sprite.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/River/River Sprite.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/River/River.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/River/River.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/River/Side Rock.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/River/Side Rock.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Trees/Tree.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Trees/Tree.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Levels/1. Forest Level.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Levels/1. Forest Level.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Levels/Level.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Levels/Level.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tools/Editor/LevelCreatorEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/Editor/LevelCreatorEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tools/LevelDesign/SpriteChooser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/LevelDesign/SpriteChooser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Rock 1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Rock 1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Rock 2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Rock 2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Rock 3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Rock 3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Snowy Rock 1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Snowy Rock 1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Snowy Rock 2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Snowy Rock 2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Snowy Rock 3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Snowy Rock 3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Snowy Rock 4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Snowy Rock 4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Snow/Snow Pile Chooser Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Snow/Snow Pile Chooser Data.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Child/ChildController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Child/ChildController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Child/States/Float.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Child/States/Float.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Child/States/Jump.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Child/States/Jump.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/River/RiverManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/River/RiverManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/River/RiverRock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/River/RiverRock.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/River/RiverSprites.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/River/RiverSprites.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/Splash Particlese/Splash 1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/Splash Particlese/Splash 1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/Splash Particlese/Splash 1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/Splash Particlese/Splash 1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/Splash Particlese/Splash 2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/Splash Particlese/Splash 2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/Splash Particlese/Splash 2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/Splash Particlese/Splash 2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/Splash Particlese/Splash 3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/Splash Particlese/Splash 3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/Splash Particlese/Splash 3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/Splash Particlese/Splash 3.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +198,7 @@
       <workItem from="1742360820587" duration="8436000" />
       <workItem from="1742428154544" duration="11523000" />
       <workItem from="1743086593457" duration="652000" />
-      <workItem from="1744663273379" duration="12891000" />
+      <workItem from="1744663273379" duration="18806000" />
     </task>
     <servers />
   </component>

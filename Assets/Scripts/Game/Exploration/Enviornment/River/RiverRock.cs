@@ -17,6 +17,7 @@ namespace Game.Exploration.Enviornment.River {
         [SerializeField] private float scaleTime = 0.5f;
         [SerializeField] private Transform spriteRenderer;
         [SerializeField] private string flagName;
+        [SerializeField] private ParticleSystem splashParticles;
         
         public bool InRiver { get; private set; } = false;
         private bool _isMoving = false;
@@ -74,6 +75,7 @@ namespace Game.Exploration.Enviornment.River {
         }
 
         private void SetInRiver() {
+            splashParticles.Play();
             if (!blockChild) {
                 _collider.isTrigger = true;
                 _rb.bodyType = RigidbodyType2D.Dynamic;
@@ -81,7 +83,6 @@ namespace Game.Exploration.Enviornment.River {
                 gameObject.layer = PhysicsLayers.ChildWall;
                 _rb.bodyType = RigidbodyType2D.Kinematic;
             }
-
             _rb.linearVelocity = Vector2.zero;
         }
 

@@ -571,26 +571,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1968545387}
     m_Modifications:
-    - target: {fileID: 2512840140432276659, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
-      propertyPath: useArea
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2512840140432276659, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
-      propertyPath: isActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2512840140432276659, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
-      propertyPath: activeModuleIndex
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2512840140432276659, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
-      propertyPath: modules.Array.data[3].activeModule
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2512840140432276659, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
-      propertyPath: modules.Array.data[8].activeModule
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3132762231799129043, guid: fd195f86e7c2542cbb22f92ce38268f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
