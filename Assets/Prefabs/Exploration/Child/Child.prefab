@@ -598,32 +598,40 @@ PrefabInstance:
     m_TransformParent: {fileID: 7484995077907499558}
     m_Modifications:
     - target: {fileID: 1197435044681610511, guid: d232669f796ec4a1ca7fa6fa9b71881c, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197435044681610511, guid: d232669f796ec4a1ca7fa6fa9b71881c, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 1197435044681610511, guid: d232669f796ec4a1ca7fa6fa9b71881c, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 0.34
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1197435044681610511, guid: d232669f796ec4a1ca7fa6fa9b71881c, type: 3}
       propertyPath: InitialModule.startSpeed.minScalar
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1197435044681610511, guid: d232669f796ec4a1ca7fa6fa9b71881c, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.7264151
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1197435044681610511, guid: d232669f796ec4a1ca7fa6fa9b71881c, type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.5324133
+      value: 0.93986976
       objectReference: {fileID: 0}
     - target: {fileID: 1197435044681610511, guid: d232669f796ec4a1ca7fa6fa9b71881c, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.35978106
+      value: 0.6462264
       objectReference: {fileID: 0}
     - target: {fileID: 1197435044681610511, guid: d232669f796ec4a1ca7fa6fa9b71881c, type: 3}
       propertyPath: InitialModule.startLifetime.minScalar
-      value: 0.2
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197435044681610511, guid: d232669f796ec4a1ca7fa6fa9b71881c, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.a
+      value: 0.25882354
       objectReference: {fileID: 0}
     - target: {fileID: 1238990162376837992, guid: d232669f796ec4a1ca7fa6fa9b71881c, type: 3}
       propertyPath: m_Name
