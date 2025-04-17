@@ -311,6 +311,7 @@ namespace Game.Combat {
             
             _activeEnemies.Clear();
             GameManager.StartTransitionToCombat();
+            Sanity = startInsanity;
             yield return new WaitForSeconds(GameManager.TransitionDuration);
             StartCoroutine(RunCombat());
         }
