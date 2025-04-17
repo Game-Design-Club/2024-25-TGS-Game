@@ -55,6 +55,10 @@ namespace Tools {
             public class CombatArea {
                 public const string EnterCombat = "To Combat";
             }
+
+            public class Avalanche {
+                public const string Start = "Start";
+            }
         }
 
         public static class Tags {

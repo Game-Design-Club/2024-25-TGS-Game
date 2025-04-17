@@ -5,7 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/CombatAreaManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/CombatAreaManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Exploration/Avalanche.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Exploration/Avalanche/Avalanche Animation.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Exploration/Avalanche/Avalanche Animation.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Exploration/Avalanche/Avalanche Go.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Exploration/Avalanche/Avalanche Go.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Avalanche.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Avalanche/Avalanche.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Avalanche/Avalanche.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Levels/Avalanche Testing.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Levels/Avalanche Testing.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Cameras/ChildFollowPoint.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Cameras/ChildFollowPoint.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/Avalanche.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/Avalanche/AvalancheManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/Avalanche/AvalancheManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Combat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Combat/Combat Area.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Combat/Combat Area.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Combat/Combat Area/Combat Area.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Combat/Combat Area.controller.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Combat/Combat Area/Combat Area.controller.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Combat/Transition To Combat.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Combat/Combat Area/Transition To Combat.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Combat/Transition To Combat.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Combat/Combat Area/Transition To Combat.anim.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Cameras/ChildFollowCam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Cameras/ChildFollowCam.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameManagement/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameManagement/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameManagement/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameManagement/LevelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tools/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/Constants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tools/ThingTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/ThingTrigger.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +122,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "WebServerToolWindowFactoryState": "false",
     "XThreadsFramesViewSplitterKey": "0.37777779",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Avalanche",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
