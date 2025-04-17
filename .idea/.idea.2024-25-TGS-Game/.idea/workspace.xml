@@ -6,8 +6,68 @@
   <component name="ChangeListManager">
     <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Campfire.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Campfire.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Stick.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Stick.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Bear Animator.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Bear Animator.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Growl.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Growl/Growl Chargeup.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Growl/Growl Chargeup.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Growl/Growl Ready.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Growl/Growl Ready.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Growl/Growl.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Growl/Growl.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Pounce.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Pounce/Pounce.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Pounce/Pounce.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Stun.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Stun.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Swipe.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Swipe.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Wake.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Wake.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Walk.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Walk/Walk Down.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Walk/Walk Down.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Walk/Walk Left.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Walk/Walk Left.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Walk/Walk Right.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Walk/Walk Right.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Walk/Walk Up.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Bear/Walk/Walk Up.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Child.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Child/Attack.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Child/Attack.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Child/Child Animator.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Child/Child Animator.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Child/Float.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Child/Float.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Child/Jump.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Child/Jump.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Child/Not Sleep.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Child/Not Sleep.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Child/Sleep.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Child/Sleep.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Attack Enemy.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Attack Enemy/Attack Enemy.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Attack Enemy/Attack Enemy.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Attack Enemy/Attack.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Attack Enemy/Attack.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Shooting Enemy.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Shooting Enemy/Shooting Enemy.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Shooting Enemy/Shooting Enemy.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Shooting Enemy/Teleport In.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Shooting Enemy/Teleport In.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Shooting Enemy/Teleport Out.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Shooting Enemy/Teleport Out.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Tree Enemy.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Tree Enemy/Attack.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Tree Enemy/Attack.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Tree Enemy/Tree Enemy Animator.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Enemies/Tree Enemy/Tree Enemy Animator.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Child/Child.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Child/Child.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VFX/Exploration/River/Log Particles.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VFX/Exploration/River/Log Particles.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,23 +150,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.37777779&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Combat-Improvements&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "XThreadsFramesViewSplitterKey": "0.37777779",
+    "git-widget-placeholder": "Image-adding",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.completion",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/6000.0.28f1/Unity.app/Contents/MacOS/Unity" />
@@ -137,13 +197,15 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="58061">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="58061" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list />
+        <list>
+          <MonoRuntime />
+        </list>
       </option>
       <option name="selectedOptions">
         <list />
@@ -177,6 +239,7 @@
       <workItem from="1742360820587" duration="8436000" />
       <workItem from="1742428154544" duration="11523000" />
       <workItem from="1743086593457" duration="652000" />
+      <workItem from="1744663273379" duration="20002000" />
     </task>
     <servers />
   </component>

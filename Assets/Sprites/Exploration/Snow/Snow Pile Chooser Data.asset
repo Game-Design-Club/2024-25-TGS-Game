@@ -13,7 +13,19 @@ MonoBehaviour:
   m_Name: Snow Pile Chooser Data
   m_EditorClassIdentifier: 
   objects:
-  - {fileID: 555084175310131933, guid: fda7db0524aa74a81ae29deacb935925, type: 3}
-  - {fileID: -3425883363903340068, guid: 9be3b7e2fb568462da1fd9b8fe350c93, type: 3}
-  - {fileID: -7810323694656990873, guid: 2f7bc4b2dceed4c78ae8586f6c431d3b, type: 3}
-  - {fileID: 8550075898017524598, guid: a7b043ca5c15a46e889322ab6b7fe81a, type: 3}
+  - sprite: {fileID: 555084175310131933, guid: fda7db0524aa74a81ae29deacb935925, type: 3}
+    size: {x: 1, y: 1}
+    offset: {x: 0, y: 0}
+    YOffset: 0
+  - sprite: {fileID: -3425883363903340068, guid: 9be3b7e2fb568462da1fd9b8fe350c93, type: 3}
+    size: {x: 1, y: 1}
+    offset: {x: 0, y: 0}
+    YOffset: 0
+  - sprite: {fileID: -7810323694656990873, guid: 2f7bc4b2dceed4c78ae8586f6c431d3b, type: 3}
+    size: {x: 1, y: 1}
+    offset: {x: 0, y: 0}
+    YOffset: 0
+  - sprite: {fileID: 8550075898017524598, guid: a7b043ca5c15a46e889322ab6b7fe81a, type: 3}
+    size: {x: 1, y: 1}
+    offset: {x: 0, y: 0}
+    YOffset: 0

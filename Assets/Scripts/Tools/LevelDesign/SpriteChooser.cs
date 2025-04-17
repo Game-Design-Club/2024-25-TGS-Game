@@ -16,13 +16,21 @@ namespace Tools.LevelDesign {
 
         private void OnValidate() {
             if (randomize) {
+                randomize = false;
                 RandomizeSpriteInternal(useRandomizeFlags, randomizeFlags);
             }
 
-            if (randomizeFlip)
-            {
+            if (randomizeFlip) {
                 RandomizeFlip();
             }
+
+            if (objectNumber > spriteChooserData.objects.Length) {
+                objectNumber = spriteChooserData.objects.Length - 1;
+            }
+            if (objectNumber < 0) {
+                objectNumber = 0;
+            }
+            ChangeSprite();
         }
 
         private void RandomizeSpriteInternal(bool shouldUseFlags = false, bool[] creatorRandomizeFlags = null) {
@@ -32,8 +40,6 @@ namespace Tools.LevelDesign {
                 CalculatePossibleObjects(creatorRandomizeFlags);
             }
             ChangeSprite();
-
-            randomize = false;
         }
 
         private void CalculatePossibleObjects(bool[] creatorRandomizeFlags) {
