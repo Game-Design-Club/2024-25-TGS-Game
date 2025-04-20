@@ -972,7 +972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastGameState: 
-  printState: 1
+  printState: 0
 --- !u!1 &499663044
 GameObject:
   m_ObjectHideFlags: 0

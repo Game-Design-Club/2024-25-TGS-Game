@@ -3,7 +3,7 @@ namespace Tools {
         public static class AnimationConstants {
             public static class GameUI {
                 public const string IsPaused = "IsPaused";
-                public static string IsGameOver = "IsGameOver";
+                public const string IsGameOver = "IsGameOver";
             }
 
             public static class Bear {
@@ -11,8 +11,8 @@ namespace Tools {
                 public const string Growl = "Growl Execute";
                 public const string GrowlChargeup = "Growl Charge";
                 public const string Idle = "Idle";
-                public static string Stun = "Stun";
-                public static string Pounce = "Pounce";
+                public const string Stun = "Stun";
+                public const string Pounce = "Pounce";
             }
 
             public static class BearIDs {
@@ -58,20 +58,22 @@ namespace Tools {
 
             public class Avalanche {
                 public const string Start = "Start";
+                public static string Reset = "Reset";
             }
         }
 
         public static class Tags {
             public const string Enemy = "Enemy";
             public const string Child = "Child";
-            public static string Bear = "Bear";
-            public static string BearEnemyDamageable = "Bear Enemy Hittable";
-            public static string EnemyDestroyer = "EnemyDestroyer";
-            public static string River = "River";
-            public static string Ground = "Ground";
-            public static string Rock = "Rock";
-            public static string Log = "Log";
-            public static string RiverBase = "River Base";
+            public const string Bear = "Bear";
+            public const string BearEnemyDamageable = "Bear Enemy Hittable";
+            public const string EnemyDestroyer = "EnemyDestroyer";
+            public const string River = "River";
+            public const string Ground = "Ground";
+            public const string Rock = "Rock";
+            public const string Log = "Log";
+            public const string RiverBase = "River Base";
+            public const string Avalanche = "Avalanche";
         }
 
         public static class PhysicsLayers {

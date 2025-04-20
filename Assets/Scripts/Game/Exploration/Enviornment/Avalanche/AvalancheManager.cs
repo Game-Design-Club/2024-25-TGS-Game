@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Game.Exploration.Child;
 using Game.GameManagement;
 using Tools;
 using Tools.CameraShaking;
@@ -13,6 +14,8 @@ namespace Game.Exploration.Enviornment.Avalanche {
         [SerializeField] private CinemachineCamera lookCamera;
         [SerializeField] private CinemachineCamera moveCamera;
         [SerializeField] private Transform snowCoverParticles;
+        [SerializeField] private AvalancheRockSpawner rockSpawner;
+        [SerializeField] private Transform playerSpawnPoint;
         [SerializeField] private Transform startPoint;
         [SerializeField] private Transform endPoint;
         [SerializeField] private float moveSpeed = 1f;
@@ -25,9 +28,11 @@ namespace Game.Exploration.Enviornment.Avalanche {
         private bool _moving;
         
         private float _coveredDistance;
-
         private float _totalDistance;
+        [HideInInspector] public float percentCovered;
 
+        private ChildController _child;
+        
         private void Awake() {
             _totalDistance = Vector3.Distance(startPoint.position, endPoint.position);
             TryGetComponent(out _animator);
@@ -46,7 +51,6 @@ namespace Game.Exploration.Enviornment.Avalanche {
         public void StartAvalanche() {
             GameManager.StartCutscene();
             _animator.SetTrigger(AnimationConstants.Avalanche.Start);
-            // Block player bounds
         }
 
         public void AnimStartShaking() {
@@ -63,16 +67,34 @@ namespace Game.Exploration.Enviornment.Avalanche {
             SetCamera(lookCamera);
         }
         
-        public void StartMoving() {
-            GameManager.EndCutscene();
+        public void AnimRockSpawning() {
+            rockSpawner.StartSpawning(this);
+        }
+        
+        public void AnimStartMoving() {
+            GameManager.GameEventType = GameEventType.Explore;
             _moving = true;
             SetCamera(moveCamera);
+        }
+        
+        public void PlayerDie(ChildController child) {
+            _animator.SetTrigger(AnimationConstants.Avalanche.Reset);
+            _child = child;
+        }
+        
+        public void AnimReset() {
+            movePoint.position = startPoint.position;
+            _coveredDistance = 0f;
+            percentCovered = 0f;
+            _child.transform.position = playerSpawnPoint.position;
+            rockSpawner.StopSpawning();
+            _moving = false;
         }
 
         private void Update() {
             if (_moving) {
                 _coveredDistance += Time.deltaTime * moveSpeed;
-                float percentCovered = _coveredDistance / _totalDistance;
+                percentCovered = _coveredDistance / _totalDistance;
                 movePoint.position = Vector2.Lerp(startPoint.position, endPoint.position, percentCovered);
                 
                 if (percentCovered >= 1f) {
@@ -87,6 +109,7 @@ namespace Game.Exploration.Enviornment.Avalanche {
             foreach (ParticleSystem particle in _snowParticles) {
                 particle.Stop();
             }
+            rockSpawner.StopSpawning();
         }
 
         private void SetCamera(CinemachineCamera cam) {
