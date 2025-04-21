@@ -1,6 +1,5 @@
 using Game.Combat.Bear;
 using Tools;
-using UnityEditor.iOS.Xcode;
 using UnityEngine;
 
 namespace Game.Combat.Enemies.AttackEnemy {
