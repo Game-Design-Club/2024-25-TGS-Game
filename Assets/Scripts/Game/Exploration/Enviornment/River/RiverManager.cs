@@ -104,18 +104,27 @@ namespace Game.Exploration.Enviornment.River {
         
         private void Update() {
             for (int i = 0; i < length; i++) {
-                Rigidbody2D rb = _sprites[i].GetComponent<Rigidbody2D>();
-                rb.position += moveSpeedGetter.direction * (moveSpeedGetter.floatSpeed * Time.deltaTime);
-                // _sprites[i].transform.localPosition += Vector3.right * (moveSpeedGetter.direction.x * (moveSpeedGetter.floatSpeed * Time.deltaTime));
+                // Convert movement direction to local space and calculate wrap threshold
+                Vector2 localDir = transform.InverseTransformDirection(moveSpeedGetter.Direction);
+                float half = _offset * length / 2f;
 
-                // If moving to the right
-                if (moveSpeedGetter.direction.x > 0 && _sprites[i].transform.localPosition.x > _offset * length / 2) {
-                    _sprites[i].transform.localPosition = new Vector3(-_offset * length / 2, 0, 0);
-                }
-                // If moving to the left
-                else if (moveSpeedGetter.direction.x < 0 && _sprites[i].transform.localPosition.x < -_offset * length / 2) {
-                    _sprites[i].transform.localPosition = new Vector3(_offset * length / 2, 0, 0);
-                }
+                Rigidbody2D rb = _sprites[i].GetComponent<Rigidbody2D>();
+                rb.position += moveSpeedGetter.Direction * (moveSpeedGetter.floatSpeed * Time.deltaTime);
+
+                // Wrap sprites along local axes when they move beyond the threshold
+                Vector3 localPos = _sprites[i].transform.localPosition;
+
+                if (localDir.x > 0 && localPos.x > half)
+                    localPos.x = -half;
+                else if (localDir.x < 0 && localPos.x < -half)
+                    localPos.x = half;
+
+                if (localDir.y > 0 && localPos.y > half)
+                    localPos.y = -half;
+                else if (localDir.y < 0 && localPos.y < -half)
+                    localPos.y = half;
+
+                _sprites[i].transform.localPosition = localPos;
             }
         }
     }
