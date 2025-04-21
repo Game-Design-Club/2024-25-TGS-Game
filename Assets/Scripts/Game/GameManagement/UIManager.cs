@@ -189,13 +189,13 @@ namespace Game.GameManagement {
         }
         private void HandlePause(GameEvent gameEvent) {
             Time.timeScale = gameEvent.IsPaused ? 0 : 1;
-            pauseAnimator.SetBool(AnimationConstants.GameUI.IsPaused, gameEvent.IsPaused);
+            pauseAnimator.SetBool(AnimationParameters.GameUI.IsPaused, gameEvent.IsPaused);
             pauseAnimator.SetBool("BookUp", true);
             if (!gameEvent.IsPaused) CloseScrapbook();
         }
 
         private void HandleGameOver() {
-            gameOverAnimator.SetBool(AnimationConstants.GameUI.IsGameOver, true);
+            gameOverAnimator.SetBool(AnimationParameters.GameUI.IsGameOver, true);
             _isGameOver = true;
             StartCoroutine(WaitToRestartGame());
         }
@@ -212,7 +212,7 @@ namespace Game.GameManagement {
                 _isGameOver = false;
                 _canRestart = false;
 
-                gameOverAnimator.SetBool(AnimationConstants.GameUI.IsGameOver, false);
+                gameOverAnimator.SetBool(AnimationParameters.GameUI.IsGameOver, false);
             }
         }
 

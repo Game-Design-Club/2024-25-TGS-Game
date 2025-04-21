@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Game.Exploration.Cameras {
     public class ChildFollowPoint : MonoBehaviour {
-        [SerializeField] private bool lockX;
-        [SerializeField] private bool lockY;
+        [SerializeField] public bool lockX;
+        [SerializeField] public bool lockY;
         
         Transform _targetTransform;
         

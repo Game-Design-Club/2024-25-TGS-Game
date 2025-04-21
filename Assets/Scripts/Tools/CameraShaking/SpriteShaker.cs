@@ -24,8 +24,8 @@ namespace Tools.CameraShaking {
             while (true) {
                 // Choose a random direction offset
                 Vector2 targetOffset = new Vector2(
-                    Random.Range(-shakeIntensity, shakeIntensity),
-                    Random.Range(-shakeIntensity, shakeIntensity)
+                    shakeIntensity.GetRandom(),
+                    shakeIntensity.GetRandom()
                 );
                 float duration = shakeSwitchTime.Random();
                 float elapsed = 0f;

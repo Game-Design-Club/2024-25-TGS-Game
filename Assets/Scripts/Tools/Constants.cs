@@ -1,6 +1,6 @@
 namespace Tools {
     // public static class Constants {
-        public static class AnimationConstants {
+        public static class AnimationParameters {
             public static class GameUI {
                 public const string IsPaused = "IsPaused";
                 public const string IsGameOver = "IsGameOver";
@@ -27,6 +27,7 @@ namespace Tools {
                 public static string Attack = "Attack";
                 public static string Jump = "Jump";
                 public static string Float = "Float";
+                public static string IsDead = "Ded";
             }
 
             public static class DialogueBox {

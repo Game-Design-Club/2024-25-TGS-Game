@@ -13,7 +13,7 @@ namespace Game.Exploration.Child
 
         public override void Enter()
         {
-            Controller.Animator.SetTrigger(AnimationConstants.Child.Attack);
+            Controller.Animator.SetTrigger(AnimationParameters.Child.Attack);
             Controller.swishParticles.Play();
         }
 

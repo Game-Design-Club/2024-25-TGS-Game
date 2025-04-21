@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Game.Exploration.Cameras;
 using Game.Exploration.Child;
 using Game.GameManagement;
 using Tools;
@@ -20,6 +21,7 @@ namespace Game.Exploration.Enviornment.Avalanche {
         [SerializeField] private Transform endPoint;
         [SerializeField] private float moveSpeed = 1f;
         [SerializeField] private Transform movePoint;
+        [SerializeField] private ChildFollowPoint childFollowPoint;
 
         private List<ParticleSystem> _snowParticles = new();
         
@@ -50,7 +52,9 @@ namespace Game.Exploration.Enviornment.Avalanche {
         
         public void StartAvalanche() {
             GameManager.StartCutscene();
-            _animator.SetTrigger(AnimationConstants.Avalanche.Start);
+            
+            if (!_animator) TryGetComponent(out _animator);
+            _animator.SetTrigger(AnimationParameters.Avalanche.Start);
         }
 
         public void AnimStartShaking() {
@@ -78,8 +82,19 @@ namespace Game.Exploration.Enviornment.Avalanche {
         }
         
         public void PlayerDie(ChildController child) {
-            _animator.SetTrigger(AnimationConstants.Avalanche.Reset);
+            _animator.SetTrigger(AnimationParameters.Avalanche.Reset);
+            child.ExploreDie();
             _child = child;
+        }
+        
+        public void UnlockChildCamera() {
+            childFollowPoint.lockX = false;
+            childFollowPoint.lockY = false;
+            rockSpawner.StopSpawning();
+        }
+
+        public void ResetChildCamera() {
+            SetCamera(null);
         }
         
         public void AnimReset() {
@@ -87,6 +102,7 @@ namespace Game.Exploration.Enviornment.Avalanche {
             _coveredDistance = 0f;
             percentCovered = 0f;
             _child.transform.position = playerSpawnPoint.position;
+            _child.UnDie();
             rockSpawner.StopSpawning();
             _moving = false;
         }
@@ -105,7 +121,6 @@ namespace Game.Exploration.Enviornment.Avalanche {
 
         private void StopAvalanche() {
             _moving = false;
-            SetCamera(null);
             foreach (ParticleSystem particle in _snowParticles) {
                 particle.Stop();
             }

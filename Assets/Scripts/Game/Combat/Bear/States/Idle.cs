@@ -11,10 +11,10 @@ namespace Game.Combat.Bear {
         private float _cooldown = 0;
         
         public override void Enter() {
-            Controller.Animator.SetTrigger(AnimationConstants.Bear.Idle);
-            Controller.Animator.ResetTrigger(AnimationConstants.Bear.Swipe);
-            Controller.Animator.ResetTrigger(AnimationConstants.Bear.Growl);
-            Controller.Animator.ResetTrigger(AnimationConstants.Bear.GrowlChargeup);
+            Controller.Animator.SetTrigger(AnimationParameters.Bear.Idle);
+            Controller.Animator.ResetTrigger(AnimationParameters.Bear.Swipe);
+            Controller.Animator.ResetTrigger(AnimationParameters.Bear.Growl);
+            Controller.Animator.ResetTrigger(AnimationParameters.Bear.GrowlChargeup);
         }
         
         public override void Update() {

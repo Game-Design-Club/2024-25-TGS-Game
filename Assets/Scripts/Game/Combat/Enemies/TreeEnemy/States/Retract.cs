@@ -22,7 +22,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
         private float _startDistance = 0;
 
         public override void Enter() {
-            Controller().Animator.SetTrigger(AnimationConstants.TreeEnemy.Reset);
+            Controller().Animator.SetTrigger(AnimationParameters.TreeEnemy.Reset);
             _startDistance = Controller<TreeEnemy>().CurrentDistance;
         }
 
