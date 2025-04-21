@@ -50,5 +50,9 @@ namespace Game.Exploration.Child {
         }
 
         public virtual bool CanInteract() { return true; }
+
+        public virtual void ExploreDie() {
+            Controller.TransitionToState(new Die(Controller));
+        }
     }
 }

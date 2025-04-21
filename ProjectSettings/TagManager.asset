@@ -15,6 +15,7 @@ TagManager:
   - Log
   - Rock
   - River Base
+  - Avalanche
   layers:
   - Default
   - TransparentFX

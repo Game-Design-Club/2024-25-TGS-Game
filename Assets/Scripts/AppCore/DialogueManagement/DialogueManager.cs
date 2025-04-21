@@ -73,7 +73,7 @@ namespace AppCore.DialogueManagement {
         private IEnumerator PlayDialogue() {
             OnDialogueStart?.Invoke();
             dialogueBox.SetActive(true);
-            _animator.SetBool(AnimationConstants.DialogueBox.IsOpen, true);
+            _animator.SetBool(AnimationParameters.DialogueBox.IsOpen, true);
 
             // For each chunk in the dialogue:
             foreach (DialogueChunk currentChunk in _currentDialogue) {
@@ -86,7 +86,7 @@ namespace AppCore.DialogueManagement {
             _currentDialogue = null;
             OnDialogueEnd?.Invoke();
             _onDialogueComplete?.Invoke();
-            _animator.SetBool(AnimationConstants.DialogueBox.IsOpen, false);
+            _animator.SetBool(AnimationParameters.DialogueBox.IsOpen, false);
         }
 
         private void SetupChunk(DialogueChunk chunk) {
@@ -273,15 +273,15 @@ namespace AppCore.DialogueManagement {
                 float alpha = t; // fade from 0 -> 1
 
                 // Wobble?
-                float[] xVertOffsets = new float[] { 0,0,0,0};
-                float[] yVertOffsets = new float[] { 0,0,0,0};
+                float[] xVertOffsets = { 0,0,0,0};
+                float[] yVertOffsets = { 0,0,0,0};
                 if (_wobbleCharacters.ContainsKey(i)) {
                     var wobble = Array.Find(effectsData.wobbleData,
                         w => w.name == _wobbleCharacters[i]);
                     if (wobble != null) {
                         
-                        float xJitter = Random.Range(-wobble.xNoise, wobble.xNoise);
-                        float yJitter = Random.Range(-wobble.yNoise, wobble.yNoise);
+                        float xJitter = -wobble.xNoise.GetRandom();
+                        float yJitter = -wobble.yNoise.GetRandom();
 
                         // basic wave
                         for (int j = 0; j < 4; j++) {
