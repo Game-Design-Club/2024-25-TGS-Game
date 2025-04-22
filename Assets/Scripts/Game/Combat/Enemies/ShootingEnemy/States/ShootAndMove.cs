@@ -8,7 +8,7 @@ namespace Game.Combat.Enemies {
         public ShootAndMove(EnemyBase controller) : base(controller) { }
 
         public override void Enter() {
-            Controller().Animator.SetTrigger(AnimationConstants.ShootEnemy.Teleport);
+            Controller().Animator.SetTrigger(AnimationParameters.ShootEnemy.Teleport);
         }
 
         public override void Exit() {
@@ -19,7 +19,7 @@ namespace Game.Combat.Enemies {
             yield return new WaitForSeconds(Controller<ShootingEnemy>().shootWaitTime);
             Controller<ShootingEnemy>().Shoot();
             yield return new WaitForSeconds(Controller<ShootingEnemy>().teleportWaitTime);
-            Controller().Animator.SetTrigger(AnimationConstants.ShootEnemy.Teleport);
+            Controller().Animator.SetTrigger(AnimationParameters.ShootEnemy.Teleport);
         }
 
         private void FindNewLocation() {

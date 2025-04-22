@@ -1,6 +1,5 @@
 using Game.Combat.Bear;
 using Tools;
-using UnityEditor.iOS.Xcode;
 using UnityEngine;
 
 namespace Game.Combat.Enemies.AttackEnemy {
@@ -10,7 +9,7 @@ namespace Game.Combat.Enemies.AttackEnemy {
         private Transform _targetTransform;
         
         public override void Enter() {
-            Controller().Animator.SetTrigger(AnimationConstants.AttackEnemy.Idle);
+            Controller().Animator.SetTrigger(AnimationParameters.AttackEnemy.Idle);
             _targetTransform = Controller().CombatManager.Child.transform;
         }
         

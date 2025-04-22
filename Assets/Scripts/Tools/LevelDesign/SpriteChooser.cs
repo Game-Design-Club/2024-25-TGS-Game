@@ -1,10 +1,13 @@
+using System;
 using System.Collections.Generic;
 using Game.Exploration.Enviornment.LayerChanging;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace Tools.LevelDesign {
     public class SpriteChooser : MonoBehaviour {
+        [SerializeField] private bool hideSprite = false;
         [SerializeField] private bool randomize = false;
         [SerializeField] private bool randomizeFlip = false;
         [SerializeField] private int objectNumber;
@@ -13,7 +16,7 @@ namespace Tools.LevelDesign {
         [SerializeField] private bool[] randomizeFlags;
         
         private List<int> _possibleObjects = new List<int>();
-
+        
         private void OnValidate() {
             if (randomize) {
                 randomize = false;
@@ -31,6 +34,23 @@ namespace Tools.LevelDesign {
                 objectNumber = 0;
             }
             ChangeSprite();
+            if (hideSprite) {
+                if (TryGetComponent(out SpriteRenderer spriteRenderer)) {
+                    spriteRenderer.enabled = false;
+                } else {
+                    Debug.LogError($"{nameof(SpriteChooser)} requires a {nameof(SpriteRenderer)} component");
+                }
+            } else {
+                if (TryGetComponent(out SpriteRenderer spriteRenderer)) {
+                    spriteRenderer.enabled = true;
+                } else {
+                    Debug.LogError($"{nameof(SpriteChooser)} requires a {nameof(SpriteRenderer)} component");
+                }
+            }
+        }
+
+        private void Start() {
+            GetComponent<SpriteRenderer>().enabled = true;
         }
 
         private void RandomizeSpriteInternal(bool shouldUseFlags = false, bool[] creatorRandomizeFlags = null) {

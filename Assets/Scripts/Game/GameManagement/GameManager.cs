@@ -39,7 +39,7 @@ namespace Game.GameManagement {
         }
         public static GameEventType GameEventType {
             get => _gameEventType;
-            private set {
+            set {
                 _lastGameEventType = _gameEventType;
                 _gameEventType = value;
                 OnGameEvent?.Invoke(new GameEvent {

@@ -9,6 +9,9 @@ namespace Game.GameManagement {
         private void Awake() {
             if (Instance == null) {
                 Instance = this;
+                if (currentLevel == null) {
+                    Debug.LogError("Current level is not set. Please assign a level in the inspector.");
+                }
             } else {
                 Debug.LogWarning("Multiple instances of LevelManager detected. Destroying the new instance.");
                 Destroy(gameObject);

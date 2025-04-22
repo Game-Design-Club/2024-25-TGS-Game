@@ -95,7 +95,7 @@ namespace Game.Combat {
             
             Setup();
             
-            _animator.SetTrigger(AnimationConstants.CombatArea.EnterCombat);
+            _animator.SetTrigger(AnimationParameters.CombatArea.EnterCombat);
         }
         
         // Animation events

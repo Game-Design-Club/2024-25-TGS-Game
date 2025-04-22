@@ -199,5 +199,15 @@ namespace Game.Exploration.Child {
             }
 
         }
+
+        public void ExploreDie() {
+            _currentState.ExploreDie();
+        }
+
+        public void UnDie() {
+            if (_currentState is Die) {
+                TransitionToState(new Move(this));
+            }
+        }
     }
 }

@@ -103,19 +103,20 @@ namespace Game.Exploration.Enviornment.River {
         }
         
         private void Update() {
+            // Calculate the total distance each sprite should have moved based on time
+            float cycleLength = _offset * length;
+            float distance = moveSpeedGetter.floatSpeed * moveSpeedGetter.direction.x * Time.time;
+            // Normalize within one cycle
+            float baseOffset = distance % cycleLength;
+            if (baseOffset < 0) baseOffset += cycleLength;
+            // Starting X at leftmost position
+            float startX = -cycleLength / 2;
+            // Position each sprite based on its index and wrap individually
             for (int i = 0; i < length; i++) {
-                Rigidbody2D rb = _sprites[i].GetComponent<Rigidbody2D>();
-                rb.position += moveSpeedGetter.direction * (moveSpeedGetter.floatSpeed * Time.deltaTime);
-                // _sprites[i].transform.localPosition += Vector3.right * (moveSpeedGetter.direction.x * (moveSpeedGetter.floatSpeed * Time.deltaTime));
-
-                // If moving to the right
-                if (moveSpeedGetter.direction.x > 0 && _sprites[i].transform.localPosition.x > _offset * length / 2) {
-                    _sprites[i].transform.localPosition = new Vector3(-_offset * length / 2, 0, 0);
-                }
-                // If moving to the left
-                else if (moveSpeedGetter.direction.x < 0 && _sprites[i].transform.localPosition.x < -_offset * length / 2) {
-                    _sprites[i].transform.localPosition = new Vector3(_offset * length / 2, 0, 0);
-                }
+                float rawOffset = baseOffset + i * _offset;
+                float modOffset = rawOffset % cycleLength;
+                if (modOffset < 0) modOffset += cycleLength;
+                _sprites[i].transform.localPosition = new Vector3(startX + modOffset, 0, 0);
             }
         }
     }
