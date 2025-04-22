@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: 70fe4d93ba08340779590b50f4f16a28
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5799337719152266632
+    second: Scrapbook Double Page_0
+  - first:
+      213: 4910089874846541799
+    second: Scrapbook Double Page_1
+  - first:
+      213: -1606375427831049661
+    second: Scrapbook Double Page_2
+  - first:
+      213: -3738555642980124267
+    second: Scrapbook Double Page_3
+  - first:
+      213: -6450896445991130967
+    second: Scrapbook Double Page_4
+  - first:
+      213: -2689058002637788945
+    second: Scrapbook Double Page_5
+  - first:
+      213: -403701176889276994
+    second: Scrapbook Double Page_6
+  - first:
+      213: -937173552349451640
+    second: Scrapbook Double Page_7
+  - first:
+      213: 3473395197710124112
+    second: Scrapbook Double Page_8
+  - first:
+      213: 7883702247239708190
+    second: Scrapbook Double Page_9
+  - first:
+      213: 2946284305125340147
+    second: Scrapbook Double Page_10
+  - first:
+      213: -7759725867307307694
+    second: Scrapbook Double Page_11
+  - first:
+      213: -7076970448699188719
+    second: Scrapbook Double Page_12
+  - first:
+      213: -3611498134615978653
+    second: Scrapbook Double Page_13
+  - first:
+      213: 7728246563113647991
+    second: Scrapbook Double Page_14
+  - first:
+      213: 4378051317124745857
+    second: Scrapbook Double Page_15
+  - first:
+      213: 7248950108794435946
+    second: Scrapbook Double Page_16
+  - first:
+      213: -6976887136838097580
+    second: Scrapbook Double Page_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 350
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Scrapbook Double Page_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 391
+        width: 2047
+        height: 1268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 872b765121d948fa0800000000000000
+      internalID: -5799337719152266632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scrapbook Double Page_1
+      rect:
+        serializedVersion: 2
+        x: 1497
+        y: 1658
+        width: 19
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e76875f9b4242440800000000000000
+      internalID: 4910089874846541799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scrapbook Double Page_2
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 1653
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 342d6303f0205b9e0800000000000000
+      internalID: -1606375427831049661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scrapbook Double Page_3
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 295
+        width: 45
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 599332f437bfd1cc0800000000000000
+      internalID: -3738555642980124267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scrapbook Double Page_4
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 313
+        width: 50
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a86ed55cdfc976a0800000000000000
+      internalID: -6450896445991130967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scrapbook Double Page_5
+      rect:
+        serializedVersion: 2
+        x: 1106
+        y: 337
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe86a5c6efb8eaad0800000000000000
+      internalID: -2689058002637788945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scrapbook Double Page_6
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 315
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb58b142be3c56af0800000000000000
+      internalID: -403701176889276994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scrapbook Double Page_7
+      rect:
+        serializedVersion: 2
+        x: 1111
+        y: 325
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88ae1579e9d7ef2f0800000000000000
+      internalID: -937173552349451640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scrapbook Double Page_8
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 307
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0544f0c878af33030800000000000000
+      internalID: 3473395197710124112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scrapbook Double Page_9
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 320
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1eeba99c69886d60800000000000000
+      internalID: 7883702247239708190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scrapbook Double Page_10
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 313
+        width: 58
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f3fd4627fd43e820800000000000000
+      internalID: 2946284305125340147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scrapbook Double Page_11
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 320
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25decbcbf6aef4490800000000000000
+      internalID: -7759725867307307694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scrapbook Double Page_12
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 237
+        width: 44
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11a195f4fdc89cd90800000000000000
+      internalID: -7076970448699188719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scrapbook Double Page_13
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 251
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36d8a33c49161edc0800000000000000
+      internalID: -3611498134615978653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scrapbook Double Page_14
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 232
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77fb50b9d4f304b60800000000000000
+      internalID: 7728246563113647991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scrapbook Double Page_15
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 204
+        width: 86
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18ac6ad1a76f1cc30800000000000000
+      internalID: 4378051317124745857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scrapbook Double Page_16
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 136
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a69b835a7b1799460800000000000000
+      internalID: 7248950108794435946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scrapbook Double Page_17
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 33
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 455e5ca3d1e1d2f90800000000000000
+      internalID: -6976887136838097580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Scrapbook Double Page_0: -5799337719152266632
+      Scrapbook Double Page_1: 4910089874846541799
+      Scrapbook Double Page_10: 2946284305125340147
+      Scrapbook Double Page_11: -7759725867307307694
+      Scrapbook Double Page_12: -7076970448699188719
+      Scrapbook Double Page_13: -3611498134615978653
+      Scrapbook Double Page_14: 7728246563113647991
+      Scrapbook Double Page_15: 4378051317124745857
+      Scrapbook Double Page_16: 7248950108794435946
+      Scrapbook Double Page_17: -6976887136838097580
+      Scrapbook Double Page_2: -1606375427831049661
+      Scrapbook Double Page_3: -3738555642980124267
+      Scrapbook Double Page_4: -6450896445991130967
+      Scrapbook Double Page_5: -2689058002637788945
+      Scrapbook Double Page_6: -403701176889276994
+      Scrapbook Double Page_7: -937173552349451640
+      Scrapbook Double Page_8: 3473395197710124112
+      Scrapbook Double Page_9: 7883702247239708190
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
