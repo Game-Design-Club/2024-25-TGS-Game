@@ -231,7 +231,7 @@ SpriteRenderer:
   m_SortingLayerID: -1468220709
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7514194257130195344, guid: 67ea298c523f342db91428e532880bcc, type: 3}
+  m_Sprite: {fileID: 2208414899278754482, guid: 61ad5727668d8479d86d2aff16564c7e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5f9aaa5a224409a186662bd1170287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+  isActive: 0
   isErasing: 0
   useCurve: 0
   strengthCurve:
@@ -381,6 +381,13 @@ MonoBehaviour:
   - activeModule: 0
     objectPlacingPrefab: {fileID: 1577214540447390552, guid: 5e1afa95546f94372a68aed8c39a4582, type: 3}
     parentTransform: {fileID: 6272646598905645150}
+    tryRandomize: 1
+    randomizeFlip: 1
+    useFlags: 0
+    customRandomizeFlags: 
+  - activeModule: 0
+    objectPlacingPrefab: {fileID: 1577214540447390552, guid: 27f652dd4347c4604892e00c0ee79589, type: 3}
+    parentTransform: {fileID: 241361761801971782}
     tryRandomize: 1
     randomizeFlip: 1
     useFlags: 0
