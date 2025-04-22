@@ -15,9 +15,9 @@ MonoBehaviour:
   title: Forest
   description: The forest is big
   items:
+  - item: {fileID: 11400000, guid: db4439799226f435c8e97988d3a39d0f, type: 2}
+    pos: {x: -50, y: -50}
+    size: {x: 1.062, y: 0.852}
   - item: {fileID: 11400000, guid: 4257638ffc72d4a62ae353b6614f3d54, type: 2}
     pos: {x: 50, y: 50}
-    size: {x: 0.5, y: 0.5}
-  - item: {fileID: 11400000, guid: 656dcffb033ee4930b28faa612fd28b9, type: 2}
-    pos: {x: -50, y: -50}
     size: {x: 1, y: 1}

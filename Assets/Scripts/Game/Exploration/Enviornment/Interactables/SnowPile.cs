@@ -18,15 +18,5 @@ namespace Game.Exploration.Enviornment.Interactables
             Dialogue dialogue = !hasStick ? preStick : postStick;
             App.Get<DialogueManager>().StartDialogue(dialogue, overCallback);
         }
-
-        public void Hover()
-        {
-            bool hasStick = App.Get<DataManager>().GetFlag(BoolFlags.HasStick);
-        }
-
-        public void Unhover()
-        {
-            bool hasStick = App.Get<DataManager>().GetFlag(BoolFlags.HasStick);
-        }
     }
 }

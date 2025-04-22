@@ -9,7 +9,7 @@ namespace Game.Exploration.Enviornment.River {
         [SerializeField] private Transform logParent;
         [SerializeField] private Transform rockParent;
         [SerializeField] private Transform spriteParent;
-        [Range(1, 20)]
+        [Range(1, 100)]
         [SerializeField] private int length = 5;
         [Range(.1f, 10f)]
         [SerializeField] private float size = 2f;
