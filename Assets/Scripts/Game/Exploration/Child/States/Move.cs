@@ -15,9 +15,9 @@ namespace Game.Exploration.Child {
         }
 
         public override void OnJumpInput() {
-            // if (App.Get<DataManager>().GetFlag(BoolFlags.HasJump)) {
-            Controller.TransitionToState(new Jump(Controller));
-        //}
+            if (App.Get<DataManager>().GetFlag(BoolFlags.HasJump)) {
+                Controller.TransitionToState(new Jump(Controller));
+            }
         }
 
         public override void Enter() {

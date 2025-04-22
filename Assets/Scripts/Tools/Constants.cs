@@ -82,6 +82,7 @@ namespace Tools {
 
         public static class BoolFlags {
             public const string HasStick = "HasStick";
+            public static string HasJump = "HasJump";
         }
 
         public static class Scenes {
