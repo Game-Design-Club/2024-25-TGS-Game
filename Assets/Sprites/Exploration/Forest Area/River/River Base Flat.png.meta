@@ -272,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      River Base Flat_0: 9063954855031193869
+      River Base Flat_1: 285878611453896828
+      River Base Flat_2: -69782795440728970
+      River Base Flat_3: 4095958034621337535
+      River Base Flat_4: -1085709993312603158
+      River Base Flat_5: 272889134765243736
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
