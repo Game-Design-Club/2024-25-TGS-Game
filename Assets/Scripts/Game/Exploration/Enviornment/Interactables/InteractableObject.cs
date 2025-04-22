@@ -7,21 +7,22 @@ using UnityEngine;
 namespace Game.Exploration.Enviornment.Interactables {
     public class InteractableObject : MonoBehaviour, Interactable 
     {
+        [SerializeField] public bool isInteractable = true;
         [SerializeField] protected Dialogue dialogue;
         private Action overCallback;
         
         public virtual void Interact(Action overCallback)
         {
+            if (!isInteractable) {
+                return;
+            }
             this.overCallback = overCallback;
             InteractStarted();
             App.Get<DialogueManager>().StartDialogue(dialogue, EndInteraction);
         }
 
-        public void Hover() {
-            
-        }
-
-        public void Unhover() {
+        public void SetIsInteractable(bool b) {
+            isInteractable = b;
         }
 
         public virtual void InteractStarted(){}

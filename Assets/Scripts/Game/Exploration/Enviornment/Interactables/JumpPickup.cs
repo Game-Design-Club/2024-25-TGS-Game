@@ -11,12 +11,10 @@ namespace Game.Exploration.Enviornment.Interactables
     {
         [SerializeField] private GameObject jumpObject;
         [SerializeField] private PickupParticle pickupParticleObject;
-        private Action overCallback;
 
 
         public override void InteractionEnded()
         {
-            App.Get<DataManager>().SetFlag(BoolFlags.HasJump, true);
             pickupParticleObject.PlayAndDetach();
             Destroy(jumpObject);
         }
