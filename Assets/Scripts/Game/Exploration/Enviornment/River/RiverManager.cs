@@ -21,6 +21,7 @@ namespace Game.Exploration.Enviornment.River {
         [SerializeField] private GameObject baseSpriteObject;
         [SerializeField] private Transform spriteVisualization;
         [SerializeField] private RiverChunk moveSpeedGetter;
+        [SerializeField] private GameObject collisionParticleObject;
         
         private List<BoxCollider2D> _addedColliders = new();
         private GameObject[] _sprites;
@@ -35,6 +36,11 @@ namespace Game.Exploration.Enviornment.River {
             SetColliderSizes();
             ComputeColliderRemovals();
             CreateSprites();
+            ComputeCollisionParticles();
+        }
+
+        private void ComputeCollisionParticles() {
+            
         }
 
         private void OnValidate() {
@@ -103,15 +109,13 @@ namespace Game.Exploration.Enviornment.River {
         }
         
         private void Update() {
-            // Calculate the total distance each sprite should have moved based on time
             float cycleLength = _offset * length;
             float distance = moveSpeedGetter.floatSpeed * moveSpeedGetter.direction.x * Time.time;
-            // Normalize within one cycle
             float baseOffset = distance % cycleLength;
+            
             if (baseOffset < 0) baseOffset += cycleLength;
-            // Starting X at leftmost position
+            
             float startX = -cycleLength / 2;
-            // Position each sprite based on its index and wrap individually
             for (int i = 0; i < length; i++) {
                 float rawOffset = baseOffset + i * _offset;
                 float modOffset = rawOffset % cycleLength;
