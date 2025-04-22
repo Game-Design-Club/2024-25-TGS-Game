@@ -36,12 +36,8 @@ namespace Game.Exploration.Enviornment.River {
             SetColliderSizes();
             ComputeColliderRemovals();
             CreateSprites();
-            ComputeCollisionParticles();
         }
 
-        private void ComputeCollisionParticles() {
-            
-        }
 
         private void OnValidate() {
             transform.localScale = new Vector3(size, size, 1);
