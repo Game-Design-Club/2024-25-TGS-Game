@@ -9,7 +9,7 @@ namespace Game.Exploration.Enviornment.River {
         [SerializeField] private Transform logParent;
         [SerializeField] private Transform rockParent;
         [SerializeField] private Transform spriteParent;
-        [Range(1, 20)]
+        [Range(1, 100)]
         [SerializeField] private int length = 5;
         [Range(.1f, 10f)]
         [SerializeField] private float size = 2f;
@@ -21,6 +21,7 @@ namespace Game.Exploration.Enviornment.River {
         [SerializeField] private GameObject baseSpriteObject;
         [SerializeField] private Transform spriteVisualization;
         [SerializeField] private RiverChunk moveSpeedGetter;
+        [SerializeField] private GameObject collisionParticleObject;
         
         private List<BoxCollider2D> _addedColliders = new();
         private GameObject[] _sprites;
@@ -36,6 +37,7 @@ namespace Game.Exploration.Enviornment.River {
             ComputeColliderRemovals();
             CreateSprites();
         }
+
 
         private void OnValidate() {
             transform.localScale = new Vector3(size, size, 1);
@@ -103,28 +105,18 @@ namespace Game.Exploration.Enviornment.River {
         }
         
         private void Update() {
+            float cycleLength = _offset * length;
+            float distance = moveSpeedGetter.floatSpeed * moveSpeedGetter.direction.x * Time.time;
+            float baseOffset = distance % cycleLength;
+            
+            if (baseOffset < 0) baseOffset += cycleLength;
+            
+            float startX = -cycleLength / 2;
             for (int i = 0; i < length; i++) {
-                // Convert movement direction to local space and calculate wrap threshold
-                Vector2 localDir = transform.InverseTransformDirection(moveSpeedGetter.Direction);
-                float half = _offset * length / 2f;
-
-                Rigidbody2D rb = _sprites[i].GetComponent<Rigidbody2D>();
-                rb.position += moveSpeedGetter.Direction * (moveSpeedGetter.floatSpeed * Time.deltaTime);
-
-                // Wrap sprites along local axes when they move beyond the threshold
-                Vector3 localPos = _sprites[i].transform.localPosition;
-
-                if (localDir.x > 0 && localPos.x > half)
-                    localPos.x = -half;
-                else if (localDir.x < 0 && localPos.x < -half)
-                    localPos.x = half;
-
-                if (localDir.y > 0 && localPos.y > half)
-                    localPos.y = -half;
-                else if (localDir.y < 0 && localPos.y < -half)
-                    localPos.y = half;
-
-                _sprites[i].transform.localPosition = localPos;
+                float rawOffset = baseOffset + i * _offset;
+                float modOffset = rawOffset % cycleLength;
+                if (modOffset < 0) modOffset += cycleLength;
+                _sprites[i].transform.localPosition = new Vector3(startX + modOffset, 0, 0);
             }
         }
     }

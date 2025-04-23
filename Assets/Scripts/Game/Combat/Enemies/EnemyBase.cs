@@ -81,7 +81,7 @@ namespace Game.Combat.Enemies {
             
             if (damage > 0) {
                 this.CreateParticles(hitParticles, transform.position, hitDirection);
-                hitSound.Play();
+                hitSound?.Play();
             }
         }
 

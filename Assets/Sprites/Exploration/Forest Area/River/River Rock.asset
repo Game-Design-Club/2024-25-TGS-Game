@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0012b715587cc43d99b36881a5b6682d, type: 3}
+  m_Name: River Rock
+  m_EditorClassIdentifier: 
+  objects:
+  - sprite: {fileID: 6901209966572175809, guid: db0166db5d51f4d34b60df8b5bace358, type: 3}
+    size: {x: 0, y: 0}
+    offset: {x: 0, y: 0}
+    YOffset: 0
+  - sprite: {fileID: 1043738031003106085, guid: f10d6ad111b70404690ed068c934b1b9, type: 3}
+    size: {x: 0, y: 0}
+    offset: {x: 0, y: 0}
+    YOffset: 0
