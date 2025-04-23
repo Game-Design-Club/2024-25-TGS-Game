@@ -11,12 +11,13 @@ namespace Game.Exploration.Enviornment.Interactables {
         [SerializeField] protected Dialogue dialogue;
         private Action overCallback;
         
-        public virtual void Interact(Action overCallback)
+        public virtual void Interact(Action callback)
         {
+            overCallback = callback;
             if (!isInteractable) {
+                overCallback();
                 return;
             }
-            this.overCallback = overCallback;
             InteractStarted();
             App.Get<DialogueManager>().StartDialogue(dialogue, EndInteraction);
         }
@@ -25,7 +26,9 @@ namespace Game.Exploration.Enviornment.Interactables {
             isInteractable = b;
         }
 
-        public virtual void InteractStarted(){}
+        public virtual void InteractStarted() {
+            
+        }
 
         public virtual void InteractionEnded()
         {

@@ -5098,6 +5098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceaa885ccb26f43b98e6f6e3ea949c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInteractable: 1
   dialogue: {fileID: 11400000, guid: b1dde3e8eba5d4439b867b2c85c4eaf5, type: 2}
   spriteRenderer: {fileID: 8215420212385245490}
   scrapObject: {fileID: 8016517610345329024}

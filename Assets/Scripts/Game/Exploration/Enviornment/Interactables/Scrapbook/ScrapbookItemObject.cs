@@ -27,9 +27,7 @@ namespace Game.Exploration.Enviornment.Interactables.Scrapbook
             spriteRenderer.sprite = scrapbookItem.sprite;
         }
 
-        public override void InteractStarted()
-        {
-            //TODO change sorting layer
+        public override void InteractStarted() {
         }
 
         public override void InteractionEnded() {
