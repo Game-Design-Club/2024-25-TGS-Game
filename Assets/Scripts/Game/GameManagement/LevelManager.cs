@@ -10,7 +10,8 @@ namespace Game.GameManagement {
             if (Instance == null) {
                 Instance = this;
                 if (currentLevel == null) {
-                    Debug.LogError("Current level is not set. Please assign a level in the inspector.");
+                    Debug.LogWarning("Current level is not set. Please assign a level in the inspector.");
+                    currentLevel = FindAnyObjectByType<Level>();
                 }
             } else {
                 Debug.LogWarning("Multiple instances of LevelManager detected. Destroying the new instance.");

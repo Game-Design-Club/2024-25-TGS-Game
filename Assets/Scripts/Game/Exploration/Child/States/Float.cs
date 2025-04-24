@@ -31,7 +31,7 @@ namespace Game.Exploration.Child {
         }
 
         public override Vector2 GetWalkDirection() {
-            return _currentChunk.direction;
+            return _currentChunk.Direction;
         }
 
         public override void Exit() {

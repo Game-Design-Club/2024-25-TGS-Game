@@ -88,6 +88,8 @@ MonoBehaviour:
   length: 3
   size: 1.63
   sizeBuffer: 0
+  overlap: 0.1
+  offset: 14.4
   riverColliders:
   - {fileID: 4921789552587308278}
   - {fileID: 882151596383004761}
