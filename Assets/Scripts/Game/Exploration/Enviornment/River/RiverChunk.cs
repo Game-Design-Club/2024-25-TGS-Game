@@ -10,18 +10,23 @@ namespace Game.Exploration.Enviornment.River {
 
         private BoxCollider2D _boxCollider;
         
-        // Base direction off of lossy rotation of gameobject
         public Vector2 Direction {
             get {
-                Vector2 dir = direction;
-                dir.x *= transform.lossyScale.x;
-                dir.y *= transform.lossyScale.y;
+                // Use rotation to get the world direction
+                Vector2 dirLocal = direction;
+                float angleRad = transform.rotation.eulerAngles.z * Mathf.Deg2Rad;
+                float cos = Mathf.Cos(angleRad);
+                float sin = Mathf.Sin(angleRad);
+                Vector2 dir = new Vector2(
+                    dirLocal.x * cos - dirLocal.y * sin,
+                    dirLocal.x * sin + dirLocal.y * cos
+                );
                 return dir;
             }
         }
         
         private void OnValidate() {
-            directionSprite.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, direction));
+            directionSprite.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, Direction));
             TryGetComponent(out _boxCollider);
             if (matchCollider) {
                 _boxCollider.size = matchCollider.size;

@@ -1,7 +1,5 @@
-using System;
 using AppCore;
 using AppCore.DataManagement;
-using AppCore.DialogueManagement;
 using Tools;
 using UnityEngine;
 
@@ -15,6 +13,7 @@ namespace Game.Exploration.Enviornment.Interactables
 
         public override void InteractionEnded()
         {
+            App.Get<DataManager>().SetFlag(BoolFlags.HasJump, true);
             pickupParticleObject.PlayAndDetach();
             Destroy(jumpObject);
         }
