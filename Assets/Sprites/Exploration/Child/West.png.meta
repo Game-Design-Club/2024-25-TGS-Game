@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ef2a6dc640c71449dbac8f6c94119210
+guid: 172e5dedfcd9140069386861941a4328
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4404291166663874360
-    second: North_0
+      213: 7653240681549001616
+    second: West_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: North_0
+      name: West_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2360
-        height: 1640
+        x: 642
+        y: 111
+        width: 449
+        height: 1387
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 837146c2b7f2f1d30800000000000000
-      internalID: 4404291166663874360
+      spriteID: 093fb4ce9d5c53a60800000000000000
+      internalID: 7653240681549001616
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      West_0: 7653240681549001616
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

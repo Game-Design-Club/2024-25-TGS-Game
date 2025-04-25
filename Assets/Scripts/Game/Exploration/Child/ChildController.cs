@@ -16,6 +16,7 @@ namespace Game.Exploration.Child {
         [SerializeField] private Transform rotateTransform;
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] internal BoxCollider2D boxCollider;
+        [SerializeField] internal Animator _spriteAnimator;
         [Header("Idle State")]
         [SerializeField] internal float walkSpeed = 5f;
         [Header("Attack")]
@@ -122,6 +123,8 @@ namespace Game.Exploration.Child {
                     rotateTransform.localScale = new Vector3(1, 1, 1);
                 }
                 rotateTransform.rotation = Quaternion.Euler(0, 0, (float)rotation);
+                _spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveX, LastDirection.x);
+                _spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveY, LastDirection.y);
             }
             
             App.Get<DataManager>().UpdatePlayerPosition(transform.position);

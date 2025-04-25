@@ -24,10 +24,15 @@ namespace Tools {
             }
             public static class Child {
                 public const string Sleep = "Sleep";
-                public static string Attack = "Attack";
-                public static string Jump = "Jump";
-                public static string Float = "Float";
-                public static string IsDead = "Ded";
+                public const string Attack = "Attack";
+                public const string Jump = "Jump";
+                public const string Float = "Float";
+                public const string IsDead = "Ded";
+            }
+
+            public static class ChildSprites {
+                public const string MoveX = "Move X";
+                public const string MoveY = "Move Y";
             }
 
             public static class DialogueBox {
