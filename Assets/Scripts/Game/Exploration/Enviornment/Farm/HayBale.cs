@@ -9,6 +9,7 @@ namespace Game.Exploration.Enviornment.Farm
 {
     public class HayBale : MonoBehaviour, IChildHittable
     {
+        [SerializeField] private Rigidbody2D body;
         [SerializeField] private bool vertical = true;
         private bool isRolling = false;
         private float direction = 0;
@@ -34,16 +35,50 @@ namespace Game.Exploration.Enviornment.Farm
         {
             Roll(1);
         }
-        
-        
+
+        private void Shift(float direction)
+        {
+            if (isRolling) return;
+
+            direction /= Mathf.Abs(direction);
+
+            if (ColliderInDirection(direction, !vertical)) return;
+            
+            transform.position += new Vector3(vertical ? transform.localScale.x * direction : 0, !vertical ? transform.localScale.x * direction : 0, 0);
+        }
         
         public void Roll(float direction)
         {
             if (isRolling) return;
+            
+            direction /= Mathf.Abs(direction);
+
+            if (ColliderInDirection(direction, vertical)) return;
+                
             isRolling = true;
-            this.direction = Mathf.Clamp(direction, -1, 1);
+            this.direction = direction;
             rollingStarted = Time.time;
         }
+
+        private bool ColliderInDirection(float direction, bool vertical)
+        {
+            Collider2D[] colliders = new Collider2D[100];
+            int num = body.GetContacts(colliders);
+
+            for (int i = 0; i < num; i++)
+            {
+                Collider2D collider = colliders[i];
+                if (collider.gameObject.TryGetComponent(out Corn corn)) continue;
+                
+                Vector2 dir = collider.gameObject.transform.position - transform.position;
+                float colliderDirection = vertical ? dir.y : dir.x;
+                colliderDirection /= Mathf.Abs(colliderDirection);
+                if (Math.Abs(colliderDirection - direction) < 0.1f) return true;
+            }
+
+            return false;
+        }
+        
         private void Update()
         {
             if (!isRolling) return;
@@ -61,15 +96,20 @@ namespace Game.Exploration.Enviornment.Farm
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (other.gameObject.layer != 8) return;
-                
-            Corn corn = other.gameObject.GetComponent<Corn>();
-            if (corn != null) corn.Squish();
+
+            if (other.gameObject.TryGetComponent(out Corn corn)) corn.Squish();
             else Stop();
         }
 
         public void Hit(Vector2 hitDirection)
         {
-            Roll(vertical ? hitDirection.y / Mathf.Abs(hitDirection.y) : hitDirection.x / Mathf.Abs(hitDirection.x));
+            bool xIsGreaterThanY = Mathf.Abs(hitDirection.x) > Mathf.Abs(hitDirection.y);
+            
+            if (xIsGreaterThanY != vertical) Roll(vertical ? hitDirection.y : hitDirection.x);
+            else
+            {
+                Shift(vertical ? hitDirection.x : hitDirection.y);
+            }
         }
     }
 }
