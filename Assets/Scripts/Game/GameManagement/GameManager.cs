@@ -5,15 +5,19 @@ using AppCore.DialogueManagement;
 using AppCore.InputManagement;
 using AppCore.SceneManagement;
 using Tools;
+using Tools.CameraShaking;
 using UnityEngine;
 
 namespace Game.GameManagement {
     public class GameManager : MonoBehaviour {
         [SerializeField] public float transitionDuration = 1f;
         [SerializeField] public UIManager UIManager;
+        [SerializeField] public CameraShaker playerCameraShaker;
         
         public static float TransitionDuration => _instance.transitionDuration;
-        
+
+        public static CameraShaker PlayerCameraShaker => _instance.playerCameraShaker;
+
         public static Action<GameEvent> OnGameEvent;
         
         private static GameManager _instance;

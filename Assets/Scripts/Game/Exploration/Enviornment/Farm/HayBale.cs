@@ -1,11 +1,13 @@
 using System;
 using AppCore;
+using Game.Exploration.Child;
+using Game.GameManagement;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Game.Exploration.Enviornment.Farm
 {
-    public class HayBale : MonoBehaviour
+    public class HayBale : MonoBehaviour, IChildHittable
     {
         [SerializeField] private bool vertical = true;
         private bool isRolling = false;
@@ -33,6 +35,8 @@ namespace Game.Exploration.Enviornment.Farm
             Roll(1);
         }
         
+        
+        
         public void Roll(float direction)
         {
             if (isRolling) return;
@@ -44,21 +48,28 @@ namespace Game.Exploration.Enviornment.Farm
         {
             if (!isRolling) return;
             float velocity = speedRamp.Evaluate(timeRolling) * maxSpeed * direction * Time.deltaTime;
-            transform.position += new Vector3(vertical ? velocity : 0, vertical ? 0 : velocity, 0);
+            transform.position += new Vector3(vertical ? 0 : velocity, vertical ? velocity : 0, 0);
         }
 
         private void Stop()
         {
             isRolling = false;
             direction = 0;
+            GameManager.PlayerCameraShaker.Shake();
         }
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            Debug.Log("H");
+            if (other.gameObject.layer != 8) return;
+                
             Corn corn = other.gameObject.GetComponent<Corn>();
-            Debug.Log(corn);
             if (corn != null) corn.Squish();
+            else Stop();
+        }
+
+        public void Hit(Vector2 hitDirection)
+        {
+            Roll(vertical ? hitDirection.y / Mathf.Abs(hitDirection.y) : hitDirection.x / Mathf.Abs(hitDirection.x));
         }
     }
 }

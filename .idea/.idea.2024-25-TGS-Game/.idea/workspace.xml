@@ -5,9 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Farm/cornStanding.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Campfire.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Campfire.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Stick.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Stick.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Farm/Corn.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Farm/Corn.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Farm/Hay Bale.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Farm/Hay Bale.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Levels/CORN.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Levels/CORN.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/Farm/HayBale.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/Farm/HayBale.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameManagement/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameManagement/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Farm/corn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Farm/corn.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Farm/cornStanding.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Animals/Untitled_Artwork-1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Animals/Untitled_Artwork-1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Animals/Untitled_Artwork-2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Animals/Untitled_Artwork-2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Animals/Untitled_Artwork-4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Animals/Untitled_Artwork-4.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Animals/Untitled_Artwork-5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Animals/Untitled_Artwork-5.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Untitled_Artwork-1 2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Untitled_Artwork-1 2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Untitled_Artwork-2 2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Untitled_Artwork-2 2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Untitled_Artwork-3 2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Untitled_Artwork-3 2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Untitled_Artwork-4 2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/Rocks/Untitled_Artwork-4 2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,18 +36,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;TodTheSushiMonster&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Game-Design-Club/2024-25-TGS-Game.git&quot;,
-    &quot;accountId&quot;: &quot;2eca7e41-23d6-41d6-9d9d-8164af34bd33&quot;
-  }
-}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AppCore/SceneManagement/SceneLoader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/Combat/CombatObjectsData.cs" root0="FORCE_HIGHLIGHTING" />
@@ -41,9 +45,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/Interactables/StickPickup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/GameManagement/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tools/UnityOnGameEvent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.multiplayer.center/Tests/Editor/UtilsForGettingStartedTabTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.postprocessing/PostProcessing/Shaders/API/D3D11.hlsl" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.postprocessing/PostProcessing/Shaders/Builtins/Bloom.shader" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal/Shaders/2D/Sprite-Lit-Default.shader" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1746d808c2ed47a18a352f30c9b97411c200/77/86bc7115/AnalyticsSessionInfo.cs" root0="FORCE_HIGHLIGHTING" />
@@ -65,7 +67,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87c38cf875804a0cbcc2bd5e75635dd41dda00/89/5fd5dadd/SetupCoroutine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87c38cf875804a0cbcc2bd5e75635dd41dda00/b5/b065102f/RenderPipelineManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87c38cf875804a0cbcc2bd5e75635dd41dda00/f6/8e44050e/UnitySynchronizationContext.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8aecd002908e45839e7ca332f9f90acc1f4200/12/698298dc/UIElementsRuntimeUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8aecd002908e45839e7ca332f9f90acc1f4200/5d/8a85ae5c/Utility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/aafd813ae40d46c4acfc98ad45a9addd6fe00/c5/65b4c3ac/RetainedMode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c4fc38394b6844468181cc3d680e4bb82f200/cd/1a5c94d2/Physics2D.cs" root0="SKIP_HIGHLIGHTING" />
@@ -97,14 +98,21 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.37777779&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Combat-Improvements&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;horn-Hay+corn-&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.ApplicationConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/nicoryanhowlett/Library/Application Support/JetBrains/Rider2023.1/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/nicoryanhowlett/Library/Application Support/JetBrains/Rider2023.1/resharper-host/SourcesCache&quot;,
+      &quot;/Users/nicoryanhowlett/.local/share/Symbols/src&quot;
+    ]
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -129,9 +137,6 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="projectPathOnTarget" />
-      <option name="runtimes">
-        <list />
-      </option>
       <option name="selectedOptions">
         <list />
       </option>
@@ -142,9 +147,6 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="projectPathOnTarget" />
-      <option name="runtimes">
-        <list />
-      </option>
       <option name="selectedOptions">
         <list />
       </option>
@@ -176,7 +178,9 @@
       <workItem from="1742179227409" duration="6796000" />
       <workItem from="1742360820587" duration="8436000" />
       <workItem from="1742428154544" duration="11523000" />
-      <workItem from="1743086593457" duration="652000" />
+      <workItem from="1743285324705" duration="2845000" />
+      <workItem from="1743623514762" duration="633000" />
+      <workItem from="1744743459853" duration="1984000" />
     </task>
     <servers />
   </component>
@@ -196,7 +200,26 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Level-Creation" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="HIGHLIGHTERS">
+                <map>
+                  <entry key="CURRENT_BRANCH" value="true" />
+                  <entry key="MERGE_COMMITS" value="true" />
+                  <entry key="MY_COMMITS" value="true" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

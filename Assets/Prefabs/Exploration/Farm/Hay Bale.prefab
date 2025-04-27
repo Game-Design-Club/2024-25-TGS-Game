@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6255288624300552896}
   - component: {fileID: 1601139147377578164}
   - component: {fileID: 1846063819060358695}
+  - component: {fileID: 1653956361437083468}
   m_Layer: 9
   m_Name: Hay Bale
   m_TagString: Untagged
@@ -127,14 +128,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584092503238993243}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -145,7 +146,20 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
+--- !u!114 &1653956361437083468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584092503238993243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a3b40db671e240b2b4775411b8ca47b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yOffset: -1
 --- !u!1 &3364142138028174400
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +236,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1353156089
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: -100
   m_Sprite: {fileID: 6532802830800664747, guid: e52726aaf3ffa406e8a2230541b72081, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -246,4 +260,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a3b40db671e240b2b4775411b8ca47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yOffset: 0
+  yOffset: 1
