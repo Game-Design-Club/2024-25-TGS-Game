@@ -19,6 +19,13 @@ namespace Game.Exploration.Cameras {
             TryGetComponent(out _cinemachineCamera);
         }
 
+        private void Start() {
+            _cinemachineCamera.Target.TrackingTarget = LevelManager.GetCurrentLevel().child.transform;
+            _cinemachineCamera.ForceCameraPosition(
+                LevelManager.GetCurrentLevel().child.transform.position,
+                _cinemachineCamera.transform.rotation);
+        }
+
         private void OnGameEvent(GameEvent gameEvent) {
             if (gameEvent.GameEventType == GameEventType.ExploreEnter) {
                 _cinemachineCamera.Target.TrackingTarget = LevelManager.GetCurrentLevel().child.transform;

@@ -47,7 +47,6 @@ namespace Game.Exploration.Child {
             }
 
             if (_controller.LastInput == Vector2.zero) {
-                // Standing still: check all four cardinal directions
                 if (TryRayInteraction(new Vector2(-boxCollider.size.x / 2, boxCollider.size.y / 2), new Vector2(0, -boxCollider.size.y), Vector2.left)) return;
                 if (TryRayInteraction(new Vector2(boxCollider.size.x / 2, boxCollider.size.y / 2), new Vector2(0, -boxCollider.size.y), Vector2.right)) return;
                 if (TryRayInteraction(new Vector2(boxCollider.size.x / 2, boxCollider.size.y / 2), new Vector2(-boxCollider.size.x, 0), Vector2.up)) return;

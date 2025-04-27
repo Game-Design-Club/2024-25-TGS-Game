@@ -16,7 +16,7 @@ namespace Game.Combat.Bear {
         public override void Enter() {
             _startDirection = Controller.LastDirection;
             _startRotation = Controller.LastRotation;
-            Controller.Animator.SetTrigger(AnimationConstants.Bear.Pounce);
+            Controller.Animator.SetTrigger(AnimationParameters.Bear.Pounce);
             Controller.mainCollider.enabled = false;
             Controller.pounceHitbox.SetActive(true);
         }

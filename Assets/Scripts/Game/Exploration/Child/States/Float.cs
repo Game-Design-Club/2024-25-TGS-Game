@@ -10,7 +10,7 @@ namespace Game.Exploration.Child {
         private bool _doneFloating = false;
 
         public override void Enter() {
-            Controller.Animator.SetBool(AnimationConstants.Child.Float, true);
+            Controller.Animator.SetBool(AnimationParameters.Child.Float, true);
             Physics2D.IgnoreLayerCollision(Controller.childLayer, Controller.jumpableLayer, true);
             Update();
         }
@@ -27,15 +27,15 @@ namespace Game.Exploration.Child {
         }
 
         public override float? GetWalkSpeed() {
-            return _currentChunk.floatSpeed;
+            return _currentChunk?.floatSpeed;
         }
 
         public override Vector2 GetWalkDirection() {
-            return _currentChunk.direction;
+            return _currentChunk.Direction;
         }
 
         public override void Exit() {
-            Controller.Animator.SetBool(AnimationConstants.Child.Float, false);
+            Controller.Animator.SetBool(AnimationParameters.Child.Float, false);
             Physics2D.IgnoreLayerCollision(Controller.childLayer, Controller.jumpableLayer, false);
         }
     }

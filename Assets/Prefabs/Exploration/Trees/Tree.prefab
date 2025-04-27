@@ -48,7 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomize: 0
-  objectNumber: 3
+  randomizeFlip: 0
+  objectNumber: 0
   spriteChooserData: {fileID: 11400000, guid: a0aa937e15faa49fea0e3e72e1b447e6, type: 2}
   useRandomizeFlags: 0
   randomizeFlags: 01010101
@@ -86,17 +87,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.05}
+  m_Offset: {x: 0, y: 0.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.47139618, y: 0.17716172}
-    oldSize: {x: 3.86, y: 6.84}
+    pivot: {x: 0.52501225, y: 0.09021202}
+    oldSize: {x: 4.42, y: 6.98}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.9, y: 0.7}
   m_EdgeRadius: 0
 --- !u!114 &7446625056286375111
 MonoBehaviour:
@@ -111,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yOffset: 0
+  isStaticLayer: 1
 --- !u!212 &4774359437629617248
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -154,8 +156,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1353156089
   m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 4296731722166109183, guid: 9c2c10c8ceab1483fab5c7d1062aa6a5, type: 3}
+  m_SortingOrder: 848
+  m_Sprite: {fileID: -3819293021117696179, guid: fb685611007ec433a8693a1989b3b620, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

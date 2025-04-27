@@ -78,12 +78,12 @@ SpriteRenderer:
   m_SortingLayerID: 1353156089
   m_SortingLayer: 2
   m_SortingOrder: -1546
-  m_Sprite: {fileID: -7810323694656990873, guid: 2f7bc4b2dceed4c78ae8586f6c431d3b, type: 3}
+  m_Sprite: {fileID: 555084175310131933, guid: fda7db0524aa74a81ae29deacb935925, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.05, y: 2.18}
+  m_Size: {x: 4.7, y: 1.57}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a36de2c97fca4185bf0664423ad575d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hideSprite: 0
   randomize: 0
   randomizeFlip: 0
   objectNumber: 0
@@ -120,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yOffset: 0
+  isStaticLayer: 1
 --- !u!1 &782377763635205384
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,6 +134,7 @@ GameObject:
   - component: {fileID: 1806057249852035889}
   - component: {fileID: 7526101656099666947}
   - component: {fileID: 7406985562178754116}
+  - component: {fileID: 289882081158889916}
   m_Layer: 8
   m_Name: Snow Pile
   m_TagString: Untagged
@@ -191,7 +194,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.12727273, y: -0.07720956}
+  m_Offset: {x: 0.4841516, y: 0.098566055}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -201,7 +204,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.0613625, y: 0.75441915}
+  m_Size: {x: 3.7751203, y: 0.97813416}
   m_EdgeRadius: 0
 --- !u!114 &7526101656099666947
 MonoBehaviour:
@@ -249,6 +252,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flagName: 
+--- !u!114 &289882081158889916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782377763635205384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f91395c3720c6476e87abe4023471788, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomize: 0
+  spriteChoosers:
+  - {fileID: 4872587168561251781}
+  - {fileID: 2813383434508924756}
+  - {fileID: 5923619863818374415}
 --- !u!1 &1487179585885585086
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,7 +347,7 @@ SpriteRenderer:
   m_SortingLayerID: 1353156089
   m_SortingLayer: 2
   m_SortingOrder: -1508
-  m_Sprite: {fileID: 555084175310131933, guid: fda7db0524aa74a81ae29deacb935925, type: 3}
+  m_Sprite: {fileID: -7810323694656990873, guid: 2f7bc4b2dceed4c78ae8586f6c431d3b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -350,9 +370,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a36de2c97fca4185bf0664423ad575d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hideSprite: 0
   randomize: 0
   randomizeFlip: 0
-  objectNumber: 1
+  objectNumber: 2
   spriteChooserData: {fileID: 11400000, guid: 8e78d29b77fb3458092dbbb39d7686f7, type: 2}
   useRandomizeFlags: 0
   randomizeFlags: 
@@ -369,6 +390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yOffset: 0
+  isStaticLayer: 1
 --- !u!1 &1634518397753918384
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,12 +723,12 @@ SpriteRenderer:
   m_SortingLayerID: 1353156089
   m_SortingLayer: 2
   m_SortingOrder: -1564
-  m_Sprite: {fileID: -3425883363903340068, guid: 9be3b7e2fb568462da1fd9b8fe350c93, type: 3}
+  m_Sprite: {fileID: -7810323694656990873, guid: 2f7bc4b2dceed4c78ae8586f6c431d3b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.38, y: 0.79}
+  m_Size: {x: 4.7, y: 1.57}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -724,6 +746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a36de2c97fca4185bf0664423ad575d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hideSprite: 0
   randomize: 0
   randomizeFlip: 0
   objectNumber: 2
@@ -743,3 +766,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yOffset: 0
+  isStaticLayer: 1

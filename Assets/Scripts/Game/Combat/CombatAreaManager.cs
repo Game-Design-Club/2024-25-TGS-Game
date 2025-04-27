@@ -95,7 +95,7 @@ namespace Game.Combat {
             
             Setup();
             
-            _animator.SetTrigger(AnimationConstants.CombatArea.EnterCombat);
+            _animator.SetTrigger(AnimationParameters.CombatArea.EnterCombat);
         }
         
         // Animation events
@@ -311,6 +311,7 @@ namespace Game.Combat {
             
             _activeEnemies.Clear();
             GameManager.StartTransitionToCombat();
+            Sanity = startInsanity;
             yield return new WaitForSeconds(GameManager.TransitionDuration);
             StartCoroutine(RunCombat());
         }

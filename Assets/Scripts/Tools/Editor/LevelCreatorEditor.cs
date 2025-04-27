@@ -271,7 +271,7 @@ namespace Tools.Editor {
         }
 
         private void RandomizeObject(GameObject newObj) {
-            SpriteChooser spriteChooser = newObj.GetComponent<SpriteChooser>();
+            newObj.TryGetComponent(out SpriteChooser spriteChooser);
             if (spriteChooser != null) {
                 if (_creator.UseFlags) {
                     spriteChooser.RandomizeSprite(_creator.CustomRandomizeFlags);

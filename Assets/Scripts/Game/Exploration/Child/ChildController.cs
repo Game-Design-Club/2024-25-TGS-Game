@@ -16,6 +16,7 @@ namespace Game.Exploration.Child {
         [SerializeField] private Transform rotateTransform;
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] internal BoxCollider2D boxCollider;
+        [SerializeField] internal Animator _spriteAnimator;
         [Header("Idle State")]
         [SerializeField] internal float walkSpeed = 5f;
         [Header("Attack")]
@@ -24,6 +25,9 @@ namespace Game.Exploration.Child {
         [Header("Jumping")]
         [SerializeField] internal AnimationCurve jumpSpeedCurve;
         [SerializeField] internal float jumpSpeed = 4f;
+        [SerializeField] internal ParticleSystem jumpParticles;
+        [SerializeField] internal ParticleSystem landGroundParticles;
+        [SerializeField] internal ParticleSystem landRiverParticles;
         [Header("Floating")]
         [SerializeField] internal float floatSpeed = 1f;
         [Header("Walk to Sleep")]
@@ -119,6 +123,8 @@ namespace Game.Exploration.Child {
                     rotateTransform.localScale = new Vector3(1, 1, 1);
                 }
                 rotateTransform.rotation = Quaternion.Euler(0, 0, (float)rotation);
+                _spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveX, LastDirection.x);
+                _spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveY, LastDirection.y);
             }
             
             App.Get<DataManager>().UpdatePlayerPosition(transform.position);
@@ -169,16 +175,19 @@ namespace Game.Exploration.Child {
             
             if (DoAll(point => point.TouchingGround)) {
                 TransitionToState(new Move(this));
+                landGroundParticles.Play();
                 return;
             }
             
             if (DoAny(point => point.TouchingLog) || DoAny(point => point.TouchingRock)) {
                 StartMoveUntilGrounded();
+                landGroundParticles.Play();
                 return;
             }
             
             if (DoAll(point => point.TouchingRiver)) {
                 TransitionToState(new Float(this));
+                landRiverParticles.Play();
                 return;
             }
             
@@ -192,6 +201,16 @@ namespace Game.Exploration.Child {
                 return predicate(topLeft) || predicate(topRight) || predicate(bottomLeft) || predicate(bottomRight);
             }
 
+        }
+
+        public void ExploreDie() {
+            _currentState.ExploreDie();
+        }
+
+        public void UnDie() {
+            if (_currentState is Die) {
+                TransitionToState(new Move(this));
+            }
         }
     }
 }
