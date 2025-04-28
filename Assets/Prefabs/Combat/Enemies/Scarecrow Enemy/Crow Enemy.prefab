@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3630791784139991421}
   - component: {fileID: 9174074279425339484}
-  - component: {fileID: 2459703271106613608}
   - component: {fileID: 8421991069078324963}
+  - component: {fileID: 9220040438734082497}
   m_Layer: 12
   m_Name: Crow Enemy
   m_TagString: Enemy
@@ -66,8 +66,35 @@ MonoBehaviour:
   maxAngle: 45
   directionAngleVariance: 10
   attackSpeed: 3
---- !u!61 &2459703271106613608
-BoxCollider2D:
+--- !u!50 &8421991069078324963
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2628731053599168706}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 1
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!60 &9220040438734082497
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -110,35 +137,16 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.8, y: 0.8}
-  m_EdgeRadius: 0
---- !u!50 &8421991069078324963
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2628731053599168706}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 1
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Points:
+    m_Paths:
+    - - {x: 0.005442756, y: 0.33054078}
+      - {x: -0.64626217, y: 0.0042225122}
+      - {x: -0.14147902, y: -0.23752749}
+      - {x: 0.005410269, y: -0.55865014}
+      - {x: 0.15236473, y: -0.2266419}
+      - {x: 0.19046405, y: -0.2538557}
+      - {x: 0.67891866, y: -0.0012199879}
+  m_UseDelaunayMesh: 0
 --- !u!1 &3378371463213774398
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,8 +197,8 @@ MonoBehaviour:
   hitChild: 1
   hitBear: 1
   sanityDamage: 2
-  killEnemyOnChildAttack: 0
-  killEnemyOnBearAttack: 0
+  killEnemyOnChildAttack: 1
+  killEnemyOnBearAttack: 1
 --- !u!61 &4787745869565369612
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -235,7 +243,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.3, y: 0.3}
   m_EdgeRadius: 0
 --- !u!1 &5122898046543653879
 GameObject:
@@ -263,7 +271,7 @@ Transform:
   m_GameObject: {fileID: 5122898046543653879}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: -0.411, z: 0}
+  m_LocalPosition: {x: 0, y: -0.361, z: 0}
   m_LocalScale: {x: 0.45, y: 0.45, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -310,8 +318,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1741993609
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}

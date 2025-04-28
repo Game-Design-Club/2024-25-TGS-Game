@@ -10,8 +10,8 @@ namespace Game.Combat.Enemies.TreeEnemy {
         [SerializeField] private TreeEnemy enemyBase;
         [SerializeField] private GameObject hitParticles;
         
-        public void OnHitByBear(int damage, Vector2 hitDirection, float knockbackForce, BearDamageType damageType) {
-            enemyBase.HandleAppendageHit(damage, hitDirection, knockbackForce, damageType);
+        public void OnHitByBear(BearDamageData data) {
+            enemyBase.HandleAppendageHit(data);
             // this.CreateParticles(hitParticles, transform.position, hitDirection);
         }
     }

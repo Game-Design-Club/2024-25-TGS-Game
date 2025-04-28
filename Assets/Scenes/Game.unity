@@ -1153,7 +1153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c543bf6ffb7e14f28bbbbf457cbfcb04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionDuration: 1
+  transitionDuration: 5
   UIManager: {fileID: 1522648785}
 --- !u!1 &594096579
 GameObject:

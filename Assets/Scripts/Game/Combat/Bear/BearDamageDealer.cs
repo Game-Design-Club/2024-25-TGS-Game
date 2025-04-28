@@ -20,7 +20,7 @@ namespace Game.Combat.Bear {
 
         private void OnTriggerEnter2D(Collider2D other) {
             if (other.gameObject.TryGetComponent(out IBearHittable enemyBase) && FrendsHave(enemyBase) && _enemiesHit.Add(enemyBase)) { // Add returns false if already in set
-                AttackEnemy(enemyBase);
+                AttackEnemy(enemyBase, other);
             }
         }
 
@@ -28,7 +28,7 @@ namespace Game.Combat.Bear {
             return frends.All(frend => !frend._enemiesHit.Contains(enemyBase));
         }
 
-        private void AttackEnemy(IBearHittable other) {
+        private void AttackEnemy(IBearHittable other, Collider2D collider) {
             Vector2 dif= (other.GameObject.transform.position - transform.position).normalized;
             int flip = transform.lossyScale.x > 0 ? 1 : -1;
 
@@ -39,7 +39,9 @@ namespace Game.Combat.Bear {
                 knockbackDirection = dif;
             }
             
-            other.OnHitByBear(damage, knockbackDirection.normalized, knockbackForce, damageType);
+            Vector2 hitPosition = collider.ClosestPoint(transform.position);
+            
+            other.OnHitByBear(new BearDamageData(damage, knockbackDirection, hitPosition, knockbackForce, damageType));
         }
     }
 }

@@ -179,7 +179,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
         }
 
         internal void Die() {
-            OnHitByBear(100000, Vector2.zero, 0, BearDamageType.Swipe);
+            OnHitByBear(new BearDamageData(100000, transform.position,Vector2.zero, 0, BearDamageType.Swipe));
         }
 
         internal void CreateNewPoints() {
@@ -189,8 +189,8 @@ namespace Game.Combat.Enemies.TreeEnemy {
             AddPoints(_points[i], i);
         }
 
-        public void HandleAppendageHit(int damage, Vector2 hitDirection, float knockbackForce, BearDamageType damageType) {
-            if (damageType == BearDamageType.Swipe) {
+        public void HandleAppendageHit(BearDamageData data) {
+            if (data.DamageType == BearDamageType.Swipe) {
                 TransitionToState(new Retract(this));
             } else {
                 TransitionToState(new Retract(this, .1f, 2));
