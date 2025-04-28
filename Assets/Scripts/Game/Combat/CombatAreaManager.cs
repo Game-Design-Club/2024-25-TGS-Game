@@ -55,6 +55,12 @@ namespace Game.Combat {
 
         private Animator _animator;
         
+        // Properties
+        public float Top => combatAreaSize.position.y + (combatAreaSize.localScale.y / 2);
+        public float Bottom => combatAreaSize.position.y - (combatAreaSize.localScale.y / 2);
+        public float Left => combatAreaSize.position.x - (combatAreaSize.localScale.x / 2);
+        public float Right => combatAreaSize.position.x + (combatAreaSize.localScale.x / 2);
+        
         // Events
         public static event Action<float> OnSanityChanged; // Percentage
         public static event Action OnChildHit;
@@ -62,6 +68,9 @@ namespace Game.Combat {
         private void Awake() {
             if (wavesData == null) {
                 Debug.LogError("wavesData is null");
+            }
+            if (wavesData.waves == null || wavesData.waves.Length == 0) {
+                Debug.LogError("wavesData.waves is null or empty");
             }
             
             foreach (GameObject obj in activeStateSwitchOnCombat) {
@@ -192,62 +201,59 @@ namespace Game.Combat {
         }
         
         private Vector2 SpawnFromSides(WaveEntry entry) {
-                        float height = combatAreaSize.localScale.y;
-            float width = combatAreaSize.localScale.x;
-    
+            float height = Top - Bottom;
+            float width = Right - Left;
+
             float totalPositions = 0;
             if (entry.spawnLeft) totalPositions += height;
             if (entry.spawnRight) totalPositions += height;
             if (entry.spawnTop) totalPositions += width;
             if (entry.spawnBottom) totalPositions += width;
-            
+
             float chosenPosition = UnityEngine.Random.Range(0, totalPositions);
-    
-            Vector2 spawnPos = transform.position;
-            
+
+            Vector2 spawnPos = Vector2.zero;
+
             // -- Left --
             if (entry.spawnLeft) {
                 if (chosenPosition < height) {
-                    float yPos = chosenPosition - (height / 2);
-                    float xPos = (-width / 2);
-                    spawnPos += new Vector2(xPos, yPos);
+                    float yPos = Bottom + chosenPosition;
+                    spawnPos = new Vector2(Left, yPos);
                     return spawnPos;
                 }
                 chosenPosition -= height;
             }
-            
+
             // -- Top --
             if (entry.spawnTop) {
                 if (chosenPosition < width) {
-                    float xPos = chosenPosition - (width / 2);
-                    float yPos = (height / 2);
-                    spawnPos += new Vector2(xPos, yPos);
+                    float xPos = Left + chosenPosition;
+                    spawnPos = new Vector2(xPos, Top);
                     return spawnPos;
                 }
                 chosenPosition -= width;
             }
-            
+
             // -- Right --
             if (entry.spawnRight) {
                 if (chosenPosition < height) {
-                    float yPos = chosenPosition - (height / 2);
-                    float xPos = (width / 2);
-                    spawnPos += new Vector2(xPos, yPos);
+                    float yPos = Bottom + chosenPosition;
+                    spawnPos = new Vector2(Right, yPos);
                     return spawnPos;
                 }
                 chosenPosition -= height;
             }
-            
+
             // -- Bottom --
             if (entry.spawnBottom) {
                 if (chosenPosition < width) {
-                    float xPos = chosenPosition - (width / 2);
-                    float yPos = (-height / 2);
-                    spawnPos += new Vector2(xPos, yPos);
+                    float xPos = Left + chosenPosition;
+                    spawnPos = new Vector2(xPos, Bottom);
                     return spawnPos;
                 }
             }
-            
+
+            // Fallback
             return transform.position;
         }
 

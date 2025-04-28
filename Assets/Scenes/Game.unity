@@ -1892,6 +1892,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3480664325712534080, guid: 7e403f0db8a21443f91cf233fe1608b3, type: 3}
+      propertyPath: wavesData
+      value: 
+      objectReference: {fileID: 11400000, guid: 7095a232008b649198f9169d3e793ef9, type: 2}
     - target: {fileID: 5347751174541846980, guid: 7e403f0db8a21443f91cf233fe1608b3, type: 3}
       propertyPath: thickness
       value: 0.25
@@ -4483,7 +4487,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  CustomBlends: {fileID: 0}
+  CustomBlends: {fileID: 11400000, guid: 70839d8d24c044d5292a54986bf09239, type: 2}
 --- !u!1001 &5964936582050081033
 PrefabInstance:
   m_ObjectHideFlags: 0

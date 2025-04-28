@@ -16,7 +16,7 @@ namespace Game.Combat.Enemies.DebrisEnemy {
             _speed = Controller<DebrisEnemy>().rollSpeed;
 
             float randomness = Controller<DebrisEnemy>().directionAngleVariance;
-            float randomAdd = randomness.GetRandom();
+            float randomAdd = randomness.Random();
 
             Vector2 dif = Controller().CombatManager.Child.transform.position - Controller().transform.position;
             float angle = Vector2.SignedAngle(Vector2.down, dif);   

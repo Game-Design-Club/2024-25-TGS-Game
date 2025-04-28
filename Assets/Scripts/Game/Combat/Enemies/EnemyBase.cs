@@ -22,6 +22,8 @@ namespace Game.Combat.Enemies {
         [SerializeField] private GameObject deathParticles;
         [SerializeField] private SoundEffect deathSound;
         
+        [SerializeField] private bool countsAsCombatEnemy = true;
+        
         internal CombatAreaManager CombatManager;
         
         internal EnemyState CurrentState;
@@ -35,7 +37,9 @@ namespace Game.Combat.Enemies {
         }
 
         private protected void Start() {
-            stunObject.SetActive(false);
+            if (stunObject != null) {
+                stunObject.SetActive(false);
+            }
             TransitionToState(StartingState);
         }
 
@@ -53,7 +57,9 @@ namespace Game.Combat.Enemies {
         }
 
         private void HandleDeath() {
-            CombatManager.EnemyKilled(this);
+            if (countsAsCombatEnemy) {
+                CombatManager.EnemyKilled(this);
+            }
             
             CurrentState.Die();
             

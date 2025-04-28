@@ -66,6 +66,12 @@ namespace Tools {
                 public const string Start = "Start";
                 public static string Reset = "Reset";
             }
+
+            public class ScarecrowEnemy {
+                public const string Enter = "Enter";
+                public static string Crow = "Crow";
+                public static string Jump = "Jump";
+            }
         }
 
         public static class Tags {

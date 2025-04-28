@@ -6,5 +6,4 @@ namespace Game.Combat.Waves {
         [SerializeField] public Wave[] waves;
         [SerializeField] public float bufferBetweenWaves = 1f;
     }
-    
 }
