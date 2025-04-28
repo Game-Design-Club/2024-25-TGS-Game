@@ -326,5 +326,11 @@ namespace Game.Combat {
         private float GetSanityPercentage() {
             return (Sanity - loseSanityThreshold) / (maxSanity - loseSanityThreshold);
         }
+
+        public void AddEnemy(EnemyBase enemyBase) {
+            if (!_activeEnemies.Contains(enemyBase)) {
+                _activeEnemies.Add(enemyBase);
+            }
+        }
     }
 }
