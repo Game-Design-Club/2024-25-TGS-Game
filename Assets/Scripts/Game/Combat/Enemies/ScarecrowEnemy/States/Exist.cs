@@ -36,8 +36,13 @@ namespace Game.Combat.Enemies.ScarecrowEnemy {
             }
         }
 
+        public override void Exit() {
+            Controller().StopAllCoroutines();
+        }
+
         public override void OnHit(Vector2 hitDirection, float hitForce, BearDamageType damageType) {
-            
+            Controller().StopAllCoroutines();
+            Controller().TransitionToState(new Exist(Controller(), _attackBufferTime / 2));
         }
     }
 }

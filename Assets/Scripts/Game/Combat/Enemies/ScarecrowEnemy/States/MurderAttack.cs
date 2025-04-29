@@ -5,6 +5,8 @@ using UnityEngine;
 
 namespace Game.Combat.Enemies.ScarecrowEnemy {
     public class MurderAttack : EnemyState {
+        private bool _stun = false;
+        
         public MurderAttack(EnemyBase controller) : base(controller) {
         }
         
@@ -13,6 +15,9 @@ namespace Game.Combat.Enemies.ScarecrowEnemy {
         }
         
         public override void OnAnimationEnded() {
+            if (_stun) {
+                Controller().TransitionToState(new Stun(Controller(), Vector2.zero, 0, Controller<Scarecrow>().stunDuration, new Exist(Controller(), Controller<Scarecrow>().murderAttackBufferTime)));
+            }
             Controller().StartCoroutine(SpawnCrows());
         }
         
@@ -31,7 +36,7 @@ namespace Game.Combat.Enemies.ScarecrowEnemy {
         }
         
         public override void OnHit(Vector2 hitDirection, float hitForce, BearDamageType damageType) {
-            
+            _stun = true;
         }
     }
 }
