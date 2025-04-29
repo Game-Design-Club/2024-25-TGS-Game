@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace Game.Combat.Enemies.ScarecrowEnemy {
     public class Exist : EnemyState {
+        private static int _numJumpAttacks = 0;
+        private static int _numMurderAttacks = 0;
+        
         private float _attackBufferTime;
         
         public Exist(EnemyBase controller, float attackBuffer) : base(controller) {
@@ -18,9 +21,17 @@ namespace Game.Combat.Enemies.ScarecrowEnemy {
 
         private IEnumerator WaitToAttack() {
             yield return new WaitForSeconds(_attackBufferTime);
-            if (Random.value > 0.5f) {
-                Controller().TransitionToState(new MoveAttack(Controller()));
+            if (_numJumpAttacks >= Controller<Scarecrow>().maxConsecutiveJumps) {
+                _numJumpAttacks = 0;
+                Controller().TransitionToState(new MurderAttack(Controller()));
+            } else if (_numMurderAttacks >= Controller<Scarecrow>().maxConsectiveMurders) {
+                _numMurderAttacks = 0;
+                Controller().TransitionToState(new JumpAttack(Controller()));
+            } else if (Random.value > 0.5f) {
+                _numJumpAttacks++;
+                Controller().TransitionToState(new JumpAttack(Controller()));
             } else {
+                _numMurderAttacks++;
                 Controller().TransitionToState(new MurderAttack(Controller()));
             }
         }

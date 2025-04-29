@@ -3399,7 +3399,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.9
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000dbba7ca8f985a7502f3047ef89b6d4673534853f675c7d53bb92715b
@@ -3446,8 +3446,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fddeeaa6e83b475cb2a151507990a56e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combatIntensity: 0.06
-  exploreIntensity: 1
+  combatIntensity: 0.2
+  exploreIntensity: 0.9
 --- !u!1 &1831661456
 GameObject:
   m_ObjectHideFlags: 0

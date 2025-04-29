@@ -3,7 +3,7 @@ using Tools;
 using UnityEngine;
 
 namespace Game.Combat.Enemies.ScarecrowEnemy {
-    public class MoveAttack : EnemyState {
+    public class JumpAttack : EnemyState {
         
         private float _totalTime;
         private float _time = 0;
@@ -13,7 +13,7 @@ namespace Game.Combat.Enemies.ScarecrowEnemy {
         
         private bool _jumping = false;
         
-        public MoveAttack(EnemyBase controller) : base(controller) {
+        public JumpAttack(EnemyBase controller) : base(controller) {
             _startPos = Controller().transform.position;
             Vector2 childDif = -(controller.transform.position - Controller().CombatManager.Child.transform.position).normalized;
             _endPos = (Vector2)controller.transform.position + childDif * Controller<Scarecrow>().jumpDistance;
@@ -21,7 +21,6 @@ namespace Game.Combat.Enemies.ScarecrowEnemy {
         
         public override void Enter() {
             Controller().Animator.SetTrigger(AnimationParameters.ScarecrowEnemy.Jump);
-            _totalTime = Controller().Animator.GetCurrentAnimatorStateInfo(0).length;
         }
 
         public override void OnHit(Vector2 hitDirection, float hitForce, BearDamageType damageType) {
@@ -29,6 +28,7 @@ namespace Game.Combat.Enemies.ScarecrowEnemy {
         }
 
         public override void Update() {
+            _time = 0;
             if (!_jumping) return;
             _time += Time.deltaTime;
             float tPercent = _time / _totalTime;
@@ -39,10 +39,13 @@ namespace Game.Combat.Enemies.ScarecrowEnemy {
 
         public override void OnAnimationEnded() {
             Controller().TransitionToState(new Exist(Controller(), Controller<Scarecrow>().moveAttackBufferTime));
+            Object.Instantiate(Controller<Scarecrow>().landParticles, Controller().transform.position, Quaternion.identity);
         }
 
         public void StartJump() {
             _jumping = true;
+            _totalTime = Controller().Animator.GetCurrentAnimatorStateInfo(0).length - _time;
+            _time = 0;
         }
     }
 }

@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1000
-  sanityRestored: 15
+  sanityRestored: 25
   stunKnockbackCurve:
     serializedVersion: 2
     m_Curve:
@@ -328,6 +328,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   jumpDistance: 2
+  landParticles: {fileID: 2837446747474417207, guid: 9228f1192847b42c49b2825704e56c3b, type: 3}
   crowPrefab: {fileID: 2628731053599168706, guid: dd5086ab35e3743059cc4b0d087e947f, type: 3}
   murderCount:
     Min: 5
@@ -1122,7 +1123,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4580572433604162934
 Transform:
   m_ObjectHideFlags: 0
@@ -1154,7 +1155,7 @@ MonoBehaviour:
   enemyBase: {fileID: 738494892635732221}
   hitChild: 1
   hitBear: 1
-  sanityDamage: 20
+  sanityDamage: 30
   killEnemyOnChildAttack: 1
   killEnemyOnBearAttack: 0
 --- !u!61 &6032681460605968002

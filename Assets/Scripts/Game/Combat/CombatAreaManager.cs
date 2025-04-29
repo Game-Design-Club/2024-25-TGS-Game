@@ -330,6 +330,7 @@ namespace Game.Combat {
         public void AddEnemy(EnemyBase enemyBase) {
             if (!_activeEnemies.Contains(enemyBase)) {
                 _activeEnemies.Add(enemyBase);
+                _enemiesToKill++;
             }
         }
     }
