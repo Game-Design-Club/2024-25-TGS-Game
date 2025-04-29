@@ -622,6 +622,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 7484995077907499558}
     m_Modifications:
     - target: {fileID: 1197435044681610511, guid: d232669f796ec4a1ca7fa6fa9b71881c, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197435044681610511, guid: d232669f796ec4a1ca7fa6fa9b71881c, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197435044681610511, guid: d232669f796ec4a1ca7fa6fa9b71881c, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.4
       objectReference: {fileID: 0}

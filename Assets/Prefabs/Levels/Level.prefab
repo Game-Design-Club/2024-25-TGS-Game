@@ -236,7 +236,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 167.57353, y: 89.38214}
+  m_Size: {x: 16.32, y: 12.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -595,7 +595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5847314838264712324, guid: 2fba5342069744a01806d4c64bf2923b, type: 3}
       propertyPath: m_SortingOrder
-      value: 4389
+      value: 4371
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
