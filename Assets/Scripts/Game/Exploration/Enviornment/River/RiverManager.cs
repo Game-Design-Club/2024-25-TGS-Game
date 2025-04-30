@@ -11,7 +11,6 @@ namespace Game.Exploration.Enviornment.River
         [Range(1, 100)] [SerializeField] private int length = 5;
         [Range(.1f, 10f)] [SerializeField] private float size = 2f;
         [Range(0, 5f)] [SerializeField] private float sizeBuffer = 0.3f;
-        [SerializeField] private float overlap = 0.1f;
         [SerializeField] private float offset = 14f;
         [SerializeField] private BoxCollider2D[] riverColliders;
 

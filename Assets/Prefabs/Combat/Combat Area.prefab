@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 2488909640438279325}
   - component: {fileID: 230556826643729494}
   m_Layer: 0
-  m_Name: 'Combat Area Zoomed Out '
+  m_Name: Combat Area Zoomed Out
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -11,16 +11,18 @@ namespace Game.Combat.Enemies {
     public abstract class EnemyBase : MonoBehaviour, IBearHittable {
         public GameObject GameObject => gameObject;
 
-        [SerializeField] private int health = 100;
+        [SerializeField] internal int health = 100;
         [SerializeField] internal int sanityRestored = 10;
         [SerializeField] internal AnimationCurve stunKnockbackCurve;
         [SerializeField] internal GameObject stunObject;
         [SerializeField] internal float stunDuration;
         
-        [SerializeField] private GameObject hitParticles;
-        [SerializeField] private SoundEffect hitSound;
-        [SerializeField] private GameObject deathParticles;
-        [SerializeField] private SoundEffect deathSound;
+        [SerializeField] internal GameObject hitParticles;
+        [SerializeField] internal SoundEffect hitSound;
+        [SerializeField] internal GameObject deathParticles;
+        [SerializeField] internal SoundEffect deathSound;
+        
+        [SerializeField] internal bool spawnedInCombat;
         
         internal CombatAreaManager CombatManager;
         
@@ -35,8 +37,13 @@ namespace Game.Combat.Enemies {
         }
 
         private protected void Start() {
-            stunObject.SetActive(false);
+            if (stunObject != null) {
+                stunObject.SetActive(false);
+            }
             TransitionToState(StartingState);
+            if (spawnedInCombat) {
+                CombatManager.AddEnemy(this);
+            }
         }
 
         internal void TransitionToState(EnemyState newState) {
@@ -47,7 +54,11 @@ namespace Game.Combat.Enemies {
         
         internal void ProcessHit(Vector2 hitDirection, float knockbackForce, BearDamageType damageType) {
             CurrentState?.OnHit(hitDirection, knockbackForce, damageType);
+            ProcessHitInternal(hitDirection, knockbackForce, damageType);
         }
+        
+        internal virtual void ProcessHitInternal(Vector2 hitDirection, float knockbackForce, BearDamageType damageType) { }
+        
         protected void OnAnimationEnded() {
             CurrentState.OnAnimationEnded();
         }
@@ -66,21 +77,21 @@ namespace Game.Combat.Enemies {
             CurrentState?.Update();
         }
 
-        public void OnHitByBear(int damage, Vector2 hitDirection, float knockbackForce, BearDamageType damageType) {
-            TakeDamage(damage, hitDirection, knockbackForce, damageType);
+        public void OnHitByBear(BearDamageData data) {
+            TakeDamage(data);
         }
         
-        public void TakeDamage(int damage, Vector2 hitDirection, float knockbackForce, BearDamageType damageType) {
-            health -= damage;
+        public void TakeDamage(BearDamageData data) {
+            health -= data.Damage;
             
-            ProcessHit(hitDirection, knockbackForce, damageType);
+            ProcessHit(data.HitDirection, data.KnockbackForce, data.DamageType);
             
             if (health <= 0) {
                 HandleDeath();
             }
             
-            if (damage > 0) {
-                this.CreateParticles(hitParticles, transform.position, hitDirection);
+            if (data.Damage > 0) {
+                this.CreateParticles(hitParticles, data.HitPosition, data.HitDirection);
                 hitSound?.Play();
             }
         }

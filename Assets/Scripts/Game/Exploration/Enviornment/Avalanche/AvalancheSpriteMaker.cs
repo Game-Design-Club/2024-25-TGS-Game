@@ -35,8 +35,8 @@ namespace Game.Exploration.Enviornment.Avalanche {
             for (int x = 0; x < chunksX; x++) {
                 for (int y = 0; y < chunksY; y++) {
                     Vector3 position = new Vector3(
-                        topLeft.position.x + x * xSpacing + positionRandomization.GetRandom(),
-                        topLeft.position.y - y * ySpacing + positionRandomization.GetRandom(),
+                        topLeft.position.x + x * xSpacing + positionRandomization.Random(),
+                        topLeft.position.y - y * ySpacing + positionRandomization.Random(),
                         0
                     );
                     GameObject obj = Instantiate(chunkPrefab, position, Quaternion.identity, transform);
