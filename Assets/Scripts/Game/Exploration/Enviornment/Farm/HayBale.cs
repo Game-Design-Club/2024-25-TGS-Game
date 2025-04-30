@@ -90,7 +90,6 @@ namespace Game.Exploration.Enviornment.Farm
         {
             isRolling = false;
             direction = 0;
-            GameManager.PlayerCameraShaker.Shake();
         }
 
         private void OnCollisionEnter2D(Collision2D other)

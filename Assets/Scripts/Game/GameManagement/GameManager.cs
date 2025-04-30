@@ -16,8 +16,6 @@ namespace Game.GameManagement {
         
         public static float TransitionDuration => _instance.transitionDuration;
 
-        public static CameraShaker PlayerCameraShaker => _instance.playerCameraShaker;
-
         public static Action<GameEvent> OnGameEvent;
         
         private static GameManager _instance;
