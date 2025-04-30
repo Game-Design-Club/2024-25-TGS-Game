@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: mainMenuManager
       value: 
       objectReference: {fileID: 2020633018}
+    - target: {fileID: 2702020918725038729, guid: afe7f26d2490840b68001edeff4d918d, type: 3}
+      propertyPath: m_text
+      value: Load File 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3764841597576883619, guid: afe7f26d2490840b68001edeff4d918d, type: 3}
       propertyPath: m_Name
       value: File Loader (1)

@@ -33,8 +33,6 @@ namespace MainMenu.Management {
             App.Get<AudioManager>().SetMasterVolume(master);
             App.Get<AudioManager>().SetMusicVolume(music);
             App.Get<AudioManager>().SetSFXVolume(sfx);
-            
-            Debug.Log("Loaded volumes: " + master + " " + music + " " + sfx);
         }
 
         public void PlayButton() {
@@ -70,7 +68,7 @@ namespace MainMenu.Management {
         }
 
         private void OnDestroy() {
-            App.Get<DataManager>().Save();
+            App.Get<DataManager>().SavePreferences();
         }
 
         public void Quit() {
@@ -82,7 +80,7 @@ namespace MainMenu.Management {
         }
         
         public void LoadLevel(int fileIndex) {
-            App.Get<DataManager>().LoadData(fileIndex);
+            App.Get<DataManager>().LoadFile(fileIndex);
             App.Get<SceneLoader>().LoadScene(Scenes.Game);
         }
 
@@ -92,6 +90,10 @@ namespace MainMenu.Management {
 
         public void EraseFile(int fileNumber) {
             App.Get<DataManager>().EraseFile(fileNumber);
+        }
+
+        private void Update() {
+            
         }
     }
 }

@@ -10,7 +10,6 @@ namespace AppCore.DataManagement
         [SerializeField] private int defaultSaveFile = 0;
         
         
-        private string _saveFilePath;
         private string _prefsFilePath;
         
         // Data
@@ -23,35 +22,36 @@ namespace AppCore.DataManagement
         private float _musicVolume = 1f;
         private float _sfxVolume = 1f;
         
+        private int _currentLoadedFile = -1;
+        public bool IsFileLoaded => _currentLoadedFile != -1;
+        
 
         private void Awake() {
             // Load or create the active save‑slot data
-            if (_saveFilePath == null) {
-                LoadData(defaultSaveFile);
+            if (_currentLoadedFile != -1) {
+                LoadFile(defaultSaveFile);
             }
 
             // Set up and load player‑preference data
             _prefsFilePath = Path.Combine(Application.persistentDataPath, "preferences.json");
             LoadPreferences();
         }
-
-        public void LoadData(int fileNumber)
-        {
-            _saveFilePath = Path.Combine(Application.persistentDataPath, $"savedata{fileNumber}.json");
-            Load();
-        }
         
-        // [ContextMenu("Reset Data")]
+        [ContextMenu("Reset Data")]
         public void ResetData() {
             for (int i = 0; i < 3; i++) {
-                _boolFlags = new();
-                _customData = new();
-                FoundScrapbookItems = new();
-                PlayerPosition = Vector3.zero;
-                _saveFilePath = Path.Combine(Application.persistentDataPath, $"savedata{i}.json");
-                firstLevelLoad = true;
-                Save();
+                ResetFile(i);
             }
+        }
+
+        [ContextMenu("Reset File")]
+        private void ResetFile(int i) {
+            _boolFlags = new();
+            _customData = new();
+            FoundScrapbookItems = new();
+            PlayerPosition = Vector3.zero;
+            firstLevelLoad = true;
+            SaveFile(i);
         }
 
         public bool GetFlag(string key) {
@@ -140,8 +140,13 @@ namespace AppCore.DataManagement
         public float GetSFXVolume() {
             return _sfxVolume;
         }
-
-        public void Save() {
+        
+        public void SaveFile(int index) {
+            Debug.Log("Saving file: " + index, gameObject);
+            if (!IsFileLoaded) return;
+            
+            string saveFilePath = Path.Combine(Application.persistentDataPath, $"savedata{index}.json");
+            
             SaveData data = new SaveData();
             
             data.boolFlags = new List<BoolFlag>();
@@ -163,16 +168,21 @@ namespace AppCore.DataManagement
             data.firstLevelLoad = firstLevelLoad;
             
             string json = JsonUtility.ToJson(data, true);
-            File.WriteAllText(_saveFilePath, json);
+            File.WriteAllText(saveFilePath, json);
             
-            if (printSave) Debug.Log("Saved file: " + _saveFilePath + ", " + json, gameObject);
+            if (printSave) Debug.Log("Saved file: " + saveFilePath + ", " + json, gameObject);
         }
 
-        private void Load()
+        public void LoadFile(int index)
         {
-            if (File.Exists(_saveFilePath))
+            Debug.Log("Loading file: " + index, gameObject);
+            
+            _currentLoadedFile = index;
+            string saveFilePath = Path.Combine(Application.persistentDataPath, $"savedata{index}.json");
+
+            if (File.Exists(saveFilePath))
             {
-                string json = File.ReadAllText(_saveFilePath);
+                string json = File.ReadAllText(saveFilePath);
                 SaveData data = JsonUtility.FromJson<SaveData>(json);
 
                 _boolFlags = new Dictionary<string, bool>();
@@ -195,8 +205,7 @@ namespace AppCore.DataManagement
             }
             else
             {
-                Debug.Log("No save file found, starting a new one.");
-                ResetData();
+                ResetFile(index);
             }
         }
 
@@ -208,7 +217,7 @@ namespace AppCore.DataManagement
                 _musicVolume  = prefs.musicVolume;
                 _sfxVolume    = prefs.sfxVolume;
             } else {
-                SavePreferences();   // creates a new prefs file with default values
+                SavePreferences();
             }
         }
 
@@ -225,8 +234,11 @@ namespace AppCore.DataManagement
         }
 
         private void OnApplicationQuit() {
-            Save();
+            if (IsFileLoaded) {
+                SaveFile(_currentLoadedFile);
+            }
             SavePreferences();
+            _currentLoadedFile = -1;
         }
 
         private void Update() {
@@ -238,11 +250,19 @@ namespace AppCore.DataManagement
         }
 
         public void EraseFile(int fileNumber) {
+            ResetFile(fileNumber);
+        }
+
+        public bool IsLevelCreated(int fileNumber) {
             string filePath = Path.Combine(Application.persistentDataPath, $"savedata{fileNumber}.json");
-            if (File.Exists(filePath))
-            {
-                File.Delete(filePath);
-                Debug.Log($"File {fileNumber} erased.");
+            return File.Exists(filePath) && !JsonUtility.FromJson<SaveData>(File.ReadAllText(filePath)).firstLevelLoad;
+        }
+
+        public void SaveCurrentFile() {
+            if (_currentLoadedFile != -1) {
+                SaveFile(_currentLoadedFile);
+            } else {
+                Debug.LogWarning("No file loaded to save.");
             }
         }
     }
