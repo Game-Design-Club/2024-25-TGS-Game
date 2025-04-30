@@ -142,7 +142,6 @@ namespace AppCore.DataManagement
         }
         
         public void SaveFile(int index) {
-            Debug.Log("Saving file: " + index, gameObject);
             if (!IsFileLoaded) return;
             
             string saveFilePath = Path.Combine(Application.persistentDataPath, $"savedata{index}.json");
@@ -175,8 +174,6 @@ namespace AppCore.DataManagement
 
         public void LoadFile(int index)
         {
-            Debug.Log("Loading file: " + index, gameObject);
-            
             _currentLoadedFile = index;
             string saveFilePath = Path.Combine(Application.persistentDataPath, $"savedata{index}.json");
 

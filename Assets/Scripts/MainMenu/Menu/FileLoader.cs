@@ -17,10 +17,8 @@ namespace MainMenu.Menu {
         private void Start() {
             if (App.Get<DataManager>().IsLevelCreated(fileNumber)) {
                 indicatorImage.color = loadedColor;
-                Debug.Log("Level " + fileNumber + " exists");
             } else {
                 indicatorImage.color = notLoadedColor;
-                Debug.Log("Level " + fileNumber + " doesn't exist");
             }
         }
 
