@@ -76,6 +76,7 @@ namespace Tools {
             public class MainMenu {
                 public const string Play = "Play";
                 public const string Options = "Options";
+                public const string Credits = "Credits";
             }
         }
 

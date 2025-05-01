@@ -1,8 +1,8 @@
-using System;
 using AppCore;
 using AppCore.AudioManagement;
 using AppCore.DataManagement;
 using AppCore.SceneManagement;
+using MainMenu.Credits;
 using Tools;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,9 +11,12 @@ namespace MainMenu.Management {
     public class MainMenuManager : MonoBehaviour {
         [SerializeField] private Animator menuAnimator;
         [SerializeField] private GameObject buttonBlocker;
+        [Header("Options References")]
         [SerializeField] private Slider masterVolumeSlider;
         [SerializeField] private Slider musicVolumeSlider;
         [SerializeField] private Slider sfxVolumeSlider;
+        [Header("Credits References")]
+        [SerializeField] private CreditsScroller credits;
 
         private void Awake() {
             Time.timeScale = 1;
@@ -49,7 +52,11 @@ namespace MainMenu.Management {
         }
         
         public void CreditsButton() {
-            App.Get<SceneLoader>().LoadScene(Scenes.Credits);
+            menuAnimator.SetBool(AnimationParameters.MainMenu.Credits, true);
+            credits.StartCredits();
+        }
+        public void UnCreditsButton() {
+            menuAnimator.SetBool(AnimationParameters.MainMenu.Credits, false);
         }
         
         public void SetMasterVolume(float value) {
