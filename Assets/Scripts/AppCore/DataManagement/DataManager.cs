@@ -9,9 +9,6 @@ namespace AppCore.DataManagement
         [SerializeField] private bool printSave = false;
         [SerializeField] private int defaultSaveFile = 0;
         
-        
-        private string _prefsFilePath;
-        
         // Data
         private Dictionary<string, bool> _boolFlags;
         private Dictionary<string, object> _customData;
@@ -28,12 +25,11 @@ namespace AppCore.DataManagement
 
         private void Awake() {
             // Load or create the active save‑slot data
-            if (_currentLoadedFile != -1) {
+            if (_currentLoadedFile == -1) {
                 LoadFile(defaultSaveFile);
             }
 
             // Set up and load player‑preference data
-            _prefsFilePath = Path.Combine(Application.persistentDataPath, "preferences.json");
             LoadPreferences();
         }
         
@@ -207,8 +203,10 @@ namespace AppCore.DataManagement
         }
 
         private void LoadPreferences() {
-            if (File.Exists(_prefsFilePath)) {
-                string json = File.ReadAllText(_prefsFilePath);
+            string prefsFilePath = Path.Combine(Application.persistentDataPath, "preferences.json");
+
+            if (File.Exists(prefsFilePath)) {
+                string json = File.ReadAllText(prefsFilePath);
                 PrefsData prefs = JsonUtility.FromJson<PrefsData>(json);
                 _masterVolume = prefs.masterVolume;
                 _musicVolume  = prefs.musicVolume;
@@ -219,6 +217,8 @@ namespace AppCore.DataManagement
         }
 
         public void SavePreferences() {
+            string prefsFilePath = Path.Combine(Application.persistentDataPath, "preferences.json");
+
             PrefsData prefs = new PrefsData {
                 masterVolume = _masterVolume,
                 musicVolume  = _musicVolume,
@@ -226,7 +226,7 @@ namespace AppCore.DataManagement
             };
 
             string json = JsonUtility.ToJson(prefs, true);
-            File.WriteAllText(_prefsFilePath, json);
+            File.WriteAllText(prefsFilePath, json);
             if (printSave) Debug.Log("Saved preferences: " + json, gameObject);
         }
 

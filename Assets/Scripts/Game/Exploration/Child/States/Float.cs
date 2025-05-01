@@ -26,6 +26,10 @@ namespace Game.Exploration.Child {
             }
         }
 
+        public override float? GetRotation() {
+            return 270; // Down
+        }
+
         public override float? GetWalkSpeed() {
             return _currentChunk?.floatSpeed;
         }
