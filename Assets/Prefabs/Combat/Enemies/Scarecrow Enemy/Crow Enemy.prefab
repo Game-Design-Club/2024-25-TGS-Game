@@ -84,7 +84,7 @@ MonoBehaviour:
   spawnedInCombat: 1
   maxAngle: 45
   directionAngleVariance: 10
-  attackSpeed: 3
+  attackSpeed: 5
 --- !u!50 &8421991069078324963
 Rigidbody2D:
   serializedVersion: 5

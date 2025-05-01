@@ -18,7 +18,7 @@ MonoBehaviour:
       m_Curve:
       - serializedVersion: 3
         time: -0.15840556
-        value: 2.0751164
+        value: 1.0008557
         inSlope: 0.09864969
         outSlope: 0.09864969
         tangentMode: 0
@@ -39,6 +39,36 @@ MonoBehaviour:
       m_RotationOrder: 4
     enemyType: 2
     spawnLeft: 1
+    spawnRight: 0
+    spawnTop: 0
+    spawnBottom: 0
+    bufferAfterThisEntry: 0
+  - spawnRate:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: -0.15840556
+        value: 1.0008557
+        inSlope: 0.09864969
+        outSlope: 0.09864969
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.1700806
+      - serializedVersion: 3
+        time: 0.98091507
+        value: 0.056371808
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    enemyType: 2
+    spawnLeft: 0
     spawnRight: 1
     spawnTop: 0
     spawnBottom: 0

@@ -235,37 +235,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 1.3606069
-      inSlope: -2.9098063
-      outSlope: -2.9098063
+      time: -0.001
+      value: 0.066821575
+      inSlope: 0.40598732
+      outSlope: 0.40598732
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.04813547
-    - serializedVersion: 3
-      time: 0.104928724
-      value: 0.67431444
-      inSlope: -1.4605218
-      outSlope: -1.4605218
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.07083343
-    - serializedVersion: 3
-      time: 1
-      value: 0.066821575
-      inSlope: -0.40598732
-      outSlope: -0.40598732
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.100415505
-      outWeight: 0
+      outWeight: 0.100415505
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   stunObject: {fileID: 5153009809732245364}
-  stunDuration: 1
+  stunDuration: 0.5
   hitParticles: {fileID: 5761495649415307529, guid: 577243b4fac514a99be246cb00181239, type: 3}
   hitSound: {fileID: 11400000, guid: cd2e7779f41fe46229df2f650dcc3b26, type: 2}
   deathParticles: {fileID: 5761495649415307529, guid: 158e5268b5ba24de0b9d88bcb580da1d, type: 3}
@@ -285,6 +267,7 @@ MonoBehaviour:
   - 800
   - 500
   - 200
+  maxConsecutiveJumps: 4
   jumpCurve:
     serializedVersion: 2
     m_Curve:
@@ -329,6 +312,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   jumpDistance: 2
   landParticles: {fileID: 2837446747474417207, guid: 9228f1192847b42c49b2825704e56c3b, type: 3}
+  maxConsectiveMurders: 2
   crowPrefab: {fileID: 2628731053599168706, guid: dd5086ab35e3743059cc4b0d087e947f, type: 3}
   murderCount:
     Min: 5

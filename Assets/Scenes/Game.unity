@@ -1850,7 +1850,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 868723533712191249, guid: 7e403f0db8a21443f91cf233fe1608b3, type: 3}
       propertyPath: thickness
-      value: 0.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3132762231799129043, guid: 7e403f0db8a21443f91cf233fe1608b3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1892,13 +1892,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3480664325712534080, guid: 7e403f0db8a21443f91cf233fe1608b3, type: 3}
-      propertyPath: wavesData
-      value: 
-      objectReference: {fileID: 11400000, guid: 7095a232008b649198f9169d3e793ef9, type: 2}
     - target: {fileID: 5347751174541846980, guid: 7e403f0db8a21443f91cf233fe1608b3, type: 3}
       propertyPath: thickness
-      value: 0.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5632859212272781605, guid: 7e403f0db8a21443f91cf233fe1608b3, type: 3}
       propertyPath: m_Name
