@@ -13,7 +13,7 @@ namespace Game.Combat.Enemies {
         private EnemyState _callbackState;
 
         public Stun(EnemyBase controller, Vector2 hitDirection, float hitForce, float stunDuration, EnemyState callbackState) : base(controller) {
-            _hitDirection = hitDirection;
+            _hitDirection = hitDirection.normalized;
             _hitForce = hitForce;
             _callbackState = callbackState;
             _stunDuration = stunDuration;
