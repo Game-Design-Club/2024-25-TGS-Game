@@ -135,7 +135,7 @@ namespace Game.GameManagement {
         }
         
         public void SaveAndQuit() {
-            App.Get<DataManager>().Save();
+            App.Get<DataManager>().SaveCurrentFile();
             App.Get<SceneLoader>().LoadScene(Scenes.MainMenu);
         }
 

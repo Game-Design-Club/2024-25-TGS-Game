@@ -8,36 +8,50 @@ namespace AppCore.DataManagement
     public class DataManager : AppModule {
         [SerializeField] private bool printSave = false;
         [SerializeField] private int defaultSaveFile = 0;
-        private string _saveFilePath;
+        
+        
+        private string _prefsFilePath;
+        
+        // Data
         private Dictionary<string, bool> _boolFlags;
         private Dictionary<string, object> _customData;
         public List<string> FoundScrapbookItems { get; private set; }
         public Vector3 PlayerPosition { get; private set; }
         [FormerlySerializedAs("setPlayerPosition")] public bool firstLevelLoad = true;
+        private float _masterVolume = 1f;
+        private float _musicVolume = 1f;
+        private float _sfxVolume = 1f;
+        
+        private int _currentLoadedFile = -1;
+        public bool IsFileLoaded => _currentLoadedFile != -1;
+        
 
         private void Awake() {
-            if (_saveFilePath == null) {
-                LoadData(defaultSaveFile);
+            // Load or create the active save‑slot data
+            if (_currentLoadedFile != -1) {
+                LoadFile(defaultSaveFile);
+            }
+
+            // Set up and load player‑preference data
+            _prefsFilePath = Path.Combine(Application.persistentDataPath, "preferences.json");
+            LoadPreferences();
+        }
+        
+        [ContextMenu("Reset Data")]
+        public void ResetData() {
+            for (int i = 0; i < 3; i++) {
+                ResetFile(i);
             }
         }
 
-        public void LoadData(int fileNumber)
-        {
-            _saveFilePath = Path.Combine(Application.persistentDataPath, $"savedata{fileNumber}.json");
-            Load();
-        }
-        
-        // [ContextMenu("Reset Data")]
-        public void ResetData() {
-            for (int i = 0; i < 3; i++) {
-                _boolFlags = new();
-                _customData = new();
-                FoundScrapbookItems = new();
-                PlayerPosition = Vector3.zero;
-                _saveFilePath = Path.Combine(Application.persistentDataPath, $"savedata{i}.json");
-                firstLevelLoad = true;
-                Save();
-            }
+        [ContextMenu("Reset File")]
+        private void ResetFile(int i) {
+            _boolFlags = new();
+            _customData = new();
+            FoundScrapbookItems = new();
+            PlayerPosition = Vector3.zero;
+            firstLevelLoad = true;
+            SaveFile(i);
         }
 
         public bool GetFlag(string key) {
@@ -101,7 +115,37 @@ namespace AppCore.DataManagement
             firstLevelLoad = false;
         }
 
-        public void Save() {
+        public void SetMasterVolume(float value) {
+            _masterVolume = value;
+            SavePreferences();
+        }
+        
+        public float GetMasterVolume() {
+            return _masterVolume;
+        }
+        
+        public void SetMusicVolume(float value) {
+            _musicVolume = value;
+            SavePreferences();
+        }
+        
+        public float GetMusicVolume() {
+            return _musicVolume;
+        }
+        
+        public void SetSFXVolume(float value) {
+            _sfxVolume = value;
+            SavePreferences();
+        }
+        public float GetSFXVolume() {
+            return _sfxVolume;
+        }
+        
+        public void SaveFile(int index) {
+            if (!IsFileLoaded) return;
+            
+            string saveFilePath = Path.Combine(Application.persistentDataPath, $"savedata{index}.json");
+            
             SaveData data = new SaveData();
             
             data.boolFlags = new List<BoolFlag>();
@@ -121,18 +165,21 @@ namespace AppCore.DataManagement
             data.foundScrapbookItems = FoundScrapbookItems;
             data.playerPosition = PlayerPosition;
             data.firstLevelLoad = firstLevelLoad;
-
-            string json = JsonUtility.ToJson(data, true);
-            File.WriteAllText(_saveFilePath, json);
             
-            if (printSave) Debug.Log("Saved file: " + _saveFilePath + ", " + json, gameObject);
+            string json = JsonUtility.ToJson(data, true);
+            File.WriteAllText(saveFilePath, json);
+            
+            if (printSave) Debug.Log("Saved file: " + saveFilePath + ", " + json, gameObject);
         }
 
-        private void Load()
+        public void LoadFile(int index)
         {
-            if (File.Exists(_saveFilePath))
+            _currentLoadedFile = index;
+            string saveFilePath = Path.Combine(Application.persistentDataPath, $"savedata{index}.json");
+
+            if (File.Exists(saveFilePath))
             {
-                string json = File.ReadAllText(_saveFilePath);
+                string json = File.ReadAllText(saveFilePath);
                 SaveData data = JsonUtility.FromJson<SaveData>(json);
 
                 _boolFlags = new Dictionary<string, bool>();
@@ -152,17 +199,43 @@ namespace AppCore.DataManagement
                 FoundScrapbookItems = data.foundScrapbookItems;
                 PlayerPosition = data.playerPosition;
                 firstLevelLoad = data.firstLevelLoad;
-                
             }
             else
             {
-                Debug.Log("No save file found, starting a new one.");
-                ResetData();
+                ResetFile(index);
             }
         }
 
+        private void LoadPreferences() {
+            if (File.Exists(_prefsFilePath)) {
+                string json = File.ReadAllText(_prefsFilePath);
+                PrefsData prefs = JsonUtility.FromJson<PrefsData>(json);
+                _masterVolume = prefs.masterVolume;
+                _musicVolume  = prefs.musicVolume;
+                _sfxVolume    = prefs.sfxVolume;
+            } else {
+                SavePreferences();
+            }
+        }
+
+        public void SavePreferences() {
+            PrefsData prefs = new PrefsData {
+                masterVolume = _masterVolume,
+                musicVolume  = _musicVolume,
+                sfxVolume    = _sfxVolume
+            };
+
+            string json = JsonUtility.ToJson(prefs, true);
+            File.WriteAllText(_prefsFilePath, json);
+            if (printSave) Debug.Log("Saved preferences: " + json, gameObject);
+        }
+
         private void OnApplicationQuit() {
-            Save();
+            if (IsFileLoaded) {
+                SaveFile(_currentLoadedFile);
+            }
+            SavePreferences();
+            _currentLoadedFile = -1;
         }
 
         private void Update() {
@@ -171,6 +244,23 @@ namespace AppCore.DataManagement
                 // $"Found scrapbook items: {FoundScrapbookItems.Count}, " +
                 // $"Bool flags: {_boolFlags.Count}"
             // );
+        }
+
+        public void EraseFile(int fileNumber) {
+            ResetFile(fileNumber);
+        }
+
+        public bool IsLevelCreated(int fileNumber) {
+            string filePath = Path.Combine(Application.persistentDataPath, $"savedata{fileNumber}.json");
+            return File.Exists(filePath) && !JsonUtility.FromJson<SaveData>(File.ReadAllText(filePath)).firstLevelLoad;
+        }
+
+        public void SaveCurrentFile() {
+            if (_currentLoadedFile != -1) {
+                SaveFile(_currentLoadedFile);
+            } else {
+                Debug.LogWarning("No file loaded to save.");
+            }
         }
     }
 
@@ -197,5 +287,16 @@ namespace AppCore.DataManagement
         public List<string> foundScrapbookItems;
         public Vector3 playerPosition;
         public bool firstLevelLoad = true;
+        public float masterVolume = 1f;
+        public float musicVolume = 1f;
+        public float sfxVolume = 1f;
+    }
+
+    [System.Serializable]
+    public class PrefsData
+    {
+        public float masterVolume = 1f;
+        public float musicVolume  = 1f;
+        public float sfxVolume    = 1f;
     }
 }

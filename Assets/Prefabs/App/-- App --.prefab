@@ -315,8 +315,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Character name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fa47aafe1db6049af8565172e72ed330, type: 2}
+  m_sharedMaterial: {fileID: -8896447874112027185, guid: fa47aafe1db6049af8565172e72ed330, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -574,8 +574,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press Space to Continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fa47aafe1db6049af8565172e72ed330, type: 2}
+  m_sharedMaterial: {fileID: -8896447874112027185, guid: fa47aafe1db6049af8565172e72ed330, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1128,8 +1128,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Woooo talking goes here, woah that's a lot of talking!!!!!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fa47aafe1db6049af8565172e72ed330, type: 2}
+  m_sharedMaterial: {fileID: -8896447874112027185, guid: fa47aafe1db6049af8565172e72ed330, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

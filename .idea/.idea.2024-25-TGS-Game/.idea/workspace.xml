@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/ScarecrowEnemy.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/ScarecrowEnemy/CrowAttack.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/ScarecrowEnemy/CrowAttack.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/ScarecrowEnemy/Exist.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/ScarecrowEnemy/Exist.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/ScarecrowEnemy/MoveAttack.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/ScarecrowEnemy/MoveAttack.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/ScarecrowEnemy/Scarecrow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/ScarecrowEnemy/Scarecrow.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tools/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/Constants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/App/-- App --.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/App/-- App --.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Button.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Button.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Slider Box.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Slider Box.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +80,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.37857142&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Scarecrow&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Menus&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -189,6 +184,7 @@
       <workItem from="1745354126514" duration="5421000" />
       <workItem from="1745450455503" duration="9108000" />
       <workItem from="1745779686706" duration="3846000" />
+      <workItem from="1746055289574" duration="3482000" />
     </task>
     <servers />
   </component>

@@ -69,8 +69,14 @@ namespace Tools {
 
             public class ScarecrowEnemy {
                 public const string Enter = "Enter";
-                public static string Crow = "Crow";
-                public static string Jump = "Jump";
+                public const string Crow = "Crow";
+                public const string Jump = "Jump";
+            }
+
+            public class MainMenu {
+                public const string Play = "Play";
+                public const string Options = "Options";
+                public const string Credits = "Credits";
             }
         }
 
@@ -106,6 +112,7 @@ namespace Tools {
         public static class Scenes {
             public const int MainMenu = 0;
             public const int Game = 1;
+            public const int Credits = 2;
         }
     // }
 }
