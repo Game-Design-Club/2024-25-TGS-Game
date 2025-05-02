@@ -62,7 +62,7 @@ namespace Game.Combat.Enemies {
             CurrentState.OnAnimationEnded();
         }
 
-        private void HandleDeath() {
+        internal void HandleDeath() {
             CombatManager.EnemyKilled(this);
             
             CurrentState.Die();

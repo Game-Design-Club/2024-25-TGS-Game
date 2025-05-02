@@ -20,9 +20,9 @@ namespace Tools.Debugging {
                     b.transform.position = clickPosition;
                 }
             } else {
-                ChildController c = FindObjectsByType<ChildController>(FindObjectsSortMode.None)[0];
-                if (c) {
-                    c.transform.position = clickPosition;
+                ChildController[] c = FindObjectsByType<ChildController>(FindObjectsSortMode.None);
+                if (c.Length > 0 && c[0]) {
+                    c[0].transform.position = clickPosition;
                 }
             }
         }

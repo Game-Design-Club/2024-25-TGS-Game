@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Game.Combat.Bear;
 using Tools;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
@@ -181,7 +182,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
         }
 
         internal void Die() {
-            OnHitByBear(new BearDamageData(100000, transform.position,Vector2.zero, 0, BearDamageType.Swipe));
+            HandleDeath();
         }
 
         public override void OnHitByBear(BearDamageData data) {
