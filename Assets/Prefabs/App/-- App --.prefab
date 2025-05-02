@@ -941,7 +941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultDuration: 0.15
-  defaultTimeScale: 0.15
+  defaultTimeScale: 0.7
 --- !u!1 &5492278155389830555
 GameObject:
   m_ObjectHideFlags: 0

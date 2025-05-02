@@ -12,7 +12,6 @@ namespace Game.Combat.Enemies {
         public GameObject GameObject => gameObject;
 
         [SerializeField] internal int health = 100;
-        [SerializeField] internal int sanityRestored = 10;
         [SerializeField] internal AnimationCurve stunKnockbackCurve;
         [SerializeField] internal GameObject stunObject;
         [SerializeField] internal float stunDuration;
@@ -77,7 +76,7 @@ namespace Game.Combat.Enemies {
             CurrentState?.Update();
         }
 
-        public void OnHitByBear(BearDamageData data) {
+        public virtual void OnHitByBear(BearDamageData data) {
             TakeDamage(data);
         }
         

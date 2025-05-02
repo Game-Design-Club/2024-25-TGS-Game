@@ -30,15 +30,14 @@ namespace Game.Combat {
         [SerializeField] private Transform childRestPoint;
         [Header("Sanity")]
         [SerializeField] private float maxSanity = 100f;
-        [SerializeField] private float loseSanityThreshold = 0f;
-        [SerializeField] private float startInsanity = 20f;
+        [SerializeField] private float regenSpeed = 0.1f;
         
         // Private fields
-        public float _sanity = 0;
-        private float Sanity {
+        private float _sanity = 0;
+        public float Sanity {
             get => _sanity;
             set {
-                _sanity = Mathf.Clamp(value, loseSanityThreshold, maxSanity);
+                _sanity = Mathf.Clamp(value, 0, maxSanity);
                 OnSanityChanged?.Invoke(GetSanityPercentage());
             }
         }
@@ -87,6 +86,12 @@ namespace Game.Combat {
         private void OnDisable() {
             UIManager.OnRestartGame -= RestartCombat;
         }
+        
+        private void Update() {
+            if (_combatEntered) {
+                Sanity += regenSpeed * Time.deltaTime;
+            }
+        }
 
         // Start combat
         internal void EnterCombatArea(ChildController child) {
@@ -95,7 +100,7 @@ namespace Game.Combat {
             }
             _combatEntered = true;
             Child = child;
-            Sanity = startInsanity;
+            Sanity = maxSanity;
             TransitionToCombat();
         }
         
@@ -278,9 +283,7 @@ namespace Game.Combat {
 
         // Internal functions
         internal void EnemyKilled(EnemyBase enemy) {
-            _activeEnemies.Remove(enemy);
-            _enemiesToKill--;
-            Sanity += enemy.sanityRestored;
+            RemoveEnemy(enemy);
         }
         
         internal void ChildHit(EnemyDamageDealer enemy) {
@@ -317,14 +320,14 @@ namespace Game.Combat {
             
             _activeEnemies.Clear();
             GameManager.StartTransitionToCombat();
-            Sanity = startInsanity;
+            Sanity = maxSanity;
             yield return new WaitForSeconds(GameManager.TransitionDuration);
             StartCoroutine(RunCombat());
         }
 
         // Helper functions
         private float GetSanityPercentage() {
-            return (Sanity - loseSanityThreshold) / (maxSanity - loseSanityThreshold);
+            return Sanity / maxSanity;
         }
 
         public void AddEnemy(EnemyBase enemyBase) {

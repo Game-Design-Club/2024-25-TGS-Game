@@ -18,6 +18,11 @@ namespace Game.Combat.Bear {
         }
         public override void Enter() {
             Controller.Animator.SetTrigger(AnimationParameters.Bear.Stun);
+            Controller.stunObject.SetActive(true);
+        }
+        
+        public override void Exit() {
+            Controller.stunObject.SetActive(false);
         }
 
         public override float? GetWalkSpeed() {

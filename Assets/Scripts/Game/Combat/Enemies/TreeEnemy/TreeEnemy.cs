@@ -7,11 +7,13 @@ using Random = UnityEngine.Random;
 
 namespace Game.Combat.Enemies.TreeEnemy {
     public class TreeEnemy : EnemyBase {
+        [SerializeField] internal float damageSpeed = .1f;
         [SerializeField] internal float reachSpeed = 5f;
         [SerializeField] private FloatRange reachTurbulenceDistance = new(0.5f, 1.5f);
         [SerializeField] private float reachTurbulenceAngle = 10f;
         [SerializeField] private float childRange = 1f;
         [SerializeField] internal float dieRange = 0.5f;
+        [SerializeField] internal float attackRange = 0.5f;
         [FormerlySerializedAs("maxSegments")] [SerializeField] private int maxChunks = 10;
         [SerializeField] private int chunksPerSegment = 5;
         [SerializeField] private LineRenderer debugLineRenderer;
@@ -167,7 +169,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
         }
         
         public void SetDistance(float distance) {
-            if (distance > _maxDistance) {
+            if (distance > _maxDistance + attackRange) {
                 distance = _maxDistance;
                 TransitionToState(new Attack(this));
             }
@@ -180,6 +182,14 @@ namespace Game.Combat.Enemies.TreeEnemy {
 
         internal void Die() {
             OnHitByBear(new BearDamageData(100000, transform.position,Vector2.zero, 0, BearDamageType.Swipe));
+        }
+
+        public override void OnHitByBear(BearDamageData data) {
+            if (data.DamageType == BearDamageType.Swipe) {
+                TransitionToState(new Retract(this));
+            } else {
+                TransitionToState(new Retract(this, .1f, 2));
+            }
         }
 
         internal void CreateNewPoints() {
