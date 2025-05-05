@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using AppCore.AudioManagement;
 using Game.Combat.Bear;
 using Game.Combat.Enemies;
+using Game.Combat.FinalEncounter;
 using Game.Combat.Waves;
 using Game.Exploration.Child;
 using Game.GameManagement;
@@ -31,6 +32,8 @@ namespace Game.Combat {
         [Header("Sanity")]
         [SerializeField] private float maxSanity = 100f;
         [SerializeField] private float regenSpeed = 0.1f;
+        [Header("Misc")]
+        [SerializeField] private FinalEncounterManager finalEncounterManager;
         
         // Private fields
         private float _sanity = 0;
@@ -301,6 +304,13 @@ namespace Game.Combat {
         }
 
         private void PlayerLost() {
+            if (finalEncounterManager) {
+                combatCamera.Priority = 0;
+                wideCamera.Priority = 0;
+                finalEncounterManager.StartFinalEncounter();
+                StopAllCoroutines();
+                return;
+            }
             _lost = true;
             GameManager.OnBearDeath();
             StopAllCoroutines();
