@@ -24,7 +24,7 @@ namespace MainMenu.Credits {
         [SerializeField] private float delayBeforeThing = .5f;
 
         private float _endY;
-        private bool _scrolling = true;
+        private bool _scrolling = false;
 
         // Unity functions
         private void OnEnable() {
@@ -42,7 +42,6 @@ namespace MainMenu.Credits {
 
         private void Update() {
             if (!_scrolling) return;
-            Debug.Log("Scrolling");
             creditsParentObject.transform.position += Vector3.up * (scrollSpeed * Time.unscaledDeltaTime);
             if (creditsParentObject.transform.localPosition.y > _endY) {
                 _scrolling = false;
