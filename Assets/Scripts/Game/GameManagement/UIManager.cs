@@ -17,6 +17,7 @@ namespace Game.GameManagement {
         [SerializeField] private PauseUIAnimationEvents pauseEvents;
         [SerializeField] private RectTransform rtCanvas;
         [SerializeField] private GameObject coverObject;
+        [SerializeField] private GameObject optionsObject;
         [SerializeField] private GameObject sbSpreadObject;
         [SerializeField] private TextMeshProUGUI sbInfoTitle;
         [SerializeField] private TextMeshProUGUI sbInfoDescription;
@@ -27,10 +28,12 @@ namespace Game.GameManagement {
         [SerializeField] private Button resumeButton;
         [SerializeField] private ScrapbookPage[] scrapbookPages;
         [SerializeField] private GameObject scrapbookUIItemPrefab;
+        [SerializeField] private float closeAnimationDuration = 0.5f;
         
         private int scrapbookPage = 0;
         private bool advancingPage = false;
         private bool scrapbookOpen = false;
+        private bool optionsOpen = false;
         private ScrapbookItemUIManager currentFocused;
         
         private bool _isGameOver = false;
@@ -132,6 +135,34 @@ namespace Game.GameManagement {
             pauseAnimator.SetBool("BookUp", false);
         }
 
+        public void OpenOptions()
+        {
+            StartCoroutine(OpenOptionsRoutine());
+        }
+
+        public void CloseOptions()
+        {
+            StartCoroutine(CloseOptionsRoutine());
+        }
+
+        private IEnumerator CloseOptionsRoutine()
+        {
+            optionsOpen = false;
+            advancingPage = true;
+            pauseAnimator.SetBool("BookUp", false); // trigger collapse animation
+            yield return new WaitForSeconds(closeAnimationDuration); // wait for collapse
+            OnBookDown(); // swap panels and reopen
+        }
+
+        private IEnumerator OpenOptionsRoutine()
+        {
+            optionsOpen = true;
+            advancingPage = true;
+            pauseAnimator.SetBool("BookUp", false); // trigger collapse animation
+            yield return new WaitForSeconds(closeAnimationDuration); // wait for collapse
+            OnBookDown(); // swap panels & reopen with options visible
+        }
+
         public void NextPage()
         {
             if (scrapbookPage == scrapbookPages.Length - 1) return;
@@ -150,8 +181,9 @@ namespace Game.GameManagement {
         public void OnBookDown()
         {
             EventSystem.current.SetSelectedGameObject(null);
-            coverObject.SetActive(!scrapbookOpen);
+            coverObject.SetActive(!(scrapbookOpen || optionsOpen));
             sbSpreadObject.SetActive(scrapbookOpen);
+            optionsObject.SetActive(optionsOpen);
             if (advancingPage)
             {
                 if (scrapbookOpen) LoadPage();
