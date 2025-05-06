@@ -1846,9 +1846,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67839c5365e4dfbb96b239ceb692831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuAnimator: {fileID: 0}
-  buttonBlocker: {fileID: 0}
-  credits: {fileID: 0}
+  menuAnimator: {fileID: 1138962349}
+  buttonBlocker: {fileID: 173148089}
+  credits: {fileID: 1367806353}
 --- !u!1001 &2084060322
 PrefabInstance:
   m_ObjectHideFlags: 0
