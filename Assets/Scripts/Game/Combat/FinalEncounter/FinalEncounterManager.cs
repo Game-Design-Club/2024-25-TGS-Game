@@ -13,6 +13,7 @@ namespace Game.Combat.FinalEncounter {
         [SerializeField] private GameObject enemyWall;
         [SerializeField] private CinemachineCamera followCamera;
         [SerializeField] private Dialogue runDialogue;
+        [SerializeField] private GameObject[] setActiveOnStart;
         [Header("Movement")]
         [SerializeField] private Transform startPoint;
         [SerializeField] private Transform endPoint;
@@ -42,11 +43,17 @@ namespace Game.Combat.FinalEncounter {
             _endPos = endPoint.position;
             Destroy(startPoint.gameObject);
             Destroy(endPoint.gameObject);
+            foreach (GameObject obj in setActiveOnStart) {
+                obj.SetActive(false);
+            }
         }
 
         public void StartFinalEncounter(CombatAreaManager manager) {
             runDialogue.StartDialogue(StartMoving);
             _oldCombatArea = manager;
+            foreach (GameObject obj in setActiveOnStart) {
+                obj.SetActive(true);
+            }
         }
 
         private void StartMoving() {
