@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2038559525394411486}
   - component: {fileID: 139473414229761703}
   - component: {fileID: 115772742223864000}
+  - component: {fileID: 6511499448986722614}
   m_Layer: 0
   m_Name: Campfire
   m_TagString: Untagged
@@ -78,8 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 1741993609
   m_SortingLayer: 3
   m_SortingOrder: -1000
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.46215042, b: 0.1273585, a: 1}
+  m_Sprite: {fileID: -6993440255958882840, guid: 909704f607b6642c49315c9c60d8b4d6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -333,3 +334,25 @@ MonoBehaviour:
   intensitySmoothSpeed: 1
   radiusSmoothSpeed: 2
   _state: 0
+--- !u!95 &6511499448986722614
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2560669878070721251}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aea6298d49f2b4abb8905ce5f123f260, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
