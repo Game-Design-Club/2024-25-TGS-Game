@@ -85,6 +85,7 @@ namespace Game.Exploration.Enviornment.River
             added.offset = transform.InverseTransformPoint(worldPos);
             added.compositeOperation = Collider2D.CompositeOperation.Difference;
             _addedColliders.Add(added);
+
         }
 
         public void ComputeColliderRemovals()
@@ -95,6 +96,11 @@ namespace Game.Exploration.Enviornment.River
 
             foreach (Transform child in logParent) RemoveColliderArea(child);
             foreach (Transform child in rockParent) RemoveColliderArea(child);
+            GetComponent<CompositeCollider2D>().GenerateGeometry();
+            CompositeCollider2D cc = GetComponent<CompositeCollider2D>();
+            cc.GenerateGeometry();
+            cc.enabled = false;
+            cc.enabled = true;
         }
 
         private void CreateSprites()
