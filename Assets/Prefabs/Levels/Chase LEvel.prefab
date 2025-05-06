@@ -3299,29 +3299,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 435405028251353804, guid: 5297125779cc848aeafb67867c4e3e60, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -7.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 1625190420179707901, guid: 5297125779cc848aeafb67867c4e3e60, type: 3}
-      propertyPath: killEnemyOnChildAttack
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2859445642593138410, guid: 5297125779cc848aeafb67867c4e3e60, type: 3}
       propertyPath: m_Name
       value: Final Combat Area
-      objectReference: {fileID: 0}
-    - target: {fileID: 3737622030766470671, guid: 5297125779cc848aeafb67867c4e3e60, type: 3}
-      propertyPath: m_Size.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3737622030766470671, guid: 5297125779cc848aeafb67867c4e3e60, type: 3}
-      propertyPath: m_Size.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8391669357789316750, guid: 5297125779cc848aeafb67867c4e3e60, type: 3}
-      propertyPath: killEnemyOnChildAttack
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

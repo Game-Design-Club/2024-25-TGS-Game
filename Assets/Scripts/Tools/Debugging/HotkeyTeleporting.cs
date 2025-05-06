@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using AppCore;
 using AppCore.InputManagement;
 using Game.GameManagement;
+using Unity.Cinemachine;
 using UnityEngine;
 
 namespace Tools.Debugging {
