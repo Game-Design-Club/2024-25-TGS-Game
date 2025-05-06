@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Tools;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -40,7 +41,7 @@ namespace Game.Combat.Enemies {
         public void Shoot() {
             GameObject bullet = Instantiate(bulletPrefab, shootSpawnPoint.position, Quaternion.identity);
             bullet.GetComponent<EnemyDamageDealer>().enemyBase = this;
-            Vector2 posDifference = -(transform.position - CombatManager.Child.transform.position);
+            Vector2 posDifference = -(transform.position - Child.transform.position);
             bullet.GetComponent<Rigidbody2D>().linearVelocity = posDifference.normalized * bulletSpeed;
             Bullets.Add(bullet);
         }

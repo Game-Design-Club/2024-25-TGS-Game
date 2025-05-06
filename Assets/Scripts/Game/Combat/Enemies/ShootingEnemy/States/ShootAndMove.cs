@@ -24,7 +24,7 @@ namespace Game.Combat.Enemies {
         }
 
         private void FindNewLocation() {
-            Vector2 childPos = Controller().CombatManager.Child.transform.position;
+            Vector2 childPos = Controller().Child.transform.position;
             Vector2 randomDirection = Random.insideUnitCircle.normalized;
             float randomDistance = Controller<ShootingEnemy>().spawnDistance.Random();
             Vector2 newLocation = childPos + randomDirection * randomDistance;

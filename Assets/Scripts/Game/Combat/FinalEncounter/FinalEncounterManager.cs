@@ -65,7 +65,6 @@ namespace Game.Combat.FinalEncounter {
                 Vector3 p = cam.ScreenToWorldPoint(new Vector3(0, cam.pixelHeight, cam.nearClipPlane));
                 if (cameraSnapEdge.position.x < p.x) {
                     movement *= behindMoveSpeed;
-                    Debug.Log("Wheeee go fasttt");
                 } else {
                     movement *= moveSpeed;
                 }
