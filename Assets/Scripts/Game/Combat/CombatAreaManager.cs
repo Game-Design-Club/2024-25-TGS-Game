@@ -21,6 +21,7 @@ namespace Game.Combat {
         [SerializeField] private List<GameObject> activeStateSwitchOnCombat;
         [SerializeField] internal CameraShaker cameraShaker;
         [SerializeField] private BearController bearController;
+        [SerializeField] private GameObject killBounds;
         [Header("Cutscene")]
         [SerializeField] private SoundEffect breathSound;
         [SerializeField] private SoundEffect heartBeatSound;
@@ -66,6 +67,7 @@ namespace Game.Combat {
         // Events
         public static event Action<float> OnSanityChanged; // Percentage
         public static event Action OnChildHit;
+        public static event Action OnClearCombatArea;
         
         private void Awake() {
             if (wavesData == null) {
@@ -177,7 +179,14 @@ namespace Game.Combat {
         }
 
         private IEnumerator SpawnWave(Wave wave) {
+            if (wave.waveEntries.Length == 0) {
+                Debug.LogError("No wave entries in wave. Please assign at least one entry.");
+            }
             foreach (WaveEntry entry in wave.waveEntries) {
+                if (entry == null) {
+                    Debug.LogError("Wave entry is null. Please assign a valid entry.");
+                    continue;
+                }
                 StartCoroutine(SpawnEntry(entry));
                 yield return new WaitForSeconds(entry.bufferAfterThisEntry);
             }
@@ -202,7 +211,7 @@ namespace Game.Combat {
         
         private Vector2 GetSpawnPosition(WaveEntry entry) {
                 if (!entry.spawnLeft && !entry.spawnRight && !entry.spawnTop && !entry.spawnBottom) {
-                    Debug.LogError("No spawn points for enemy");
+                    Debug.LogWarning("No spawn points for enemy, spawning in center");
                     return transform.position;
                 }
                 return SpawnFromSides(entry);
@@ -305,9 +314,19 @@ namespace Game.Combat {
 
         private void PlayerLost() {
             if (finalEncounterManager) {
+                OnClearCombatArea?.Invoke();
+                foreach (EnemyBase enemy in _activeEnemies) {
+                    enemy.CurrentState.Die();
+                }
+                _activeEnemies.Clear();
+                _enemiesToKill = 0;
                 combatCamera.Priority = 0;
                 wideCamera.Priority = 0;
-                finalEncounterManager.StartFinalEncounter();
+                finalEncounterManager.StartFinalEncounter(this);
+                foreach (GameObject g in activeStateSwitchOnCombat) {
+                    g.SetActive(false);
+                }
+                killBounds.SetActive(false);
                 StopAllCoroutines();
                 return;
             }

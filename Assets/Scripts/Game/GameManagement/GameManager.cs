@@ -160,6 +160,7 @@ namespace Game.GameManagement {
         Combat,
         Explore,
         Dialogue,
-        BearDeath
+        BearDeath,
+        FinalEncounter
     }
 }

@@ -45,7 +45,11 @@ namespace Game.Combat.Enemies {
                     enemyBase.DestroyEnemy();
                 }
                 HandleHit();
-                _combatManager.ChildHit(this);
+                if (_combatManager) {
+                    _combatManager.ChildHit(this);
+                } else {
+                    Debug.LogWarning("Child Hit aaaaaaa");
+                }
             }
             if (hitBear && _canDamage && other.TryGetComponent(out BearEnemyHitbox bearEnemyHitbox)) {
                 if (enemyBase != null && killEnemyOnBearAttack) {

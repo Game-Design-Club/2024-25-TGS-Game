@@ -26,6 +26,7 @@ namespace Game.Combat.Enemies.ScarecrowEnemy {
         [SerializeField] internal FloatRange murderSpawnDelay = new FloatRange(0.02f, 0.2f);
         [SerializeField] internal float murderSpawnOffset = 1;
         [SerializeField] internal float topSpawnOffset;
+        [SerializeField] internal float topSpawnHeight = 4;
         
         private int _limbIndex = 0;
 

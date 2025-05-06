@@ -19,7 +19,6 @@ namespace Tools.Debugging {
         
         private void Update() {
             if (!isEnabled) return;
-            
             if (Input.GetKeyDown(KeyCode.Alpha1)) {
                 TeleportToTarget(0);
             } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
@@ -44,6 +43,7 @@ namespace Tools.Debugging {
         }
 
         private void TeleportToTarget(int n) {
+            if (n >= _targets.Count) return;
             LevelManager.GetCurrentLevel().child.transform.position = _targets[n].position;
         }
     }

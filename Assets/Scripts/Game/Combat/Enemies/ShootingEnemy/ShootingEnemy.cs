@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Tools;
@@ -16,12 +17,32 @@ namespace Game.Combat.Enemies {
         [SerializeField] internal Transform rotatePivot;
 
         protected override EnemyState StartingState => new ShootAndMove(this);
+        
+        internal List<GameObject> Bullets = new();
+
+        private void OnEnable() {
+            CombatAreaManager.OnClearCombatArea += ClearBullets;
+        }
+        
+        private void OnDisable() {
+            CombatAreaManager.OnClearCombatArea -= ClearBullets;
+        }
+
+        private void ClearBullets() {
+            foreach (GameObject bullet in Bullets) {
+                if (bullet) {
+                    Destroy(bullet);
+                }
+            }
+            Bullets.Clear();
+        }
 
         public void Shoot() {
             GameObject bullet = Instantiate(bulletPrefab, shootSpawnPoint.position, Quaternion.identity);
             bullet.GetComponent<EnemyDamageDealer>().enemyBase = this;
             Vector2 posDifference = -(transform.position - CombatManager.Child.transform.position);
             bullet.GetComponent<Rigidbody2D>().linearVelocity = posDifference.normalized * bulletSpeed;
+            Bullets.Add(bullet);
         }
 
         public void StartShootCycle() {
@@ -32,7 +53,10 @@ namespace Game.Combat.Enemies {
             if (CurrentState == null) {
                 yield return null;
             }
-
+            
+            rotatePivot.gameObject.SetActive(true);
+            
+            
             if (CurrentState is ShootAndMove shootAndMove) {
                 shootAndMove.StartShootCycle();
             }

@@ -92,6 +92,7 @@ namespace Tools {
             public const string Log = "Log";
             public const string RiverBase = "River Base";
             public const string Avalanche = "Avalanche";
+            public const string CameraTrigger = "Camera Trigger";
         }
 
         public static class PhysicsLayers {

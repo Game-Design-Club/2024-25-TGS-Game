@@ -9,6 +9,7 @@ namespace Game.Combat.Enemies {
 
         public override void Enter() {
             Controller().Animator.SetTrigger(AnimationParameters.ShootEnemy.Teleport);
+            Controller<ShootingEnemy>().rotatePivot.gameObject.SetActive(false);
         }
 
         public override void Exit() {

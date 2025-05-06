@@ -16,6 +16,7 @@ TagManager:
   - Rock
   - River Base
   - Avalanche
+  - Camera Trigger
   layers:
   - Default
   - TransparentFX

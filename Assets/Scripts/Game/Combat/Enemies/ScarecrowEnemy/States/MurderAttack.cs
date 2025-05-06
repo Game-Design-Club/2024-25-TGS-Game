@@ -24,7 +24,9 @@ namespace Game.Combat.Enemies.ScarecrowEnemy {
         private IEnumerator SpawnCrows() {
             Vector2 baseSpawnPos = new Vector2(
                 Controller().transform.position.x,
-                Controller().CombatManager.Top + Controller<Scarecrow>().topSpawnOffset);
+                (Controller().CombatManager ?
+                    Controller().CombatManager.Top : Controller<Scarecrow>().topSpawnHeight)
+                    + Controller<Scarecrow>().topSpawnOffset);
             for (int i = 0; i < Controller<Scarecrow>().murderCount.Random(); i++) {
                 GameObject crow = Object.Instantiate(Controller<Scarecrow>().crowPrefab);
                 crow.transform.position = baseSpawnPos +

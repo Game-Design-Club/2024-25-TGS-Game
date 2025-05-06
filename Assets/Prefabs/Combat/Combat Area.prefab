@@ -81,15 +81,15 @@ MonoBehaviour:
   - {fileID: 2278233036092579122}
   cameraShaker: {fileID: 7594641313779416057}
   bearController: {fileID: 3384564173759752939}
+  killBounds: {fileID: 6306325957080481457}
   breathSound: {fileID: 11400000, guid: ae282a4e76a01451e9ba7ab1cb0d6a5a, type: 2}
   heartBeatSound: {fileID: 11400000, guid: 2401a9914c1334d949c0743799f0c303, type: 2}
   wavesData: {fileID: 0}
   combatAreaSize: {fileID: 8160320414068996284}
   childRestPoint: {fileID: 3093781280680346930}
   maxSanity: 100
-  loseSanityThreshold: 0
-  startInsanity: 20
-  _sanity: 0
+  regenSpeed: 0.1
+  finalEncounterManager: {fileID: 0}
 --- !u!1 &1173487503144974866
 GameObject:
   m_ObjectHideFlags: 0
