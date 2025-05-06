@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0cb325f2-2c06-4dbf-a58c-2d881542876c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Only_You_Handwritten_Free_Font SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/Only_You_Handwritten_Free_Font SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Unageo[wght,ital] SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/Unageo[wght,ital] SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/River/RiverManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/River/RiverManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/Baby Noah 6 Weeks.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/Baby Noah 6 Weeks.jpg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tests/Triangle.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tests/Triangle.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

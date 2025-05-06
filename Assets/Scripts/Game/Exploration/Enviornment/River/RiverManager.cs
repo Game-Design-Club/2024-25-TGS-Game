@@ -8,7 +8,7 @@ namespace Game.Exploration.Enviornment.River
         [SerializeField] private Transform logParent;
         [SerializeField] private Transform rockParent;
         [SerializeField] private Transform spriteParent;
-        [Range(1, 100)] [SerializeField] private int length = 5;
+        [Range(1, 250)] [SerializeField] private int length = 5;
         [Range(.1f, 10f)] [SerializeField] private float size = 2f;
         [Range(0, 5f)] [SerializeField] private float sizeBuffer = 0.3f;
         [SerializeField] private float offset = 14f;
