@@ -6,13 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Combat/Forest Level/1. Attacker Intro.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Combat/Forest Level/1. Attacker Intro.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Combat/Forest Level/4. Small Trees and Attackers.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Combat/Forest Level/4. Small Trees and Attackers.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Combat/Forest Level/5. Many Trees and Many Attackers.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Combat/Forest Level/5. Many Trees and Many Attackers.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Combat/Enemies/Tree Enemy/Tree Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Combat/Enemies/Tree Enemy/Tree Enemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Interactions/Campfire.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Interactions/Campfire.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Unageo[wght,ital] SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/Unageo[wght,ital] SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/UI/SanityBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/UI/SanityBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/River Rock 1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/River Rock 1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/River Rock 2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/River Rock 2.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +79,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "WebServerToolWindowFactoryState": "false",
     "XThreadsFramesViewSplitterKey": "0.37857142",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "forest-final",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
