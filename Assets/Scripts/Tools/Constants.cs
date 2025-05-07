@@ -78,6 +78,10 @@ namespace Tools {
                 public const string Options = "Options";
                 public const string Credits = "Credits";
             }
+
+            public class Tutorial {
+                public const string Popup = "Popup";
+            }
         }
 
         public static class Tags {
