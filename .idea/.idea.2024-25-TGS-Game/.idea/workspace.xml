@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Fonts/Unageo[wght,ital] SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/Unageo[wght,ital] SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/River Rock 1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/River Rock 1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/River Rock 2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/River Rock 2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Levels/final final.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Levels/final final.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5242006364762108201, guid: a94210710902f40f2910b53565e6c834, type: 3}
+      propertyPath: thickness
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 5347751174541846980, guid: a94210710902f40f2910b53565e6c834, type: 3}
       propertyPath: thickness
       value: 1
@@ -186,6 +190,10 @@ PrefabInstance:
     - target: {fileID: 6411548090045175934, guid: a94210710902f40f2910b53565e6c834, type: 3}
       propertyPath: thickness
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522893367542161174, guid: a94210710902f40f2910b53565e6c834, type: 3}
+      propertyPath: m_TagString
+      value: River Base
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

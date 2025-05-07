@@ -78,6 +78,10 @@ namespace Game.Exploration.Enviornment.River
                 origin.size.x * child.localScale.x / lossyScale.x,
                 origin.size.y * child.localScale.y / lossyScale.y);
 
+            if (child.rotation.z is not 0 or 180) {
+                effectiveSize = new Vector2(effectiveSize.y, effectiveSize.x);
+            }
+
             BoxCollider2D added = gameObject.AddComponent<BoxCollider2D>();
             added.size = effectiveSize;
 
