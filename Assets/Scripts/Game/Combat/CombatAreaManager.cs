@@ -34,7 +34,7 @@ namespace Game.Combat {
         [SerializeField] private float maxSanity = 100f;
         [SerializeField] private float regenSpeed = 0.1f;
         [Header("Misc")]
-        [SerializeField] private FinalEncounterManager finalEncounterManager;
+        [SerializeField] internal FinalEncounterManager finalEncounterManager;
         
         // Private fields
         private float _sanity = 0;

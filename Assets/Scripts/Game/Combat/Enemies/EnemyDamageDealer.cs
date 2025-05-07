@@ -1,5 +1,7 @@
 using System;
 using Game.Combat.Bear;
+using Game.Combat.FinalEncounter;
+using Game.Exploration.Child;
 using Game.GameManagement;
 using Tools;
 using UnityEngine;
@@ -48,7 +50,7 @@ namespace Game.Combat.Enemies {
                 if (_combatManager) {
                     _combatManager.ChildHit(this);
                 } else {
-                    Debug.LogWarning("Child Hit aaaaaaa");
+                    FindAnyObjectByType<FinalEncounterManager>().ChildHit();
                 }
             }
             if (hitBear && _canDamage && other.TryGetComponent(out BearEnemyHitbox bearEnemyHitbox)) {

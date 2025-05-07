@@ -14,8 +14,10 @@ namespace Game.Exploration.Child {
         [SerializeField] private string currentStateName = "CurrentState";
         [Header("References")]
         [SerializeField] private Transform rotateTransform;
-        [SerializeField] private SpriteRenderer spriteRenderer;
-        [SerializeField] internal BoxCollider2D boxCollider;
+        [SerializeField] internal SpriteRenderer spriteRenderer;
+        [FormerlySerializedAs("boxCollider")] [SerializeField] internal BoxCollider2D mainBoxCollider;
+        [SerializeField] internal BoxCollider2D combatBoxCollider;
+        [SerializeField] internal BoxCollider2D chaseBoxCollider;
         [SerializeField] internal Animator _spriteAnimator;
         [Header("Idle State")]
         [SerializeField] internal float walkSpeed = 5f;
@@ -138,7 +140,7 @@ namespace Game.Exploration.Child {
         
         private IEnumerator MoveUntilGrounded() {
             yield return PointCollisionHelper.MoveToInArea(
-                boxCollider,
+                mainBoxCollider,
                 Rigidbody,
                 dir => _forceDirection = dir,
                 point => point.TouchingLand);
@@ -165,8 +167,8 @@ namespace Game.Exploration.Child {
 
         public void LandPlayer() {
             Vector2 pos = Rigidbody.position;
-            float xSize = boxCollider.size.x / 2;
-            float ySize = boxCollider.size.y / 2;
+            float xSize = mainBoxCollider.size.x / 2;
+            float ySize = mainBoxCollider.size.y / 2;
             
             PointCollision topLeft = new PointCollision(pos + new Vector2(-xSize, ySize));
             PointCollision topRight = new PointCollision(pos + new Vector2(xSize, ySize));

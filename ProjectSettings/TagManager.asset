@@ -63,9 +63,6 @@ TagManager:
   - name: Bear Gameplay
     uniqueID: 1741993609
     locked: 0
-  - name: Bear
-    uniqueID: 4014420015
-    locked: 0
   - name: Foreground
     uniqueID: 1065694261
     locked: 0

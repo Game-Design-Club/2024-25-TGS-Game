@@ -103,6 +103,11 @@ namespace Tools {
             public const int ChildWall = 8;
         }
 
+        public static class RenderingLayers {
+            public const string BearGameplay = "Bear Gameplay";
+            public const string ChildGameplay = "Child Gameplay";
+        }
+        
         public static class Mixer {
             public const string MasterVolume = "Master Volume";
             public const string SFXVolume = "SFX Volume";

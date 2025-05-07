@@ -24,7 +24,9 @@ namespace Game.Combat.Enemies.TreeEnemy {
         }
 
         public override void Update() {
-            Controller().CombatManager.Sanity -= Time.deltaTime * Controller<TreeEnemy>().damageSpeed;
+            if (Controller().CombatManager) {
+                Controller().CombatManager.Sanity -= Time.deltaTime * Controller<TreeEnemy>().damageSpeed;
+            }
         }
 
         public override void OnAnimationEnded() {
