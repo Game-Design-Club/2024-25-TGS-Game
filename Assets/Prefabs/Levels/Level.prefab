@@ -155,6 +155,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2812305634354190683}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1135108316962106112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4558544241620394638}
+  m_Layer: 0
+  m_Name: Tutorials
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4558544241620394638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135108316962106112}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2812305634354190683}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2130044874622664467
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,6 +393,7 @@ Transform:
   - {fileID: 241361761801971782}
   - {fileID: 3718808827547664335}
   - {fileID: 8520539304840779762}
+  - {fileID: 4558544241620394638}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2855519684692561314
@@ -492,6 +524,13 @@ MonoBehaviour:
     parentTransform: {fileID: 241361761801971782}
     tryRandomize: 1
     randomizeFlip: 1
+    useFlags: 0
+    customRandomizeFlags: 
+  - activeModule: 0
+    objectPlacingPrefab: {fileID: 6272972459261438578, guid: 8d3fdf551c69a473b877b72096cefdfc, type: 3}
+    parentTransform: {fileID: 4558544241620394638}
+    tryRandomize: 0
+    randomizeFlip: 0
     useFlags: 0
     customRandomizeFlags: 
 --- !u!1 &5197219333115354515
@@ -641,7 +680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5847314838264712324, guid: 2fba5342069744a01806d4c64bf2923b, type: 3}
       propertyPath: m_SortingOrder
-      value: 4371
+      value: 4441
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

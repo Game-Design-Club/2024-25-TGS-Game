@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using AppCore;
+using AppCore.DataManagement;
 using AppCore.InputManagement;
 using Game.GameManagement;
 using Unity.Cinemachine;
@@ -22,6 +23,9 @@ namespace Tools.Debugging {
             if (!isEnabled) return;
             if (Input.GetKeyDown(KeyCode.BackQuote)) {
                 TeleportToTarget(LevelManager.GetCurrentLevel().spawnPoint.position);
+            } else if (Input.GetKeyDown(KeyCode.Backslash)) {
+                App.Get<DataManager>().SetFlag(BoolFlags.HasJump, true);
+                App.Get<DataManager>().SetFlag(BoolFlags.HasStick, true);
             } else if (Input.GetKeyDown(KeyCode.Alpha1)) {
                 TeleportToTarget(0);
             } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
