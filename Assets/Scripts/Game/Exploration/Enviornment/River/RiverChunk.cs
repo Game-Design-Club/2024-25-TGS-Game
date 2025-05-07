@@ -5,7 +5,7 @@ namespace Game.Exploration.Enviornment.River {
     public class RiverChunk : MonoBehaviour {
         [SerializeField] private Vector2 direction;
         [SerializeField] private Transform directionSprite;
-        [SerializeField] public float floatSpeed = 3f;
+        [SerializeField] public float floatSpeed = 4f;
         [SerializeField] private BoxCollider2D matchCollider;
 
         private BoxCollider2D _boxCollider;
