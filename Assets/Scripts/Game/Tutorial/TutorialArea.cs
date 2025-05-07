@@ -18,6 +18,7 @@ namespace Game.Tutorial {
         }
 
         private void OnTriggerExit2D(Collider2D other) {
+            StopAllCoroutines();
             TutorialPopupObject.HideTutorialPopup();
         }
     }

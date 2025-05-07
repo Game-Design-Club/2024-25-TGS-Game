@@ -22,7 +22,6 @@ namespace Game.Tutorial {
         }
         
         public static void HideTutorialPopup() {
-            _instance.StopAllCoroutines();
             _instance._animator.SetBool(AnimationParameters.Tutorial.Popup, false);
         }
     }
