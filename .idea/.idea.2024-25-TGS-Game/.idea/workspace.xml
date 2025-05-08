@@ -6,36 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Combat/Combat Area/Transition To Combat.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Combat/Combat Area/Transition To Combat.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Combat/Forest Level.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Combat/Forest Level/0 Forest Level.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Combat/Forest Level/0 Forest Level.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Combat/Forest Level/1. Attacker Intro.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Combat/Forest Level/1. Attacker Intro.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Combat/Forest Level/2. More Attackers.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Combat/Forest Level/2. More Attackers.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Combat/Forest Level/3. Trees intro.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Combat/Forest Level/3. Trees intro.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Combat/Forest Level/4. Small Trees and Attackers.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Combat/Forest Level/4. Small Trees and Attackers.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Combat/Forest Level/5. Many Trees and Many Attackers.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Combat/Forest Level/5. Many Trees and Many Attackers.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Combat/Forest Level/test.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Combat/Forest Level/test.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Combat/Enemies/Debris Enemy/Debris Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Combat/Enemies/Debris Enemy/Debris Enemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Avalanche/Rock.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Avalanche/Rock.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Interactions/Interactable.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Interactions/Interactable.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Interactions/Snow Pile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Interactions/Snow Pile.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/River/Center Rock.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/River/Center Rock.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Rocks/Rock.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Rocks/Rock.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Trees/Fallen Log.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Trees/Fallen Log.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Trees/Fallen Tree.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Trees/Fallen Tree.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Levels/final final.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Levels/final final.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/HUD Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/HUD Canvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/River/RiverRock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/River/RiverRock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Tutorial/TutorialArea.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Tutorial/TutorialArea.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Tutorial/TutorialPopupObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Tutorial/TutorialPopupObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Combat/Day 2/0 Forest Level.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Combat/Day 2/0 Forest Level.asset.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
