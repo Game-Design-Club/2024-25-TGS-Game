@@ -1299,6 +1299,8 @@ MonoBehaviour:
   fadeTime: 0.5
   waitForInput: 1
   waitTime: 2.5
+  continueWaitTime: 0.5
+  continuePopup: {fileID: 2805500683056218585}
 --- !u!1 &6272849734586338308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1691,7 +1693,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &15373762483286173
 RectTransform:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using AppCore;
 using AppCore.InputManagement;
 using Game.GameManagement;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,10 +15,14 @@ namespace Game.Exploration.UI.Comic {
         [SerializeField] private float fadeTime = 0.5f;
         [SerializeField] private bool waitForInput = true;
         [SerializeField] private float waitTime = 1.5f;
+        [SerializeField] private float continueWaitTime = 0.5f;
+        [SerializeField] private TextMeshProUGUI continuePopup;
         
         private ComicPage[] _comicPages;
         
         private bool _shouldContinue = false;
+        private bool _hasContinued = false;
+        private bool _isContinuePopupActive = false;
         
         private void OnEnable() {
             App.Get<InputManager>().OnDialogueContinue += OnContinue;
@@ -29,6 +34,7 @@ namespace Game.Exploration.UI.Comic {
 
         private void OnContinue() {
             _shouldContinue = true;
+            _hasContinued = true;
         }
 
         private void Awake() {
@@ -55,6 +61,15 @@ namespace Game.Exploration.UI.Comic {
             blackBackground.color = new Color(blackBackground.color.r, blackBackground.color.g, blackBackground.color.b, 0);
             
             StartCoroutine(PlayComicRoutine());
+            StartCoroutine(ShowContinuePopup());
+        }
+
+        private IEnumerator ShowContinuePopup() {
+            yield return new WaitForSeconds(continueWaitTime);
+            if (!_hasContinued) {
+                StartCoroutine(FadeIn(continuePopup));
+                _isContinuePopupActive = true;
+            }
         }
 
         private IEnumerator PlayComicRoutine() {
@@ -87,9 +102,24 @@ namespace Game.Exploration.UI.Comic {
                 comicPage.Parent.gameObject.SetActive(false);
             }
 
+            if (_isContinuePopupActive) {
+                _isContinuePopupActive = false;
+                StartCoroutine(FadeOut(continuePopup));
+            }
             yield return FadeOut(blackBackground);
             GameManager.GameEventType = GameEventType.ExploreEnter;
             GameManager.GameEventType = GameEventType.Explore;
+        }
+
+        private IEnumerator FadeIn(TextMeshProUGUI text) {
+            text.gameObject.SetActive(true);
+            float t = 0;
+            while (t < fadeTime) {
+                t += Time.deltaTime;
+                float a = Mathf.Lerp(0, 1, t / fadeTime);
+                text.color = new Color(text.color.r, text.color.g, text.color.b, a);
+                yield return null;
+            }
         }
 
         private IEnumerator FadeIn(Image image) {
@@ -100,6 +130,17 @@ namespace Game.Exploration.UI.Comic {
                 image.color = new Color(image.color.r, image.color.g, image.color.b, a);
                 yield return null;
             }
+        }
+        
+        private IEnumerator FadeOut(TextMeshProUGUI text) {
+            float t = 0;
+            while (t < fadeTime) {
+                t += Time.deltaTime;
+                float a = Mathf.Lerp(1, 0, t / fadeTime);
+                text.color = new Color(text.color.r, text.color.g, text.color.b, a);
+                yield return null;
+            }
+            text.gameObject.SetActive(false);
         }
         
         private IEnumerator FadeOut(Image image) {

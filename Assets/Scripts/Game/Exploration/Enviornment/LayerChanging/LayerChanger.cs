@@ -33,7 +33,7 @@ namespace Game.Exploration.Enviornment.LayerChanging {
 
         private void SetLayer() {
             foreach (var sr in SpriteRenderers) {
-                sr.sortingOrder = Mathf.RoundToInt((transform.position.y+yOffset) * 100f) * -1;
+                sr.sortingOrder = Mathf.RoundToInt((transform.position.y+yOffset) * 1000f) * -1;
             }
         }
     }
