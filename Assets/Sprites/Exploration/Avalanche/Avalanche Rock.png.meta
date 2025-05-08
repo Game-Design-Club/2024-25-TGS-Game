@@ -1,0 +1,751 @@
+fileFormatVersion: 2
+guid: ec9dd30028e97428ebda5e6c35db5a50
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8638421506506822070
+    second: Untitled_Artwork 5_0
+  - first:
+      213: -8582677375622298851
+    second: Untitled_Artwork 5_1
+  - first:
+      213: 5439653131651235169
+    second: Untitled_Artwork 5_2
+  - first:
+      213: -2723352935325456373
+    second: Untitled_Artwork 5_3
+  - first:
+      213: -6716848663139328885
+    second: Untitled_Artwork 5_4
+  - first:
+      213: 5133598784608924270
+    second: Untitled_Artwork 5_5
+  - first:
+      213: -7937208846131353378
+    second: Untitled_Artwork 5_6
+  - first:
+      213: -1140221637405551794
+    second: Untitled_Artwork 5_7
+  - first:
+      213: 2244430810388206111
+    second: Untitled_Artwork 5_8
+  - first:
+      213: -1811801127170340811
+    second: Untitled_Artwork 5_9
+  - first:
+      213: -868486325981237752
+    second: Untitled_Artwork 5_10
+  - first:
+      213: 5352824756075723115
+    second: Untitled_Artwork 5_11
+  - first:
+      213: -1201151018292611156
+    second: Untitled_Artwork 5_12
+  - first:
+      213: -4503410344682085287
+    second: Untitled_Artwork 5_13
+  - first:
+      213: -6787866938155169898
+    second: Untitled_Artwork 5_14
+  - first:
+      213: 7831380626974572477
+    second: Untitled_Artwork 5_15
+  - first:
+      213: -5642714533237431955
+    second: Untitled_Artwork 5_16
+  - first:
+      213: 315977330119713926
+    second: Untitled_Artwork 5_17
+  - first:
+      213: -2032290127789536873
+    second: Untitled_Artwork 5_18
+  - first:
+      213: 8721888200943009090
+    second: Untitled_Artwork 5_19
+  - first:
+      213: -3610166518035429391
+    second: Untitled_Artwork 5_20
+  - first:
+      213: -3884877273866847811
+    second: Untitled_Artwork 5_21
+  - first:
+      213: 3915786139624369233
+    second: Untitled_Artwork 5_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 500
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Avalanche Rock_0
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 356
+        width: 1144
+        height: 1213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71bffd5e7a74c4834a1079e2ea8ac97f
+      internalID: -691042186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_1
+      rect:
+        serializedVersion: 2
+        x: 1891
+        y: 591
+        width: 28
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c4bbf70063324e8a94bc9e3cc3ba9ce
+      internalID: 481841787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_2
+      rect:
+        serializedVersion: 2
+        x: 1916
+        y: 609
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa6295613c22148ebbd381ef8bbd4813
+      internalID: 695580135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_3
+      rect:
+        serializedVersion: 2
+        x: 1877
+        y: 441
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34a4a7103cfee457fbc4769a8577cb27
+      internalID: -734794313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_4
+      rect:
+        serializedVersion: 2
+        x: 1842
+        y: 414
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f2824b97c0c94a48983f7209909a2ec
+      internalID: -111223196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_5
+      rect:
+        serializedVersion: 2
+        x: 1852
+        y: 422
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89f19aff770a44ef3bc1571a71525a68
+      internalID: -916534553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_6
+      rect:
+        serializedVersion: 2
+        x: 1911
+        y: 252
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5093fbfdf083b41ba8d3013a7311e010
+      internalID: 97598971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_7
+      rect:
+        serializedVersion: 2
+        x: 1321
+        y: 227
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d610ba97831624c1fbae743a35456d20
+      internalID: 55363081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_8
+      rect:
+        serializedVersion: 2
+        x: 1254
+        y: 184
+        width: 34
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3a8c1b0d9088491fbb2a5128bc4b472
+      internalID: 418448194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_9
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 213
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96cee659fc3a147b796596f75133a9c7
+      internalID: -1036816492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_10
+      rect:
+        serializedVersion: 2
+        x: 1655
+        y: 103
+        width: 106
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d06125fe736b405fbf6f3f6a8feb1cb
+      internalID: 935425463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_11
+      rect:
+        serializedVersion: 2
+        x: 1696
+        y: 189
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d11a3ccd8d8e149e697784ed8e376978
+      internalID: -721793257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_12
+      rect:
+        serializedVersion: 2
+        x: 1697
+        y: 199
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd77d45fef0a49deb4543d7af3d66a3
+      internalID: 79639237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_13
+      rect:
+        serializedVersion: 2
+        x: 1702
+        y: 197
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1516635dbffa24e76b3d4edbb0ef7592
+      internalID: -601343565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_14
+      rect:
+        serializedVersion: 2
+        x: 1228
+        y: 181
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a61cc7ba9fe594f1ab31e3be49836842
+      internalID: -1958044747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_15
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 174
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28686579c75eb4c099e7efd8ae11a899
+      internalID: 307197089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_16
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 184
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee5ad8b68a6f74d5eaab60293435f2bd
+      internalID: 158375723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_17
+      rect:
+        serializedVersion: 2
+        x: 1201
+        y: 151
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a21880e073f494cfcba2a75f15ee3c65
+      internalID: -499233128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_18
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 175
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29af65df7fcc74854ae742e5820176af
+      internalID: -1066338415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_19
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 130
+        width: 14
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aa9cac3d191643e6a8c9ab71b3fe485
+      internalID: 2136112021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_20
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 146
+        width: 10
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bbdd055d443148b2ba11219297979cc
+      internalID: -236738637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_21
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 149
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9657aa989156a44e98609436eb675c27
+      internalID: -200793873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_22
+      rect:
+        serializedVersion: 2
+        x: 1557
+        y: 109
+        width: 78
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 195e20773d19c4a6baf2a3cbce113d33
+      internalID: -1946484971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Avalanche Rock_23
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 147
+        width: 26
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 486db7bb043dd4d1b846b267830b0122
+      internalID: -1867480677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6523919beae1d4991be79f7a19c32cb4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Avalanche Rock_0: -691042186
+      Avalanche Rock_1: 481841787
+      Avalanche Rock_10: 935425463
+      Avalanche Rock_11: -721793257
+      Avalanche Rock_12: 79639237
+      Avalanche Rock_13: -601343565
+      Avalanche Rock_14: -1958044747
+      Avalanche Rock_15: 307197089
+      Avalanche Rock_16: 158375723
+      Avalanche Rock_17: -499233128
+      Avalanche Rock_18: -1066338415
+      Avalanche Rock_19: 2136112021
+      Avalanche Rock_2: 695580135
+      Avalanche Rock_20: -236738637
+      Avalanche Rock_21: -200793873
+      Avalanche Rock_22: -1946484971
+      Avalanche Rock_23: -1867480677
+      Avalanche Rock_3: -734794313
+      Avalanche Rock_4: -111223196
+      Avalanche Rock_5: -916534553
+      Avalanche Rock_6: 97598971
+      Avalanche Rock_7: 55363081
+      Avalanche Rock_8: 418448194
+      Avalanche Rock_9: -1036816492
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

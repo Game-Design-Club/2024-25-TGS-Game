@@ -122,7 +122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  sanityRestored: 10
   stunKnockbackCurve:
     serializedVersion: 2
     m_Curve:
@@ -153,6 +152,7 @@ MonoBehaviour:
   hitSound: {fileID: 11400000, guid: cd2e7779f41fe46229df2f650dcc3b26, type: 2}
   deathParticles: {fileID: 5761495649415307529, guid: 158e5268b5ba24de0b9d88bcb580da1d, type: 3}
   deathSound: {fileID: 11400000, guid: 56b988d4f50d3438fab33c116acf7cde, type: 2}
+  spawnedInCombat: 0
   maxAngle: 35
   directionAngleVariance: 20
   rollSpeed: 3
@@ -282,13 +282,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7137228530925990409}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.15393445, w: 0.9880811}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3630791784139991421}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 17.71}
 --- !u!212 &4944907021056922652
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -333,12 +333,12 @@ SpriteRenderer:
   m_SortingLayerID: 1741993609
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2135585597343286014, guid: 5aa8b770bc43046bc8d993d0d5b7f4a5, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 71265245, guid: 4aab8944ecf41494ab1a51e8d750ad38, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.13, y: 0.23}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -366,13 +366,13 @@ MonoBehaviour:
   m_AlphaCutoff: 0.1
   m_ApplyToSortingLayers: 00000000dbba7ca8f985a7503534853f
   m_ShapePath:
-  - {x: -0.37183854, y: -0.18878871, z: 0}
+  - {x: -0.33977687, y: -0.056508012, z: 0}
   - {x: -0.3577578, y: 0.19582915, z: 0}
-  - {x: 0.013138011, y: 0.43045592, z: 0}
-  - {x: 0.38591924, y: 0.2028695, z: 0}
-  - {x: 0.37923753, y: -0.19613752, z: 0}
-  - {x: -0.0013014078, y: -0.41408077, z: 0}
-  m_ShapePathHash: 474771781
+  - {x: -0.08141506, y: 0.3893903, z: 0}
+  - {x: 0.24754462, y: 0.23178722, z: 0}
+  - {x: 0.13680093, y: -0.06272984, z: 0}
+  - {x: -0.12814717, y: -0.20560585, z: 0}
+  m_ShapePathHash: -1783638107
   m_InstanceId: 0
   m_ShadowShape2DComponent: {fileID: 0}
   m_ShadowShape2DProvider:
@@ -381,13 +381,13 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: 0.0070403516, y: 0.008187562, z: 0}
-      m_Extent: {x: 0.3788789, y: 0.42226833, z: 0}
+      m_Center: {x: -0.05510658, y: 0.09189223, z: 0}
+      m_Extent: {x: 0.30265123, y: 0.29749808, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0.05
     m_FlipX: 0
     m_FlipY: 0
-    m_InitialTrim: 0
+    m_InitialTrim: 0.07
   m_CastingOption: 1
   m_PreviousTrimEdge: 0.05
   m_PreviousEdgeProcessing: 1
