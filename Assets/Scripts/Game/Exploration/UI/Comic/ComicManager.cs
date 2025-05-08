@@ -52,7 +52,7 @@ namespace Game.Exploration.UI.Comic {
 
         public void PlayComic() {
             blackBackground.gameObject.SetActive(true);
-            blackBackground.color = Color.black;
+            blackBackground.color = new Color(blackBackground.color.r, blackBackground.color.g, blackBackground.color.b, 0);
             
             StartCoroutine(PlayComicRoutine());
         }

@@ -9,6 +9,7 @@ namespace Game.Combat.Enemies {
 
         public override void Enter() {
             Controller().Animator.SetTrigger(AnimationParameters.ShootEnemy.Teleport);
+            Controller<ShootingEnemy>().rotatePivot.gameObject.SetActive(false);
         }
 
         public override void Exit() {
@@ -23,11 +24,19 @@ namespace Game.Combat.Enemies {
         }
 
         private void FindNewLocation() {
-            Vector2 childPos = Controller().CombatManager.Child.transform.position;
-            Vector2 randomDirection = Random.insideUnitCircle.normalized;
+            Vector2 childPos = Controller().Child.transform.position;
+            float angle = Random.Range(Controller<ShootingEnemy>().minAngle, Controller<ShootingEnemy>().maxAngle);
+            if (!Mathf.Approximately(Controller<ShootingEnemy>().minAngle, Controller<ShootingEnemy>().maxAngle + 360)) {
+                 angle = Mathf.Lerp(
+                    Controller<ShootingEnemy>().minAngle,
+                    Controller<ShootingEnemy>().maxAngle,
+                    (Random.value + Random.value) * 0.5f
+                );
+            }
+            Vector2 randomDirection = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
             float randomDistance = Controller<ShootingEnemy>().spawnDistance.Random();
             Vector2 newLocation = childPos + randomDirection * randomDistance;
-
+    
             Controller().Rigidbody.position = newLocation;
             
             Vector2 posDifference = childPos - Controller().Rigidbody.position;

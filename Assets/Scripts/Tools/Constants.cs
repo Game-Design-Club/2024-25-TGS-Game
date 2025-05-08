@@ -96,12 +96,18 @@ namespace Tools {
             public const string Log = "Log";
             public const string RiverBase = "River Base";
             public const string Avalanche = "Avalanche";
+            public const string CameraTrigger = "Camera Trigger";
         }
 
         public static class PhysicsLayers {
             public const int ChildWall = 8;
         }
 
+        public static class RenderingLayers {
+            public const string BearGameplay = "Bear Gameplay";
+            public const string ChildGameplay = "Child Gameplay";
+        }
+        
         public static class Mixer {
             public const string MasterVolume = "Master Volume";
             public const string SFXVolume = "SFX Volume";

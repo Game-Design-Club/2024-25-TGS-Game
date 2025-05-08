@@ -5,7 +5,11 @@ using UnityEngine;
 
 namespace Game.Combat.Enemies.DebrisEnemy {
     public class RockNRoll : EnemyState {
-        public RockNRoll(EnemyBase controller) : base(controller) { }
+        private bool _horizontalMovement;
+
+        public RockNRoll(EnemyBase controller, bool horizontalMovement) : base(controller) {
+            _horizontalMovement = horizontalMovement;
+        }
 
         private Vector2 _direction;
         private float _speed;
@@ -18,17 +22,19 @@ namespace Game.Combat.Enemies.DebrisEnemy {
             float randomness = Controller<DebrisEnemy>().directionAngleVariance;
             float randomAdd = randomness.Random();
 
-            Vector2 dif = Controller().CombatManager.Child.transform.position - Controller().transform.position;
-            float angle = Vector2.SignedAngle(Vector2.down, dif);   
+            Vector2 dif = Controller().Child.transform.position - Controller().transform.position;
+            float angle = _horizontalMovement 
+                ? Vector2.SignedAngle(Vector2.right, dif) 
+                : Vector2.SignedAngle(Vector2.down, dif);   
             
             if (angle > Controller<DebrisEnemy>().maxAngle) {
                 angle = Controller<DebrisEnemy>().maxAngle;
             } else if (angle < -Controller<DebrisEnemy>().maxAngle) {
                 angle = -Controller<DebrisEnemy>().maxAngle;
             }
-            
+                
             angle += randomAdd;
-            _direction = Quaternion.Euler(0, 0, angle) * Vector2.down;
+            _direction = Quaternion.Euler(0, 0, angle) * (_horizontalMovement ? Vector2.right : Vector2.down);
         }
         
         public override void Update() {

@@ -18,7 +18,7 @@ namespace Game.Combat.Enemies.CrowEnemy {
             float randomness = Controller<CrowEnemy>().directionAngleVariance;
             float randomAdd = randomness.Random();
 
-            Vector2 dif = Controller().CombatManager.Child.transform.position - Controller().transform.position;
+            Vector2 dif = Controller().Child.transform.position - Controller().transform.position;
             float angle = Vector2.SignedAngle(Vector2.down, dif);   
             
             if (angle > Controller<CrowEnemy>().maxAngle) {

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,7 +5,6 @@ namespace Game.Tutorial {
     public class TutorialArea : MonoBehaviour {
         [SerializeField] private float timeToAppear = 0;
         [SerializeField] private float disappearTime = 100000;
-        
         [TextArea(3, 10)]
         [SerializeField] private string text;
         private void OnTriggerEnter2D(Collider2D other) {

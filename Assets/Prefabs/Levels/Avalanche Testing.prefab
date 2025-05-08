@@ -34194,11 +34194,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3360241122670118459, guid: fbf556f5cddf446bba39432b70a16dce, type: 3}
       propertyPath: isActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3360241122670118459, guid: fbf556f5cddf446bba39432b70a16dce, type: 3}
       propertyPath: isErasing
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3360241122670118459, guid: fbf556f5cddf446bba39432b70a16dce, type: 3}
       propertyPath: activeModuleIndex
