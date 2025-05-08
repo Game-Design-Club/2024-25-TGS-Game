@@ -40,7 +40,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
         }
 
         private void SetRotation() {
-            Vector2 direction = CombatManager.Child.transform.position - transform.position;
+            Vector2 direction = Child.transform.position - transform.position;
             direction.Normalize();
             // if to right of child, flip
             // spriteRenderer.flipX = direction.x > 0;
@@ -49,7 +49,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
         }
 
         private void CalculatePoints() {
-            Vector2 direction = CombatManager.Child.transform.position - transform.position;
+            Vector2 direction = Child.transform.position - transform.position;
             direction.Normalize();
             
             Vector2 currentPoint = transform.position;
@@ -70,13 +70,13 @@ namespace Game.Combat.Enemies.TreeEnemy {
             
             AddSegments();
 
-            _points.Add(CombatManager.Child.transform.position);
+            _points.Add(Child.transform.position);
             
             CalculateMaxDistance();
 
             void AddSegments() {
                 for (int i = 0; i < maxChunks - _points.Count; i++) {
-                    Vector2 difToChild = (Vector2)CombatManager.Child.transform.position - currentPoint;
+                    Vector2 difToChild = (Vector2)Child.transform.position - currentPoint;
                     Vector2 direction = Quaternion.Euler(0, 0,
                         Random.Range(-reachTurbulenceAngle, reachTurbulenceAngle)) * difToChild.normalized;
                     direction.Normalize();
@@ -91,7 +91,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
                         _points.Add(nextPoint);
                         currentPoint = nextPoint;
 
-                        difToChild = (Vector2)CombatManager.Child.transform.position - currentPoint;
+                        difToChild = (Vector2)Child.transform.position - currentPoint;
 
                         if (difToChild.magnitude < childRange) {
                             return;
@@ -193,7 +193,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
         }
 
         internal void CreateNewPoints() {
-            Vector2 direction = CombatManager.Child.transform.position - (Vector3)_endPoint;
+            Vector2 direction = Child.transform.position - (Vector3)_endPoint;
             direction.Normalize();
             int i = GetMaxIndex(CurrentDistance);
             AddPoints(_points[i], i);

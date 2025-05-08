@@ -16,6 +16,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 64e85e0ace5a94da7af2c3c8a0e6f3c9, type: 2}
   - {fileID: 11400000, guid: 24d3fff9a79684184a11523a32792ac4, type: 2}
   - {fileID: 11400000, guid: 1eeca6683a6a54ff1a00fc4adf112f6a, type: 2}
-  - {fileID: 11400000, guid: f24ba014673ba4cf2bc50056f96665aa, type: 2}
   - {fileID: 11400000, guid: 77fed74116d394f39884d03cce35f4d7, type: 2}
+  - {fileID: 11400000, guid: f24ba014673ba4cf2bc50056f96665aa, type: 2}
   bufferBetweenWaves: 0

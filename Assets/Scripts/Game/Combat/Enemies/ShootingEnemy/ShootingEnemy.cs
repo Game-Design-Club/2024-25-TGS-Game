@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Tools;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -14,14 +16,36 @@ namespace Game.Combat.Enemies {
         [SerializeField] private Transform shootSpawnPoint;
         [SerializeField] internal GameObject bulletPrefab;
         [SerializeField] internal Transform rotatePivot;
+        [SerializeField] internal float minAngle = 0f;
+        [SerializeField] internal float maxAngle = 360f;
 
         protected override EnemyState StartingState => new ShootAndMove(this);
+        
+        internal List<GameObject> Bullets = new();
+
+        private void OnEnable() {
+            CombatAreaManager.OnClearCombatArea += ClearBullets;
+        }
+        
+        private void OnDisable() {
+            CombatAreaManager.OnClearCombatArea -= ClearBullets;
+        }
+
+        private void ClearBullets() {
+            foreach (GameObject bullet in Bullets) {
+                if (bullet) {
+                    Destroy(bullet);
+                }
+            }
+            Bullets.Clear();
+        }
 
         public void Shoot() {
             GameObject bullet = Instantiate(bulletPrefab, shootSpawnPoint.position, Quaternion.identity);
             bullet.GetComponent<EnemyDamageDealer>().enemyBase = this;
-            Vector2 posDifference = -(transform.position - CombatManager.Child.transform.position);
+            Vector2 posDifference = -(transform.position - Child.transform.position);
             bullet.GetComponent<Rigidbody2D>().linearVelocity = posDifference.normalized * bulletSpeed;
+            Bullets.Add(bullet);
         }
 
         public void StartShootCycle() {
@@ -32,9 +56,19 @@ namespace Game.Combat.Enemies {
             if (CurrentState == null) {
                 yield return null;
             }
-
+            
+            rotatePivot.gameObject.SetActive(true);
+            
+            
             if (CurrentState is ShootAndMove shootAndMove) {
                 shootAndMove.StartShootCycle();
+            }
+        }
+        
+        public override void SetCustomData(int entryCustomData) {
+            if (entryCustomData == 1) {
+                minAngle = 90;
+                maxAngle = 270;
             }
         }
     }

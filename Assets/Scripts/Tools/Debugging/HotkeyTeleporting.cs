@@ -4,6 +4,7 @@ using AppCore;
 using AppCore.DataManagement;
 using AppCore.InputManagement;
 using Game.GameManagement;
+using Unity.Cinemachine;
 using UnityEngine;
 
 namespace Tools.Debugging {
@@ -20,13 +21,12 @@ namespace Tools.Debugging {
         
         private void Update() {
             if (!isEnabled) return;
-
-            if (Input.GetKeyDown(KeyCode.Backslash)) {
+            if (Input.GetKeyDown(KeyCode.BackQuote)) {
+                TeleportToTarget(LevelManager.GetCurrentLevel().spawnPoint.position);
+            } else if (Input.GetKeyDown(KeyCode.Backslash)) {
                 App.Get<DataManager>().SetFlag(BoolFlags.HasJump, true);
                 App.Get<DataManager>().SetFlag(BoolFlags.HasStick, true);
-            }
-            
-            if (Input.GetKeyDown(KeyCode.Alpha1)) {
+            } else if (Input.GetKeyDown(KeyCode.Alpha1)) {
                 TeleportToTarget(0);
             } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
                 TeleportToTarget(1);
@@ -50,7 +50,12 @@ namespace Tools.Debugging {
         }
 
         private void TeleportToTarget(int n) {
+            if (n >= _targets.Count) return;
             LevelManager.GetCurrentLevel().child.transform.position = _targets[n].position;
+        }
+
+        private void TeleportToTarget(Vector2 position) {
+            LevelManager.GetCurrentLevel().child.transform.position = position;
         }
     }
 }

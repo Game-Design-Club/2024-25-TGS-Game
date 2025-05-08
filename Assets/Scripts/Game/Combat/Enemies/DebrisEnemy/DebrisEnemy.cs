@@ -11,6 +11,8 @@ namespace Game.Combat.Enemies.DebrisEnemy {
         [SerializeField] internal float hitWeight = .3f;
         [SerializeField] internal float hitDirectionChange = .5f;
 
-        protected override EnemyState StartingState => new RockNRoll(this);
+        public bool horizontalMovement = false;
+
+        protected override EnemyState StartingState => new RockNRoll(this, horizontalMovement);
     }
 }

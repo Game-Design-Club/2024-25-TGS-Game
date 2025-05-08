@@ -38,7 +38,9 @@ namespace Game.Combat.Enemies {
         public virtual void OnAnimationEnded() { }
 
         public virtual void Die() {
-            Object.Destroy(_controller.gameObject);
+            if (_controller.gameObject) {
+                Object.Destroy(_controller.gameObject);
+            }
         }
     }
 }

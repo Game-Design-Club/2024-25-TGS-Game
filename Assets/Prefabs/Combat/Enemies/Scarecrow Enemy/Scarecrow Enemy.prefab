@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1908909749406716711}
   - component: {fileID: 5617059638348944306}
+  - component: {fileID: 7506526744595974187}
   m_Layer: 12
   m_Name: Right Arm
   m_TagString: Untagged
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1741993609
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: -226
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -87,6 +88,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7506526744595974187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499434064774818158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a3b40db671e240b2b4775411b8ca47b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yOffset: 0
+  isStaticLayer: 1
 --- !u!1 &2586329213168084097
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,6 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 170397055675977521}
   - component: {fileID: 2762692876021685167}
+  - component: {fileID: 8878976829993766278}
   m_Layer: 12
   m_Name: Left Arm
   m_TagString: Untagged
@@ -162,7 +178,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1741993609
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: -226
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -174,6 +190,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8878976829993766278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2586329213168084097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a3b40db671e240b2b4775411b8ca47b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yOffset: 0
+  isStaticLayer: 1
 --- !u!1 &2628731053599168706
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,7 +260,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1000
-  sanityRestored: 25
   stunKnockbackCurve:
     serializedVersion: 2
     m_Curve:
@@ -253,6 +282,7 @@ MonoBehaviour:
   deathParticles: {fileID: 5761495649415307529, guid: 158e5268b5ba24de0b9d88bcb580da1d, type: 3}
   deathSound: {fileID: 11400000, guid: 56b988d4f50d3438fab33c116acf7cde, type: 2}
   spawnedInCombat: 0
+  waitForCameraTrigger: 0
   moveAttackBufferTime: 0.5
   murderAttackBufferTime: 4
   limbs:
@@ -322,6 +352,7 @@ MonoBehaviour:
     Max: 0.2
   murderSpawnOffset: 3
   topSpawnOffset: 1.03
+  topSpawnHeight: 4
 --- !u!95 &5046098893941231540
 Animator:
   serializedVersion: 7
@@ -890,6 +921,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4484802353414971455}
   - component: {fileID: 2837951903135452307}
+  - component: {fileID: 7003884834343136407}
   m_Layer: 12
   m_Name: Body
   m_TagString: Untagged
@@ -955,7 +987,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1741993609
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: -179
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -967,6 +999,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7003884834343136407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3022673748050739192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a3b40db671e240b2b4775411b8ca47b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yOffset: 0
+  isStaticLayer: 1
 --- !u!1 &4428482921050161132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,6 +1059,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6168731358713379818}
   - component: {fileID: 9092322684597735952}
+  - component: {fileID: 6683723649049304348}
   m_Layer: 12
   m_Name: Head
   m_TagString: Untagged
@@ -1078,7 +1125,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1741993609
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: -309
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -1090,6 +1137,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6683723649049304348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5597598902559560951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a3b40db671e240b2b4775411b8ca47b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yOffset: 0
+  isStaticLayer: 1
 --- !u!1 &6474400069631710045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,6 +1203,7 @@ MonoBehaviour:
   sanityDamage: 30
   killEnemyOnChildAttack: 1
   killEnemyOnBearAttack: 0
+  killParticles: {fileID: 0}
 --- !u!61 &6032681460605968002
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1198,6 +1260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5831856655822934522}
   - component: {fileID: 2606931088740785539}
+  - component: {fileID: 1028499489986757989}
   m_Layer: 12
   m_Name: Pole
   m_TagString: Untagged
@@ -1263,7 +1326,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1741993609
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: -124
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -1275,6 +1338,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1028499489986757989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6936520836282004912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a3b40db671e240b2b4775411b8ca47b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yOffset: 0
+  isStaticLayer: 1
 --- !u!1001 &4950230900581289347
 PrefabInstance:
   m_ObjectHideFlags: 0

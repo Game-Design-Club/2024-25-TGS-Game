@@ -7,8 +7,15 @@ namespace Game.Exploration.Child
     {
         private float _startRotation;
         
+        private ChildState _endState;
+        
         public Attack(ChildController controller) : base(controller) {
             _startRotation = controller.LastRotation;
+        }
+
+        public Attack(ChildController controller, ChildState backState) : base(controller) {
+            _startRotation = controller.LastRotation;
+            _endState = backState;
         }
 
         public override void Enter()
@@ -42,9 +49,8 @@ namespace Game.Exploration.Child
             return _startRotation;
         }
 
-        public override void OnAttackAnimationOver()
-        {
-            Controller.TransitionToState(new Move(Controller));
+        public override void OnAttackAnimationOver() {
+            Controller.TransitionToState(_endState ?? new Move(Controller));
         }
     }
 }

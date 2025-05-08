@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using AppCore.AudioManagement;
 using Game.Combat.Bear;
 using Game.Combat.Enemies;
+using Game.Combat.FinalEncounter;
 using Game.Combat.Waves;
 using Game.Exploration.Child;
 using Game.GameManagement;
@@ -20,6 +21,7 @@ namespace Game.Combat {
         [SerializeField] private List<GameObject> activeStateSwitchOnCombat;
         [SerializeField] internal CameraShaker cameraShaker;
         [SerializeField] private BearController bearController;
+        [SerializeField] private GameObject killBounds;
         [Header("Cutscene")]
         [SerializeField] private SoundEffect breathSound;
         [SerializeField] private SoundEffect heartBeatSound;
@@ -31,6 +33,8 @@ namespace Game.Combat {
         [Header("Sanity")]
         [SerializeField] private float maxSanity = 100f;
         [SerializeField] private float regenSpeed = 0.1f;
+        [Header("Misc")]
+        [SerializeField] internal FinalEncounterManager finalEncounterManager;
         
         // Private fields
         private float _sanity = 0;
@@ -63,6 +67,7 @@ namespace Game.Combat {
         // Events
         public static event Action<float> OnSanityChanged; // Percentage
         public static event Action OnChildHit;
+        public static event Action OnClearCombatArea;
         
         private void Awake() {
             if (wavesData == null) {
@@ -174,7 +179,14 @@ namespace Game.Combat {
         }
 
         private IEnumerator SpawnWave(Wave wave) {
+            if (wave.waveEntries.Length == 0) {
+                Debug.LogError("No wave entries in wave. Please assign at least one entry.");
+            }
             foreach (WaveEntry entry in wave.waveEntries) {
+                if (entry == null) {
+                    Debug.LogError("Wave entry is null. Please assign a valid entry.");
+                    continue;
+                }
                 StartCoroutine(SpawnEntry(entry));
                 yield return new WaitForSeconds(entry.bufferAfterThisEntry);
             }
@@ -194,12 +206,13 @@ namespace Game.Combat {
             GameObject enemyObject =  Instantiate(CombatObjectsData.GetEnemyPrefab(entry.enemyType), spawnPos, Quaternion.identity);
             EnemyBase enemy = enemyObject.GetComponent<EnemyBase>();
             enemy.CombatManager = this;
+            enemy.SetCustomData(entry.customData);
             _activeEnemies.Add(enemy);
         }
         
         private Vector2 GetSpawnPosition(WaveEntry entry) {
                 if (!entry.spawnLeft && !entry.spawnRight && !entry.spawnTop && !entry.spawnBottom) {
-                    Debug.LogError("No spawn points for enemy");
+                    Debug.LogWarning("No spawn points for enemy, spawning in center");
                     return transform.position;
                 }
                 return SpawnFromSides(entry);
@@ -301,6 +314,24 @@ namespace Game.Combat {
         }
 
         private void PlayerLost() {
+            if (finalEncounterManager) {
+                OnClearCombatArea?.Invoke();
+                foreach (EnemyBase enemy in _activeEnemies) {
+                    enemy.HandleDeath(true);
+                    enemy.CurrentState.Die();
+                }
+                _activeEnemies.Clear();
+                _enemiesToKill = 0;
+                combatCamera.Priority = 0;
+                wideCamera.Priority = 0;
+                finalEncounterManager.StartFinalEncounter(this);
+                foreach (GameObject g in activeStateSwitchOnCombat) {
+                    g.SetActive(false);
+                }
+                killBounds.SetActive(false);
+                StopAllCoroutines();
+                return;
+            }
             _lost = true;
             GameManager.OnBearDeath();
             StopAllCoroutines();

@@ -172,4 +172,5 @@ MonoBehaviour:
   sanityDamage: 2
   killEnemyOnChildAttack: 0
   killEnemyOnBearAttack: 1
+  killParticles: {fileID: 5761495649415307529, guid: 53be7d597ebd34030be35bcfe261abb1, type: 3}
   sideKnockbackWeight: 0.3

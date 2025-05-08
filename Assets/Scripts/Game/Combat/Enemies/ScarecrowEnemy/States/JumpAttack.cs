@@ -18,7 +18,7 @@ namespace Game.Combat.Enemies.ScarecrowEnemy {
         
         public JumpAttack(EnemyBase controller) : base(controller) {
             _startPos = Controller().transform.position;
-            Vector2 childDif = -(controller.transform.position - Controller().CombatManager.Child.transform.position).normalized;
+            Vector2 childDif = -(Controller().transform.position - Controller().Child.transform.position).normalized;
             _endPos = (Vector2)controller.transform.position + childDif * Controller<Scarecrow>().jumpDistance;
         }
         

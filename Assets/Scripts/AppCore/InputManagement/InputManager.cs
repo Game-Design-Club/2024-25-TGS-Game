@@ -1,3 +1,4 @@
+using System;
 using Game.GameManagement;
 using UnityEngine;
 
@@ -29,6 +30,7 @@ namespace AppCore.InputManagement {
                     _playerInputs.UI.Enable();
                     break;
                 case GameEventType.Explore:
+                case GameEventType.FinalEncounter:
                     _playerInputs.Bear.Disable();
                     _playerInputs.Child.Enable();
                     _playerInputs.UI.Enable();
