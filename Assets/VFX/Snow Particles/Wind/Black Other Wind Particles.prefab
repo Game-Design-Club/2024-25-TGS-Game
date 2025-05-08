@@ -26,15 +26,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3178764124975077519, guid: c1e2116da47cb45529bf4a4058bf845f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3178764124975077519, guid: c1e2116da47cb45529bf4a4058bf845f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3178764124975077519, guid: c1e2116da47cb45529bf4a4058bf845f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3178764124975077519, guid: c1e2116da47cb45529bf4a4058bf845f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -50,6 +50,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8341808210622234235, guid: c1e2116da47cb45529bf4a4058bf845f, type: 3}
       propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341808210622234235, guid: c1e2116da47cb45529bf4a4058bf845f, type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8341808210622234235, guid: c1e2116da47cb45529bf4a4058bf845f, type: 3}
