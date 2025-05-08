@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4649313712946160752}
+  - component: {fileID: 7678688238882676191}
   - component: {fileID: 9118528877515153334}
   - component: {fileID: 5901805375566032894}
   - component: {fileID: 7692773190743548414}
-  - component: {fileID: 7678688238882676191}
   - component: {fileID: 7614870204717513076}
   m_Layer: 6
   m_Name: Child
@@ -42,6 +42,111 @@ Transform:
   - {fileID: 7484995077907499558}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7678688238882676191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784812110313782621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d76e71f77f0452ebc575fab3d575e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStateName: CurrentState
+  rotateTransform: {fileID: 6922884373588637876}
+  spriteRenderer: {fileID: 5847314838264712324}
+  mainBoxCollider: {fileID: 5901805375566032894}
+  combatBoxCollider: {fileID: 2250726342841792001}
+  chaseBoxCollider: {fileID: 318503758132964231}
+  _spriteAnimator: {fileID: 5198758546739855410}
+  walkSpeed: 6
+  swishParticles: {fileID: 8849355984580650207}
+  swishMatchTransform: {fileID: 584535652100698180}
+  jumpSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1.810852
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.0388591
+      value: 5.9586134
+      inSlope: -0.10261072
+      outSlope: -0.10261072
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.44694054
+    - serializedVersion: 3
+      time: 0.41178447
+      value: 5.9586134
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6904116
+      value: 1.1471603
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  jumpSpeed: 6
+  jumpParticles: {fileID: 827300274096996494}
+  landGroundParticles: {fileID: 3263399515259937617}
+  landRiverParticles: {fileID: 1605034655607395153}
+  floatSpeed: 1
+  walkToPointCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 7.798207
+      value: 1.0138793
+      inSlope: 0.0000010398496
+      outSlope: 0.0000010398496
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11464089
+      outWeight: 0
+    - serializedVersion: 3
+      time: 10.883627
+      value: 1.0188155
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  walkSound: {fileID: 11400000, guid: 812a814a945064100a14118e5c01a96c, type: 2}
+  childLayer: 6
+  jumpableLayer: 10
 --- !u!50 &9118528877515153334
 Rigidbody2D:
   serializedVersion: 5
@@ -137,111 +242,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7678688238882676191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784812110313782621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d76e71f77f0452ebc575fab3d575e28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentStateName: CurrentState
-  rotateTransform: {fileID: 6922884373588637876}
-  spriteRenderer: {fileID: 5847314838264712324}
-  mainBoxCollider: {fileID: 5901805375566032894}
-  combatBoxCollider: {fileID: 2250726342841792001}
-  chaseBoxCollider: {fileID: 318503758132964231}
-  _spriteAnimator: {fileID: 5198758546739855410}
-  walkSpeed: 7
-  swishParticles: {fileID: 8849355984580650207}
-  swishMatchTransform: {fileID: 584535652100698180}
-  jumpSpeedCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1.810852
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.0388591
-      value: 5.9586134
-      inSlope: -0.10261072
-      outSlope: -0.10261072
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.44694054
-    - serializedVersion: 3
-      time: 0.41178447
-      value: 5.9586134
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.6904116
-      value: 1.1471603
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  jumpSpeed: 6
-  jumpParticles: {fileID: 827300274096996494}
-  landGroundParticles: {fileID: 3263399515259937617}
-  landRiverParticles: {fileID: 1605034655607395153}
-  floatSpeed: 1
-  walkToPointCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 7.798207
-      value: 1.0138793
-      inSlope: 0.0000010398496
-      outSlope: 0.0000010398496
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.11464089
-      outWeight: 0
-    - serializedVersion: 3
-      time: 10.883627
-      value: 1.0188155
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  walkSound: {fileID: 11400000, guid: 812a814a945064100a14118e5c01a96c, type: 2}
-  childLayer: 6
-  jumpableLayer: 10
 --- !u!114 &7614870204717513076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -519,7 +519,7 @@ Transform:
   m_GameObject: {fileID: 8223043312467295369}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06, y: 0.673, z: 0}
+  m_LocalPosition: {x: -0.06, y: 0.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -568,7 +568,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1353156089
   m_SortingLayer: 2
-  m_SortingOrder: 24107
+  m_SortingOrder: 24120
   m_Sprite: {fileID: 888789885651089065, guid: 90fe090ea35ce4a78a884a9209dc128d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

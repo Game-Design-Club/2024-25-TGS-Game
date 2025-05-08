@@ -892,6 +892,7 @@ MonoBehaviour:
   range: 5
   rockSpeed: 7.5
   avalancheBottom: {fileID: 4234498231934801853}
+  spawnRandomness: 0.2
 --- !u!1 &6128891384614705306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1300,10 +1301,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1065694261
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: -100
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.24705882}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6039216}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
