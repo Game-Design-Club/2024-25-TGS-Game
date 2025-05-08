@@ -43,4 +43,5 @@ MonoBehaviour:
     spawnTop: 1
     spawnBottom: 1
     bufferAfterThisEntry: 0
+    customData: 1
   canReplay: 0

@@ -1,5 +1,4 @@
 
-using System;
 using AppCore.AudioManagement;
 
 using AppCore;
@@ -88,13 +87,17 @@ namespace Game.Combat.Enemies {
             CurrentState.OnAnimationEnded();
         }
 
-        internal void HandleDeath() {
-            CombatManager.EnemyKilled(this);
+        internal void HandleDeath(bool calledFromManager = false) {
+            if (!calledFromManager) {
+                CombatManager.EnemyKilled(this);
+            }
             
             CurrentState.Die();
             
             this.CreateParticles(deathParticles);
-            CombatManager.cameraShaker.Shake();
+            if (!calledFromManager || Random.value < 0.1f) {
+                CombatManager.cameraShaker.Shake();
+            }
             deathSound?.Play();
             App.Get<FreezeFrameManager>().FreezeFrame();
         }
@@ -138,6 +141,9 @@ namespace Game.Combat.Enemies {
                 waitForCameraTrigger = false;
                 TransitionToState(StartingState);
             }
+        }
+
+        public virtual void SetCustomData(int entryCustomData) {
         }
     }
 }

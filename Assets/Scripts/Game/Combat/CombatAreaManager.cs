@@ -206,6 +206,7 @@ namespace Game.Combat {
             GameObject enemyObject =  Instantiate(CombatObjectsData.GetEnemyPrefab(entry.enemyType), spawnPos, Quaternion.identity);
             EnemyBase enemy = enemyObject.GetComponent<EnemyBase>();
             enemy.CombatManager = this;
+            enemy.SetCustomData(entry.customData);
             _activeEnemies.Add(enemy);
         }
         
@@ -316,6 +317,7 @@ namespace Game.Combat {
             if (finalEncounterManager) {
                 OnClearCombatArea?.Invoke();
                 foreach (EnemyBase enemy in _activeEnemies) {
+                    enemy.HandleDeath(true);
                     enemy.CurrentState.Die();
                 }
                 _activeEnemies.Clear();

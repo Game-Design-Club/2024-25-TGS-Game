@@ -6,20 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Combat/Enemies/Shooting Enemy/Shooting Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Combat/Enemies/Shooting Enemy/Shooting Enemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Combat/Final/Final Combat Area.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Combat/Final/Final Combat Area.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Farm Area/Corn Stalk.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Farm Area/Corn Stalk.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/Baby Noah 6 Weeks.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Forest Area/River/Baby Noah 6 Weeks.jpg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Scrapbook Items/Bone.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Scrapbook Items/Bone.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Scrapbook Items/Feather.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Scrapbook Items/Feather.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Scrapbook Items/Hair Tuft.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Scrapbook Items/Hair Tuft.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Scrapbook Items/Owl Pellet.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Scrapbook Items/Owl Pellet.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Scrapbook Items/Pages.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Scrapbook Items/Pages.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Scrapbook Items/Pinecone.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Scrapbook Items/Pinecone.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Scrapbook Items/Ranger Badge.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Scrapbook Items/Ranger Badge.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Scrapbook/Tape.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Scrapbook/Tape.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tests/Triangle.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tests/Triangle.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Combat/Chase/Overwhelm.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Combat/Chase/Overwhelm.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Levels/Chase LEvel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Levels/Chase LEvel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/CombatAreaManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/CombatAreaManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/EnemyBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/EnemyBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/ShootingEnemy/ShootingEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/ShootingEnemy/ShootingEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/ShootingEnemy/States/ShootAndMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/ShootingEnemy/States/ShootAndMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Waves/WaveEntry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Waves/WaveEntry.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

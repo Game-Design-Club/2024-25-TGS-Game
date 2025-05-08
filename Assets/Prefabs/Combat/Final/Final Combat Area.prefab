@@ -1324,6 +1324,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6069785489485381478, guid: 8c595d726315d4690af8d5ce99b499c8, type: 3}
+      propertyPath: bulletSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6069785489485381478, guid: 8c595d726315d4690af8d5ce99b499c8, type: 3}
       propertyPath: waitForCameraTrigger
       value: 1
       objectReference: {fileID: 0}
@@ -3325,6 +3329,10 @@ PrefabInstance:
     - target: {fileID: 3630791784139991421, guid: 8c595d726315d4690af8d5ce99b499c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6069785489485381478, guid: 8c595d726315d4690af8d5ce99b499c8, type: 3}
+      propertyPath: bulletSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6069785489485381478, guid: 8c595d726315d4690af8d5ce99b499c8, type: 3}
       propertyPath: waitForCameraTrigger

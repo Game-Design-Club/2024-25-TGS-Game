@@ -16,6 +16,8 @@ namespace Game.Combat.Enemies {
         [SerializeField] private Transform shootSpawnPoint;
         [SerializeField] internal GameObject bulletPrefab;
         [SerializeField] internal Transform rotatePivot;
+        [SerializeField] internal float minAngle = 0f;
+        [SerializeField] internal float maxAngle = 360f;
 
         protected override EnemyState StartingState => new ShootAndMove(this);
         
@@ -60,6 +62,13 @@ namespace Game.Combat.Enemies {
             
             if (CurrentState is ShootAndMove shootAndMove) {
                 shootAndMove.StartShootCycle();
+            }
+        }
+        
+        public override void SetCustomData(int entryCustomData) {
+            if (entryCustomData == 1) {
+                minAngle = 90;
+                maxAngle = 270;
             }
         }
     }
