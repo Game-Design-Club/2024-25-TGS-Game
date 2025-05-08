@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ea1fa90a6b48249ce36baffba20edd, type: 3}
+  m_Name: Day 2 Wave 5
+  m_EditorClassIdentifier: 
+  waveEntries:
+  - spawnRate:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: -0.047238905
+        value: 0.99705684
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 19.12381
+        value: 0.8829045
+        inSlope: -0.0043744254
+        outSlope: -0.0043744254
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 38.424976
+        value: 0.828763
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 4
+    enemyType: 3
+    spawnLeft: 0
+    spawnRight: 0
+    spawnTop: 1
+    spawnBottom: 0
+    bufferAfterThisEntry: 0
+  - spawnRate:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 1.0183166
+        value: 0.89067256
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 19.12381
+        value: 0.8829045
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 4
+    enemyType: 1
+    spawnLeft: 1
+    spawnRight: 1
+    spawnTop: 1
+    spawnBottom: 0
+    bufferAfterThisEntry: 0
+  - spawnRate:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 1.0183166
+        value: 0.89067256
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 19.12381
+        value: 0.8829045
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 4
+    enemyType: 0
+    spawnLeft: 1
+    spawnRight: 1
+    spawnTop: 1
+    spawnBottom: 0
+    bufferAfterThisEntry: 0
+  canReplay: 0

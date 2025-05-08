@@ -8,7 +8,7 @@ namespace Game.Exploration.Enviornment.River
         [SerializeField] private Transform logParent;
         [SerializeField] private Transform rockParent;
         [SerializeField] private Transform spriteParent;
-        [Range(1, 100)] [SerializeField] private int length = 5;
+        [Range(1, 250)] [SerializeField] private int length = 5;
         [Range(.1f, 10f)] [SerializeField] private float size = 2f;
         [Range(0, 5f)] [SerializeField] private float sizeBuffer = 0.3f;
         [SerializeField] private float offset = 14f;
@@ -78,6 +78,10 @@ namespace Game.Exploration.Enviornment.River
                 origin.size.x * child.localScale.x / lossyScale.x,
                 origin.size.y * child.localScale.y / lossyScale.y);
 
+            if (child.rotation.z is not 0 or 180) {
+                effectiveSize = new Vector2(effectiveSize.y, effectiveSize.x);
+            }
+
             BoxCollider2D added = gameObject.AddComponent<BoxCollider2D>();
             added.size = effectiveSize;
 
@@ -85,6 +89,7 @@ namespace Game.Exploration.Enviornment.River
             added.offset = transform.InverseTransformPoint(worldPos);
             added.compositeOperation = Collider2D.CompositeOperation.Difference;
             _addedColliders.Add(added);
+
         }
 
         public void ComputeColliderRemovals()
@@ -95,6 +100,11 @@ namespace Game.Exploration.Enviornment.River
 
             foreach (Transform child in logParent) RemoveColliderArea(child);
             foreach (Transform child in rockParent) RemoveColliderArea(child);
+            GetComponent<CompositeCollider2D>().GenerateGeometry();
+            CompositeCollider2D cc = GetComponent<CompositeCollider2D>();
+            cc.GenerateGeometry();
+            cc.enabled = false;
+            cc.enabled = true;
         }
 
         private void CreateSprites() {

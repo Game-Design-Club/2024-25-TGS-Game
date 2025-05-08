@@ -4,6 +4,7 @@ using UnityEngine;
 namespace Game.Tutorial {
     public class TutorialArea : MonoBehaviour {
         [SerializeField] private float timeToAppear = 0;
+        [SerializeField] private float disappearTime = 100000;
         [TextArea(3, 10)]
         [SerializeField] private string text;
         private void OnTriggerEnter2D(Collider2D other) {
@@ -13,6 +14,8 @@ namespace Game.Tutorial {
         private IEnumerator StartTimer() {
             yield return new WaitForSeconds(timeToAppear);
             TutorialPopupObject.ShowTutorialPopup(text);
+            yield return new WaitForSeconds(disappearTime);
+            TutorialPopupObject.HideTutorialPopup();
         }
 
         private void OnTriggerExit2D(Collider2D other) {

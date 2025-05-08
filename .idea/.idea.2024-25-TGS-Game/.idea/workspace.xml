@@ -6,13 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Combat/Chase/Overwhelm.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Combat/Chase/Overwhelm.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Levels/Chase LEvel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Levels/Chase LEvel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/CombatAreaManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/CombatAreaManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/EnemyBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/EnemyBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/ShootingEnemy/ShootingEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/ShootingEnemy/ShootingEnemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/ShootingEnemy/States/ShootAndMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/ShootingEnemy/States/ShootAndMove.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Waves/WaveEntry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Waves/WaveEntry.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Combat/Day 2/0 Forest Level.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Combat/Day 2/0 Forest Level.asset.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +53,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.postprocessing/PostProcessing/Shaders/Builtins/Bloom.shader" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal/Shaders/2D/Sprite-Lit-Default.shader" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Tests/Editor/UGUI/Canvas/CanvasElementsMaintainValidPositionsWhenCameraOrthoSizeIsZero.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8aecd002908e45839e7ca332f9f90acc1f4200/d6/fff4909c/LayoutDataStore.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -83,7 +79,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.37857142&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Chase-Level&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;forest-final&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -95,7 +91,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/Building/Build May 8.app/Contents/MacOS/Snow Day" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Building/Build April 21.app/Contents/MacOS/2024-25-TGS-Game" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Building/Build April 21.app/Contents/MacOS" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -188,8 +184,6 @@
       <workItem from="1745450455503" duration="9108000" />
       <workItem from="1745779686706" duration="3846000" />
       <workItem from="1746055289574" duration="10303000" />
-      <workItem from="1746487653882" duration="332000" />
-      <workItem from="1746662462103" duration="4502000" />
     </task>
     <servers />
   </component>

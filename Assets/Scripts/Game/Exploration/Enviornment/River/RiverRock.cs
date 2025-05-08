@@ -18,6 +18,7 @@ namespace Game.Exploration.Enviornment.River {
         [SerializeField] private Transform spriteRenderer;
         [SerializeField] private string flagName;
         [SerializeField] private ParticleSystem[] splashParticles;
+        [SerializeField] private GameObject interactable;
         
         public bool InRiver { get; private set; } = false;
         private bool _isMoving = false;
@@ -75,6 +76,7 @@ namespace Game.Exploration.Enviornment.River {
         }
 
         private void SetInRiver() {
+            interactable.SetActive(false);
             foreach (ParticleSystem particle in splashParticles) {
                 particle?.Play();
             }
@@ -134,7 +136,7 @@ namespace Game.Exploration.Enviornment.River {
         }
 
         private void OnCollisionEnter2D(Collision2D other) {
-            if (other.gameObject.CompareTag(Tags.River) || other.gameObject.CompareTag(Tags.RiverBase)) {
+            if (other.gameObject.CompareTag(Tags.River) || other.gameObject.CompareTag(Tags.RiverBase) || other.gameObject.CompareTag(Tags.Log)) {
                 Physics2D.IgnoreCollision(_collider, other.collider);
                 return;
             }
