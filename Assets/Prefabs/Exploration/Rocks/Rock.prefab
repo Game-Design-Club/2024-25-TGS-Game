@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1117102443552395568}
   - component: {fileID: 3103372213402561230}
   - component: {fileID: 8273059614398768284}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a36de2c97fca4185bf0664423ad575d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hideSprite: 0
   randomize: 0
   randomizeFlip: 0
   objectNumber: 2
