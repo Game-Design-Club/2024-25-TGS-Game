@@ -14,6 +14,7 @@ namespace Game.Exploration.Child
         }
 
         public Attack(ChildController controller, ChildState backState) : base(controller) {
+            _startRotation = controller.LastRotation;
             _endState = backState;
         }
 

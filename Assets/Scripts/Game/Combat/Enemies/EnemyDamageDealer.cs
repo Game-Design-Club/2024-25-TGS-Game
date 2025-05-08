@@ -33,7 +33,9 @@ namespace Game.Combat.Enemies {
         }
 
         private void Start() {
-            _combatManager = enemyBase.CombatManager;
+            if (enemyBase != null) {
+                _combatManager = enemyBase.CombatManager;
+            }
         }
 
         private void OnGameEvent(GameEvent obj) {

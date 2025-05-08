@@ -1,4 +1,5 @@
 
+using System;
 using AppCore.AudioManagement;
 
 using AppCore;
@@ -40,6 +41,21 @@ namespace Game.Combat.Enemies {
         private void Awake() {
             TryGetComponent(out Animator);
             TryGetComponent(out Rigidbody);
+        }
+
+        private void OnEnable() {
+            GameManager.OnGameEvent += OnGameEvent;
+        }
+        
+        private void OnDisable() {
+            GameManager.OnGameEvent -= OnGameEvent;
+        }
+
+        private void OnGameEvent(GameEvent obj) {
+            if (obj.GameEventType == GameEventType.Explore) {
+                DestroyEnemy();
+                Destroy(gameObject);
+            }
         }
 
         private protected void Start() {

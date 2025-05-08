@@ -125,11 +125,9 @@ namespace Game.Combat.FinalEncounter {
 
         private void StopCombat() {
             _moving = false;
-            // Stop debris spawns
             if (debrisCoroutine != null) StopCoroutine(debrisCoroutine);
-            // Restore camera priority
             followCamera.Priority = originalCameraPriority;
-            // (Optionally return to old combat area)
+            LevelManager.GetCurrentLevel().child.TransitionToState(new Move(LevelManager.GetCurrentLevel().child));
         }
 
         public void ChildHit() {

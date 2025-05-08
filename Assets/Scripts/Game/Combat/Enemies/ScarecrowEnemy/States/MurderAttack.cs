@@ -30,7 +30,7 @@ namespace Game.Combat.Enemies.ScarecrowEnemy {
             for (int i = 0; i < Controller<Scarecrow>().murderCount.Random(); i++) {
                 GameObject crow = Object.Instantiate(Controller<Scarecrow>().crowPrefab);
                 crow.transform.position = baseSpawnPos +
-                                          new Vector2(Controller<Scarecrow>().murderSpawnOffset.Random(), 0);
+                                          new Vector2(Controller<Scarecrow>().murderSpawnOffset.Random(), Controller<Scarecrow>().xSpawnOffset);
                 crow.GetComponent<EnemyBase>().CombatManager = Controller().CombatManager;
                 yield return new WaitForSeconds(Controller<Scarecrow>().murderSpawnDelay.Random());
             }

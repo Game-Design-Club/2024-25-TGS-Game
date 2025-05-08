@@ -593,7 +593,7 @@ MonoBehaviour:
   endPoint: {fileID: 6038275278648875586}
   movePoint: {fileID: 2536517257104041512}
   moveSpeed: 1.5
-  behindMoveSpeed: 20
+  behindMoveSpeed: 4
   cameraSnapEdge: {fileID: 468231889882185010}
   debrisSpawnSpeed:
     Min: 1
@@ -690,7 +690,7 @@ Transform:
   m_GameObject: {fileID: 5587757777467564788}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.5, y: 0, z: 0}
+  m_LocalPosition: {x: -12.66, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -970,6 +970,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7250185219686286199}
   - component: {fileID: 3185956738735890498}
+  - component: {fileID: 5294789589917807822}
   m_Layer: 0
   m_Name: Wall thing
   m_TagString: Untagged
@@ -1047,6 +1048,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5294789589917807822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7412827418736743171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3e7ef6199e94d9c8dba0142df0f610e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitForce: 10
+  enemyBase: {fileID: 0}
+  hitChild: 1
+  hitBear: 0
+  sanityDamage: 10
+  killEnemyOnChildAttack: 0
+  killEnemyOnBearAttack: 0
+  killParticles: {fileID: 0}
 --- !u!1 &7547278140970241908
 GameObject:
   m_ObjectHideFlags: 0
@@ -1576,9 +1597,21 @@ PrefabInstance:
       propertyPath: waitForCameraTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2606931088740785539, guid: dcd586d1d1c7d49eab9feb5027d16cd9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1267
+      objectReference: {fileID: 0}
     - target: {fileID: 2628731053599168706, guid: dcd586d1d1c7d49eab9feb5027d16cd9, type: 3}
       propertyPath: m_Name
       value: Scarecrow Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762692876021685167, guid: dcd586d1d1c7d49eab9feb5027d16cd9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1165
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837951903135452307, guid: dcd586d1d1c7d49eab9feb5027d16cd9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1212
       objectReference: {fileID: 0}
     - target: {fileID: 3630791784139991421, guid: dcd586d1d1c7d49eab9feb5027d16cd9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1623,6 +1656,14 @@ PrefabInstance:
     - target: {fileID: 3917778844857695862, guid: dcd586d1d1c7d49eab9feb5027d16cd9, type: 3}
       propertyPath: killEnemyOnChildAttack
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5617059638348944306, guid: dcd586d1d1c7d49eab9feb5027d16cd9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1165
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092322684597735952, guid: dcd586d1d1c7d49eab9feb5027d16cd9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1082
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2254,9 +2295,21 @@ PrefabInstance:
       propertyPath: waitForCameraTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2606931088740785539, guid: dcd586d1d1c7d49eab9feb5027d16cd9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 529
+      objectReference: {fileID: 0}
     - target: {fileID: 2628731053599168706, guid: dcd586d1d1c7d49eab9feb5027d16cd9, type: 3}
       propertyPath: m_Name
       value: Scarecrow Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762692876021685167, guid: dcd586d1d1c7d49eab9feb5027d16cd9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 427
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837951903135452307, guid: dcd586d1d1c7d49eab9feb5027d16cd9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 474
       objectReference: {fileID: 0}
     - target: {fileID: 3630791784139991421, guid: dcd586d1d1c7d49eab9feb5027d16cd9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2301,6 +2354,14 @@ PrefabInstance:
     - target: {fileID: 3917778844857695862, guid: dcd586d1d1c7d49eab9feb5027d16cd9, type: 3}
       propertyPath: killEnemyOnChildAttack
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5617059638348944306, guid: dcd586d1d1c7d49eab9feb5027d16cd9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 427
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092322684597735952, guid: dcd586d1d1c7d49eab9feb5027d16cd9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 344
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
