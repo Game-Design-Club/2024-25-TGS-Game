@@ -153,6 +153,7 @@ MonoBehaviour:
   deathParticles: {fileID: 5761495649415307529, guid: 158e5268b5ba24de0b9d88bcb580da1d, type: 3}
   deathSound: {fileID: 11400000, guid: 56b988d4f50d3438fab33c116acf7cde, type: 2}
   spawnedInCombat: 0
+  waitForCameraTrigger: 0
   maxAngle: 35
   directionAngleVariance: 20
   rollSpeed: 3
@@ -211,6 +212,7 @@ MonoBehaviour:
   sanityDamage: 2
   killEnemyOnChildAttack: 1
   killEnemyOnBearAttack: 1
+  killParticles: {fileID: 3378371463213774398}
 --- !u!61 &4787745869565369612
 BoxCollider2D:
   m_ObjectHideFlags: 0

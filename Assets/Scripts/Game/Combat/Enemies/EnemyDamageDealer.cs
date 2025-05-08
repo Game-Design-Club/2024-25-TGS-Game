@@ -16,6 +16,7 @@ namespace Game.Combat.Enemies {
         [SerializeField] internal float sanityDamage = 10;
         [FormerlySerializedAs("killChildOnAttack")] [SerializeField] private bool killEnemyOnChildAttack = true;
         [SerializeField] private bool killEnemyOnBearAttack = true;
+        [SerializeField] private GameObject killParticles;
         
         private CombatAreaManager _combatManager;
         
@@ -47,6 +48,9 @@ namespace Game.Combat.Enemies {
                     enemyBase.DestroyEnemy();
                 }
                 HandleHit();
+                if (killParticles != null) {
+                    Instantiate(killParticles, transform.position, Quaternion.identity);
+                }
                 if (_combatManager) {
                     _combatManager.ChildHit(this);
                 } else {

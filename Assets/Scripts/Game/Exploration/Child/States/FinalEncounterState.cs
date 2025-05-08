@@ -32,6 +32,10 @@ namespace Game.Exploration.Child {
             else return Controller.walkSpeed;
         }
 
+        public override void OnAttackInput() {
+            Controller.TransitionToState(new Attack(Controller, new FinalEncounterState(Controller)));
+        }
+
         public override void Exit() {
             Controller.spriteRenderer.sortingLayerName = RenderingLayers.ChildGameplay;
             Controller.combatBoxCollider.enabled = true;
