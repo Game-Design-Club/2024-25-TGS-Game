@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Game.Combat.Bear;
 using Tools;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;

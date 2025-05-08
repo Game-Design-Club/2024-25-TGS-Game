@@ -116,7 +116,8 @@ namespace Tools {
 
         public static class BoolFlags {
             public const string HasStick = "HasStick";
-            public static string HasJump = "HasJump";
+            public const string HasJump = "HasJump";
+            public const string HasGrowl = "HasGrowl";
         }
 
         public static class Scenes {

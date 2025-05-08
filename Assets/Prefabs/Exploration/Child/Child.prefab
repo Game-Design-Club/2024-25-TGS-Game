@@ -156,7 +156,7 @@ MonoBehaviour:
   combatBoxCollider: {fileID: 2250726342841792001}
   chaseBoxCollider: {fileID: 318503758132964231}
   _spriteAnimator: {fileID: 5198758546739855410}
-  walkSpeed: 5
+  walkSpeed: 7
   swishParticles: {fileID: 8849355984580650207}
   swishMatchTransform: {fileID: 584535652100698180}
   jumpSpeedCurve:
