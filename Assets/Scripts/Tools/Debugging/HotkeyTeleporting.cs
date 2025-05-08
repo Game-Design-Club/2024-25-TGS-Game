@@ -50,6 +50,9 @@ namespace Tools.Debugging {
         }
 
         private void TeleportToTarget(int n) {
+            if (n > _targets.Count - 1) {
+                return;
+            }
             LevelManager.GetCurrentLevel().child.transform.position = _targets[n].position;
         }
     }

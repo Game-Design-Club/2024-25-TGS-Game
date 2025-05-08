@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 4921789552587308278}
   m_Layer: 10
   m_Name: River Manager
-  m_TagString: Untagged
+  m_TagString: River Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,19 +164,19 @@ CompositeCollider2D:
   - m_Collider: {fileID: 4921789552587308278}
     m_ColliderPaths:
     - - X: 353302496
-        Y: 59250496
+        Y: 59250468
       - X: -353302496
-        Y: 59250496
+        Y: 59250528
       - X: -353302496
-        Y: -59250496
+        Y: -59250468
       - X: 353302496
-        Y: -59250496
+        Y: -59250528
   m_CompositePaths:
     m_Paths:
-    - - {x: 35.330223, y: -5.92505}
-      - {x: 35.330223, y: 5.92505}
-      - {x: -35.33025, y: 5.9250207}
-      - {x: -35.330223, y: -5.92505}
+    - - {x: 35.330223, y: -5.9250526}
+      - {x: 35.330223, y: 5.925047}
+      - {x: -35.33025, y: 5.9250236}
+      - {x: -35.330223, y: -5.925047}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0

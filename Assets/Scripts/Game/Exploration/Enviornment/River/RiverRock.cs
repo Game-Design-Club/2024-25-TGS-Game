@@ -134,7 +134,7 @@ namespace Game.Exploration.Enviornment.River {
         }
 
         private void OnCollisionEnter2D(Collision2D other) {
-            if (other.gameObject.CompareTag(Tags.River) || other.gameObject.CompareTag(Tags.RiverBase)) {
+            if (other.gameObject.CompareTag(Tags.River) || other.gameObject.CompareTag(Tags.RiverBase) || other.gameObject.CompareTag(Tags.Log)) {
                 Physics2D.IgnoreCollision(_collider, other.collider);
                 return;
             }
