@@ -1594,6 +1594,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 7916753665931558677}
     m_Modifications:
     - target: {fileID: 738494892635732221, guid: dcd586d1d1c7d49eab9feb5027d16cd9, type: 3}
+      propertyPath: xSpawnOffset
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 738494892635732221, guid: dcd586d1d1c7d49eab9feb5027d16cd9, type: 3}
       propertyPath: waitForCameraTrigger
       value: 1
       objectReference: {fileID: 0}
@@ -2291,6 +2295,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7916753665931558677}
     m_Modifications:
+    - target: {fileID: 738494892635732221, guid: dcd586d1d1c7d49eab9feb5027d16cd9, type: 3}
+      propertyPath: xSpawnOffset
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 738494892635732221, guid: dcd586d1d1c7d49eab9feb5027d16cd9, type: 3}
       propertyPath: waitForCameraTrigger
       value: 1
@@ -3321,10 +3329,6 @@ PrefabInstance:
     - target: {fileID: 6069785489485381478, guid: 8c595d726315d4690af8d5ce99b499c8, type: 3}
       propertyPath: waitForCameraTrigger
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9010733425550174598, guid: 8c595d726315d4690af8d5ce99b499c8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -7.45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
