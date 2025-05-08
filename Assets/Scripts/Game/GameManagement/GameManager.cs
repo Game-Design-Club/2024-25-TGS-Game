@@ -4,6 +4,8 @@ using AppCore.DataManagement;
 using AppCore.DialogueManagement;
 using AppCore.InputManagement;
 using AppCore.SceneManagement;
+using Game.Exploration.UI.Comic;
+using JetBrains.Annotations;
 using Tools;
 using UnityEngine;
 
@@ -11,6 +13,7 @@ namespace Game.GameManagement {
     public class GameManager : MonoBehaviour {
         [SerializeField] public float transitionDuration = 1f;
         [SerializeField] public UIManager UIManager;
+        [SerializeField] public ComicManager introComic;
         
         public static float TransitionDuration => _instance.transitionDuration;
         
@@ -66,8 +69,12 @@ namespace Game.GameManagement {
         }
 
         private void Start() {
-            GameEventType = GameEventType.ExploreEnter;
-            GameEventType = GameEventType.Explore;
+            if (App.Get<DataManager>().firstLevelLoad) {
+                introComic.PlayComic();
+            } else {
+                GameEventType = GameEventType.ExploreEnter;
+                GameEventType = GameEventType.Explore;
+            }
         }
 
         private void OnEnable() {
