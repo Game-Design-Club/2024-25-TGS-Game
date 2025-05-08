@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using AppCore;
+using AppCore.DataManagement;
 using AppCore.InputManagement;
 using Game.GameManagement;
 using UnityEngine;
@@ -19,6 +20,11 @@ namespace Tools.Debugging {
         
         private void Update() {
             if (!isEnabled) return;
+
+            if (Input.GetKeyDown(KeyCode.Backslash)) {
+                App.Get<DataManager>().SetFlag(BoolFlags.HasJump, true);
+                App.Get<DataManager>().SetFlag(BoolFlags.HasStick, true);
+            }
             
             if (Input.GetKeyDown(KeyCode.Alpha1)) {
                 TeleportToTarget(0);

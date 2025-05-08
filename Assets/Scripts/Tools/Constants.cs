@@ -78,6 +78,10 @@ namespace Tools {
                 public const string Options = "Options";
                 public const string Credits = "Credits";
             }
+
+            public class Tutorial {
+                public const string Popup = "Popup";
+            }
         }
 
         public static class Tags {
@@ -106,7 +110,8 @@ namespace Tools {
 
         public static class BoolFlags {
             public const string HasStick = "HasStick";
-            public static string HasJump = "HasJump";
+            public const string HasJump = "HasJump";
+            public const string HasGrowl = "HasGrowl";
         }
 
         public static class Scenes {

@@ -67,7 +67,7 @@ namespace Game.Exploration.Enviornment.River {
             if (InRiver || _isMoving) return;
             
             PointCollision pointCollision = new PointCollision(transform.position, _collider);
-            if (pointCollision.TouchingRiverBase && !pointCollision.TouchingLand) {
+            if (pointCollision.TouchingRiverBase && !pointCollision.TouchingLand && !pointCollision.TouchingLog) {
                 SetInRiver();
                 StartCoroutine(MoveRockToRiver());
                 StartCoroutine(MakeSmaller());

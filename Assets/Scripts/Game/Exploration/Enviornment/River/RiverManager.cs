@@ -107,19 +107,23 @@ namespace Game.Exploration.Enviornment.River
             cc.enabled = true;
         }
 
-        private void CreateSprites()
-        {
+        private void CreateSprites() {
             _sprites = new GameObject[length];
 
-            float rot = transform.rotation.eulerAngles.z;
-            _calculatedMoveVector = new Vector2(Mathf.Cos(rot * Mathf.Deg2Rad),Mathf.Sin(rot * Mathf.Deg2Rad)) * offset * size;
+            // Keep track of rotation so the movement still works vertically
+            float rotation = transform.rotation.eulerAngles.z;
+            
+            // The vector2 between two river sprites
+            _calculatedMoveVector = new Vector2(
+                Mathf.Cos(rotation * Mathf.Deg2Rad),
+                Mathf.Sin(rotation * Mathf.Deg2Rad))
+                                    * offset * size;
             
             _start = (Vector2)transform.position - _calculatedMoveVector * length / 2f;
-            
             Vector2 position = _start;
 
-            for (int i = 0; i < length; i++)
-            {
+            for (int i = 0; i < length; i++) {
+                // Create a new river sprite 
                 GameObject instance = Instantiate(baseSpriteObject, spriteParent);
                 _sprites[i] = instance;
                 instance.transform.position = position;

@@ -1,5 +1,6 @@
 using AppCore;
 using AppCore.AudioManagement;
+using AppCore.DataManagement;
 using AppCore.InputManagement;
 using Tools;
 using UnityEngine;
@@ -26,7 +27,7 @@ namespace Game.Combat.Bear {
         
         public override void OnAnimationEnded(int id) {
             if (id != AnimationParameters.BearIDs.Swipe) return;
-            if (App.Get<InputManager>().GetBearSwipe) {
+            if (App.Get<InputManager>().GetBearSwipe && App.Get<DataManager>().GetFlag(BoolFlags.HasGrowl)) {
                 Controller.TransitionToState(new GrowlChargeup(Controller));
             } else {
                 Controller.TransitionToState(new Idle(Controller, Controller.swipeCooldown));
