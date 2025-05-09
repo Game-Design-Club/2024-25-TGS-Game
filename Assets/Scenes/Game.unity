@@ -48536,6 +48536,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Animator
       objectReference: {fileID: 0}
+    - target: {fileID: 7620363031036428783, guid: d9629ccca7358407ba654960c1c56286, type: 3}
+      propertyPath: m_text
+      value: Snow Day
+      objectReference: {fileID: 0}
     - target: {fileID: 8372266390163824298, guid: d9629ccca7358407ba654960c1c56286, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

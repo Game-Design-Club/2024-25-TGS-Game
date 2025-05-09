@@ -1246,6 +1246,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 6471667464127298382}
   transitionTime: 1
+  introMusic: {fileID: 11400000, guid: 01f0a1c5868a047febd57b41dd929992, type: 2}
+  mainMusic: {fileID: 11400000, guid: 19cb33e0baf8744959fd1a1fc46f091a, type: 2}
+  combatMusic: {fileID: 11400000, guid: ba4faee9349a443749c88c865fb2a572, type: 2}
 --- !u!82 &6471667464127298382
 AudioSource:
   m_ObjectHideFlags: 0

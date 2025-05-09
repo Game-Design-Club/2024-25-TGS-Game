@@ -1,10 +1,31 @@
+using System;
 using System.Collections;
+using Game.GameManagement;
 using UnityEngine;
 
 namespace AppCore.AudioManagement {
     public class MusicManager : AppModule {
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private float transitionTime = 1f;
+        [SerializeField] private Music introMusic;
+        [SerializeField] private Music mainMusic;
+        [SerializeField] private Music combatMusic;
+
+        private void OnEnable() {
+            GameManager.OnGameEvent += OnGameEvent;
+        }
+        
+        private void OnDisable() {
+            GameManager.OnGameEvent -= OnGameEvent;
+        }
+
+        private void OnGameEvent(GameEvent obj) {
+            if (obj.GameEventType == GameEventType.Explore) {
+                PlayMusic(mainMusic);
+            } else if (obj.GameEventType == GameEventType.Combat) {
+                PlayMusic(combatMusic);
+            }
+        }
 
         public void PlayMusic(Music music) {
             StartCoroutine(PlayMusicCoroutine(music));

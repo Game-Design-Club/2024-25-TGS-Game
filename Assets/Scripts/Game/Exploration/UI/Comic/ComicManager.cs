@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using AppCore;
+using AppCore.AudioManagement;
 using AppCore.InputManagement;
 using Game.GameManagement;
 using TMPro;
@@ -17,6 +18,7 @@ namespace Game.Exploration.UI.Comic {
         [SerializeField] private float waitTime = 1.5f;
         [SerializeField] private float continueWaitTime = 0.5f;
         [SerializeField] private TextMeshProUGUI continuePopup;
+        [SerializeField] private Music introMusic;
         
         private ComicPage[] _comicPages;
         
@@ -59,6 +61,8 @@ namespace Game.Exploration.UI.Comic {
         public void PlayComic() {
             blackBackground.gameObject.SetActive(true);
             blackBackground.color = new Color(blackBackground.color.r, blackBackground.color.g, blackBackground.color.b, 1);
+            
+            App.Get<MusicManager>().PlayMusic(introMusic);
             
             StartCoroutine(PlayComicRoutine());
             StartCoroutine(ShowContinuePopup());
