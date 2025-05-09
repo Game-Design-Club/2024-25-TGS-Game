@@ -7,17 +7,19 @@ using AppCore.InputManagement;
 using AppCore.SceneManagement;
 using Game.Exploration.UI.Comic;
 using Tools;
+using Tools.CameraShaking;
 using UnityEngine;
 
 namespace Game.GameManagement {
     public class GameManager : MonoBehaviour {
         [SerializeField] public float transitionDuration = 1f;
         [SerializeField] public UIManager UIManager;
+
         [SerializeField] public ComicManager introComic;
         [SerializeField] private SoundEffect uiBookOpen;
         
         public static float TransitionDuration => _instance.transitionDuration;
-        
+
         public static Action<GameEvent> OnGameEvent;
         
         private static GameManager _instance;
