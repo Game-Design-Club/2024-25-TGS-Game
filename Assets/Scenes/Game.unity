@@ -6533,11 +6533,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 868723533712191249, guid: a94210710902f40f2910b53565e6c834, type: 3}
       propertyPath: thickness
-      value: 0.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1854077705834259994, guid: a94210710902f40f2910b53565e6c834, type: 3}
       propertyPath: thickness
-      value: 1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2512840140432276659, guid: a94210710902f40f2910b53565e6c834, type: 3}
       propertyPath: useArea
@@ -6597,11 +6597,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5242006364762108201, guid: a94210710902f40f2910b53565e6c834, type: 3}
       propertyPath: thickness
-      value: 1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5347751174541846980, guid: a94210710902f40f2910b53565e6c834, type: 3}
       propertyPath: thickness
-      value: 0.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5632859212272781605, guid: a94210710902f40f2910b53565e6c834, type: 3}
       propertyPath: m_Name
@@ -6609,10 +6609,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6411548090045175934, guid: a94210710902f40f2910b53565e6c834, type: 3}
       propertyPath: thickness
-      value: 1
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6872176854749000980, guid: a94210710902f40f2910b53565e6c834, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7531810909033246441, guid: a94210710902f40f2910b53565e6c834, type: 3}
       insertIndex: -1
