@@ -280,8 +280,8 @@ namespace AppCore.DialogueManagement {
                         w => w.name == _wobbleCharacters[i]);
                     if (wobble != null) {
                         
-                        float xJitter = -wobble.xNoise.GetRandom();
-                        float yJitter = -wobble.yNoise.GetRandom();
+                        float xJitter = -wobble.xNoise.Random();
+                        float yJitter = -wobble.yNoise.Random();
 
                         // basic wave
                         for (int j = 0; j < 4; j++) {

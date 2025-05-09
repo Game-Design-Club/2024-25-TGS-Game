@@ -25,12 +25,12 @@ namespace Game.GameManagement {
             }
         }
         
+        // ReSharper disable Unity.PerformanceAnalysis
         public static Level GetCurrentLevel() {
-            if (Instance == null) {
-                Debug.LogError("LevelManager instance is null. Ensure it is initialized before calling GetCurrentLevel.");
-                return null;
-            }
-            return Instance.currentLevel;
+            if (Instance) return Instance.currentLevel;
+            
+            Debug.LogError("LevelManager instance is null. Ensure it is initialized before calling GetCurrentLevel.");
+            return null;
         }
     }
 }

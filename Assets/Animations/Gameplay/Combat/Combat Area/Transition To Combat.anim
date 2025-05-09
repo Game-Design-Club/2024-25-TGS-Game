@@ -31,7 +31,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 13.516666
+    m_StopTime: 11.733334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -58,7 +58,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.6333333
+  - time: 0.23333333
     functionName: AnimSleepChild
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -72,22 +72,22 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 5
-    functionName: AnimSetCombatCamera
+  - time: 7.0666666
+    functionName: AnimAwakeBear
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 7.5333333
+  - time: 7.616667
     functionName: AnimStartCombatRun
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 13.516666
-    functionName: AnimAwakeBear
+  - time: 11.733334
+    functionName: AnimSetCombatCamera
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

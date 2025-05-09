@@ -15,7 +15,7 @@ namespace Game.Exploration.Enviornment.Interactables.Scrapbook
         {
             [SerializeField] public ScrapbookItem item;
             [SerializeField] public Vector2 pos;
-            [SerializeField] public Vector2 size = new Vector2(1, 1);
+            [SerializeField] public float size = 1;
         }
     }
 }

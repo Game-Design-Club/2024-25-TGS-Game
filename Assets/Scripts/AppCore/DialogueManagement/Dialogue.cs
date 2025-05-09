@@ -23,5 +23,9 @@ namespace AppCore.DialogueManagement {
         }
         
         public bool IsEmpty => dialogueChunks.Length == 0;
+
+        public void StartDialogue(Action callback) {
+            App.Get<DialogueManager>().StartDialogue(this, callback);
+        }
     }
 }

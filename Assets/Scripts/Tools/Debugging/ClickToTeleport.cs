@@ -7,17 +7,25 @@ namespace Tools.Debugging {
     public class ClickToTeleport : MonoBehaviour {
         [SerializeField] private bool isEnabled = false;
         private void Update() {
-            if (isEnabled && Input.GetMouseButtonDown(0) && !GameManager.IsPaused) {
+            if (isEnabled && Input.GetMouseButtonDown(0) && !GameManager.IsPaused) { 
+#if UNITY_EDITOR
                 TeleportToTarget();
+#endif
             }
         }
 
         private void TeleportToTarget() {
             Vector2 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (GameManager.GameEventType == GameEventType.Combat) {
-                FindObjectsByType<BearController>(FindObjectsSortMode.None)[0].transform.position = clickPosition;
+                BearController b = FindObjectsByType<BearController>(FindObjectsSortMode.None)[0];
+                if (b) {
+                    b.transform.position = clickPosition;
+                }
             } else {
-                FindObjectsByType<ChildController>(FindObjectsSortMode.None)[0].transform.position = clickPosition;
+                ChildController[] c = FindObjectsByType<ChildController>(FindObjectsSortMode.None);
+                if (c.Length > 0 && c[0]) {
+                    c[0].transform.position = clickPosition;
+                }
             }
         }
     }

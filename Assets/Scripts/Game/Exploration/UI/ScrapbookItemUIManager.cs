@@ -50,7 +50,8 @@ namespace Game.Exploration.UI
             itemImage.sprite = itemInfo.item.sprite;
             holeImage.sprite = itemInfo.item.sprite;
             rt.anchoredPosition = itemInfo.pos;
-            rt.sizeDelta = itemInfo.size * 100;
+            Vector2 originSize = new Vector2(itemInfo.item.sprite.rect.width, itemInfo.item.sprite.rect.height);
+            rt.sizeDelta = originSize * itemInfo.size/20;
 
             DataManager dataManager = App.Get<DataManager>();
             imageObject.SetActive(!isNewItem && dataManager.HasScrapbookItem(itemInfo.item.itemName));

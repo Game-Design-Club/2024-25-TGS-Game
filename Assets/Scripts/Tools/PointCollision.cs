@@ -45,5 +45,15 @@ namespace Tools {
                 TouchingGround = true;
             }
         }
+
+        public override string ToString() {
+            string result = $"Point: {Point}\n";
+            result += $"Touching River Base: {TouchingRiverBase}\n";
+            result += $"Touching River Addition: {TouchingRiverAddition}\n";
+            result += $"Touching Rock: {TouchingRock}\n";
+            result += $"Touching Log: {TouchingLog}\n";
+            result += $"Touching Ground: {TouchingGround}\n";
+            return result;
+        }
     }
 }

@@ -1,4 +1,5 @@
 using AppCore;
+using AppCore.DataManagement;
 using AppCore.InputManagement;
 using Tools;
 using UnityEngine;
@@ -18,6 +19,11 @@ namespace Game.Combat.Bear {
         }
         public override void Enter() {
             Controller.Animator.SetTrigger(AnimationParameters.Bear.Stun);
+            Controller.stunObject.SetActive(true);
+        }
+        
+        public override void Exit() {
+            Controller.stunObject.SetActive(false);
         }
 
         public override float? GetWalkSpeed() {
@@ -38,7 +44,7 @@ namespace Game.Combat.Bear {
         
         public override void OnAnimationEnded(int id) {
             if (id != AnimationParameters.BearIDs.Stun) return;
-            if (App.Get<InputManager>().GetBearSwipe) {
+            if (App.Get<InputManager>().GetBearSwipe && App.Get<DataManager>().GetFlag(BoolFlags.HasGrowl)) {
                 Controller.TransitionToState(new GrowlChargeup(Controller));
             } else {
                 Controller.TransitionToState(new Idle(Controller));

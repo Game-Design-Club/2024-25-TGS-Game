@@ -8,10 +8,9 @@ namespace Game.Exploration.Enviornment.River
         [SerializeField] private Transform logParent;
         [SerializeField] private Transform rockParent;
         [SerializeField] private Transform spriteParent;
-        [Range(1, 100)] [SerializeField] private int length = 5;
+        [Range(1, 250)] [SerializeField] private int length = 5;
         [Range(.1f, 10f)] [SerializeField] private float size = 2f;
         [Range(0, 5f)] [SerializeField] private float sizeBuffer = 0.3f;
-        [SerializeField] private float overlap = 0.1f;
         [SerializeField] private float offset = 14f;
         [SerializeField] private BoxCollider2D[] riverColliders;
 
@@ -79,6 +78,10 @@ namespace Game.Exploration.Enviornment.River
                 origin.size.x * child.localScale.x / lossyScale.x,
                 origin.size.y * child.localScale.y / lossyScale.y);
 
+            if (child.rotation.z is not 0 or 180) {
+                effectiveSize = new Vector2(effectiveSize.y, effectiveSize.x);
+            }
+
             BoxCollider2D added = gameObject.AddComponent<BoxCollider2D>();
             added.size = effectiveSize;
 
@@ -86,6 +89,7 @@ namespace Game.Exploration.Enviornment.River
             added.offset = transform.InverseTransformPoint(worldPos);
             added.compositeOperation = Collider2D.CompositeOperation.Difference;
             _addedColliders.Add(added);
+
         }
 
         public void ComputeColliderRemovals()
@@ -96,21 +100,30 @@ namespace Game.Exploration.Enviornment.River
 
             foreach (Transform child in logParent) RemoveColliderArea(child);
             foreach (Transform child in rockParent) RemoveColliderArea(child);
+            GetComponent<CompositeCollider2D>().GenerateGeometry();
+            CompositeCollider2D cc = GetComponent<CompositeCollider2D>();
+            cc.GenerateGeometry();
+            cc.enabled = false;
+            cc.enabled = true;
         }
 
-        private void CreateSprites()
-        {
+        private void CreateSprites() {
             _sprites = new GameObject[length];
 
-            float rot = transform.rotation.eulerAngles.z;
-            _calculatedMoveVector = new Vector2(Mathf.Cos(rot * Mathf.Deg2Rad),Mathf.Sin(rot * Mathf.Deg2Rad)) * offset * size;
+            // Keep track of rotation so the movement still works vertically
+            float rotation = transform.rotation.eulerAngles.z;
+            
+            // The vector2 between two river sprites
+            _calculatedMoveVector = new Vector2(
+                Mathf.Cos(rotation * Mathf.Deg2Rad),
+                Mathf.Sin(rotation * Mathf.Deg2Rad))
+                                    * offset * size;
             
             _start = (Vector2)transform.position - _calculatedMoveVector * length / 2f;
-            
             Vector2 position = _start;
 
-            for (int i = 0; i < length; i++)
-            {
+            for (int i = 0; i < length; i++) {
+                // Create a new river sprite 
                 GameObject instance = Instantiate(baseSpriteObject, spriteParent);
                 _sprites[i] = instance;
                 instance.transform.position = position;

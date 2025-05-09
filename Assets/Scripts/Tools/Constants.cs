@@ -66,6 +66,22 @@ namespace Tools {
                 public const string Start = "Start";
                 public static string Reset = "Reset";
             }
+
+            public class ScarecrowEnemy {
+                public const string Enter = "Enter";
+                public const string Crow = "Crow";
+                public const string Jump = "Jump";
+            }
+
+            public class MainMenu {
+                public const string Play = "Play";
+                public const string Options = "Options";
+                public const string Credits = "Credits";
+            }
+
+            public class Tutorial {
+                public const string Popup = "Popup";
+            }
         }
 
         public static class Tags {
@@ -80,12 +96,18 @@ namespace Tools {
             public const string Log = "Log";
             public const string RiverBase = "River Base";
             public const string Avalanche = "Avalanche";
+            public const string CameraTrigger = "Camera Trigger";
         }
 
         public static class PhysicsLayers {
             public const int ChildWall = 8;
         }
 
+        public static class RenderingLayers {
+            public const string BearGameplay = "Bear Gameplay";
+            public const string ChildGameplay = "Child Gameplay";
+        }
+        
         public static class Mixer {
             public const string MasterVolume = "Master Volume";
             public const string SFXVolume = "SFX Volume";
@@ -94,12 +116,14 @@ namespace Tools {
 
         public static class BoolFlags {
             public const string HasStick = "HasStick";
-            public static string HasJump = "HasJump";
+            public const string HasJump = "HasJump";
+            public const string HasGrowl = "HasGrowl";
         }
 
         public static class Scenes {
             public const int MainMenu = 0;
             public const int Game = 1;
+            public const int Credits = 2;
         }
     // }
 }

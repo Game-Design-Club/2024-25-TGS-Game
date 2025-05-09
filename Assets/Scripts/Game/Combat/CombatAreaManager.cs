@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using AppCore.AudioManagement;
 using Game.Combat.Bear;
 using Game.Combat.Enemies;
+using Game.Combat.FinalEncounter;
 using Game.Combat.Waves;
 using Game.Exploration.Child;
 using Game.GameManagement;
@@ -20,6 +21,7 @@ namespace Game.Combat {
         [SerializeField] private List<GameObject> activeStateSwitchOnCombat;
         [SerializeField] internal CameraShaker cameraShaker;
         [SerializeField] private BearController bearController;
+        [SerializeField] private GameObject killBounds;
         [Header("Cutscene")]
         [SerializeField] private SoundEffect breathSound;
         [SerializeField] private SoundEffect heartBeatSound;
@@ -30,15 +32,16 @@ namespace Game.Combat {
         [SerializeField] private Transform childRestPoint;
         [Header("Sanity")]
         [SerializeField] private float maxSanity = 100f;
-        [SerializeField] private float loseSanityThreshold = 0f;
-        [SerializeField] private float startInsanity = 20f;
+        [SerializeField] private float regenSpeed = 0.1f;
+        [Header("Misc")]
+        [SerializeField] internal FinalEncounterManager finalEncounterManager;
         
         // Private fields
-        public float _sanity = 0;
-        private float Sanity {
+        private float _sanity = 0;
+        public float Sanity {
             get => _sanity;
             set {
-                _sanity = Mathf.Clamp(value, loseSanityThreshold, maxSanity);
+                _sanity = Mathf.Clamp(value, 0, maxSanity);
                 OnSanityChanged?.Invoke(GetSanityPercentage());
             }
         }
@@ -55,13 +58,23 @@ namespace Game.Combat {
 
         private Animator _animator;
         
+        // Properties
+        public float Top => combatAreaSize.position.y + (combatAreaSize.localScale.y / 2);
+        public float Bottom => combatAreaSize.position.y - (combatAreaSize.localScale.y / 2);
+        public float Left => combatAreaSize.position.x - (combatAreaSize.localScale.x / 2);
+        public float Right => combatAreaSize.position.x + (combatAreaSize.localScale.x / 2);
+        
         // Events
         public static event Action<float> OnSanityChanged; // Percentage
         public static event Action OnChildHit;
+        public static event Action OnClearCombatArea;
         
         private void Awake() {
             if (wavesData == null) {
                 Debug.LogError("wavesData is null");
+            }
+            if (wavesData.waves == null || wavesData.waves.Length == 0) {
+                Debug.LogError("wavesData.waves is null or empty");
             }
             
             foreach (GameObject obj in activeStateSwitchOnCombat) {
@@ -78,6 +91,12 @@ namespace Game.Combat {
         private void OnDisable() {
             UIManager.OnRestartGame -= RestartCombat;
         }
+        
+        private void Update() {
+            if (_combatEntered) {
+                Sanity += regenSpeed * Time.deltaTime;
+            }
+        }
 
         // Start combat
         internal void EnterCombatArea(ChildController child) {
@@ -86,7 +105,7 @@ namespace Game.Combat {
             }
             _combatEntered = true;
             Child = child;
-            Sanity = startInsanity;
+            Sanity = maxSanity;
             TransitionToCombat();
         }
         
@@ -160,7 +179,14 @@ namespace Game.Combat {
         }
 
         private IEnumerator SpawnWave(Wave wave) {
+            if (wave.waveEntries.Length == 0) {
+                Debug.LogError("No wave entries in wave. Please assign at least one entry.");
+            }
             foreach (WaveEntry entry in wave.waveEntries) {
+                if (entry == null) {
+                    Debug.LogError("Wave entry is null. Please assign a valid entry.");
+                    continue;
+                }
                 StartCoroutine(SpawnEntry(entry));
                 yield return new WaitForSeconds(entry.bufferAfterThisEntry);
             }
@@ -180,74 +206,72 @@ namespace Game.Combat {
             GameObject enemyObject =  Instantiate(CombatObjectsData.GetEnemyPrefab(entry.enemyType), spawnPos, Quaternion.identity);
             EnemyBase enemy = enemyObject.GetComponent<EnemyBase>();
             enemy.CombatManager = this;
+            enemy.SetCustomData(entry.customData);
             _activeEnemies.Add(enemy);
         }
         
         private Vector2 GetSpawnPosition(WaveEntry entry) {
                 if (!entry.spawnLeft && !entry.spawnRight && !entry.spawnTop && !entry.spawnBottom) {
-                    Debug.LogError("No spawn points for enemy");
+                    Debug.LogWarning("No spawn points for enemy, spawning in center");
                     return transform.position;
                 }
                 return SpawnFromSides(entry);
         }
         
         private Vector2 SpawnFromSides(WaveEntry entry) {
-                        float height = combatAreaSize.localScale.y;
-            float width = combatAreaSize.localScale.x;
-    
+            float height = Top - Bottom;
+            float width = Right - Left;
+
             float totalPositions = 0;
             if (entry.spawnLeft) totalPositions += height;
             if (entry.spawnRight) totalPositions += height;
             if (entry.spawnTop) totalPositions += width;
             if (entry.spawnBottom) totalPositions += width;
-            
+
             float chosenPosition = UnityEngine.Random.Range(0, totalPositions);
-    
-            Vector2 spawnPos = transform.position;
-            
+
+            Vector2 spawnPos = Vector2.zero;
+
             // -- Left --
             if (entry.spawnLeft) {
                 if (chosenPosition < height) {
-                    float yPos = chosenPosition - (height / 2);
-                    float xPos = (-width / 2);
-                    spawnPos += new Vector2(xPos, yPos);
+                    float yPos = Bottom + chosenPosition;
+                    spawnPos = new Vector2(Left, yPos);
                     return spawnPos;
                 }
                 chosenPosition -= height;
             }
-            
+
             // -- Top --
             if (entry.spawnTop) {
                 if (chosenPosition < width) {
-                    float xPos = chosenPosition - (width / 2);
-                    float yPos = (height / 2);
-                    spawnPos += new Vector2(xPos, yPos);
+                    float xPos = Left + chosenPosition;
+                    spawnPos = new Vector2(xPos, Top);
                     return spawnPos;
                 }
                 chosenPosition -= width;
             }
-            
+
             // -- Right --
             if (entry.spawnRight) {
                 if (chosenPosition < height) {
-                    float yPos = chosenPosition - (height / 2);
-                    float xPos = (width / 2);
-                    spawnPos += new Vector2(xPos, yPos);
+                    float yPos = Bottom + chosenPosition;
+                    spawnPos = new Vector2(Right, yPos);
                     return spawnPos;
                 }
                 chosenPosition -= height;
             }
-            
+
             // -- Bottom --
             if (entry.spawnBottom) {
                 if (chosenPosition < width) {
-                    float xPos = chosenPosition - (width / 2);
-                    float yPos = (-height / 2);
-                    spawnPos += new Vector2(xPos, yPos);
+                    float xPos = Left + chosenPosition;
+                    spawnPos = new Vector2(xPos, Bottom);
                     return spawnPos;
                 }
             }
-            
+
+            // Fallback
             return transform.position;
         }
 
@@ -272,9 +296,7 @@ namespace Game.Combat {
 
         // Internal functions
         internal void EnemyKilled(EnemyBase enemy) {
-            _activeEnemies.Remove(enemy);
-            _enemiesToKill--;
-            Sanity += enemy.sanityRestored;
+            RemoveEnemy(enemy);
         }
         
         internal void ChildHit(EnemyDamageDealer enemy) {
@@ -292,6 +314,24 @@ namespace Game.Combat {
         }
 
         private void PlayerLost() {
+            if (finalEncounterManager) {
+                OnClearCombatArea?.Invoke();
+                foreach (EnemyBase enemy in _activeEnemies) {
+                    enemy.HandleDeath(true);
+                    enemy.CurrentState.Die();
+                }
+                _activeEnemies.Clear();
+                _enemiesToKill = 0;
+                combatCamera.Priority = 0;
+                wideCamera.Priority = 0;
+                finalEncounterManager.StartFinalEncounter(this);
+                foreach (GameObject g in activeStateSwitchOnCombat) {
+                    g.SetActive(false);
+                }
+                killBounds.SetActive(false);
+                StopAllCoroutines();
+                return;
+            }
             _lost = true;
             GameManager.OnBearDeath();
             StopAllCoroutines();
@@ -311,14 +351,21 @@ namespace Game.Combat {
             
             _activeEnemies.Clear();
             GameManager.StartTransitionToCombat();
-            Sanity = startInsanity;
+            Sanity = maxSanity;
             yield return new WaitForSeconds(GameManager.TransitionDuration);
             StartCoroutine(RunCombat());
         }
 
         // Helper functions
         private float GetSanityPercentage() {
-            return (Sanity - loseSanityThreshold) / (maxSanity - loseSanityThreshold);
+            return Sanity / maxSanity;
+        }
+
+        public void AddEnemy(EnemyBase enemyBase) {
+            if (!_activeEnemies.Contains(enemyBase)) {
+                _activeEnemies.Add(enemyBase);
+                _enemiesToKill++;
+            }
         }
     }
 }

@@ -1,9 +1,11 @@
 using System;
 using AppCore;
+using AppCore.AudioManagement;
 using AppCore.DataManagement;
 using AppCore.DialogueManagement;
 using AppCore.InputManagement;
 using AppCore.SceneManagement;
+using Game.Exploration.UI.Comic;
 using Tools;
 using Tools.CameraShaking;
 using UnityEngine;
@@ -12,7 +14,9 @@ namespace Game.GameManagement {
     public class GameManager : MonoBehaviour {
         [SerializeField] public float transitionDuration = 1f;
         [SerializeField] public UIManager UIManager;
-        [SerializeField] public CameraShaker playerCameraShaker;
+
+        [SerializeField] public ComicManager introComic;
+        [SerializeField] private SoundEffect uiBookOpen;
         
         public static float TransitionDuration => _instance.transitionDuration;
 
@@ -29,10 +33,11 @@ namespace Game.GameManagement {
                     GameEventType = _gameEventType,
                     IsPaused = _isPaused
                 });
+                _instance.uiBookOpen?.Play();
             }
         }
         
-        private static GameEventType _lastGameEventType;
+        public static GameEventType LastGameEventType { get; private set; }
         private static GameEventType _gameEventType;
 
         public static UIManager GetUIManager()
@@ -42,7 +47,7 @@ namespace Game.GameManagement {
         public static GameEventType GameEventType {
             get => _gameEventType;
             set {
-                _lastGameEventType = _gameEventType;
+                LastGameEventType = _gameEventType;
                 _gameEventType = value;
                 OnGameEvent?.Invoke(new GameEvent {
                     GameEventType = _gameEventType,
@@ -68,8 +73,12 @@ namespace Game.GameManagement {
         }
 
         private void Start() {
-            GameEventType = GameEventType.ExploreEnter;
-            GameEventType = GameEventType.Explore;
+            if (App.Get<DataManager>().firstLevelLoad) {
+                introComic.PlayComic();
+            } else {
+                GameEventType = GameEventType.ExploreEnter;
+                GameEventType = GameEventType.Explore;
+            }
         }
 
         private void OnEnable() {
@@ -117,7 +126,7 @@ namespace Game.GameManagement {
         }
 
         public static void DialogueEnd() {
-            GameEventType = _lastGameEventType;
+            GameEventType = LastGameEventType;
         }
 
         public static void OnBearDeath() {
@@ -137,7 +146,7 @@ namespace Game.GameManagement {
         }
         
         public void SaveAndQuit() {
-            App.Get<DataManager>().Save();
+            App.Get<DataManager>().SaveCurrentFile();
             App.Get<SceneLoader>().LoadScene(Scenes.MainMenu);
         }
 
@@ -146,7 +155,7 @@ namespace Game.GameManagement {
         }
 
         public static void EndCutscene() {
-            GameEventType = _lastGameEventType;
+            GameEventType = LastGameEventType;
         }
     }
     
@@ -162,6 +171,7 @@ namespace Game.GameManagement {
         Combat,
         Explore,
         Dialogue,
-        BearDeath
+        BearDeath,
+        FinalEncounter
     }
 }

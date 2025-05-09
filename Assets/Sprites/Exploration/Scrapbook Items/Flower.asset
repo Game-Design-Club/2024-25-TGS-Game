@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdd3ad7e80384bc6917721d671336bec, type: 3}
+  m_Name: Flower
+  m_EditorClassIdentifier: 
+  itemName: Feather
+  sprite: {fileID: 3222377852715425111, guid: 88c94581c667b439da1edcf8a1e86f0a, type: 3}
+  description: It's a flower!

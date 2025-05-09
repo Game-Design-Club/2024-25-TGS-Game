@@ -6,6 +6,8 @@ using UnityEngine;
 
 namespace Game.Exploration.Enviornment.Avalanche {
     public class AvalancheRock : MonoBehaviour {
+        [SerializeField] private GameObject destroyedParticles;
+        
         private Rigidbody2D _rb;
         
         private void Awake() {
@@ -29,6 +31,10 @@ namespace Game.Exploration.Enviornment.Avalanche {
 
         private void HitSomething() {
             Destroy(gameObject);
+        }
+
+        private void OnDestroy() {
+            Instantiate(destroyedParticles, transform.position, Quaternion.identity);
         }
     }
 }

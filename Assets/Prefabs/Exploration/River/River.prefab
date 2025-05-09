@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 4921789552587308278}
   m_Layer: 10
   m_Name: River Manager
-  m_TagString: Untagged
+  m_TagString: River Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,7 +88,6 @@ MonoBehaviour:
   length: 3
   size: 1.63
   sizeBuffer: 0
-  overlap: 0.1
   offset: 14.4
   riverColliders:
   - {fileID: 4921789552587308278}
@@ -165,19 +164,19 @@ CompositeCollider2D:
   - m_Collider: {fileID: 4921789552587308278}
     m_ColliderPaths:
     - - X: 353302496
-        Y: 59250496
+        Y: 59250468
       - X: -353302496
-        Y: 59250496
+        Y: 59250528
       - X: -353302496
-        Y: -59250496
+        Y: -59250468
       - X: 353302496
-        Y: -59250496
+        Y: -59250528
   m_CompositePaths:
     m_Paths:
-    - - {x: 35.330223, y: -5.92505}
-      - {x: 35.330223, y: 5.92505}
-      - {x: -35.33025, y: 5.9250207}
-      - {x: -35.330223, y: -5.92505}
+    - - {x: 35.330223, y: -5.9250526}
+      - {x: 35.330223, y: 5.925047}
+      - {x: -35.33025, y: 5.9250236}
+      - {x: -35.330223, y: -5.925047}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -215,7 +214,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 1
-  m_CompositeOrder: 0
+  m_CompositeOrder: -100
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -291,7 +290,7 @@ MonoBehaviour:
   useArea: 0
   areaShape: 0
   areaSize: 0.5
-  thickness: 0.25
+  thickness: 1
   density: 0.05
   activeModuleIndex: 0
   modules:
@@ -312,6 +311,13 @@ MonoBehaviour:
   - activeModule: 0
     objectPlacingPrefab: {fileID: 6445704979239630697, guid: 54f75fe77847a45b389521f7f80173f2, type: 3}
     parentTransform: {fileID: 7638828750428747691}
+    tryRandomize: 0
+    randomizeFlip: 0
+    useFlags: 0
+    customRandomizeFlags: 
+  - activeModule: 0
+    objectPlacingPrefab: {fileID: 6189955152648283016, guid: 3afd9cf09dd454e568eaeb73f19ddc02, type: 3}
+    parentTransform: {fileID: 5191933452643209079}
     tryRandomize: 0
     randomizeFlip: 0
     useFlags: 0

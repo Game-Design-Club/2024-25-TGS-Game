@@ -9,13 +9,11 @@ namespace AppCore.AudioManagement {
         [SerializeField] private SoundEffectsManager soundEffectsManager;
         [Range(0f, 1f)] [SerializeField] public float masterVolume = 1;
 
-        private void Awake()
-        {
+        private void Awake() {
             mixer.SetFloat(Mixer.MasterVolume, ConvertToDecibels(masterVolume));
         }
 
-        private void OnValidate()
-        {
+        private void OnValidate() {
             mixer.SetFloat(Mixer.MasterVolume, ConvertToDecibels(masterVolume));
         }
 
@@ -31,6 +29,19 @@ namespace AppCore.AudioManagement {
 
         public void StopSoundEffect(SoundEffect soundEffect) {
             soundEffectsManager.StopSoundEffect(soundEffect);
+        }
+
+        public void SetMasterVolume(float value) {
+            masterVolume = value;
+            mixer.SetFloat(Mixer.MasterVolume, ConvertToDecibels(masterVolume));
+        }
+        
+        public void SetMusicVolume(float value) {
+            mixer.SetFloat(Mixer.MusicVolume, ConvertToDecibels(value));
+        }
+        
+        public void SetSFXVolume(float value) {
+            mixer.SetFloat(Mixer.SFXVolume, ConvertToDecibels(value));
         }
     }
 }

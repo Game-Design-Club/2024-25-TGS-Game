@@ -45,7 +45,7 @@ namespace Game.Exploration.Child {
             return null;
         }
 
-        public void Sleep(Vector3 position) {
+        public virtual void Sleep(Vector3 position) {
             Controller.TransitionToState(new Sleep(Controller, position));
         }
 

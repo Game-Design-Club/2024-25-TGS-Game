@@ -1,5 +1,7 @@
 using System;
 using Game.Combat.Bear;
+using Game.Combat.FinalEncounter;
+using Game.Exploration.Child;
 using Game.GameManagement;
 using Tools;
 using UnityEngine;
@@ -14,6 +16,7 @@ namespace Game.Combat.Enemies {
         [SerializeField] internal float sanityDamage = 10;
         [FormerlySerializedAs("killChildOnAttack")] [SerializeField] private bool killEnemyOnChildAttack = true;
         [SerializeField] private bool killEnemyOnBearAttack = true;
+        [SerializeField] private GameObject killParticles;
         
         private CombatAreaManager _combatManager;
         
@@ -30,7 +33,9 @@ namespace Game.Combat.Enemies {
         }
 
         private void Start() {
-            _combatManager = enemyBase.CombatManager;
+            if (enemyBase != null) {
+                _combatManager = enemyBase.CombatManager;
+            }
         }
 
         private void OnGameEvent(GameEvent obj) {
@@ -45,7 +50,14 @@ namespace Game.Combat.Enemies {
                     enemyBase.DestroyEnemy();
                 }
                 HandleHit();
-                _combatManager.ChildHit(this);
+                if (killParticles != null) {
+                    Instantiate(killParticles, transform.position, Quaternion.identity);
+                }
+                if (_combatManager) {
+                    _combatManager.ChildHit(this);
+                } else {
+                    FindAnyObjectByType<FinalEncounterManager>().ChildHit();
+                }
             }
             if (hitBear && _canDamage && other.TryGetComponent(out BearEnemyHitbox bearEnemyHitbox)) {
                 if (enemyBase != null && killEnemyOnBearAttack) {

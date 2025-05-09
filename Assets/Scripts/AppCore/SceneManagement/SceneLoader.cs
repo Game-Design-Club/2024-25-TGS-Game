@@ -18,12 +18,8 @@ namespace AppCore.SceneManagement {
         private IEnumerator LoadSceneCoroutine(int sceneIndex) {
             transitionAnimator.SetTrigger(AnimationParameters.Transitions.FadeOut);
             yield return new WaitForSecondsRealtime(transitionDuration);
-            SceneManager.LoadScene(sceneIndex);
-            SceneManager.sceneLoaded += SceneLoaded;
-        }
-        
-        private void SceneLoaded(Scene scene, LoadSceneMode mode) {
-            SceneManager.sceneLoaded -= SceneLoaded;
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneIndex);
+            yield return asyncOperation;
             transitionAnimator.SetTrigger(AnimationParameters.Transitions.FadeIn);
             _loading = false;
         }

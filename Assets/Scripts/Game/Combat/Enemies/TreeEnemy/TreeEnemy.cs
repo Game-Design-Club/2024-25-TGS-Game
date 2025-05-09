@@ -7,11 +7,13 @@ using Random = UnityEngine.Random;
 
 namespace Game.Combat.Enemies.TreeEnemy {
     public class TreeEnemy : EnemyBase {
+        [SerializeField] internal float damageSpeed = .1f;
         [SerializeField] internal float reachSpeed = 5f;
         [SerializeField] private FloatRange reachTurbulenceDistance = new(0.5f, 1.5f);
         [SerializeField] private float reachTurbulenceAngle = 10f;
         [SerializeField] private float childRange = 1f;
         [SerializeField] internal float dieRange = 0.5f;
+        [SerializeField] internal float attackRange = 0.5f;
         [FormerlySerializedAs("maxSegments")] [SerializeField] private int maxChunks = 10;
         [SerializeField] private int chunksPerSegment = 5;
         [SerializeField] private LineRenderer debugLineRenderer;
@@ -38,7 +40,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
         }
 
         private void SetRotation() {
-            Vector2 direction = CombatManager.Child.transform.position - transform.position;
+            Vector2 direction = Child.transform.position - transform.position;
             direction.Normalize();
             // if to right of child, flip
             // spriteRenderer.flipX = direction.x > 0;
@@ -47,7 +49,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
         }
 
         private void CalculatePoints() {
-            Vector2 direction = CombatManager.Child.transform.position - transform.position;
+            Vector2 direction = Child.transform.position - transform.position;
             direction.Normalize();
             
             Vector2 currentPoint = transform.position;
@@ -68,13 +70,13 @@ namespace Game.Combat.Enemies.TreeEnemy {
             
             AddSegments();
 
-            _points.Add(CombatManager.Child.transform.position);
+            _points.Add(Child.transform.position);
             
             CalculateMaxDistance();
 
             void AddSegments() {
                 for (int i = 0; i < maxChunks - _points.Count; i++) {
-                    Vector2 difToChild = (Vector2)CombatManager.Child.transform.position - currentPoint;
+                    Vector2 difToChild = (Vector2)Child.transform.position - currentPoint;
                     Vector2 direction = Quaternion.Euler(0, 0,
                         Random.Range(-reachTurbulenceAngle, reachTurbulenceAngle)) * difToChild.normalized;
                     direction.Normalize();
@@ -89,7 +91,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
                         _points.Add(nextPoint);
                         currentPoint = nextPoint;
 
-                        difToChild = (Vector2)CombatManager.Child.transform.position - currentPoint;
+                        difToChild = (Vector2)Child.transform.position - currentPoint;
 
                         if (difToChild.magnitude < childRange) {
                             return;
@@ -167,7 +169,7 @@ namespace Game.Combat.Enemies.TreeEnemy {
         }
         
         public void SetDistance(float distance) {
-            if (distance > _maxDistance) {
+            if (distance > _maxDistance + attackRange) {
                 distance = _maxDistance;
                 TransitionToState(new Attack(this));
             }
@@ -179,18 +181,26 @@ namespace Game.Combat.Enemies.TreeEnemy {
         }
 
         internal void Die() {
-            OnHitByBear(100000, Vector2.zero, 0, BearDamageType.Swipe);
+            HandleDeath();
+        }
+
+        public override void OnHitByBear(BearDamageData data) {
+            if (data.DamageType == BearDamageType.Swipe) {
+                TransitionToState(new Retract(this));
+            } else {
+                TransitionToState(new Retract(this, .1f, 2));
+            }
         }
 
         internal void CreateNewPoints() {
-            Vector2 direction = CombatManager.Child.transform.position - (Vector3)_endPoint;
+            Vector2 direction = Child.transform.position - (Vector3)_endPoint;
             direction.Normalize();
             int i = GetMaxIndex(CurrentDistance);
             AddPoints(_points[i], i);
         }
 
-        public void HandleAppendageHit(int damage, Vector2 hitDirection, float knockbackForce, BearDamageType damageType) {
-            if (damageType == BearDamageType.Swipe) {
+        public void HandleAppendageHit(BearDamageData data) {
+            if (data.DamageType == BearDamageType.Swipe) {
                 TransitionToState(new Retract(this));
             } else {
                 TransitionToState(new Retract(this, .1f, 2));

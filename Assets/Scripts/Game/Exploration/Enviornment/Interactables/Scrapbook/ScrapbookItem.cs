@@ -9,6 +9,7 @@ namespace Game.Exploration.Enviornment.Interactables.Scrapbook
     {
         [FormerlySerializedAs("name")] [SerializeField] public string itemName;
         [SerializeField] public Sprite sprite;
+        [TextArea(3,5)]
         [SerializeField] public string description;
 
         public bool Equals(ScrapbookItem other)

@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0012b715587cc43d99b36881a5b6682d, type: 3}
+  m_Name: Dirt
+  m_EditorClassIdentifier: 
+  objects:
+  - sprite: {fileID: -3931065676038115036, guid: 265f22c55c0ef4c2f83d19975929cf03, type: 3}
+    size: {x: 0, y: 0}
+    offset: {x: 0, y: 0}
+    YOffset: 0
+  - sprite: {fileID: -5611886895979336031, guid: 265f22c55c0ef4c2f83d19975929cf03, type: 3}
+    size: {x: 0, y: 0}
+    offset: {x: 0, y: 0}
+    YOffset: 0
+  - sprite: {fileID: 2582831077208530131, guid: 265f22c55c0ef4c2f83d19975929cf03, type: 3}
+    size: {x: 0, y: 0}
+    offset: {x: 0, y: 0}
+    YOffset: 0
+  - sprite: {fileID: -1052997707614494576, guid: 17d4c40e5a9844da7a63b76a21efbdc4, type: 3}
+    size: {x: 0, y: 0}
+    offset: {x: 0, y: 0}
+    YOffset: 0
+  - sprite: {fileID: -6993388905357222304, guid: 17d4c40e5a9844da7a63b76a21efbdc4, type: 3}
+    size: {x: 0, y: 0}
+    offset: {x: 0, y: 0}
+    YOffset: 0
+  - sprite: {fileID: 6893953228397039394, guid: 7e1f59ddcaf7d43ae8da9f633a7a46bf, type: 3}
+    size: {x: 0, y: 0}
+    offset: {x: 0, y: 0}
+    YOffset: 0
+  - sprite: {fileID: 2758127523935072805, guid: 98a4af40636bf4734b204da3123196d0, type: 3}
+    size: {x: 0, y: 0}
+    offset: {x: 0, y: 0}
+    YOffset: 0
+  - sprite: {fileID: -7334090352458414616, guid: 7e1f59ddcaf7d43ae8da9f633a7a46bf, type: 3}
+    size: {x: 0, y: 0}
+    offset: {x: 0, y: 0}
+    YOffset: 0
+  - sprite: {fileID: 4874780010238397735, guid: 3845a440c280f4d9a995e43018470cf5, type: 3}
+    size: {x: 0, y: 0}
+    offset: {x: 0, y: 0}
+    YOffset: 0
+  - sprite: {fileID: -4302382887164853281, guid: 3845a440c280f4d9a995e43018470cf5, type: 3}
+    size: {x: 0, y: 0}
+    offset: {x: 0, y: 0}
+    YOffset: 0
+  - sprite: {fileID: -4302382887164853281, guid: 3845a440c280f4d9a995e43018470cf5, type: 3}
+    size: {x: 0, y: 0}
+    offset: {x: 0, y: 0}
+    YOffset: 0
+  - sprite: {fileID: -4302382887164853281, guid: 3845a440c280f4d9a995e43018470cf5, type: 3}
+    size: {x: 0, y: 0}
+    offset: {x: 0, y: 0}
+    YOffset: 0
+  - sprite: {fileID: -4302382887164853281, guid: 3845a440c280f4d9a995e43018470cf5, type: 3}
+    size: {x: 0, y: 0}
+    offset: {x: 0, y: 0}
+    YOffset: 0

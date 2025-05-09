@@ -14,8 +14,10 @@ namespace Game.Exploration.Child {
         [SerializeField] private string currentStateName = "CurrentState";
         [Header("References")]
         [SerializeField] private Transform rotateTransform;
-        [SerializeField] private SpriteRenderer spriteRenderer;
-        [SerializeField] internal BoxCollider2D boxCollider;
+        [SerializeField] internal SpriteRenderer spriteRenderer;
+        [FormerlySerializedAs("boxCollider")] [SerializeField] internal BoxCollider2D mainBoxCollider;
+        [SerializeField] internal BoxCollider2D combatBoxCollider;
+        [SerializeField] internal BoxCollider2D chaseBoxCollider;
         [SerializeField] internal Animator _spriteAnimator;
         [Header("Idle State")]
         [SerializeField] internal float walkSpeed = 5f;
@@ -38,6 +40,11 @@ namespace Game.Exploration.Child {
         [Header("Misc")]
         [SerializeField] internal int childLayer;
         [SerializeField] internal int jumpableLayer;
+        [Header("Debugging")]
+        [SerializeField] private Transform topLeftHitbox;
+        [SerializeField] private Transform bottomLeftHitbox;
+        [SerializeField] private Transform bottomRightHitbox;
+        [SerializeField] private Transform topRightHitbox;
         
         
         internal Rigidbody2D Rigidbody;
@@ -97,7 +104,6 @@ namespace Game.Exploration.Child {
         private void Update() {
             _currentState.Update();
             
-            
             float? speed = _currentState.GetWalkSpeed();
             if (speed.HasValue) {
                 Vector2 direction;
@@ -138,10 +144,12 @@ namespace Game.Exploration.Child {
         
         private IEnumerator MoveUntilGrounded() {
             yield return PointCollisionHelper.MoveToInArea(
-                boxCollider,
+                mainBoxCollider,
                 Rigidbody,
                 dir => _forceDirection = dir,
-                point => point.TouchingLand);
+                point => point.TouchingLand,
+                new[] { topLeftHitbox, bottomLeftHitbox, bottomRightHitbox, topRightHitbox }
+                );
             TransitionToState(new Move(this));
             _forceDirection = null;
         }
@@ -155,7 +163,14 @@ namespace Game.Exploration.Child {
 
         private void AttackAnimationEnded() { _currentState.OnAttackAnimationOver(); }
 
-        private void OnGameEvent(GameEvent gameEvent) { _currentState?.OnGameEvent(gameEvent); }
+        private void OnGameEvent(GameEvent gameEvent) {
+            _currentState?.OnGameEvent(gameEvent);
+            if (gameEvent.GameEventType == GameEventType.Combat) {
+                combatBoxCollider.enabled = true;
+            } else if (gameEvent.GameEventType == GameEventType.Explore) {
+                combatBoxCollider.enabled = false;
+            }
+        }
 
         public void Sleep(Vector3 position) { _currentState.Sleep(position); }
 
@@ -165,8 +180,9 @@ namespace Game.Exploration.Child {
 
         public void LandPlayer() {
             Vector2 pos = Rigidbody.position;
-            float xSize = boxCollider.size.x / 2;
-            float ySize = boxCollider.size.y / 2;
+            pos += new Vector2(mainBoxCollider.offset.x, mainBoxCollider.offset.y);
+            float xSize = mainBoxCollider.size.x / 2;
+            float ySize = mainBoxCollider.size.y / 2;
             
             PointCollision topLeft = new PointCollision(pos + new Vector2(-xSize, ySize));
             PointCollision topRight = new PointCollision(pos + new Vector2(xSize, ySize));

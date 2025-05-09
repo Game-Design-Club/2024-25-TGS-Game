@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2038559525394411486}
   - component: {fileID: 139473414229761703}
   - component: {fileID: 115772742223864000}
+  - component: {fileID: 6511499448986722614}
   m_Layer: 0
   m_Name: Campfire
   m_TagString: Untagged
@@ -78,8 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 1741993609
   m_SortingLayer: 3
   m_SortingOrder: -1000
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.46215042, b: 0.1273585, a: 1}
+  m_Sprite: {fileID: -6993440255958882840, guid: 909704f607b6642c49315c9c60d8b4d6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -194,13 +195,13 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: -0.0029154515
-      value: 0.99285716
-      inSlope: -1.2729598
-      outSlope: -1.2729598
+      value: 0.8612046
+      inSlope: -0.24873784
+      outSlope: -0.24873784
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.08864721
+      outWeight: 0.15122174
     - serializedVersion: 3
       time: 0.5586297
       value: 0.63801056
@@ -212,7 +213,7 @@ MonoBehaviour:
       outWeight: 0.09829305
     - serializedVersion: 3
       time: 1.0014577
-      value: 0.5
+      value: 0.5633545
       inSlope: 0
       outSlope: 0
       tangentMode: 136
@@ -227,7 +228,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0.0135355
-      value: 0.69095373
+      value: 0.4872489
       inSlope: -0.690599
       outSlope: -0.690599
       tangentMode: 0
@@ -235,17 +236,17 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.48167413
     - serializedVersion: 3
-      time: 0.13423038
-      value: 0.27562103
-      inSlope: -2.1737368
-      outSlope: -2.1737368
+      time: 0.33934337
+      value: 0.249086
+      inSlope: -0.8886356
+      outSlope: -0.8886356
       tangentMode: 0
       weightedMode: 3
-      inWeight: 0.5023173
+      inWeight: 0.48287708
       outWeight: 0.36874017
     - serializedVersion: 3
-      time: 0.2696879
-      value: 0.14940362
+      time: 0.49823838
+      value: 0.18117242
       inSlope: -0.4850545
       outSlope: -0.4850545
       tangentMode: 0
@@ -254,7 +255,7 @@ MonoBehaviour:
       outWeight: 0.1126066
     - serializedVersion: 3
       time: 1.0185716
-      value: 0.00681857
+      value: 0.10700778
       inSlope: -0.008903336
       outSlope: -0.008903336
       tangentMode: 0
@@ -333,3 +334,25 @@ MonoBehaviour:
   intensitySmoothSpeed: 1
   radiusSmoothSpeed: 2
   _state: 0
+--- !u!95 &6511499448986722614
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2560669878070721251}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aea6298d49f2b4abb8905ce5f123f260, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

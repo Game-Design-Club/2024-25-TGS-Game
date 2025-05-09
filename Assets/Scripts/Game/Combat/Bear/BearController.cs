@@ -18,6 +18,7 @@ namespace Game.Combat.Bear {
         [SerializeField] internal float swipeCooldown = .2f;
         [Header("Stun State")]
         [SerializeField] internal AnimationCurve stunKnockbackCurve;
+        [SerializeField] internal GameObject stunObject;
         [Header("Pounce State")]
         [SerializeField] internal float pounceSpeed;
         [SerializeField] internal float minPounceLength = 0.5f;

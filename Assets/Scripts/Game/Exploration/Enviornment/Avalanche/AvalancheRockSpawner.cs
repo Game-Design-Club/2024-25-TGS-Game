@@ -10,6 +10,7 @@ namespace Game.Exploration.Enviornment.Avalanche {
         [SerializeField] private float range = 5;
         [SerializeField] private float rockSpeed = 5;
         [SerializeField] private Transform avalancheBottom;
+        [SerializeField] private float spawnRandomness = 0.5f;
         
         private AvalancheManager _avalancheManager;
         
@@ -36,17 +37,12 @@ namespace Game.Exploration.Enviornment.Avalanche {
                 yield return new WaitForSeconds(Random.Range(
                     spawnRateCurveMin.Evaluate(percentCovered),
                     spawnRateCurveMax.Evaluate(percentCovered)
-                    ));
+                    ) + Random.Range(-spawnRandomness, spawnRandomness));
             }
         }
 
         internal void StopSpawning() {
             StopAllCoroutines();
-            foreach (GameObject rock in _spawnedRocks) {
-                if (rock != null) {
-                    Destroy(rock);
-                }
-            }
         }
     }
 }

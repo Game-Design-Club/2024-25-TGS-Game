@@ -10,6 +10,7 @@ namespace Game.Exploration.Child {
         private bool _doneFloating = false;
 
         public override void Enter() {
+            Controller.StopAllCoroutines();
             Controller.Animator.SetBool(AnimationParameters.Child.Float, true);
             Physics2D.IgnoreLayerCollision(Controller.childLayer, Controller.jumpableLayer, true);
             Update();
@@ -24,6 +25,10 @@ namespace Game.Exploration.Child {
             } else if (pointCollision.TouchingRiver) {
                 _currentChunk = pointCollision.River;
             }
+        }
+
+        public override float? GetRotation() {
+            return 270; // Down
         }
 
         public override float? GetWalkSpeed() {

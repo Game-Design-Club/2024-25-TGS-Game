@@ -83,7 +83,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  sanityRestored: 15
   stunKnockbackCurve:
     serializedVersion: 2
     m_Curve:
@@ -114,6 +113,8 @@ MonoBehaviour:
   hitSound: {fileID: 11400000, guid: cd2e7779f41fe46229df2f650dcc3b26, type: 2}
   deathParticles: {fileID: 5761495649415307529, guid: 158e5268b5ba24de0b9d88bcb580da1d, type: 3}
   deathSound: {fileID: 11400000, guid: 56b988d4f50d3438fab33c116acf7cde, type: 2}
+  spawnedInCombat: 0
+  waitForCameraTrigger: 0
   moveSpeed: 0.7
   shootWaitTime: 3
   teleportWaitTime: 2

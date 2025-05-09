@@ -16,3 +16,4 @@ MonoBehaviour:
   shooterPrefab: {fileID: 2628731053599168706, guid: 8c595d726315d4690af8d5ce99b499c8, type: 3}
   treePrefab: {fileID: 2628731053599168706, guid: 9f757a2688861443ead39a650ecc6d30, type: 3}
   debrisPrefab: {fileID: 2628731053599168706, guid: 5fdea1feac61a405dafb0a5d9ece7edd, type: 3}
+  scarecrowPrefab: {fileID: 2628731053599168706, guid: dcd586d1d1c7d49eab9feb5027d16cd9, type: 3}

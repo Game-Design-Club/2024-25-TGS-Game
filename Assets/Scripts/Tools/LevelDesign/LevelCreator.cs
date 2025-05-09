@@ -24,7 +24,7 @@ namespace Tools.LevelDesign {
         [SerializeField] public Shape areaShape = Shape.Square;
         [SerializeField] public float areaSize = .5f;
         [SerializeField] public float thickness = 10f;
-        [Range(0f, .3f)][SerializeField] public float density = .05f;
+        [SerializeField] public float density = .05f;
         [HideInInspector] public int activeModuleIndex = 0;
         [SerializeField] public LevelCreatorModule[] modules = Array.Empty<LevelCreatorModule>();
         public GameObject ObjectPlacingPrefab => modules[activeModuleIndex].objectPlacingPrefab;
