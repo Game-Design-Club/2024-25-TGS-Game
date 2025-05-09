@@ -1,5 +1,6 @@
 using System;
 using AppCore;
+using AppCore.AudioManagement;
 using AppCore.DataManagement;
 using AppCore.DialogueManagement;
 using AppCore.InputManagement;
@@ -14,6 +15,7 @@ namespace Game.GameManagement {
         [SerializeField] public float transitionDuration = 1f;
         [SerializeField] public UIManager UIManager;
         [SerializeField] public ComicManager introComic;
+        [SerializeField] public Music introMusic;
         
         public static float TransitionDuration => _instance.transitionDuration;
         
@@ -75,6 +77,7 @@ namespace Game.GameManagement {
                 GameEventType = GameEventType.ExploreEnter;
                 GameEventType = GameEventType.Explore;
             }
+            App.Get<MusicManager>().PlayMusic(introMusic);
         }
 
         private void OnEnable() {

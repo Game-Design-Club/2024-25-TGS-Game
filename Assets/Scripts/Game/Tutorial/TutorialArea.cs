@@ -7,13 +7,22 @@ namespace Game.Tutorial {
         [SerializeField] private float disappearTime = 100000;
         [TextArea(3, 10)]
         [SerializeField] private string text;
+        [SerializeField] private bool playOnce = true;
+        
+        private bool _hasPlayed;
+        
         private void OnTriggerEnter2D(Collider2D other) {
+            if (playOnce && _hasPlayed) {
+                return;
+            }
             StartCoroutine(StartTimer());
         }
 
         private IEnumerator StartTimer() {
             yield return new WaitForSeconds(timeToAppear);
             TutorialPopupObject.ShowTutorialPopup(text);
+            Debug.Log("Tutorial: " + text, gameObject);
+            _hasPlayed = true;
             yield return new WaitForSeconds(disappearTime);
             TutorialPopupObject.HideTutorialPopup();
         }

@@ -290,7 +290,7 @@ MonoBehaviour:
   useArea: 0
   areaShape: 0
   areaSize: 0.5
-  thickness: 0.25
+  thickness: 1
   density: 0.05
   activeModuleIndex: 0
   modules:
@@ -311,6 +311,13 @@ MonoBehaviour:
   - activeModule: 0
     objectPlacingPrefab: {fileID: 6445704979239630697, guid: 54f75fe77847a45b389521f7f80173f2, type: 3}
     parentTransform: {fileID: 7638828750428747691}
+    tryRandomize: 0
+    randomizeFlip: 0
+    useFlags: 0
+    customRandomizeFlags: 
+  - activeModule: 0
+    objectPlacingPrefab: {fileID: 6189955152648283016, guid: 3afd9cf09dd454e568eaeb73f19ddc02, type: 3}
+    parentTransform: {fileID: 5191933452643209079}
     tryRandomize: 0
     randomizeFlip: 0
     useFlags: 0

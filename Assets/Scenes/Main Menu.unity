@@ -1848,6 +1848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuAnimator: {fileID: 1138962349}
   buttonBlocker: {fileID: 173148089}
+  mainMenuMusic: {fileID: 11400000, guid: b9c47e43522a74d5582b1712f288e02c, type: 2}
   credits: {fileID: 1367806353}
 --- !u!1001 &2084060322
 PrefabInstance:

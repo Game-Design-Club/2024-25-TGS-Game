@@ -22,14 +22,13 @@ namespace Game.Tutorial {
         }
 
         public static void ShowTutorialPopup(string text) {
-            if (_instance == null || _instance._animator == null)
+            if (_instance == null)
                 return;
-
             _instance.Display(text);
         }
         
         public static void HideTutorialPopup() {
-            if (_instance == null || _instance._animator == null)
+            if (_instance == null)
                 return;
 
             _instance.Hide();

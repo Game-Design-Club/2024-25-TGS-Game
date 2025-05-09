@@ -58,7 +58,7 @@ namespace Game.Exploration.UI.Comic {
 
         public void PlayComic() {
             blackBackground.gameObject.SetActive(true);
-            blackBackground.color = new Color(blackBackground.color.r, blackBackground.color.g, blackBackground.color.b, 0);
+            blackBackground.color = new Color(blackBackground.color.r, blackBackground.color.g, blackBackground.color.b, 1);
             
             StartCoroutine(PlayComicRoutine());
             StartCoroutine(ShowContinuePopup());
@@ -84,7 +84,6 @@ namespace Game.Exploration.UI.Comic {
                     for (float t = 0; t < waitTime; t += Time.deltaTime) {
                         yield return null;
                         if (_shouldContinue) {
-                            _shouldContinue = false;
                             break;
                         }
                     }

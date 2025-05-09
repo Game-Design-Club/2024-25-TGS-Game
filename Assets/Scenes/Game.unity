@@ -6039,9 +6039,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 469678660}
     m_Modifications:
+    - target: {fileID: 180603271003941752, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8569
+      objectReference: {fileID: 0}
     - target: {fileID: 782377763635205384, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
       propertyPath: m_Name
       value: Snow Pile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218215671982703953, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8389
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777875608530720069, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8949
       objectReference: {fileID: 0}
     - target: {fileID: 7406985562178754116, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
       propertyPath: flagName
@@ -20117,9 +20129,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1968545387}
     m_Modifications:
+    - target: {fileID: 819949734809146068, guid: a94210710902f40f2910b53565e6c834, type: 3}
+      propertyPath: timeToAppear
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 868723533712191249, guid: a94210710902f40f2910b53565e6c834, type: 3}
       propertyPath: thickness
-      value: 0.25
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 978692520922578984, guid: a94210710902f40f2910b53565e6c834, type: 3}
+      propertyPath: text
+      value: Press c to jump into the river
+      objectReference: {fileID: 0}
+    - target: {fileID: 978692520922578984, guid: a94210710902f40f2910b53565e6c834, type: 3}
+      propertyPath: timeToAppear
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1105219315797451807, guid: a94210710902f40f2910b53565e6c834, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
@@ -20175,7 +20199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1854077705834259994, guid: a94210710902f40f2910b53565e6c834, type: 3}
       propertyPath: thickness
-      value: 1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2512840140432276659, guid: a94210710902f40f2910b53565e6c834, type: 3}
       propertyPath: useArea
@@ -20308,6 +20332,14 @@ PrefabInstance:
     - target: {fileID: 3132762231799129043, guid: a94210710902f40f2910b53565e6c834, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3216769836578188338, guid: a94210710902f40f2910b53565e6c834, type: 3}
+      propertyPath: m_Size.y
+      value: 39.82142
+      objectReference: {fileID: 0}
+    - target: {fileID: 3216769836578188338, guid: a94210710902f40f2910b53565e6c834, type: 3}
+      propertyPath: m_Offset.y
+      value: 5.613224
       objectReference: {fileID: 0}
     - target: {fileID: 3464331032094512399, guid: a94210710902f40f2910b53565e6c834, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.size
@@ -20531,11 +20563,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5242006364762108201, guid: a94210710902f40f2910b53565e6c834, type: 3}
       propertyPath: thickness
-      value: 1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5347751174541846980, guid: a94210710902f40f2910b53565e6c834, type: 3}
       propertyPath: thickness
-      value: 0.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5632859212272781605, guid: a94210710902f40f2910b53565e6c834, type: 3}
       propertyPath: m_Name
@@ -20543,7 +20575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6411548090045175934, guid: a94210710902f40f2910b53565e6c834, type: 3}
       propertyPath: thickness
-      value: 1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7976431367195623065, guid: a94210710902f40f2910b53565e6c834, type: 3}
       propertyPath: m_SortingOrder
@@ -20575,6 +20607,7 @@ PrefabInstance:
     - {fileID: 6513714124440184743, guid: a94210710902f40f2910b53565e6c834, type: 3}
     - {fileID: 5315486329433832653, guid: a94210710902f40f2910b53565e6c834, type: 3}
     - {fileID: 7363300842353640909, guid: a94210710902f40f2910b53565e6c834, type: 3}
+    - {fileID: 6250614987161923235, guid: a94210710902f40f2910b53565e6c834, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7531810909033246441, guid: a94210710902f40f2910b53565e6c834, type: 3}
       insertIndex: -1
@@ -23290,9 +23323,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 469678660}
     m_Modifications:
+    - target: {fileID: 180603271003941752, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 11781
+      objectReference: {fileID: 0}
     - target: {fileID: 782377763635205384, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
       propertyPath: m_Name
       value: Snow Pile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218215671982703953, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 11601
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777875608530720069, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 12161
       objectReference: {fileID: 0}
     - target: {fileID: 7406985562178754116, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
       propertyPath: flagName
@@ -25867,9 +25912,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 469678660}
     m_Modifications:
+    - target: {fileID: 180603271003941752, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10496
+      objectReference: {fileID: 0}
     - target: {fileID: 782377763635205384, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
       propertyPath: m_Name
       value: Snow Pile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218215671982703953, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10316
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777875608530720069, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10876
       objectReference: {fileID: 0}
     - target: {fileID: 7406985562178754116, guid: ec0fe9a49425e4357b01711af697bec1, type: 3}
       propertyPath: flagName
@@ -48332,6 +48389,10 @@ PrefabInstance:
     - target: {fileID: 817667420659660254, guid: a3bee34ac0fae456fa5187f4a72cb5b0, type: 3}
       propertyPath: m_Name
       value: HUD Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473890990308832647, guid: a3bee34ac0fae456fa5187f4a72cb5b0, type: 3}
+      propertyPath: m_text
+      value: YOU'RE NOT SUPPOSED TO SEE THIS
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

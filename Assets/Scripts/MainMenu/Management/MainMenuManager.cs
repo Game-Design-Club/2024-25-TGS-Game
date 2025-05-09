@@ -11,11 +11,13 @@ namespace MainMenu.Management {
     public class MainMenuManager : MonoBehaviour {
         [SerializeField] private Animator menuAnimator;
         [SerializeField] private GameObject buttonBlocker;
+        [SerializeField] private Music mainMenuMusic;
         [Header("Credits References")]
         [SerializeField] private CreditsScroller credits;
 
         private void Awake() {
             Time.timeScale = 1;
+            App.Get<MusicManager>().PlayMusic(mainMenuMusic);
         }
         
         public void PlayButton() {
