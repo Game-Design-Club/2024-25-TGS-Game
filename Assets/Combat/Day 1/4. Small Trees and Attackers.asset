@@ -26,8 +26,8 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0.109816834
       - serializedVersion: 3
-        time: 16.029362
-        value: 0.0019512177
+        time: 7.2524853
+        value: -0.0023517609
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -43,6 +43,7 @@ MonoBehaviour:
     spawnTop: 0
     spawnBottom: 0
     bufferAfterThisEntry: 0
+    customData: 0
   - spawnRate:
       serializedVersion: 2
       m_Curve:
@@ -56,7 +57,7 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0.109816834
       - serializedVersion: 3
-        time: 15.959232
+        time: 8.336369
         value: -0.0013141632
         inSlope: Infinity
         outSlope: Infinity
@@ -73,6 +74,7 @@ MonoBehaviour:
     spawnTop: 0
     spawnBottom: 0
     bufferAfterThisEntry: 0
+    customData: 0
   - spawnRate:
       serializedVersion: 2
       m_Curve:
@@ -86,13 +88,13 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0.14531574
       - serializedVersion: 3
-        time: 7.9496083
-        value: 7.945657
-        inSlope: 3.734187
-        outSlope: 3.734187
+        time: 5.6251063
+        value: 6.70551
+        inSlope: 0.95985925
+        outSlope: 0.95985925
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.11939879
+        inWeight: 0.07142866
         outWeight: 0.23365563
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -103,4 +105,5 @@ MonoBehaviour:
     spawnTop: 1
     spawnBottom: 1
     bufferAfterThisEntry: 0
+    customData: 0
   canReplay: 0

@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Day 2
   m_EditorClassIdentifier: Assembly-CSharp:Game.Combat:WavesData
   waves:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 2711aeb01626b46e5bcb6aee2e086b6e, type: 2}
+  - {fileID: 11400000, guid: 8d08c52b30338481bbdeb201fed53389, type: 2}
+  - {fileID: 11400000, guid: e6a91339730e34691a1752f2d24462dc, type: 2}
+  - {fileID: 11400000, guid: 93081f84e09a949f895cc62e75432021, type: 2}
+  - {fileID: 11400000, guid: e6e831d42f31748238503bcc0e31b399, type: 2}
   bufferBetweenWaves: 0

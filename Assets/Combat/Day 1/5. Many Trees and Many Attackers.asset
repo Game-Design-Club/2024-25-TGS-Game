@@ -26,8 +26,8 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0.07580177
       - serializedVersion: 3
-        time: 19.769611
-        value: 0.6529696
+        time: 7.3877554
+        value: 0.64501977
         inSlope: -0.0021868285
         outSlope: -0.0021868285
         tangentMode: 0
@@ -43,6 +43,7 @@ MonoBehaviour:
     spawnTop: 0
     spawnBottom: 0
     bufferAfterThisEntry: 0
+    customData: 0
   - spawnRate:
       serializedVersion: 2
       m_Curve:
@@ -66,7 +67,7 @@ MonoBehaviour:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 21.407118
-        value: 9.136463
+        value: 5.8526154
         inSlope: 5.366279
         outSlope: 5.366279
         tangentMode: 0
@@ -82,4 +83,5 @@ MonoBehaviour:
     spawnTop: 1
     spawnBottom: 1
     bufferAfterThisEntry: 0
+    customData: 0
   canReplay: 0
