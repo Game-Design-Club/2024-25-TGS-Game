@@ -349,6 +349,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2812305634354190683}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4640262458213940138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 767731369763416575}
+  m_Layer: 0
+  m_Name: Dirt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &767731369763416575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640262458213940138}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2812305634354190683}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4779849897277469613
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,6 +425,7 @@ Transform:
   - {fileID: 3718808827547664335}
   - {fileID: 8520539304840779762}
   - {fileID: 4558544241620394638}
+  - {fileID: 767731369763416575}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2855519684692561314
@@ -422,7 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5f9aaa5a224409a186662bd1170287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 0
+  isActive: 1
   isErasing: 0
   useCurve: 0
   strengthCurve:
@@ -439,8 +471,8 @@ MonoBehaviour:
   areaShape: 1
   areaSize: 10
   thickness: 1
-  density: 0.07
-  activeModuleIndex: 1
+  density: 10
+  activeModuleIndex: 13
   modules:
   - activeModule: 0
     objectPlacingPrefab: {fileID: 8577493048593242262, guid: ce476618ef542423cb54193cbaa29a65, type: 3}
@@ -449,7 +481,7 @@ MonoBehaviour:
     randomizeFlip: 1
     useFlags: 1
     customRandomizeFlags: 01010101
-  - activeModule: 1
+  - activeModule: 0
     objectPlacingPrefab: {fileID: 3865119499455374049, guid: a6f2bd6f5b6f04eda810ba036f409c9f, type: 3}
     parentTransform: {fileID: 7275778133703382113}
     tryRandomize: 1
@@ -531,6 +563,13 @@ MonoBehaviour:
     parentTransform: {fileID: 4558544241620394638}
     tryRandomize: 0
     randomizeFlip: 0
+    useFlags: 0
+    customRandomizeFlags: 
+  - activeModule: 1
+    objectPlacingPrefab: {fileID: 8577493048593242262, guid: 1a6a611da964046c09091b44afebdfb6, type: 3}
+    parentTransform: {fileID: 767731369763416575}
+    tryRandomize: 1
+    randomizeFlip: 1
     useFlags: 0
     customRandomizeFlags: 
 --- !u!1 &5197219333115354515
@@ -680,7 +719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5847314838264712324, guid: 2fba5342069744a01806d4c64bf2923b, type: 3}
       propertyPath: m_SortingOrder
-      value: -21128
+      value: -14815
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
