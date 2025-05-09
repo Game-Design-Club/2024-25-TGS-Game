@@ -19,6 +19,7 @@ namespace Game.Exploration.Enviornment.River {
         [SerializeField] private string flagName;
         [SerializeField] private ParticleSystem[] splashParticles;
         [SerializeField] private GameObject interactable;
+        [SerializeField] private ParticleSystem interactableParticles;
         
         public bool InRiver { get; private set; } = false;
         private bool _isMoving = false;
@@ -77,6 +78,7 @@ namespace Game.Exploration.Enviornment.River {
 
         private void SetInRiver() {
             interactable.SetActive(false);
+            interactableParticles.Stop();
             foreach (ParticleSystem particle in splashParticles) {
                 particle?.Play();
             }
@@ -120,7 +122,6 @@ namespace Game.Exploration.Enviornment.River {
         private void Update() {
             if (_isMoving) {
                 _rb.linearVelocity = _moveDirection * slideIntoRiverVelocity;
-                new PointCollision(_rb.position).RiverManager?.ComputeColliderRemovals();
             } else {
                 _rb.linearVelocity = Vector2.zero;
             }

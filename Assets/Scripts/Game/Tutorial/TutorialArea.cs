@@ -1,4 +1,5 @@
 using System.Collections;
+using Tools;
 using UnityEngine;
 
 namespace Game.Tutorial {
@@ -12,6 +13,7 @@ namespace Game.Tutorial {
         private bool _hasPlayed;
         
         private void OnTriggerEnter2D(Collider2D other) {
+            if (!other.CompareTag(Tags.Child)) return;
             if (playOnce && _hasPlayed) {
                 return;
             }
@@ -21,7 +23,6 @@ namespace Game.Tutorial {
         private IEnumerator StartTimer() {
             yield return new WaitForSeconds(timeToAppear);
             TutorialPopupObject.ShowTutorialPopup(text);
-            Debug.Log("Tutorial: " + text, gameObject);
             _hasPlayed = true;
             yield return new WaitForSeconds(disappearTime);
             TutorialPopupObject.HideTutorialPopup();

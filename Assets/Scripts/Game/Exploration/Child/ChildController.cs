@@ -157,7 +157,14 @@ namespace Game.Exploration.Child {
 
         private void AttackAnimationEnded() { _currentState.OnAttackAnimationOver(); }
 
-        private void OnGameEvent(GameEvent gameEvent) { _currentState?.OnGameEvent(gameEvent); }
+        private void OnGameEvent(GameEvent gameEvent) {
+            _currentState?.OnGameEvent(gameEvent);
+            if (gameEvent.GameEventType == GameEventType.Combat) {
+                combatBoxCollider.enabled = true;
+            } else if (gameEvent.GameEventType == GameEventType.Explore) {
+                combatBoxCollider.enabled = false;
+            }
+        }
 
         public void Sleep(Vector3 position) { _currentState.Sleep(position); }
 

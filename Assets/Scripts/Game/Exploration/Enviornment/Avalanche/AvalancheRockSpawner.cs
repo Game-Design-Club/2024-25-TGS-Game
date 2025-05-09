@@ -43,11 +43,6 @@ namespace Game.Exploration.Enviornment.Avalanche {
 
         internal void StopSpawning() {
             StopAllCoroutines();
-            foreach (GameObject rock in _spawnedRocks) {
-                if (rock != null) {
-                    Destroy(rock);
-                }
-            }
         }
     }
 }
