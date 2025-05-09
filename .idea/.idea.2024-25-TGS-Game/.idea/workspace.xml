@@ -5,39 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/SoundEffectCreator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/SoundEffectCreator.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Only_You_Handwritten_Free_Font SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/Only_You_Handwritten_Free_Font SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Unageo[wght,ital] SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/Unageo[wght,ital] SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Avalanche/Avalanche Rock.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Avalanche/Avalanche Rock.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Child/Child.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Child/Child.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Interactions/Interactable.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Interactions/Interactable.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/River/Center Rock.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/River/Center Rock.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Levels/final final.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Levels/final final.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Comic Manager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Comic Manager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Scrapbook Item UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Scrapbook Item UI.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrapbook/Items/Flower.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrapbook/Items/Flower.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrapbook/Items/Hand.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrapbook/Items/Hand.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrapbook/Items/Monster.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrapbook/Items/Monster.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrapbook/Items/bone.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrapbook/Items/bone.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrapbook/Items/fox fur.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrapbook/Items/fox fur.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrapbook/Items/owl pellet.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrapbook/Items/owl pellet.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrapbook/Items/pinecone.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrapbook/Items/pinecone.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/States/Stun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Combat/Bear/States/Stun.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Child/ChildController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Child/ChildController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/Avalanche/AvalancheRock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/Avalanche/AvalancheRock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/Avalanche/AvalancheRockSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/Avalanche/AvalancheRockSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/River/RiverRock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Enviornment/River/RiverRock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Tutorial/TutorialArea.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Tutorial/TutorialArea.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exploration/Scrapbook Items/Feather.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Scrapbook Items/Feather.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Fading/Fade Animator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Fading/Fade Animator.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/App/-- App --.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/App/-- App --.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Button.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Button.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AppCore/SceneManagement/SceneLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AppCore/SceneManagement/SceneLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameManagement/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameManagement/UIManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

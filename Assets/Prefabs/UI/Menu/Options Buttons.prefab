@@ -172,7 +172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2899337114789216537, guid: 8dd345e8617db400998deb35bd52e86e, type: 3}
       propertyPath: m_Name
-      value: Music Volume
+      value: SFX Volume
       objectReference: {fileID: 0}
     - target: {fileID: 3117881133731100808, guid: 8dd345e8617db400998deb35bd52e86e, type: 3}
       propertyPath: m_text
@@ -188,7 +188,7 @@ PrefabInstance:
       objectReference: {fileID: 3680597503630904753}
     - target: {fileID: 4755785397001950152, guid: 8dd345e8617db400998deb35bd52e86e, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetMusicVolume
+      value: SetSFXVolume
       objectReference: {fileID: 0}
     - target: {fileID: 4755785397001950152, guid: 8dd345e8617db400998deb35bd52e86e, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -317,7 +317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2899337114789216537, guid: 8dd345e8617db400998deb35bd52e86e, type: 3}
       propertyPath: m_Name
-      value: SFX Volume
+      value: Musi Volume
       objectReference: {fileID: 0}
     - target: {fileID: 3117881133731100808, guid: 8dd345e8617db400998deb35bd52e86e, type: 3}
       propertyPath: m_text
@@ -333,7 +333,7 @@ PrefabInstance:
       objectReference: {fileID: 3680597503630904753}
     - target: {fileID: 4755785397001950152, guid: 8dd345e8617db400998deb35bd52e86e, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetSFXVolume
+      value: SetMusicVolume
       objectReference: {fileID: 0}
     - target: {fileID: 4755785397001950152, guid: 8dd345e8617db400998deb35bd52e86e, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
