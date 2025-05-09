@@ -1301,6 +1301,7 @@ MonoBehaviour:
   waitTime: 2.5
   continueWaitTime: 0.5
   continuePopup: {fileID: 2805500683056218585}
+  introMusic: {fileID: 11400000, guid: 01f0a1c5868a047febd57b41dd929992, type: 2}
 --- !u!1 &6272849734586338308
 GameObject:
   m_ObjectHideFlags: 0
