@@ -30,8 +30,6 @@ namespace Game.GameManagement {
         [SerializeField] private ScrapbookPage[] scrapbookPages;
         [SerializeField] private GameObject scrapbookUIItemPrefab;
         [SerializeField] private float closeAnimationDuration = 0.5f;
-        [SerializeField] private SoundEffect uiClickSound;
-        [SerializeField] private SoundEffect uiTurnSound;
         
         private int scrapbookPage = 0;
         private bool advancingPage = false;

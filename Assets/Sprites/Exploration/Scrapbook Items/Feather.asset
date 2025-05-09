@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd3ad7e80384bc6917721d671336bec, type: 3}
   m_Name: Feather
   m_EditorClassIdentifier: 
-  itemName: Badger Range
-  sprite: {fileID: -5327202394091466154, guid: a55479c754d5d41bba64407189848234, type: 3}
-  description: Badger Range
+  itemName: Feather
+  sprite: {fileID: 170912805055401693, guid: 9b27deb434c284db593e68cd7ba163ad, type: 3}
+  description: It's a cool feather!

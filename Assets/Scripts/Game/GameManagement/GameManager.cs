@@ -1,5 +1,6 @@
 using System;
 using AppCore;
+using AppCore.AudioManagement;
 using AppCore.DataManagement;
 using AppCore.DialogueManagement;
 using AppCore.InputManagement;
@@ -13,6 +14,7 @@ namespace Game.GameManagement {
         [SerializeField] public float transitionDuration = 1f;
         [SerializeField] public UIManager UIManager;
         [SerializeField] public ComicManager introComic;
+        [SerializeField] private SoundEffect uiBookOpen;
         
         public static float TransitionDuration => _instance.transitionDuration;
         
@@ -29,10 +31,11 @@ namespace Game.GameManagement {
                     GameEventType = _gameEventType,
                     IsPaused = _isPaused
                 });
+                _instance.uiBookOpen?.Play();
             }
         }
         
-        private static GameEventType _lastGameEventType;
+        public static GameEventType LastGameEventType { get; private set; }
         private static GameEventType _gameEventType;
 
         public static UIManager GetUIManager()
@@ -42,7 +45,7 @@ namespace Game.GameManagement {
         public static GameEventType GameEventType {
             get => _gameEventType;
             set {
-                _lastGameEventType = _gameEventType;
+                LastGameEventType = _gameEventType;
                 _gameEventType = value;
                 OnGameEvent?.Invoke(new GameEvent {
                     GameEventType = _gameEventType,
@@ -121,7 +124,7 @@ namespace Game.GameManagement {
         }
 
         public static void DialogueEnd() {
-            GameEventType = _lastGameEventType;
+            GameEventType = LastGameEventType;
         }
 
         public static void OnBearDeath() {
@@ -150,7 +153,7 @@ namespace Game.GameManagement {
         }
 
         public static void EndCutscene() {
-            GameEventType = _lastGameEventType;
+            GameEventType = LastGameEventType;
         }
     }
     

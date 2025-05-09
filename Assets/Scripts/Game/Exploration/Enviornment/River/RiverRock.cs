@@ -100,6 +100,7 @@ namespace Game.Exploration.Enviornment.River {
                     _rb, 
                     dir => _moveDirection = dir, 
                     pc => pc.TouchingRiverBase && !pc.TouchingLand,
+                    null,
                     .1f,
                     _lastPushDirection));
             _isMoving = false;

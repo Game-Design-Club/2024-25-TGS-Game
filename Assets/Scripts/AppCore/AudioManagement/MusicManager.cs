@@ -20,7 +20,7 @@ namespace AppCore.AudioManagement {
         }
 
         private void OnGameEvent(GameEvent obj) {
-            if (obj.GameEventType == GameEventType.Explore) {
+            if (obj.GameEventType == GameEventType.Explore && GameManager.LastGameEventType != GameEventType.Explore) {
                 PlayMusic(mainMusic);
             } else if (obj.GameEventType == GameEventType.Combat) {
                 PlayMusic(combatMusic);

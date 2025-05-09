@@ -10,6 +10,7 @@ namespace Game.Exploration.Child {
         private bool _doneFloating = false;
 
         public override void Enter() {
+            Controller.StopAllCoroutines();
             Controller.Animator.SetBool(AnimationParameters.Child.Float, true);
             Physics2D.IgnoreLayerCollision(Controller.childLayer, Controller.jumpableLayer, true);
             Update();

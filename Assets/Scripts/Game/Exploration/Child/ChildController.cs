@@ -40,6 +40,11 @@ namespace Game.Exploration.Child {
         [Header("Misc")]
         [SerializeField] internal int childLayer;
         [SerializeField] internal int jumpableLayer;
+        [Header("Debugging")]
+        [SerializeField] private Transform topLeftHitbox;
+        [SerializeField] private Transform bottomLeftHitbox;
+        [SerializeField] private Transform bottomRightHitbox;
+        [SerializeField] private Transform topRightHitbox;
         
         
         internal Rigidbody2D Rigidbody;
@@ -99,7 +104,6 @@ namespace Game.Exploration.Child {
         private void Update() {
             _currentState.Update();
             
-            
             float? speed = _currentState.GetWalkSpeed();
             if (speed.HasValue) {
                 Vector2 direction;
@@ -143,7 +147,9 @@ namespace Game.Exploration.Child {
                 mainBoxCollider,
                 Rigidbody,
                 dir => _forceDirection = dir,
-                point => point.TouchingLand);
+                point => point.TouchingLand,
+                new[] { topLeftHitbox, bottomLeftHitbox, bottomRightHitbox, topRightHitbox }
+                );
             TransitionToState(new Move(this));
             _forceDirection = null;
         }
@@ -174,6 +180,7 @@ namespace Game.Exploration.Child {
 
         public void LandPlayer() {
             Vector2 pos = Rigidbody.position;
+            pos += new Vector2(mainBoxCollider.offset.x, mainBoxCollider.offset.y);
             float xSize = mainBoxCollider.size.x / 2;
             float ySize = mainBoxCollider.size.y / 2;
             

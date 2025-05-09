@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdd3ad7e80384bc6917721d671336bec, type: 3}
-  m_Name: Ranger Badge
+  m_Name: Badger Range
   m_EditorClassIdentifier: 
   itemName: Badger Range
   sprite: {fileID: -5327202394091466154, guid: a55479c754d5d41bba64407189848234, type: 3}
