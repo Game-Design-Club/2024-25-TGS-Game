@@ -10,6 +10,7 @@ namespace Tools {
         private bool _triggered;
         
         private void OnTriggerEnter2D(Collider2D other) {
+            if (!other.CompareTag(Tags.Child)) return;
             if (oneTimeUse && _triggered) return;
             onTriggerEnter?.Invoke();
             _triggered = true;
