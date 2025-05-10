@@ -18,7 +18,7 @@ namespace Game.Exploration.Child {
         [FormerlySerializedAs("boxCollider")] [SerializeField] internal BoxCollider2D mainBoxCollider;
         [SerializeField] internal BoxCollider2D combatBoxCollider;
         [SerializeField] internal BoxCollider2D chaseBoxCollider;
-        [SerializeField] internal Animator _spriteAnimator;
+        [FormerlySerializedAs("_spriteAnimator")] [SerializeField] internal Animator spriteAnimator;
         [Header("Idle State")]
         [SerializeField] internal float walkSpeed = 5f;
         [Header("Attack")]
@@ -115,6 +115,9 @@ namespace Game.Exploration.Child {
                 direction.Normalize();
                 Rigidbody.linearVelocity = (float)speed * direction;
                 LastSpeed = (float)speed;
+                
+                spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveX, direction.x);
+                spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveY, direction.y);
             }
             
             float? rotation = _currentState.GetRotation();
@@ -125,8 +128,8 @@ namespace Game.Exploration.Child {
                     Mathf.Cos(Mathf.Deg2Rad * rotation.Value),
                     Mathf.Sin(Mathf.Deg2Rad * rotation.Value)
                 );
-                _spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveX, facingDir.x);
-                _spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveY, facingDir.y);
+                spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveX, facingDir.x);
+                spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveY, facingDir.y);
 
                 // Debug.Log(rotation);
                 if (rotation > 90 && rotation < 270) {
@@ -136,8 +139,6 @@ namespace Game.Exploration.Child {
                     rotateTransform.localScale = new Vector3(1, 1, 1);
                 }
                 rotateTransform.rotation = Quaternion.Euler(0, 0, (float)rotation);
-
-                // Use the transform’s right vector so flipping works correctly when turning left
             }
             
             App.Get<DataManager>().UpdatePlayerPosition(transform.position);

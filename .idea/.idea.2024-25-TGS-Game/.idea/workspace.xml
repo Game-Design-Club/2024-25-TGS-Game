@@ -5,17 +5,104 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/TimeScaleChanger.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/TimeScaleChanger.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Jump.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Jump/Jump E 0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Jump/Jump E 0.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Jump/Jump E 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Jump/Jump E 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Jump/Jump N 0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Jump/Jump N 0.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Jump/Jump N 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Jump/Jump N 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Jump/Jump S 0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Jump/Jump S 0.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Jump/Jump S 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Jump/Jump S 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Jump/Jump S 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Jump/Jump S 2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Jump/Jump W 0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Jump/Jump W 0.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Jump/Jump W 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Jump/Jump W 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick E 0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick E 0.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick E 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick E 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick E 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick E 2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick N 0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick N 0.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick N 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick N 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick S 0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick S 0.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick S 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick S 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick S 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick S 2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick S 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick S 3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick W 0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick W 0.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick W 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick W 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick W 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Stick/Stick W 2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Swim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Swim/Swim 0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Swim/Swim 0.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Swim/Swim 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Swim/Swim 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Walk.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Walk/Walk E 0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Walk/Walk E 0.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Walk/Walk E 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Walk/Walk E 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Walk/Walk E 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Walk/Walk E 2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Walk/Walk N 0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Walk/Walk N 0.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Walk/Walk N 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Walk/Walk N 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Walk/Walk S 0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Walk/Walk S 0.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Walk/Walk S 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Walk/Walk S 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Walk/Walk W 0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Walk/Walk W 0.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Walk/Walk W 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Walk/Walk W 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Walk/Walk W 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Exploration/Child/Walk/Walk W 2.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024-25-TGS-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Only_You_Handwritten_Free_Font SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/Only_You_Handwritten_Free_Font SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Exploration/Child/Child Animator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Gameplay/Exploration/Child/Child Animator.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Exploration/Child/Walking Animator.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Exploration/Child/Walking Animator/East.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Exploration/Child/Walking Animator/East.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Exploration/Child/Walking Animator/North.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Exploration/Child/Walking Animator/North.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Exploration/Child/Walking Animator/South.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Exploration/Child/Walking Animator/South.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Exploration/Child/Walking Animator/Sprite Animator.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Exploration/Child/Walking Animator/Sprite Animator.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Exploration/Child/Walking Animator/West.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Gameplay/Exploration/Child/Walking Animator/West.anim.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Fonts/Unageo[wght,ital] SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/Unageo[wght,ital] SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Levels/final final.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Levels/final final.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Combat/Enemies/Attack Enemy/Attack Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Combat/Enemies/Attack Enemy/Attack Enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Child/Child.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Child/Child.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Interactions/Scrapbook/Scrapbook Item.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Interactions/Scrapbook/Scrapbook Item.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Interactions/Stick Pickup.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Exploration/Interactions/Stick Pickup.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Menu/Options Buttons.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Menu/Options Buttons.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main Menu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Child/ChildController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Child/ChildController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Child/States/Sleep.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Child/States/Sleep.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/UI/Comic/ComicManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/UI/Comic/ComicManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tools/PointCollisionHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/PointCollisionHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/App/Tempest Logo Long.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/App/Tempest Logo Long.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Child/States/Attack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Child/States/Attack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Child/States/Float.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Child/States/Float.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Child/States/Jump.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Exploration/Child/States/Jump.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tools/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/Constants.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +128,14 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AppCore/SceneManagement/SceneLoader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/Combat/CombatObjectsData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/Combat/Enemies/AttackEnemy/AttackEnemy.cs" root0="FORCE_HIGHLIGHTING" />
@@ -145,15 +240,13 @@
       <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="34302">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="34302" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list>
-          <MonoRuntime />
-        </list>
+        <list />
       </option>
       <option name="selectedOptions">
         <list />
@@ -194,6 +287,7 @@
       <workItem from="1745450455503" duration="9108000" />
       <workItem from="1745779686706" duration="3846000" />
       <workItem from="1746055289574" duration="10303000" />
+      <workItem from="1746860199327" duration="1561000" />
     </task>
     <servers />
   </component>
