@@ -17,8 +17,32 @@ MonoBehaviour:
     it out
   items:
   - item: {fileID: 11400000, guid: 4257638ffc72d4a62ae353b6614f3d54, type: 2}
-    pos: {x: -100, y: 50}
+    pos: {x: -65, y: 75}
+    size: 0.9
+  - item: {fileID: 11400000, guid: 276490f2d7ea54e94ad0c56e5e4e807e, type: 2}
+    pos: {x: 0, y: 75}
+    size: 1
+  - item: {fileID: 11400000, guid: cf22f7b13245140e4bdabbe48013a628, type: 2}
+    pos: {x: 65, y: 75}
+    size: 1
+  - item: {fileID: 11400000, guid: 13dd6a59550fc4aecb87effbf228bb53, type: 2}
+    pos: {x: -65, y: 15}
     size: 1
   - item: {fileID: 11400000, guid: 18deca8e20c004631b845cab31f912f0, type: 2}
-    pos: {x: 0, y: -50}
+    pos: {x: 65, y: -5}
+    size: 1.1
+  - item: {fileID: 11400000, guid: cdac6a0991855463fb0113c105b118f0, type: 2}
+    pos: {x: 0, y: 15}
+    size: 1.1
+  - item: {fileID: 11400000, guid: 02f5fc808516942ccbcd8bbe28bcd98c, type: 2}
+    pos: {x: -65, y: -50}
+    size: 1
+  - item: {fileID: 11400000, guid: ca8fe71ae0c6c4d5db5ffb1aa8023e66, type: 2}
+    pos: {x: 0, y: -55}
+    size: 1
+  - item: {fileID: 11400000, guid: 48e4accdae4d94b98abbaeed2ae8522f, type: 2}
+    pos: {x: 65, y: -60}
+    size: 1
+  - item: {fileID: 11400000, guid: 8db5f42a27f704086a5ed7a28fbb8da2, type: 2}
+    pos: {x: 65, y: 35}
     size: 1
