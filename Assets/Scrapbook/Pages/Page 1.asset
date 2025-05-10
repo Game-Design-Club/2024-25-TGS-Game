@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Page 1
   m_EditorClassIdentifier: 
   title: Forest
-  description: The forest is big
+  description: This forest is so big, yet empty... it feels like I'll never make
+    it out
   items:
   - item: {fileID: 11400000, guid: 4257638ffc72d4a62ae353b6614f3d54, type: 2}
-    pos: {x: 50, y: 50}
+    pos: {x: -100, y: 50}
     size: 1
   - item: {fileID: 11400000, guid: 18deca8e20c004631b845cab31f912f0, type: 2}
     pos: {x: 0, y: -50}

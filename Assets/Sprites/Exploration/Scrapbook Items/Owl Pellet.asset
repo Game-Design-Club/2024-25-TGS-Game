@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Owl Pellet
   sprite: {fileID: 7292512492690284836, guid: 57837447942b6401e8c9d1df6bf3902a, type: 3}
-  description: It's an Owl Pellet!
+  description: Ground up bits of bone and flesh and gristle passed through an owl's
+    digestive system and smooshed together into one compact pellet. Fascinating.

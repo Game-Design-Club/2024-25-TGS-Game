@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd3ad7e80384bc6917721d671336bec, type: 3}
   m_Name: Bear
   m_EditorClassIdentifier: 
-  name: Bear
+  itemName: Bear
   sprite: {fileID: 307355401521930074, guid: 86eb0ae6273d14f67bc72fa10ae066c9, type: 3}
-  dialogue: {fileID: 11400000, guid: 75d59384f16c7456f8efcda066543865, type: 2}
-  description: A cute fuzzy wuzzy bear
+  description: My best friend in the whole world, my trusty stuffed bear. We may
+    be stuck in the woods, but I know that we'll always have each other.

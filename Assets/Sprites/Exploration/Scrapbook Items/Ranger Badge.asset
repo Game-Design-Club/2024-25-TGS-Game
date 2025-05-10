@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Ranger Badge
   sprite: {fileID: -5327202394091466154, guid: a55479c754d5d41bba64407189848234, type: 3}
-  description: 'A faded insignia left and forgotten by some past park ranger. '
+  description: A faded insignia left and forgotten by some past park ranger focused
+    on something more important... I wonder if there are any park rangers in these
+    woods right now, searching for me?

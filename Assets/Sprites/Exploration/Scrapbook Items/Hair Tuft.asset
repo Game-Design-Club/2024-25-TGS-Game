@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Hair Tuft
   sprite: {fileID: 2351086098049138774, guid: b0b55205379dc45348c6c297ea821675, type: 3}
-  description: It's a hair tuft!
+  description: A tuft of fur shed by a fox, probably seeking shelter from the storm
+    like everyone else. I like foxes!
