@@ -36,10 +36,6 @@ namespace Tools {
                 }
             
                 if (isTarget(topLeft) && isTarget(topRight) && isTarget(bottomLeft) && isTarget(bottomRight)) {
-                    Debug.Log("Top Left:" + topLeft + "\n" +
-                              "Top Right:" + topRight + "\n" +
-                              "Bottom Left:" + bottomLeft + "\n" +
-                              "Bottom Right:" + bottomRight);
                     break;
                 }
                 

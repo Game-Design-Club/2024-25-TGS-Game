@@ -120,7 +120,14 @@ namespace Game.Exploration.Child {
             float? rotation = _currentState.GetRotation();
             if (rotateTransform != null && rotation.HasValue) {
                 LastRotation = (float)rotation;
-                
+
+                Vector2 facingDir = new Vector2(
+                    Mathf.Cos(Mathf.Deg2Rad * rotation.Value),
+                    Mathf.Sin(Mathf.Deg2Rad * rotation.Value)
+                );
+                _spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveX, facingDir.x);
+                _spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveY, facingDir.y);
+
                 // Debug.Log(rotation);
                 if (rotation > 90 && rotation < 270) {
                     rotateTransform.localScale = new Vector3(-1, 1, 1);
@@ -129,8 +136,8 @@ namespace Game.Exploration.Child {
                     rotateTransform.localScale = new Vector3(1, 1, 1);
                 }
                 rotateTransform.rotation = Quaternion.Euler(0, 0, (float)rotation);
-                _spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveX, LastDirection.x);
-                _spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveY, LastDirection.y);
+
+                // Use the transform’s right vector so flipping works correctly when turning left
             }
             
             App.Get<DataManager>().UpdatePlayerPosition(transform.position);
