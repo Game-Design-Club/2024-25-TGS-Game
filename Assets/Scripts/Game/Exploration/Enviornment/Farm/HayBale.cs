@@ -16,6 +16,10 @@ namespace Game.Exploration.Enviornment.Farm
         [SerializeField] private float maxSpeed = 0;
         [SerializeField] private AnimationCurve speedRamp = new AnimationCurve();
         private float rollingStarted;
+        private bool isShifting = false;
+        private Vector2 shiftPos = Vector2.zero;
+        private float shiftingStarted;
+        [SerializeField] private float shiftTime = 0.25f;
 
         private void OnValidate()
         {
@@ -36,17 +40,21 @@ namespace Game.Exploration.Enviornment.Farm
 
         private void Shift(float direction)
         {
+            if (isShifting) return;
             if (isRolling) return;
 
             direction /= Mathf.Abs(direction);
 
             if (ColliderInDirection(direction, !vertical)) return;
-            
-            transform.position += new Vector3(vertical ? transform.localScale.x * direction : 0, !vertical ? transform.localScale.x * direction : 0, 0);
+
+            isShifting = true;
+            shiftingStarted = Time.time;
+            shiftPos = (Vector2)transform.position + new Vector2(vertical ? transform.localScale.x * direction : 0, !vertical ? transform.localScale.x * direction : 0);
         }
         
         public void Roll(float direction)
         {
+            if (isShifting) return;
             if (isRolling) return;
             
             direction /= Mathf.Abs(direction);
@@ -84,16 +92,31 @@ namespace Game.Exploration.Enviornment.Farm
         
         private void Update()
         {
-            if (!isRolling) return;
-            float velocity = speedRamp.Evaluate(TimeRolling()) * maxSpeed * direction * Time.deltaTime;
-            transform.position += new Vector3(vertical ? 0 : velocity, vertical ? velocity : 0, 0);
+            var position = transform.position;
+            if (isRolling)
+            {
+                float velocity = speedRamp.Evaluate(TimeRolling()) * maxSpeed * direction * Time.deltaTime;
+                position += new Vector3(vertical ? 0 : velocity, vertical ? velocity : 0, 0);
+            }else if (isShifting)
+            {
+                float shiftPercent = (Time.time - shiftingStarted) / shiftTime;
+                position = Vector2.Lerp(position, shiftPos, shiftPercent);
 
+                if (shiftPercent > 1)
+                {
+                    isShifting = false;
+                    position = shiftPos;
+                }
+            }
+            
+            transform.position = position;
         }
 
         private void Stop()
         {
             isRolling = false;
             direction = 0;
+            isShifting = false;
         }
 
         private void HayVsHay(HayBale bale)
@@ -105,14 +128,23 @@ namespace Game.Exploration.Enviornment.Farm
             Stop();
         }
 
+        private void HayVsCow(Cow cow)
+        {
+            cow.Tip();
+            Stop();
+        }
+
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (other.gameObject.layer != 8 && other.gameObject.layer != 9) return;
 
-            if (other.gameObject.TryGetComponent(out Corn corn)) corn.Squish();
+            if (other.gameObject.TryGetComponent(out Corn corn)) corn.Squish(new Vector2(vertical ? 0 : direction, vertical ? direction : 0));
             else if (other.gameObject.TryGetComponent(out HayBale hay)) HayVsHay(hay);
+            else if (other.gameObject.TryGetComponent(out Cow cow)) HayVsCow(cow);
             else Stop();
         }
+        
+        
 
         // private void OnCollisionStay2D(Collision2D other)
         // {
@@ -148,5 +180,6 @@ namespace Game.Exploration.Enviornment.Farm
             hitDirection = LevelManager.GetCurrentLevel().child.LastDirection;
             RealHit(hitDirection);
         }
+        
     }
 }

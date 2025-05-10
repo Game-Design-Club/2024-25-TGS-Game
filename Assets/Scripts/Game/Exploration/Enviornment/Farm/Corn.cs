@@ -15,6 +15,25 @@ namespace Game.Exploration.Enviornment.Farm
             squished.enabled = true;
             collider.enabled = false;
         }
+
+        public void Squish(Vector2 direction)
+        {
+            Squish();
+            float angle = 0;
+            if (direction.x > direction.y)
+            {
+                if (direction.x > 0) angle = 270;
+                else angle = 90;
+            }
+            else
+            {
+                if (direction.y > 0) angle = 0;
+                else angle = 180;
+            }
+
+
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        }
         
         [ContextMenu("Stand")]
         public void Stand()
