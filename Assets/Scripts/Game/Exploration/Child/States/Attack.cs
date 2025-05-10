@@ -48,6 +48,12 @@ namespace Game.Exploration.Child
         }
 
         public override float? GetRotation() {
+            Vector2 facingDir = new Vector2(
+                Mathf.Cos(Mathf.Deg2Rad * _startRotation),
+                Mathf.Sin(Mathf.Deg2Rad * _startRotation)
+            );
+            Controller.spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveX, facingDir.x);
+            Controller.spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveY, facingDir.y);
             return _startRotation;
         }
 
