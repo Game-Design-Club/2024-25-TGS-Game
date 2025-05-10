@@ -49,7 +49,7 @@ namespace Tools.Editor {
             // Iterate through properties and selectively draw them
             SerializedProperty property = serializedObject.GetIterator();
             property.NextVisible(true); // Skip "m_Script"
-            string[] indentProperty = new[] { "areaSize", "density", "thickness", "areaShape", "gridSize", "useCurve", "curve", "strength", "gridOffset"};
+            string[] indentProperty = new[] { "areaSize", "density", "thickness", "areaShape", "gridSize", "useCurve", "curve", "strength", "gridOffset", "useSubGrid", "subGridSize"};
 
             while (property.NextVisible(false))
             {
@@ -65,11 +65,14 @@ namespace Tools.Editor {
                 {
                     if (property.name == "areaSize") continue;
                     if (property.name == "areaShape") continue;
+                    if (property.name == "useSubGrid") continue;
                 }
                 
                 //Misc conditional
                 if (property.name == "density" && (_creator.isErasing || !_creator.useArea)) continue;
-                if (property.name == "thickness" && (!_creator.useArea || _creator.areaShape != LevelCreator.Shape.Ring)) continue;
+                if (property.name == "thickness" && (!_creator.useArea || _creator.areaShape != LevelCreator.Shape.Ring)) continue;                
+                if ((property.name == "subGridSize" || property.name == "subGridRandomness") && (!_creator.useSubGrid || !_creator.useArea)) continue;
+
                 
 
 
@@ -81,8 +84,8 @@ namespace Tools.Editor {
                 }
 
                 //indentation adjustment
-                if (indentProperty.Contains(property.name)) EditorGUI.indentLevel++;
-
+                if (indentProperty.Contains(property.name)) EditorGUI.indentLevel++; 
+                
                 //deactivating useArea when isErasing
                 if (_creator.isErasing && property.name == "useArea") EditorGUI.BeginDisabledGroup(true);
                 
@@ -188,43 +191,63 @@ namespace Tools.Editor {
             }
             
             //randomly generating new objects
-            for (int i = 0; i < _creator.density * area; i++)
+            if (!_creator.useSubGrid)
             {
-                Vector2 position = new Vector2();
-
-                //generation dependant on shape
-                if (_creator.areaShape == LevelCreator.Shape.Square)
+                for (int i = 0; i < _creator.density * area; i++)
                 {
-                    position = new Vector2(center.x + Random.Range(-_creator.areaSize, _creator.areaSize) / 2,
-                        center.y + Random.Range(-_creator.areaSize, _creator.areaSize) / 2);
-                }else if (_creator.areaShape == LevelCreator.Shape.Circle ||
-                          _creator.areaShape == LevelCreator.Shape.Ring)
-                {
-                    //Generation of uniformly random points in a circle had help from El Señor GPT
-                    
-                    // Random angle between 0 and 2 * PI
-                    float angle = Random.Range(0f, 2f * Mathf.PI);
-                    
-                    // Random radius with a uniform distribution
-                    float radiusMultiplier = Mathf.Sqrt(Random.Range(0f, 1f));
+                    Vector2 position = new Vector2();
 
-                    //Adjustment for ring if needed
-                    float radius = _creator.areaShape == LevelCreator.Shape.Ring
-                        ? _creator.areaSize / 2 - (1 - radiusMultiplier) * _creator.thickness
-                        : radiusMultiplier * (_creator.areaSize / 2);
-                    
-                    // Convert polar coordinates (angle, r) to Cartesian coordinates (x, y)
-                    float x = radius * Mathf.Cos(angle);
-                    float y = radius * Mathf.Sin(angle);
+                    //generation dependant on shape
+                    if (_creator.areaShape == LevelCreator.Shape.Square)
+                    {
+                        position = new Vector2(center.x + Random.Range(-_creator.areaSize, _creator.areaSize) / 2,
+                            center.y + Random.Range(-_creator.areaSize, _creator.areaSize) / 2);
+                    }
+                    else if (_creator.areaShape == LevelCreator.Shape.Circle ||
+                             _creator.areaShape == LevelCreator.Shape.Ring)
+                    {
+                        //Generation of uniformly random points in a circle had help from El Señor GPT
 
-                    position = center + new Vector2(x, y);
+                        // Random angle between 0 and 2 * PI
+                        float angle = Random.Range(0f, 2f * Mathf.PI);
+
+                        // Random radius with a uniform distribution
+                        float radiusMultiplier = Mathf.Sqrt(Random.Range(0f, 1f));
+
+                        //Adjustment for ring if needed
+                        float radius = _creator.areaShape == LevelCreator.Shape.Ring
+                            ? _creator.areaSize / 2 - (1 - radiusMultiplier) * _creator.thickness
+                            : radiusMultiplier * (_creator.areaSize / 2);
+
+                        // Convert polar coordinates (angle, r) to Cartesian coordinates (x, y)
+                        float x = radius * Mathf.Cos(angle);
+                        float y = radius * Mathf.Sin(angle);
+
+                        position = center + new Vector2(x, y);
+                    }
+                    else
+                    {
+                        throw new ArgumentException($"Area Shape: {_creator.areaShape} does not exist");
+                    }
+
+                    PlaceObject(position);
                 }
-                else
+            }
+            else
+            {
+                float halfArea = _creator.areaSize * 0.5f;
+                for (float x = - halfArea; x < halfArea; x += _creator.subGridSize.x)
                 {
-                    throw new ArgumentException($"Area Shape: {_creator.areaShape} does not exist");
+                    for (float y = -halfArea; y < halfArea; y += _creator.subGridSize.y)
+                    {
+                        if ((_creator.areaShape == LevelCreator.Shape.Circle ||
+                             _creator.areaShape == LevelCreator.Shape.Ring) &&
+                            Mathf.Sqrt(x * x + y * y) > halfArea) continue;
+                        if (_creator.areaShape == LevelCreator.Shape.Ring &&
+                            Mathf.Sqrt(x * x + y * y)  < halfArea - _creator.thickness) continue;
+                        PlaceObject(center + new Vector2(x + Random.Range(-_creator.subGridRandomness * _creator.subGridSize.x, _creator.subGridRandomness * _creator.subGridSize.x), y + Random.Range(-_creator.subGridRandomness * _creator.subGridSize.y, _creator.subGridRandomness * _creator.subGridSize.y)));
+                    }
                 }
-                
-                PlaceObject(position);
             }
         }
         

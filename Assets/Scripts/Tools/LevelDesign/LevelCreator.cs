@@ -25,6 +25,9 @@ namespace Tools.LevelDesign {
         [SerializeField] public float areaSize = .5f;
         [SerializeField] public float thickness = 10f;
         [SerializeField] public float density = .05f;
+        [SerializeField] public bool useSubGrid = false;
+        [SerializeField] public Vector2 subGridSize = new Vector2(1, 1);
+        [Range(0f, 1f)] [SerializeField] public float subGridRandomness = 0.1f;
         [HideInInspector] public int activeModuleIndex = 0;
         [SerializeField] public LevelCreatorModule[] modules = Array.Empty<LevelCreatorModule>();
         public GameObject ObjectPlacingPrefab => modules[activeModuleIndex].objectPlacingPrefab;

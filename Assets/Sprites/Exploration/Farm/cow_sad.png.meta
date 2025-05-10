@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 99bfc813926df4df3bcf9bedaf787111
+guid: c33ca43288e1c40d1a5e29383b4aa572
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3908583666217806494
-    second: David copy_0
+      213: -5585535905084753002
+    second: cow_sad_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: David copy_0
+      name: cow_sad_0
       rect:
         serializedVersion: 2
-        x: 665
-        y: 760
-        width: 1038
-        height: 541
+        x: 690
+        y: 745
+        width: 1037
+        height: 546
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e9a6ec7c2241e3630800000000000000
-      internalID: 3908583666217806494
+      spriteID: 69bbb3110b03c72b0800000000000000
+      internalID: -5585535905084753002
       vertices: []
       indices: 
       edges: []
@@ -147,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      David copy_0: 3908583666217806494
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

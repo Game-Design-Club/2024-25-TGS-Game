@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: 6532802830800664747
     second: hay_0
+  - first:
+      213: 976402300506549254
+    second: hay_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 750
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,10 +106,10 @@ TextureImporter:
       name: hay_0
       rect:
         serializedVersion: 2
-        x: 616
-        y: 1079
-        width: 874
-        height: 776
+        x: 558
+        y: 762
+        width: 606
+        height: 658
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,6 +120,28 @@ TextureImporter:
       bones: []
       spriteID: ba83a85ff8d29aa50800000000000000
       internalID: 6532802830800664747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hay_1
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 816
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60c219718b0ec8d00800000000000000
+      internalID: 976402300506549254
       vertices: []
       indices: 
       edges: []
@@ -136,6 +161,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       hay_0: 6532802830800664747
+      hay_1: 976402300506549254
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
