@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="" />
+    <list default="true" id="a10659ca-a7eb-4d61-bab7-f48549f98b48" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tools/ThingTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/ThingTrigger.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
