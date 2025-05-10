@@ -115,22 +115,12 @@ namespace Game.Exploration.Child {
                 direction.Normalize();
                 Rigidbody.linearVelocity = (float)speed * direction;
                 LastSpeed = (float)speed;
-                
-                spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveX, direction.x);
-                spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveY, direction.y);
             }
             
             float? rotation = _currentState.GetRotation();
             if (rotateTransform != null && rotation.HasValue) {
                 LastRotation = (float)rotation;
-
-                Vector2 facingDir = new Vector2(
-                    Mathf.Cos(Mathf.Deg2Rad * rotation.Value),
-                    Mathf.Sin(Mathf.Deg2Rad * rotation.Value)
-                );
-                spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveX, facingDir.x);
-                spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveY, facingDir.y);
-
+                
                 // Debug.Log(rotation);
                 if (rotation > 90 && rotation < 270) {
                     rotateTransform.localScale = new Vector3(-1, 1, 1);
