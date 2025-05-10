@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Feather
   sprite: {fileID: 3222377852715425111, guid: 88c94581c667b439da1edcf8a1e86f0a, type: 3}
-  description: It's a flower!
+  description: A pretty pink wild rose! Like insurance companies, they're always
+    the quickest to pop up after a disaster.

@@ -30,6 +30,23 @@ namespace Game.Exploration.Child {
             Controller.walkSound.Stop();
         }
 
+        public override float? GetRotation() {
+            
+            Vector2 facingDir = new Vector2(
+                Mathf.Cos(Mathf.Deg2Rad * Controller.LastRotation),
+                Mathf.Sin(Mathf.Deg2Rad * Controller.LastRotation)
+            );
+            if (Controller.Rigidbody.linearVelocity.magnitude < 0.1f) {
+                Controller.spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveX, 0);
+                Controller.spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveY, 0);
+            } else {
+                Controller.spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveX, facingDir.x);
+                Controller.spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveY, facingDir.y);
+            }
+            return DefaultRotation(Controller.LastInput);
+        }
+
+
         public override void Update() {
             float xSize = (Controller.mainBoxCollider.size.x / 2) * Controller.mainBoxCollider.transform.lossyScale.x;
             float ySize = (Controller.mainBoxCollider.size.y / 2) * Controller.mainBoxCollider.transform.lossyScale.y;       
@@ -52,7 +69,7 @@ namespace Game.Exploration.Child {
                 Controller.TransitionToState(new Float(Controller));
                 return;
             }
-            
+
         }
     }
 }

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7678688238882676191}
   - component: {fileID: 9118528877515153334}
   - component: {fileID: 5901805375566032894}
-  - component: {fileID: 7692773190743548414}
   - component: {fileID: 7614870204717513076}
   m_Layer: 6
   m_Name: Child
@@ -61,7 +60,7 @@ MonoBehaviour:
   mainBoxCollider: {fileID: 5901805375566032894}
   combatBoxCollider: {fileID: 2250726342841792001}
   chaseBoxCollider: {fileID: 318503758132964231}
-  _spriteAnimator: {fileID: 5198758546739855410}
+  spriteAnimator: {fileID: 5198758546739855410}
   walkSpeed: 6
   swishParticles: {fileID: 8849355984580650207}
   swishMatchTransform: {fileID: 584535652100698180}
@@ -225,28 +224,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.30750465, y: 0.14863396}
   m_EdgeRadius: 0
---- !u!95 &7692773190743548414
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784812110313782621}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0d60846fd282343c8af2df727740ea6f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &7614870204717513076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -702,7 +679,7 @@ SpriteRenderer:
   m_SortingLayerID: 1353156089
   m_SortingLayer: 2
   m_SortingOrder: 24120
-  m_Sprite: {fileID: 888789885651089065, guid: 90fe090ea35ce4a78a884a9209dc128d, type: 3}
+  m_Sprite: {fileID: 8558169860277787613, guid: 8b6a13c12063a421a886754ab04578f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

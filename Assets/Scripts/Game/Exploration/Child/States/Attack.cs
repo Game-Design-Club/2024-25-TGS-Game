@@ -21,11 +21,13 @@ namespace Game.Exploration.Child
         public override void Enter()
         {
             Controller.Animator.SetTrigger(AnimationParameters.Child.Attack);
+            Controller.spriteAnimator.SetBool(AnimationParameters.ChildSprites.Attack, true);
             Controller.swishParticles.Play();
         }
 
         public override void Exit() {
             Controller.swishParticles.Stop();
+            Controller.spriteAnimator.SetBool(AnimationParameters.ChildSprites.Attack, false);
         }
 
         public override void Update() {

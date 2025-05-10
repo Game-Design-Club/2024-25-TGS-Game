@@ -14,6 +14,7 @@ namespace Game.Exploration.Child {
             Controller.Animator.SetBool(AnimationParameters.Child.Float, true);
             Physics2D.IgnoreLayerCollision(Controller.childLayer, Controller.jumpableLayer, true);
             Update();
+            Controller.spriteAnimator.SetBool(AnimationParameters.ChildSprites.Float, true);
         }
 
         public override void Update() {
@@ -42,6 +43,7 @@ namespace Game.Exploration.Child {
         public override void Exit() {
             Controller.Animator.SetBool(AnimationParameters.Child.Float, false);
             Physics2D.IgnoreLayerCollision(Controller.childLayer, Controller.jumpableLayer, false);
+            Controller.spriteAnimator.SetBool(AnimationParameters.ChildSprites.Float, false);
         }
     }
 }

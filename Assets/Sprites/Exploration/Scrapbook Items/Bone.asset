@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Bone
   sprite: {fileID: 4056058344551517612, guid: 5c035468bb0574a91b66d56427b2f10b, type: 3}
-  description: It's a bone!
+  description: The skull of some wild beast who bowed before the elements of the
+    wilderness. Harry would have loved this... maybe I will give it to him when I
+    get back... if we both get back.

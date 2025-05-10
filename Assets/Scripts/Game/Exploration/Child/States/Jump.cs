@@ -15,6 +15,7 @@ namespace Game.Exploration.Child {
         
         public override void Enter() {
             Controller.Animator.SetBool(AnimationParameters.Child.Jump, true);
+            Controller.spriteAnimator.SetBool(AnimationParameters.ChildSprites.Jump, true);
             Physics2D.IgnoreLayerCollision(Controller.childLayer, Controller.jumpableLayer, true);
             _jumpDirection = Controller.LastDirection;
             Controller.landRiverParticles.Play();
@@ -47,6 +48,7 @@ namespace Game.Exploration.Child {
 
         public override void Exit() {
             Controller.Animator.SetBool(AnimationParameters.Child.Jump, false);
+            Controller.spriteAnimator.SetBool(AnimationParameters.ChildSprites.Jump, false);
         }
     }
 }

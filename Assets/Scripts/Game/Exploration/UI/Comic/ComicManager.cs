@@ -112,6 +112,7 @@ namespace Game.Exploration.UI.Comic {
             yield return FadeOut(blackBackground);
             GameManager.GameEventType = GameEventType.ExploreEnter;
             GameManager.GameEventType = GameEventType.Explore;
+            blackBackground.gameObject.SetActive(false);
         }
 
         private IEnumerator FadeIn(TextMeshProUGUI text) {

@@ -33,6 +33,9 @@ namespace Tools {
             public static class ChildSprites {
                 public const string MoveX = "Move X";
                 public const string MoveY = "Move Y";
+                public const string Attack = "Attack";
+                public const string Jump = "Jump";
+                public const string Float = "Float";
             }
 
             public static class DialogueBox {

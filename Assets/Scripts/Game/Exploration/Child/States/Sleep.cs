@@ -24,6 +24,10 @@ namespace Game.Exploration.Child {
             return null;
         }
 
+        public override float? GetRotation() {
+            return 0;
+        }
+
         public override void OnGameEvent(GameEvent gameEvent) {
             if (gameEvent.GameEventType == GameEventType.ExploreEnter) {
                 Controller.TransitionToState(new Move(Controller));

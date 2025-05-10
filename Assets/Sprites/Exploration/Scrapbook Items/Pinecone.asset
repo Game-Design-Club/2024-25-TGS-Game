@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Pinecone
   sprite: {fileID: 8384142458865905078, guid: 55f7e9bde1599426b9bd4edb7172a892, type: 3}
-  description: Wow such pinecone!
+  description: I'm going to throw this at Harry when I get home.

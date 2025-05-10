@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdd3ad7e80384bc6917721d671336bec, type: 3}
+  m_Name: Flicker Feather
+  m_EditorClassIdentifier: 
+  itemName: Northern Flicker Feather
+  sprite: {fileID: 1352956480140249199, guid: d9c1b2c8549ef438598956b62507ed72, type: 3}
+  description: A thin orange feather fallen from the wing of a Northern Flicker.
+    It's strange not hearing birds... sometimes it feels like I am the only living
+    thing in this forest.

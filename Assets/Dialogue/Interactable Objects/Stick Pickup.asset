@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueChunks:
   - character: {fileID: 0}
-    text: "<color=#784f0b>Just a stick. I <wave>wonder</wave> if you could hit something
-      with it\u2026"
+    text: <color=#784f0b>Oh look, a stick!
+  - character: {fileID: 0}
+    text: <wave>wonder</wave> I'm going to hit things with it.
