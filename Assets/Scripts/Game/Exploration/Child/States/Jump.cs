@@ -37,6 +37,12 @@ namespace Game.Exploration.Child {
         public override bool CanInteract() {
             return false;
         }
+        
+        public override float? GetRotation() {
+            Controller.spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveX, _jumpDirection.x);
+            Controller.spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveY, _jumpDirection.y);
+            return DefaultRotation(_jumpDirection);
+        }
 
         public override float? GetWalkSpeed() {
             return Controller.jumpSpeedCurve.Evaluate(_t);

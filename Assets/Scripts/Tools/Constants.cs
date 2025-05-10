@@ -35,7 +35,7 @@ namespace Tools {
                 public const string MoveY = "Move Y";
                 public const string Attack = "Stick";
                 public const string Jump = "Jump";
-                public const string Float = "Float";
+                public const string Float = "Swim";
             }
 
             public static class DialogueBox {

@@ -31,14 +31,13 @@ namespace Game.Exploration.Child {
         }
 
         public override float? GetRotation() {
-            
             Vector2 facingDir = new Vector2(
                 Mathf.Cos(Mathf.Deg2Rad * Controller.LastRotation),
                 Mathf.Sin(Mathf.Deg2Rad * Controller.LastRotation)
             );
             if (Controller.Rigidbody.linearVelocity.magnitude < 0.1f) {
-                Controller.spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveX, 0);
-                Controller.spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveY, 0);
+                Controller.spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveX, facingDir.x * .1f);
+                Controller.spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveY, facingDir.y * .1f);
             } else {
                 Controller.spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveX, facingDir.x);
                 Controller.spriteAnimator.SetFloat(AnimationParameters.ChildSprites.MoveY, facingDir.y);
@@ -66,7 +65,7 @@ namespace Game.Exploration.Child {
             PointCollision bottomRight = new PointCollision(bottomRightPos, Controller.mainBoxCollider);
             
             if (!topLeft.TouchingLand && !topRight.TouchingLand && !bottomLeft.TouchingLand && !bottomRight.TouchingLand) {
-                Controller.TransitionToState(new Float(Controller));
+                // Controller.TransitionToState(new Float(Controller));
                 return;
             }
 

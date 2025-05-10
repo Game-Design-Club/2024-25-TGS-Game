@@ -45,7 +45,10 @@ namespace Game.Exploration.Child {
         [SerializeField] private Transform bottomLeftHitbox;
         [SerializeField] private Transform bottomRightHitbox;
         [SerializeField] private Transform topRightHitbox;
+
+        private bool _pauseUpdates = false;
         
+        private bool _transitioned = false;
         
         internal Rigidbody2D Rigidbody;
         internal Animator Animator;
@@ -99,10 +102,18 @@ namespace Game.Exploration.Child {
             _currentState = newState;
             _currentState.Enter();
             currentStateName = _currentState.GetType().Name;
+            _transitioned = true;
         }
 
         private void Update() {
-            _currentState.Update();
+            if (!_pauseUpdates) {
+                _currentState.Update();
+            }
+
+            if (_transitioned) {
+                _transitioned = false;
+                return;
+            }
             
             float? speed = _currentState.GetWalkSpeed();
             if (speed.HasValue) {
@@ -141,6 +152,7 @@ namespace Game.Exploration.Child {
         }
         
         private IEnumerator MoveUntilGrounded() {
+            _pauseUpdates = true;
             yield return PointCollisionHelper.MoveToInArea(
                 mainBoxCollider,
                 Rigidbody,
@@ -148,6 +160,7 @@ namespace Game.Exploration.Child {
                 point => point.TouchingLand,
                 new[] { topLeftHitbox, bottomLeftHitbox, bottomRightHitbox, topRightHitbox }
                 );
+            _pauseUpdates = false;
             TransitionToState(new Move(this));
             _forceDirection = null;
         }

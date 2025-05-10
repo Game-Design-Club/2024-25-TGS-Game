@@ -78,6 +78,7 @@ namespace Game.Exploration.UI
         [ContextMenu("Fly In")]
         public void FlyIn()
         {
+            transform.SetSiblingIndex(transform.parent.childCount - 1);
             animator.SetBool("Resting", false);
             rtItemHolder.anchoredPosition = GetMid();
         }
