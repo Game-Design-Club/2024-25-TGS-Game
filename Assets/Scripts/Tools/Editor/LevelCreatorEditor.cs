@@ -288,6 +288,7 @@ namespace Tools.Editor {
                     dataID.GenerateID();
                 }
                 
+                Selection.activeGameObject = newObj;
                 
                 Undo.RegisterCreatedObjectUndo(newObj, "Place Prefab");
             }
